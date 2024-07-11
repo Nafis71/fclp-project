@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:fclp_app/themes/app_theme.dart';
 import 'package:fclp_app/utils/size_config.dart';
 import 'package:fclp_app/views/auth_view/login_view.dart';
@@ -12,6 +13,8 @@ class FCLP extends StatelessWidget {
     SizeConfig().init(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       home: const SplashView(),
       theme: lightThemeData(),
       darkTheme: darkThemeData(),

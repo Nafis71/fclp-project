@@ -20,14 +20,9 @@ class ServiceButtons extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            decoration: BoxDecoration(
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            decoration: const BoxDecoration(
               color: AppColors.white,
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.circular(30.0),
-              border: Border.all(
-                color: AppColors.themeColor,
-                width: 2.0,
-              ),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(

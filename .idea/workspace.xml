@@ -4,25 +4,33 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- airport list loader added">
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- air ticket booking added">
+      <change afterPath="$PROJECT_DIR$/assets/icons/onlineShop.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/air_ticket.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/airplane.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/barcode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/lotties/welcome.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/air_ticket_model/air_ticket_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/air_ticket_model/ticket_data.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Controllers/air_ticket_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/air_ticket_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/air_ticket_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/air_ticket_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/network_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/network_request.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/themes/app_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/themes/app_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/entities/air_ticket_model.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_strings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/color_palette.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/color_palette.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/assets_pahts.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/assets_pahts.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_apply_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_apply_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_user_requests_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_user_requests_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/airport_selector.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/airport_selector.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/date_selector.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/date_selector.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/ticket_selector.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/ticket_selector.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/travellers_selector.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/travellers_selector.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/warning_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/warning_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/home_view_wigets/air_ticket_banner.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/home_view_wigets/air_ticket_banner.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/home_view_wigets/product_service_buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/home_view_wigets/product_service_buttons.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/home_view_wigets/service_buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/home_view_wigets/service_buttons.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/home_view_wigets/welcome_banner.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/home_view_wigets/welcome_banner.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,28 +66,32 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2j3ssjfQPjziRQxwxnA7Kdscd0O" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Flutter.main.dart.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Flutter Projects/crafty_bay&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;flutter.settings&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Flutter.main.dart.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "flutter.performance.tool.window.visible": "true",
+    "git-widget-placeholder": "master",
+    "io.flutter.reload.alreadyRun": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Flutter Projects/crafty_bay",
+    "settings.editor.selected.configurable": "flutter.settings",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Flutter Projects\fclp-project\lib\models\user_model" />
@@ -132,14 +144,24 @@
       <option name="project" value="LOCAL" />
       <updated>1720715401787</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="- air ticket booking added">
+      <option name="closed" value="true" />
+      <created>1720729784907</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720729784907</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="splash_screen and token initialization added" />
     <MESSAGE value="-registration screen added" />
     <MESSAGE value="-UI fix and added animation" />
     <MESSAGE value="- airport list loader added" />
-    <option name="LAST_COMMIT_MESSAGE" value="- airport list loader added" />
+    <MESSAGE value="- air ticket booking added" />
+    <option name="LAST_COMMIT_MESSAGE" value="- air ticket booking added" />
   </component>
 </project>

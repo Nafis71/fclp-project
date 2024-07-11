@@ -11,4 +11,7 @@ class AppStrings {
       "ইমেল/ফোনটি ইতিমধ্যেই অন্য অ্যাকাউন্টের জন্য নিবন্ধিত হয়েছে৷";
   static const String airTicketBookingFailureTitle = "টিকিট বুক করতে ব্যর্থ";
   static const String airTicketBookingFailureMessage = "আমরা আপনার টিকিট স্থাপন করতে ব্যর্থ হয়েছি, কিছু সময় পরে আবার চেষ্টা করুন";
+  static const String noDateSelected = "একটি তারিখ নির্বাচন করুন";
+  static const String invalidTripTitle = "ভুল ট্রিপ";
+  static const String invalidTripMessage = "আপনি প্রস্থান এবং আগমনের জন্য একই গন্তব্য বেছে নিয়েছেন";
 }

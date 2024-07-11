@@ -45,12 +45,13 @@ dependencies:
   http: ^1.2.1
   shared_preferences: ^2.2.3
   widget_and_text_animator: ^1.1.5
+  ticket_widget: ^1.0.2
+  device_preview: ^1.2.0
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  device_preview: ^1.2.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

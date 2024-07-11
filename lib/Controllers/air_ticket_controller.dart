@@ -1,6 +1,5 @@
 import 'package:fclp_app/models/airport_list_models/airport_data.dart';
 import 'package:fclp_app/models/airport_list_models/airport_list_model.dart';
-import 'package:fclp_app/models/entities/air_ticket_model.dart';
 import 'package:fclp_app/services/air_ticket_service.dart';
 import 'package:fclp_app/services/response/success.dart';
 import 'package:flutter/material.dart';
@@ -11,11 +10,13 @@ class AirTicketController extends ChangeNotifier {
 
   Map<String, String> _departureAirport = {};
   Map<String, String> _arrivalAirport = {};
-  String travelDateTime = '';
   String _ticketType = 'First Class';
   String traveller = '';
   bool isAirTicketApplyFormFilled = false;
-  List<AirTicketModel> airTicketFormInfo = [];
+  String _uITicketType = "ফার্স্ট ক্লাস";
+  final List<int> travellers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  int _countOfTravellers = 1;
+  String ticketDate = "";
   bool _isLoading = false;
   bool _finalResponse = false;
 
@@ -49,10 +50,6 @@ class AirTicketController extends ChangeNotifier {
     "প্রিমিয়াম",
     "ফার্স্ট ক্লাস"
   ];
-  String _uITicketType = "ফার্স্ট ক্লাস";
-  final List<int> travellers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  int _countOfTravellers = 1;
-  String ticketDate = "";
 
   bool get isLoading => _isLoading;
 
@@ -140,6 +137,14 @@ class AirTicketController extends ChangeNotifier {
     }
     setIsLoading = false;
     return _finalResponse;
+  }
+
+  void resetData(){
+    _departureAirport = {};
+    _arrivalAirport = {};
+    ticketDate ="";
+    _ticketType = "First Class";
+    _countOfTravellers = 1;
   }
 
 }

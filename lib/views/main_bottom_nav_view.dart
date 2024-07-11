@@ -36,21 +36,21 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
           iconSize: 28,
           haptic: false,
           activeColor: AppColors.white,
-          tabBackgroundColor: AppColors.green,
+          tabBackgroundColor: Colors.green.shade400,
           tabBorderRadius: 15,
           tabMargin: const EdgeInsets.all(16),
           color: AppColors.green,
           tabs: const [
             GButton(
-              icon: Icons.home,
+              icon: Icons.home_outlined,
               text: " হোম",
             ),
             GButton(
-              icon: Icons.shopping_cart,
+              icon: Icons.add_shopping_cart_rounded,
               text: " শপিং কার্ট",
             ),
             GButton(
-              icon: Icons.favorite,
+              icon: Icons.favorite_border,
               text: " উইস লিস্ট",
             ),
           ],

@@ -1,18 +1,12 @@
-import 'package:fclp_app/Controllers/air_ticket_controller.dart';
-import 'package:fclp_app/utils/color_palette.dart';
+import 'package:fclp_app/utils/assets_pahts.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:ticket_widget/ticket_widget.dart';
 
 class AirTicketUserRequestsView extends StatefulWidget {
   const AirTicketUserRequestsView({
     super.key,
-    required this.defaultDepartureAirport,
-    required this.defaultArrivalAirport,
   });
-
-  final dynamic defaultDepartureAirport;
-  final dynamic defaultArrivalAirport;
 
   @override
   State<AirTicketUserRequestsView> createState() =>
@@ -22,151 +16,148 @@ class AirTicketUserRequestsView extends StatefulWidget {
 class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
   @override
   Widget build(BuildContext context) {
-    final airTicketController = Provider.of<AirTicketController>(context);
-
     return Scaffold(
+      backgroundColor: Colors.grey.shade300,
       appBar: customAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: ListView.builder(
-          itemCount: airTicketController.airTicketFormInfo.length,
-          itemBuilder: (context, index) {
-            final formInfo = airTicketController.airTicketFormInfo[index];
-
-            return Card(
-              color: AppColors.white,
-              child: Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                    color: AppColors.white,
-                    border: Border.all(
-                      color: AppColors.green,
-                      width: 3,
+      body: Center(
+        child: TicketWidget(
+          color: Colors.white60,
+          width: 350,
+          height: 530,
+          isCornerRounded: true,
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: 120.0,
+                    height: 25.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30.0),
+                      border: Border.all(width: 1.0, color: Colors.green),
                     ),
-                    borderRadius: BorderRadius.circular(16)),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    child: const Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 10),
+                        child: Text(
+                          'Business Class',
+                          style: TextStyle(color: Colors.green),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Row(
                     children: [
-                      Container(
-                        height: 30,
-                        width: double.maxFinite,
-                        color: AppColors.green,
-                        alignment: Alignment.center,
-                        child: const FittedBox(
-                          child: Text(
-                            "টিকিটের বিবরণ",
-                            style: TextStyle(
-                              fontSize: 24,
-                              color: AppColors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
                       Text(
-                        "আবেদন নংঃ ${index + 1}",
-                        style: const TextStyle(
-                          color: AppColors.green,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                        'SIA',
+                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 8.0),
+                        child: Icon(
+                          Icons.flight_takeoff,
+                          color: Colors.pink,
                         ),
                       ),
-                      const SizedBox(height: 20),
-                      const Text(
-                        "যাত্রা শুরু",
-                        style: TextStyle(
-                          color: AppColors.green,
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
+                      Padding(
+                        padding: EdgeInsets.only(left: 8.0),
+                        child: Text(
+                          'SMIA',
+                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                         ),
-                      ),
-                      Text(
-                        formInfo.departureAirport['airport'] ??
-                            widget.defaultDepartureAirport['airport'],
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          color: AppColors.green,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      const Text(
-                        "যাত্রা শেষ",
-                        style: TextStyle(
-                          color: AppColors.green,
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        formInfo.arrivalAirport['airport'] ??
-                            widget.defaultArrivalAirport['airport'],
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          color: AppColors.green,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      const Text(
-                        "ভ্রমণের তারিখ",
-                        style: TextStyle(
-                          color: AppColors.green,
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        formInfo.travelDateTime,
-                        style: const TextStyle(
-                          color: AppColors.green,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      const Text(
-                        "টিকেটের ধরণ",
-                        style: TextStyle(
-                          color: AppColors.green,
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        formInfo.ticketType,
-                        style: const TextStyle(
-                          color: AppColors.green,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      const Text(
-                        "ভ্রমণকারীর সংখ্যা",
-                        style: TextStyle(
-                          color: AppColors.green,
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        formInfo.traveller,
-                        style: const TextStyle(
-                          color: AppColors.green,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      )
                     ],
+                  )
+                ],
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 20.0),
+                child: Text(
+                  'Flight Ticket',
+                  style: TextStyle(color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold),
+                ),
+              ),
+              ticketDetailsWidget("Passenger", "Nafis Hasan Tonmoy", "Date", "29-07-24"),
+              ticketDetailsWidget("Departure", "Dhaka", "Arrival", "Chittagong"),
+              ticketDetailsWidget("Class", "Business Class", "Person", "09"),
+              ticketDetailsWidget("Price", "Confirmation Pending", "Issued on", "09 July 2024"),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 30.0, left: 30.0, right: 30.0),
+                  child: Container(
+                    width: 90.0,
+                    height: 90.0,
+                    decoration:
+                    const BoxDecoration(image: DecorationImage(image: AssetImage(AssetsPahts.barCode), fit: BoxFit.fill)),
                   ),
                 ),
               ),
-            );
-          },
+              Center(
+                child: const Padding(
+                  padding: EdgeInsets.only(top: 30.0, left: 75.0, right: 75.0),
+                  child: Text(
+                    'Status : Pending',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
+    );
+  }
+  Widget ticketDetailsWidget(String firstTitle, String firstDesc, String secondTitle, String secondDesc) {
+    return  Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top:10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(firstTitle,style: const TextStyle(color: Colors.grey),),
+                ],
+              ),
+              SizedBox(
+                width: 90,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(secondTitle,style: const TextStyle(color: Colors.grey),),
+                  ],
+                ),
+              )
+
+            ],
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(firstDesc),
+            SizedBox(
+              width: 90,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(secondDesc)
+                ],
+              ),
+            )
+
+          ],
+        ),
+      ],
     );
   }
 }

@@ -1,9 +1,11 @@
 import 'package:fclp_app/Controllers/air_ticket_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
+import 'package:fclp_app/utils/assets_pahts.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/air_ticket_apply_view.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 class AirTicketView extends StatefulWidget {
@@ -21,7 +23,7 @@ class _AirTicketViewState extends State<AirTicketView> {
   }
 
   Future<void> loadAirportData() async {
-    if(context.read<AirTicketController>().airports.isEmpty){
+    if (context.read<AirTicketController>().airports.isEmpty) {
       await context
           .read<AirTicketController>()
           .loadAirportList(context.read<ProfileController>().token);
@@ -35,36 +37,19 @@ class _AirTicketViewState extends State<AirTicketView> {
       body: Consumer<AirTicketController>(
         builder: (_, viewModel, __) {
           if (viewModel.airports.isNotEmpty) {
-            return Column(
-              children: [
-                Container(
-                  color: Colors.green.shade50,
-                  child: Container(
-                    height: 50,
-                    margin: const EdgeInsets.all(16),
-                    width: double.maxFinite,
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(
-                        color: AppColors.green,
-                        width: 3,
-                      ),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        "বিমান টিকেট এর আবেদন",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: AppColors.green,
-                        ),
-                      ),
-                    ),
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  SvgPicture.asset(
+                    AssetsPahts.airplaneImage,
+                    width: 200,
                   ),
-                ),
-                AirTicketApplyView()
-              ],
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  AirTicketApplyView()
+                ],
+              ),
             );
           }
           return const Center(

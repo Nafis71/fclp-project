@@ -10,15 +10,19 @@ class AssetsPahts {
   static const submit = '$icons/submit.svg';
   static const coin = '$icons/coin.png';
 
+
   static const profile = '$_images/profile.png';
-  static const airTicket = '$_images/air_ticket.png';
+  static const airTicket = '$_images/air_ticket.svg';
   static const welcome = '$_images/welcome.jpg';
   static const earningPoint = '$_images/earning.png';
   static const bkashSvg = '$_images/bkash.svg';
   static const nagadSvg = '$_images/nagad.svg';
+  static const String barCode = "$_images/barcode.png";
 
   static const delivery = '$_lotties/delivery.json';
   static const commingSoon = '$_lotties/comming_soon.json';
   static const empty = '$_lotties/empty.json';
   static const appLogo = "$_images/app_logo.png";
+  static const String airplaneImage = "$_images/airplane.svg";
+  static const String welcomeLottie = "$_lotties/welcome.json";
 }
