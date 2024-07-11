@@ -19,22 +19,18 @@ class ProfileController extends ChangeNotifier {
 
   void toggleEdit() {
     _isEdit = !_isEdit;
-    notifyListeners();
   }
 
   void setName(String newName) {
     _name = newName;
-    notifyListeners();
   }
 
   void setEmail(String newEmail) {
     _email = newEmail;
-    notifyListeners();
   }
 
   void setMobileNumber(String newMobileNumber) {
     _mobileNumber = newMobileNumber;
-    notifyListeners();
   }
 
   void setToken(String token){

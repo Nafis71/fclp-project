@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:fclp_app/Controllers/profile_controller.dart';
+import 'package:fclp_app/models/user_model/user.dart';
 import 'package:fclp_app/utils/assets_pahts.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/auth_view/login_view.dart';
@@ -17,11 +20,10 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-
   @override
   void initState() {
     super.initState();
-    loadToken();
+    checkToken();
   }
 
   @override
@@ -38,28 +40,42 @@ class _SplashViewState extends State<SplashView> {
                 child: Image.asset(AssetsPahts.appLogo),
               ),
             ),
-            const CircularProgressIndicator(color: AppColors.themeColor,),
-            const SizedBox(height: 40,),
+            const CircularProgressIndicator(
+              color: AppColors.themeColor,
+            ),
+            const SizedBox(
+              height: 40,
+            ),
           ],
         ),
       ),
     );
   }
 
-  void loadToken() async {
+  void checkToken() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     String? token = preferences.getString("token");
-    if(token != null){
+    if (token != null) {
+      User userData =
+      User.fromJson(jsonDecode(preferences.getString("userData").toString()));
       await Future.delayed(const Duration(seconds: 3));
-      if(mounted){
+      if (mounted) {
         context.read<ProfileController>().setToken(token);
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const MainBottomNavView()));
+        loadUserData(userData);
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const MainBottomNavView()));
       }
       return;
     }
     await Future.delayed(const Duration(seconds: 3));
-    if(mounted){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const LoginView()));
+    if (mounted) {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const LoginView()));
     }
+  }
+  void loadUserData(User userData){
+    context.read<ProfileController>().setName(userData.name.toString());
+    context.read<ProfileController>().setEmail(userData.email.toString());
+    context.read<ProfileController>().setMobileNumber(userData.mobile.toString());
   }
 }

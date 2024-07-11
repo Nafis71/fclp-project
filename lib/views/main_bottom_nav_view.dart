@@ -28,7 +28,7 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
         body: _screen[_selectedIndex],
         bottomNavigationBar: GNav(
           padding: const EdgeInsets.all(5),
-          backgroundColor: Colors.deepPurple.shade50,
+          backgroundColor: Colors.white,
           selectedIndex: _selectedIndex,
           onTabChange: _onItemTapped,
           hoverColor: AppColors.grey,

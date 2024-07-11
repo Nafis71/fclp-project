@@ -1,36 +1,23 @@
+import 'package:fclp_app/models/airport_list_models/airport_data.dart';
+import 'package:fclp_app/models/airport_list_models/airport_list_model.dart';
 import 'package:fclp_app/models/entities/air_ticket_model.dart';
+import 'package:fclp_app/services/air_ticket_service.dart';
+import 'package:fclp_app/services/response/success.dart';
 import 'package:flutter/material.dart';
 
 class AirTicketController extends ChangeNotifier {
-  List<Map<String, String>> airports = [
-    {
-      'place': 'Dhaka',
-      'airport': 'DHK (Dhaka International Airport)',
-    },
-    {
-      'place': 'Chittagong',
-      'airport': 'CTS (Shash Amanat International Airport)',
-    },
-    {
-      'place': 'Sylhet',
-      'airport': 'ZYL (Osmani International Airport)',
-    },
-    {
-      'place': 'Cox\'s Bazar',
-      'airport': 'CXB (Cox\'s Bazar International Airport)',
-    },
-    {
-      'place': 'Saidpur',
-      'airport': 'SPD (Saidpur Airport)',
-    },
-    {
-      'place': 'Rajshahi',
-      'airport': 'RJH (Rajshahi Airport)',
-    },
-  ];
+  late Object response;
+  List<Map<String, String>> airports = [];
 
-  Map<String, String> selectedDepartureAirport = {};
-  Map<String, String> selectedArrivalAirport = {};
+  Map<String, String> departureAirport = {};
+  Map<String, String> arrivalAirport = {};
+  String travelDateTime = '';
+  String ticketType = '';
+  String traveller = '';
+  bool isAirTicketApplyFormFilled = false;
+  List<AirTicketModel> airTicketFormInfo = [];
+  bool _isLoading = false;
+  bool _finalResponse = false;
 
   List<String> typeOfTicket = [
     "ইকোনমি",
@@ -53,6 +40,11 @@ class AirTicketController extends ChangeNotifier {
   String countOfTravellers = "1 জন";
   String date = "01/01/2000";
 
+  bool get isLoading => _isLoading;
+
+
+
+
   Future<void> datePicked(BuildContext context) async {
     final pickedDate = await showDatePicker(
       context: context,
@@ -62,49 +54,43 @@ class AirTicketController extends ChangeNotifier {
     );
 
     if (pickedDate != null) {
-      date = "${pickedDate.day}/${pickedDate.month}/${pickedDate.year}";
+      date = "${pickedDate.day}-${pickedDate.month}-${pickedDate.year}";
       if (isAirTicketApplyFormFilled) {
-        updateTravelDateTime(date);
+
       }
       notifyListeners();
     }
   }
 
-  Map<String, String> departureAirport = {};
-  Map<String, String> arrivalAirport = {};
-  String travelDateTime = '';
-  String ticketType = '';
-  String traveller = '';
-  bool isAirTicketApplyFormFilled = false;
-  List<AirTicketModel> airTicketFormInfo = [];
 
-  void updateDepartureAirport(Map<String, String> departure) {
-    departureAirport = departure;
+
+  set setIsLoading (bool isLoading){
+    _isLoading = isLoading;
     notifyListeners();
   }
 
-  void updateArrivalAirport(Map<String, String> arrival) {
-    arrivalAirport = arrival;
-    notifyListeners();
-  }
 
-  void updateTravelDateTime(String dateTime) {
-    travelDateTime = dateTime;
-    notifyListeners();
-  }
 
-  void updateTicketType(String type) {
-    ticketType = type;
-    notifyListeners();
-  }
-
-  void updateTravellers(String travellersCount) {
-    traveller = travellersCount;
-    notifyListeners();
-  }
-
-  void updateAirTicketApplyFormFilled(bool airTicketFormFilled) {
-    isAirTicketApplyFormFilled = airTicketFormFilled;
-    notifyListeners();
+  Future<bool> loadAirportList(String token) async {
+    setIsLoading = true;
+    response = await AirTicketService.getAirportList(token);
+    if (response is Success) {
+      AirportListModel airportListModel = AirportListModel.fromJson(
+          (response as Success).response as Map<String, dynamic>);
+      if (airportListModel.airportData != null) {
+        for (AirportData airportData in airportListModel.airportData!) {
+          airports.add(
+            {
+              "id": airportData.id.toString(),
+              "place": airportData.divisionName.toString(),
+              "airport": airportData.airportName.toString(),
+            },
+          );
+        }
+      }
+      _finalResponse = true;
+    }
+    setIsLoading = false;
+    return _finalResponse;
   }
 }

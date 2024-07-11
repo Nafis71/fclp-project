@@ -21,4 +21,9 @@ class AuthService {
       },
     );
   }
+
+  static Future<Object> getAllUser(String token) async {
+    return await NetworkRequest().getRequest(
+        url: NetworkUrls.getUserUrl, headers: {'Authorization': "Bearer $token",});
+  }
 }

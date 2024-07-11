@@ -1,7 +1,10 @@
+import 'package:fclp_app/Controllers/air_ticket_controller.dart';
+import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/air_ticket_apply_view.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AirTicketView extends StatefulWidget {
   const AirTicketView({super.key});
@@ -12,38 +15,63 @@ class AirTicketView extends StatefulWidget {
 
 class _AirTicketViewState extends State<AirTicketView> {
   @override
+  void initState() {
+    loadAirportData();
+    super.initState();
+  }
+
+  Future<void> loadAirportData() async {
+    if(context.read<AirTicketController>().airports.isEmpty){
+      await context
+          .read<AirTicketController>()
+          .loadAirportList(context.read<ProfileController>().token);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(),
-      body: Column(
-        children: [
-          Container(
-            height: 50,
-            margin: const EdgeInsets.all(16),
-            width: double.maxFinite,
-            decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(
-                color: AppColors.green,
-                width: 3,
-              ),
-            ),
-            child: const Center(
-              child: Text(
-                "এয়ার টিকেট এর আবেদন",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: AppColors.green,
+      body: Consumer<AirTicketController>(
+        builder: (_, viewModel, __) {
+          if (!viewModel.isLoading) {
+            return Column(
+              children: [
+                Container(
+                  height: 50,
+                  margin: const EdgeInsets.all(16),
+                  width: double.maxFinite,
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      color: AppColors.green,
+                      width: 3,
+                    ),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      "এয়ার টিকেট এর আবেদন",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: AppColors.green,
+                      ),
+                    ),
+                  ),
                 ),
-              ),
+                const Expanded(
+                  child: AirTicketApplyView(),
+                ),
+              ],
+            );
+          }
+          return const Center(
+            child: CircularProgressIndicator(
+              color: AppColors.themeColor,
             ),
-          ),
-          const Expanded(
-            child: AirTicketApplyView(),
-          ),
-        ],
+          );
+        },
       ),
     );
   }

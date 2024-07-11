@@ -111,7 +111,7 @@ class FormValidationController {
       String mobile, String password) async {
     if (formKey.currentState!.validate()) {
       bool status =
-          await context.read<AuthController>().signIn(mobile, password);
+          await context.read<AuthController>().signIn(mobile, password,context.read<ProfileController>());
 
       if (status && context.mounted) {
         Navigator.pushAndRemoveUntil(

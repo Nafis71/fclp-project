@@ -23,14 +23,14 @@ class _AirTicketApplyViewState extends State<AirTicketApplyView> {
     final airTicketController = Provider.of<AirTicketController>(context);
 
     final selectedDepartureAirport =
-        airTicketController.selectedDepartureAirport.isEmpty
+        airTicketController.departureAirport.isEmpty
             ? airTicketController.airports.first
-            : airTicketController.selectedDepartureAirport;
+            : airTicketController.departureAirport;
 
     final selectedArrivalAirport =
-        airTicketController.selectedArrivalAirport.isEmpty
+        airTicketController.arrivalAirport.isEmpty
             ? airTicketController.airports.last
-            : airTicketController.selectedArrivalAirport;
+            : airTicketController.arrivalAirport;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -46,15 +46,13 @@ class _AirTicketApplyViewState extends State<AirTicketApplyView> {
                       selectedAirport: selectedDepartureAirport,
                       onChanged: (value) {
                         if (mounted) {
-                          setState(() {
-                            airTicketController.selectedDepartureAirport =
-                                value ?? airTicketController.airports.first;
-                            if (airTicketController
-                                .isAirTicketApplyFormFilled) {
-                              airTicketController
-                                  .updateDepartureAirport(value!);
-                            }
-                          });
+                          // setState(() {
+                          //   airTicketController.selectedDepartureAirport =
+                          //       value;
+                          //   if (airTicketController
+                          //       .isAirTicketApplyFormFilled) {
+                          //   }
+                          // });
                         }
                       },
                       airports: airTicketController.airports,
@@ -70,15 +68,16 @@ class _AirTicketApplyViewState extends State<AirTicketApplyView> {
                       location: "যাত্রা শেষ",
                       selectedAirport: selectedArrivalAirport,
                       onChanged: (value) {
+                        print("Arrival airport : $value");
                         if (mounted) {
-                          setState(() {
-                            airTicketController.selectedArrivalAirport =
-                                value ?? airTicketController.airports.last;
-                            if (airTicketController
-                                .isAirTicketApplyFormFilled) {
-                              airTicketController.updateArrivalAirport(value!);
-                            }
-                          });
+                          // setState(() {
+                          //   airTicketController.selectedArrivalAirport =
+                          //       value ?? airTicketController.airports.last;
+                          //   if (airTicketController
+                          //       .isAirTicketApplyFormFilled) {
+                          //
+                          //   }
+                          // });
                         }
                       },
                       airports: airTicketController.airports,
@@ -108,7 +107,7 @@ class _AirTicketApplyViewState extends State<AirTicketApplyView> {
                                 airTicketController.typeOfTicket.first;
                             if (airTicketController
                                 .isAirTicketApplyFormFilled) {
-                              airTicketController.updateTicketType(newValue!);
+
                             }
                           });
                         }
@@ -127,7 +126,6 @@ class _AirTicketApplyViewState extends State<AirTicketApplyView> {
                                 airTicketController.travellers.first;
                             if (airTicketController
                                 .isAirTicketApplyFormFilled) {
-                              airTicketController.updateTravellers(newValue!);
                             }
                           });
                         }
@@ -140,24 +138,21 @@ class _AirTicketApplyViewState extends State<AirTicketApplyView> {
               ElevatedButton(
                 onPressed: () {
                   if (mounted) {
-                    setState(
-                      () {
-                        airTicketController
-                            .updateAirTicketApplyFormFilled(true);
-
-                        airTicketController.airTicketFormInfo.add(
-                          AirTicketModel(
-                            departureAirport:
-                                airTicketController.selectedDepartureAirport,
-                            arrivalAirport:
-                                airTicketController.selectedArrivalAirport,
-                            travelDateTime: airTicketController.date,
-                            ticketType: airTicketController.ticket,
-                            traveller: airTicketController.countOfTravellers,
-                          ),
-                        );
-                      },
-                    );
+                    // setState(
+                    //   () {
+                    //     airTicketController.airTicketFormInfo.add(
+                    //       AirTicketModel(
+                    //         departureAirport:
+                    //             airTicketController.selectedDepartureAirport,
+                    //         arrivalAirport:
+                    //             airTicketController.selectedArrivalAirport,
+                    //         travelDateTime: airTicketController.date,
+                    //         ticketType: airTicketController.ticket,
+                    //         traveller: airTicketController.countOfTravellers,
+                    //       ),
+                    //     );
+                    //   },
+                    // );
                   }
                   airticketSubmissionMessage(context);
                 },

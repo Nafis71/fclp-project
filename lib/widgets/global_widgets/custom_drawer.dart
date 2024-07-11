@@ -1,3 +1,4 @@
+import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/Controllers/url_launcher_controller.dart';
 import 'package:fclp_app/utils/assets_pahts.dart';
 import 'package:fclp_app/utils/color_palette.dart';
@@ -11,6 +12,7 @@ import 'package:fclp_app/views/reffer_id_view.dart';
 import 'package:fclp_app/views/system_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({
@@ -80,17 +82,17 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const Text(
-                        "01777000999",
-                        style: TextStyle(
+                      Text(
+                        context.read<ProfileController>().mobileNumber,
+                        style: const TextStyle(
                           color: AppColors.red,
                           fontWeight: FontWeight.bold,
                           fontSize: 17,
                         ),
                       ),
-                      const Text(
-                        "User Account",
-                        style: TextStyle(
+                       Text(
+                        context.read<ProfileController>().name,
+                        style: const TextStyle(
                           color: AppColors.green,
                           fontSize: 17,
                           fontWeight: FontWeight.bold,
