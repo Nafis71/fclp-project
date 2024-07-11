@@ -1,5 +1,7 @@
+import 'package:fclp_app/Controllers/air_ticket_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 Widget dateSelector({
   required BuildContext context,
@@ -13,6 +15,12 @@ Widget dateSelector({
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
+          boxShadow: [BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 10,
+            spreadRadius: 2,
+            offset: const Offset(0, 5),
+          )]
       ),
       padding: const EdgeInsets.all(18),
       child: Row(
@@ -25,7 +33,7 @@ Widget dateSelector({
                 const Text(
                   "ভ্রমন এর তারিখ",
                   style: TextStyle(
-                    fontSize: 17,
+                    fontSize: 15,
                     color: AppColors.green,
                     fontWeight: FontWeight.bold,
                   ),
@@ -35,10 +43,10 @@ Widget dateSelector({
                 ),
                 Text(
                   date,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 17,
-                    color: AppColors.green,
+                    fontSize: 14,
+                    color: (context.read<AirTicketController>().ticketDate.isNotEmpty) ? AppColors.green : Colors.grey,
                   ),
                 ),
               ],

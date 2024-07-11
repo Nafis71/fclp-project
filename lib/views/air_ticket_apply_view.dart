@@ -1,5 +1,8 @@
 import 'package:fclp_app/Controllers/air_ticket_controller.dart';
+import 'package:fclp_app/Controllers/auth_controller.dart';
+import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/models/entities/air_ticket_model.dart';
+import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/air_ticket_user_requests_view.dart';
 import 'package:fclp_app/widgets/air_ticket_widgets/air_ticket_submit_message.dart';
@@ -7,186 +10,165 @@ import 'package:fclp_app/widgets/air_ticket_widgets/airport_selector.dart';
 import 'package:fclp_app/widgets/air_ticket_widgets/date_selector.dart';
 import 'package:fclp_app/widgets/air_ticket_widgets/ticket_selector.dart';
 import 'package:fclp_app/widgets/air_ticket_widgets/travellers_selector.dart';
+import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class AirTicketApplyView extends StatefulWidget {
+class AirTicketApplyView extends StatelessWidget {
   const AirTicketApplyView({super.key});
 
   @override
-  State<AirTicketApplyView> createState() => _AirTicketApplyViewState();
-}
-
-class _AirTicketApplyViewState extends State<AirTicketApplyView> {
-  @override
   Widget build(BuildContext context) {
-    final airTicketController = Provider.of<AirTicketController>(context);
-
-    final selectedDepartureAirport =
-        airTicketController.departureAirport.isEmpty
-            ? airTicketController.airports.first
-            : airTicketController.departureAirport;
-
-    final selectedArrivalAirport =
-        airTicketController.arrivalAirport.isEmpty
-            ? airTicketController.airports.last
-            : airTicketController.arrivalAirport;
-
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: airportSelector(
-                      location: "যাত্রা শুরু",
-                      selectedAirport: selectedDepartureAirport,
-                      onChanged: (value) {
-                        if (mounted) {
-                          // setState(() {
-                          //   airTicketController.selectedDepartureAirport =
-                          //       value;
-                          //   if (airTicketController
-                          //       .isAirTicketApplyFormFilled) {
-                          //   }
-                          // });
-                        }
-                      },
-                      airports: airTicketController.airports,
-                    ),
+    if (context.read<AirTicketController>().arrivalAirport.isEmpty) {
+      context.read<AirTicketController>().setSilentArrivalAirport =
+          context.read<AirTicketController>().airports.last;
+      context.read<AirTicketController>().setSilentDepartureAirport =
+          context.read<AirTicketController>().airports.first;
+    }
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: airportSelector(
+                    location: "যাত্রা শুরু",
+                    selectedAirport:
+                        context.read<AirTicketController>().departureAirport,
+                    onChanged: (departureAirport) {
+                      context.read<AirTicketController>().setDepartureAirport =
+                          departureAirport;
+                    },
+                    airports: context.read<AirTicketController>().airports,
                   ),
-                  const Icon(
-                    Icons.location_searching,
-                    size: 30,
-                    color: AppColors.grey,
+                ),
+                const Icon(
+                  Icons.airplane_ticket_rounded,
+                  size: 35,
+                  color: AppColors.themeColor,
+                ),
+                Expanded(
+                  child: airportSelector(
+                    location: "যাত্রা শেষ",
+                    selectedAirport:
+                        context.read<AirTicketController>().arrivalAirport,
+                    onChanged: (arrivalAirport) {
+                      if (context.mounted) {
+                        context.read<AirTicketController>().setArrivalAirport =
+                            arrivalAirport;
+                      }
+                    },
+                    airports: context.read<AirTicketController>().airports,
                   ),
-                  Expanded(
-                    child: airportSelector(
-                      location: "যাত্রা শেষ",
-                      selectedAirport: selectedArrivalAirport,
-                      onChanged: (value) {
-                        print("Arrival airport : $value");
-                        if (mounted) {
-                          // setState(() {
-                          //   airTicketController.selectedArrivalAirport =
-                          //       value ?? airTicketController.airports.last;
-                          //   if (airTicketController
-                          //       .isAirTicketApplyFormFilled) {
-                          //
-                          //   }
-                          // });
-                        }
-                      },
-                      airports: airTicketController.airports,
-                    ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            dateSelector(
+              context: context,
+              date: (context.read<AirTicketController>().ticketDate.isEmpty)
+                  ? "তারিখ নির্বাচন করুন"
+                  : context.read<AirTicketController>().ticketDate,
+              datePicked: () {
+                context.read<AirTicketController>().datePicked(context);
+              },
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: TicketSelector(
+                    ticket: context.read<AirTicketController>().uITicketType,
+                    typeOfTicket:
+                        context.read<AirTicketController>().typeOfTicket,
+                    onChanged: (String? ticketType) {
+                      if (context.mounted && ticketType != null) {
+                        context.read<AirTicketController>().setTicketType =
+                            ticketType;
+                        context.read<AirTicketController>().setUiTicketType =
+                            ticketType;
+                      }
+                    },
                   ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              dateSelector(
-                context: context,
-                date: airTicketController.date,
-                datePicked: () {
-                  airTicketController.datePicked(context);
-                },
-              ),
-              const SizedBox(height: 16),
-              Row(
-                children: [
-                  Expanded(
-                    child: TicketSelector(
-                      ticket: airTicketController.ticket,
-                      typeOfTicket: airTicketController.typeOfTicket,
-                      onChanged: (String? newValue) {
-                        if (mounted) {
-                          setState(() {
-                            airTicketController.ticket = newValue ??
-                                airTicketController.typeOfTicket.first;
-                            if (airTicketController
-                                .isAirTicketApplyFormFilled) {
-
-                            }
-                          });
-                        }
-                      },
-                    ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: TravellerSelector(
+                    countOfTravellers:
+                        context.read<AirTicketController>().countOfTravellers,
+                    travellers: context.read<AirTicketController>().travellers,
+                    onChanged: (int? newValue) {
+                      if (context.mounted) {
+                        context
+                                .read<AirTicketController>()
+                                .setCountOfTravellers =
+                            newValue ??
+                                context
+                                    .read<AirTicketController>()
+                                    .travellers
+                                    .first;
+                      }
+                    },
                   ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: TravellerSelector(
-                      countOfTravellers: airTicketController.countOfTravellers,
-                      travellers: airTicketController.travellers,
-                      onChanged: (String? newValue) {
-                        if (mounted) {
-                          setState(() {
-                            airTicketController.countOfTravellers = newValue ??
-                                airTicketController.travellers.first;
-                            if (airTicketController
-                                .isAirTicketApplyFormFilled) {
-                            }
-                          });
-                        }
-                      },
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            if (!context.read<AirTicketController>().isLoading)
               ElevatedButton(
                 onPressed: () {
-                  if (mounted) {
-                    // setState(
-                    //   () {
-                    //     airTicketController.airTicketFormInfo.add(
-                    //       AirTicketModel(
-                    //         departureAirport:
-                    //             airTicketController.selectedDepartureAirport,
-                    //         arrivalAirport:
-                    //             airTicketController.selectedArrivalAirport,
-                    //         travelDateTime: airTicketController.date,
-                    //         ticketType: airTicketController.ticket,
-                    //         traveller: airTicketController.countOfTravellers,
-                    //       ),
-                    //     );
-                    //   },
-                    // );
-                  }
-                  airticketSubmissionMessage(context);
+                  bookAirTicket(context);
                 },
                 child: const Text("সাবমিট করুন"),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  fixedSize: const Size.fromWidth(double.maxFinite),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  backgroundColor: AppColors.white,
-                  foregroundColor: AppColors.green,
+              )
+            else
+              const Center(
+                child: CircularProgressIndicator(
+                  color: AppColors.themeColor,
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AirTicketUserRequestsView(
-                        defaultArrivalAirport: selectedArrivalAirport,
-                        defaultDepartureAirport: selectedDepartureAirport,
-                      ),
-                    ),
-                  );
-                },
-                child: const Text("আপনার রিকুয়েস্ট সমূহ দেখুন"),
               ),
-            ],
-          ),
+            const SizedBox(
+              height: 20,
+            ),
+            InkWell(
+              onTap: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => AirTicketUserRequestsView(
+                //       defaultArrivalAirport: selectedArrivalAirport,
+                //       defaultDepartureAirport: selectedDepartureAirport,
+                //     ),
+                //   ),
+                // );
+              },
+              child: const Text(
+                "আপনার রিকুয়েস্ট সমূহ দেখুন",
+                style: TextStyle(
+                    color: AppColors.themeColor, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
         ),
       ),
     );
+  }
+
+  Future<void> bookAirTicket(BuildContext context) async {
+    bool status = await context
+        .read<AirTicketController>()
+        .bookAirTicket(context.read<ProfileController>().token);
+    if (status && context.mounted) {
+      airticketSubmissionMessage(context);
+      return;
+    }
+    if (context.mounted) {
+      warningDialog(
+          context: context,
+          warningDescription: AppStrings.airTicketBookingFailureMessage,
+          message: AppStrings.airTicketBookingFailureTitle);
+    }
   }
 }

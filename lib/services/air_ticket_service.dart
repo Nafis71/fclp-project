@@ -7,4 +7,12 @@ class AirTicketService {
         url: NetworkUrls.getAirportListUrl,
         headers: {"Authorization": "Bearer $token"});
   }
+
+  static Future<Object> bookAirTicket(
+      String token, Map<String, dynamic> ticketData) async {
+    return await NetworkRequest().postRequest(
+        url: NetworkUrls.bookTicketUrl,
+        body: ticketData,
+        headers: {"Authorization": "Bearer $token","content-type":"application/json"});
+  }
 }

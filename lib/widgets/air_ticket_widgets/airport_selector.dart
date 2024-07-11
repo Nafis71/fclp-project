@@ -18,6 +18,12 @@ Widget airportSelector({
     decoration: BoxDecoration(
       color: AppColors.white,
       borderRadius: BorderRadius.circular(8),
+      boxShadow: [BoxShadow(
+        color: Colors.black.withOpacity(0.1),
+        blurRadius: 30,
+        spreadRadius: 5,
+        offset: const Offset(0, 5),
+      )]
     ),
     padding: const EdgeInsets.all(8),
     child: Column(
@@ -27,7 +33,7 @@ Widget airportSelector({
         Text(
           location,
           style: const TextStyle(
-            fontSize: 18,
+            fontSize: 16,
             color: AppColors.green,
             fontWeight: FontWeight.bold,
           ),
@@ -38,7 +44,7 @@ Widget airportSelector({
             hint: const Text(
               'সিলেক্ট করুন',
               style: TextStyle(
-                color: AppColors.green,
+                color: AppColors.black,
               ),
             ),
             dropdownColor: Colors.white,
@@ -46,7 +52,7 @@ Widget airportSelector({
               fontWeight: FontWeight.w500,
               fontSize: 18,
               fontStyle: FontStyle.italic,
-              color: AppColors.green,
+              color: AppColors.black,
             ),
             iconSize: 40,
             icon: const Icon(Icons.arrow_drop_down),
@@ -70,6 +76,7 @@ Widget airportSelector({
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           color: AppColors.green,
+                          fontSize: 14.5
                         ),
                       ),
                       Text(
@@ -77,7 +84,7 @@ Widget airportSelector({
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           color: AppColors.grey,
-                          fontSize: 16,
+                          fontSize: 15,
                         ),
                       ),
                     ],

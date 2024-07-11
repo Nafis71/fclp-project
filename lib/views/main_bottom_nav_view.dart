@@ -27,30 +27,31 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
       child: Scaffold(
         body: _screen[_selectedIndex],
         bottomNavigationBar: GNav(
-          padding: const EdgeInsets.all(5),
+          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
           backgroundColor: Colors.white,
           selectedIndex: _selectedIndex,
           onTabChange: _onItemTapped,
           hoverColor: AppColors.grey,
-          rippleColor: AppColors.green,
           textSize: 20,
-          iconSize: 30,
+          iconSize: 28,
+          haptic: false,
           activeColor: AppColors.white,
           tabBackgroundColor: AppColors.green,
+          tabBorderRadius: 15,
           tabMargin: const EdgeInsets.all(16),
           color: AppColors.green,
           tabs: const [
             GButton(
               icon: Icons.home,
-              text: "হোম",
+              text: " হোম",
             ),
             GButton(
               icon: Icons.shopping_cart,
-              text: "শপিং কার্ট",
+              text: " শপিং কার্ট",
             ),
             GButton(
               icon: Icons.favorite,
-              text: "উইস লিস্ট",
+              text: " উইস লিস্ট",
             ),
           ],
         ),

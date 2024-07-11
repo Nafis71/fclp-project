@@ -34,35 +34,36 @@ class _AirTicketViewState extends State<AirTicketView> {
       appBar: customAppBar(),
       body: Consumer<AirTicketController>(
         builder: (_, viewModel, __) {
-          if (!viewModel.isLoading) {
+          if (viewModel.airports.isNotEmpty) {
             return Column(
               children: [
                 Container(
-                  height: 50,
-                  margin: const EdgeInsets.all(16),
-                  width: double.maxFinite,
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(
-                      color: AppColors.green,
-                      width: 3,
-                    ),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "এয়ার টিকেট এর আবেদন",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                  color: Colors.green.shade50,
+                  child: Container(
+                    height: 50,
+                    margin: const EdgeInsets.all(16),
+                    width: double.maxFinite,
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
                         color: AppColors.green,
+                        width: 3,
+                      ),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "বিমান টিকেট এর আবেদন",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: AppColors.green,
+                        ),
                       ),
                     ),
                   ),
                 ),
-                const Expanded(
-                  child: AirTicketApplyView(),
-                ),
+                AirTicketApplyView()
               ],
             );
           }

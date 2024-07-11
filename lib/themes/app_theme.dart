@@ -13,7 +13,7 @@ ThemeData lightThemeData() {
       ),
       titleLarge: TextStyle(
         fontWeight: FontWeight.bold,
-        fontSize: 30,
+        fontSize: 25,
         color: AppColors.green,
       ),
       titleMedium: TextStyle(
@@ -74,7 +74,7 @@ ThemeData lightThemeData() {
     ),
     appBarTheme: const AppBarTheme(
       iconTheme: IconThemeData(
-        size: 40,
+        size: 30,
         color: AppColors.themeColor,
       ),
       centerTitle: true,

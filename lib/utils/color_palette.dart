@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color themeColor = Colors.green;
-  static Color backgroundColor = Colors.green.shade50;
+  static Color backgroundColor = Colors.white;
   static const Color green = Colors.green;
   static const Color transparent = Colors.transparent;
   static const Color red = Colors.red;

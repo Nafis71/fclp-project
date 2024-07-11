@@ -8,7 +8,7 @@ AppBar customAppBar() {
     actions: [
       IconButton(
         onPressed: () {},
-        icon: const Icon(Icons.notifications_outlined),
+        icon: const Icon(Icons.notifications_outlined,size: 30,),
       ),
     ],
   );

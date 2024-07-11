@@ -49,7 +49,7 @@ void warningDialog({
                         style: TextStyle(
                           color: Colors.black.withOpacity(0.8),
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 16,
                         ),
                       ),
                       ElevatedButton(

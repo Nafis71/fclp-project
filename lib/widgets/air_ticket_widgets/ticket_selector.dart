@@ -19,6 +19,12 @@ class TicketSelector extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
+          boxShadow: [BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 30,
+            spreadRadius: 5,
+            offset: const Offset(0, 5),
+          )]
       ),
       width: double.infinity,
       padding: const EdgeInsets.all(16),
@@ -30,7 +36,7 @@ class TicketSelector extends StatelessWidget {
             "টিকেটের ধরণ",
             style: TextStyle(
               color: AppColors.green,
-              fontSize: 17,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -40,8 +46,8 @@ class TicketSelector extends StatelessWidget {
               dropdownColor: Colors.white,
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
-                fontSize: 20,
-                color: AppColors.green,
+                fontSize: 14,
+                color: AppColors.black,
               ),
               iconSize: 40,
               icon: const Icon(Icons.arrow_drop_down),
@@ -60,6 +66,11 @@ class TicketSelector extends StatelessWidget {
                     child: Text(
                       value,
                       overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: AppColors.green,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 15
+                      ),
                     ),
                   );
                 },

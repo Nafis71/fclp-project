@@ -2,9 +2,9 @@ import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class TravellerSelector extends StatelessWidget {
-  final String countOfTravellers;
-  final List<String> travellers;
-  final ValueChanged<String?>? onChanged;
+  final int countOfTravellers;
+  final List<int> travellers;
+  final ValueChanged<int?>? onChanged;
 
   const TravellerSelector({
     super.key,
@@ -19,6 +19,12 @@ class TravellerSelector extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
+          boxShadow: [BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 30,
+            spreadRadius: 2,
+            offset: const Offset(0, 5),
+          )]
       ),
       width: double.infinity,
       padding: const EdgeInsets.all(16),
@@ -30,12 +36,12 @@ class TravellerSelector extends StatelessWidget {
             "ভ্রমণকারীর সংখ্যা",
             style: TextStyle(
               color: AppColors.green,
-              fontSize: 17,
+              fontSize: 15,
               fontWeight: FontWeight.bold,
             ),
           ),
           DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
+            child: DropdownButton<int>(
               value: countOfTravellers,
               dropdownColor: Colors.white,
               style: const TextStyle(
@@ -54,12 +60,17 @@ class TravellerSelector extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               elevation: 16,
               items: travellers.map(
-                (String value) {
-                  return DropdownMenuItem<String>(
+                (int value) {
+                  return DropdownMenuItem<int>(
                     value: value,
                     child: Text(
-                      value,
+                      "${value.toString()} জন",
                       overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 15,
+                          fontWeight: FontWeight.normal,
+                        color: AppColors.green
+                      ),
                     ),
                   );
                 },

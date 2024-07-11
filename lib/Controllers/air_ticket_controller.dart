@@ -6,18 +6,42 @@ import 'package:fclp_app/services/response/success.dart';
 import 'package:flutter/material.dart';
 
 class AirTicketController extends ChangeNotifier {
-  late Object response;
-  List<Map<String, String>> airports = [];
+  Object? response;
+  final List<Map<String, String>> _airports = [];
 
-  Map<String, String> departureAirport = {};
-  Map<String, String> arrivalAirport = {};
+  Map<String, String> _departureAirport = {};
+  Map<String, String> _arrivalAirport = {};
   String travelDateTime = '';
-  String ticketType = '';
+  String _ticketType = 'First Class';
   String traveller = '';
   bool isAirTicketApplyFormFilled = false;
   List<AirTicketModel> airTicketFormInfo = [];
   bool _isLoading = false;
   bool _finalResponse = false;
+
+  Map<String, String> get departureAirport => _departureAirport;
+
+  Map<String, String> get arrivalAirport => _arrivalAirport;
+
+  List<Map<String, String>> get airports => _airports;
+
+  set setDepartureAirport(Map<String, String> departureAirport) {
+    _departureAirport = departureAirport;
+    notifyListeners();
+  }
+
+  set setSilentDepartureAirport(Map<String, String> departureAirport) {
+    _departureAirport = departureAirport;
+  }
+
+  set setArrivalAirport(Map<String, String> arrivalAirport) {
+    _arrivalAirport = arrivalAirport;
+    notifyListeners();
+  }
+
+  set setSilentArrivalAirport(Map<String, String> arrivalAirport) {
+    _arrivalAirport = arrivalAirport;
+  }
 
   List<String> typeOfTicket = [
     "ইকোনমি",
@@ -25,25 +49,36 @@ class AirTicketController extends ChangeNotifier {
     "প্রিমিয়াম",
     "ফার্স্ট ক্লাস"
   ];
-  String ticket = "ফার্স্ট ক্লাস";
-  List<String> travellers = [
-    "1 জন",
-    "2 জন",
-    "3 জন",
-    "4 জন",
-    "5 জন",
-    "6 জন",
-    "7 জন",
-    "8 জন",
-    "9 জন"
-  ];
-  String countOfTravellers = "1 জন";
-  String date = "01/01/2000";
+  String _uITicketType = "ফার্স্ট ক্লাস";
+  final List<int> travellers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  int _countOfTravellers = 1;
+  String ticketDate = "";
 
   bool get isLoading => _isLoading;
 
+  String get uITicketType => _uITicketType;
 
+  int get countOfTravellers => _countOfTravellers;
 
+  set setCountOfTravellers(int countOfTravellers) {
+    _countOfTravellers = countOfTravellers;
+    notifyListeners();
+  }
+
+  set setUiTicketType(String ticketType) {
+    _uITicketType = ticketType;
+    notifyListeners();
+  }
+
+  set setTicketType(String ticketType) {
+    Map<String, String> ticketTypes = {
+      "ইকোনমি": "Economy",
+      "বিজনেস": "Business",
+      "প্রিমিয়াম": "Premium",
+      "ফার্স্ট ক্লাস": "First Class"
+    };
+    _ticketType = ticketTypes[ticketType]!;
+  }
 
   Future<void> datePicked(BuildContext context) async {
     final pickedDate = await showDatePicker(
@@ -54,25 +89,18 @@ class AirTicketController extends ChangeNotifier {
     );
 
     if (pickedDate != null) {
-      date = "${pickedDate.day}-${pickedDate.month}-${pickedDate.year}";
-      if (isAirTicketApplyFormFilled) {
-
-      }
-      notifyListeners();
+      ticketDate = "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}";
     }
+    notifyListeners();
   }
 
-
-
-  set setIsLoading (bool isLoading){
+  set setIsLoading(bool isLoading) {
     _isLoading = isLoading;
     notifyListeners();
   }
 
-
-
   Future<bool> loadAirportList(String token) async {
-    setIsLoading = true;
+    _finalResponse = false;
     response = await AirTicketService.getAirportList(token);
     if (response is Success) {
       AirportListModel airportListModel = AirportListModel.fromJson(
@@ -90,7 +118,28 @@ class AirTicketController extends ChangeNotifier {
       }
       _finalResponse = true;
     }
+    notifyListeners();
+    return _finalResponse;
+  }
+
+  Future<bool> bookAirTicket(String token) async{
+    setIsLoading = true;
+    _finalResponse = false;
+    Map<String,dynamic> ticketData = {
+      "start": int.parse(_departureAirport['id'].toString()),
+      "end": int.parse(_arrivalAirport['id'].toString()),
+      "travel_date": ticketDate,
+      "types": _ticketType,
+      "person": _countOfTravellers,
+      "status": 0,
+      "notice": "No special notices"
+    };
+    response = await AirTicketService.bookAirTicket(token, ticketData);
+    if(response is Success){
+      _finalResponse = true;
+    }
     setIsLoading = false;
     return _finalResponse;
   }
+
 }
