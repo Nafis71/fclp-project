@@ -7,12 +7,16 @@ class AuthController extends ChangeNotifier {
   Object? response;
   bool _finalResponse = false;
   bool _isLoading = false;
+  bool _isLoginScreen = true;
+
+  bool get isLoginScreen => _isLoginScreen;
+
+  void setIsLoginScreen(bool value){
+    _isLoginScreen = value;
+    notifyListeners();
+  }
 
   bool get isLoading => _isLoading;
-
-  onInit(){
-
-  }
 
   set setIsLoading(bool isLoading) {
     _isLoading = isLoading;

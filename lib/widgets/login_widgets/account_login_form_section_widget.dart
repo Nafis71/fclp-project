@@ -147,11 +147,7 @@ class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
                   ),
                   OutlinedButton(
                     onPressed: () {
-                      warningDialog(
-                        context: context,
-                        warningDescription:
-                            "মোবাইল নাম্বার এবং পাসওয়ার্ড অবশ্যই দিতে হবে।",
-                      );
+                      context.read<AuthController>().setIsLoginScreen(false);
                     },
                     child: const Text("রেজিস্ট্রেশন করুন"),
                   ),

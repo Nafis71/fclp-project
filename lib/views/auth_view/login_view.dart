@@ -1,7 +1,10 @@
+import 'package:fclp_app/Controllers/auth_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:fclp_app/widgets/login_widgets/account_login_form_section_widget.dart';
+import 'package:fclp_app/widgets/registration_widget/registration_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -18,29 +21,35 @@ class _LoginViewState extends State<LoginView> {
         appBar: customAppBar(),
         drawer: _loginViewDrawer(context),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(
-                height: 50,
-              ),
-              Text(
-                "লগইন ফর্ম",
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                "আমাদের সাথেই থাকুন...",
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              const AccountLoginFormSection(),
-            ],
+          child: Consumer<AuthController>(
+            builder: (_, viewModel, __) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Text(
+                    (viewModel.isLoginScreen) ? "লগইন ফর্ম" : "নিবন্ধন ফর্ম",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "আমাদের সাথেই থাকুন...",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  (viewModel.isLoginScreen)
+                      ? const AccountLoginFormSection()
+                      : const RegistrationWidget(),
+                ],
+              );
+            },
           ),
         ),
       ),

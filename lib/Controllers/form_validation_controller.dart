@@ -124,6 +124,37 @@ class FormValidationController {
     }
   }
 
+  static void handleRegistration(BuildContext context, GlobalKey<FormState> formKey,
+      String mobile, String password) async {
+    return;
+    if (formKey.currentState!.validate()) {
+      bool status =
+      await context.read<AuthController>().signIn(mobile, password);
+
+      if (status && context.mounted) {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const MainBottomNavView(),
+          ),
+              (route) => false,
+        );
+        return;
+      }
+      if (context.mounted) {
+        warningDialog(
+          context: context,
+          warningDescription: AppStrings.unAuthorizedLoginError,
+        );
+      }
+    } else {
+      warningDialog(
+        context: context,
+        warningDescription: 'মোবাইল নাম্বার এবং পাসওয়ার্ড অবশ্যই দিতে হবে।',
+      );
+    }
+  }
+
   static void handleDeliveryNextStep(
     BuildContext context,
     GlobalKey<FormState> formKey,

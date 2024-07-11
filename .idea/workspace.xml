@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/views/splash_view.dart" afterDir="false" />
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="splash_screen and token initialization added">
+      <change afterPath="$PROJECT_DIR$/lib/widgets/registration_widget/registration_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Controllers/auth_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/auth_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/assets_pahts.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/assets_pahts.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/form_validation_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/form_validation_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/auth_view/login_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/auth_view/login_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/login_widgets/account_login_form_section_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/login_widgets/account_login_form_section_widget.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +85,19 @@
       <option name="presentableId" value="Default" />
       <updated>1720627303393</updated>
     </task>
+    <task id="LOCAL-00001" summary="splash_screen and token initialization added">
+      <option name="closed" value="true" />
+      <created>1720675191421</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1720675191421</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="splash_screen and token initialization added" />
+    <option name="LAST_COMMIT_MESSAGE" value="splash_screen and token initialization added" />
   </component>
 </project>
