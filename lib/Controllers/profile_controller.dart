@@ -5,6 +5,7 @@ class ProfileController extends ChangeNotifier {
   String _name = "FCLP";
   String _email = "mail@gmail.com";
   String _mobileNumber = "01888324567";
+  String _token = "";
 
   bool get isEdit => _isEdit;
 
@@ -13,6 +14,8 @@ class ProfileController extends ChangeNotifier {
   String get email => _email;
 
   String get mobileNumber => _mobileNumber;
+
+  String get token => _token;
 
   void toggleEdit() {
     _isEdit = !_isEdit;
@@ -32,5 +35,9 @@ class ProfileController extends ChangeNotifier {
   void setMobileNumber(String newMobileNumber) {
     _mobileNumber = newMobileNumber;
     notifyListeners();
+  }
+
+  void setToken(String token){
+    _token = token;
   }
 }

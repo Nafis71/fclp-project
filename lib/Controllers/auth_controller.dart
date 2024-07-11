@@ -10,6 +10,10 @@ class AuthController extends ChangeNotifier {
 
   bool get isLoading => _isLoading;
 
+  onInit(){
+
+  }
+
   set setIsLoading(bool isLoading) {
     _isLoading = isLoading;
     notifyListeners();
@@ -24,8 +28,8 @@ class AuthController extends ChangeNotifier {
     };
     response = await AuthService.signInUser(credentials);
     if (response is Success) {
-      Map<String, String> jsonData =
-          (response as Success).response as Map<String, String>;
+      Map<String, dynamic> jsonData =
+          (response as Success).response as Map<String, dynamic>;
       String? token = jsonData['token'];
       if (token != null) saveToken(token);
       _finalResponse = true;

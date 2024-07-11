@@ -20,4 +20,5 @@ class AssetsPahts {
   static const delivery = '$_lotties/delivery.json';
   static const commingSoon = '$_lotties/comming_soon.json';
   static const empty = '$_lotties/empty.json';
+  static const appLogo = "$_images/app_logo.png";
 }
