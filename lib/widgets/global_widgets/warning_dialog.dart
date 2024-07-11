@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 void warningDialog({
   required BuildContext context,
   required String warningDescription,
+  String? message
 }) {
   showDialog(
       context: context,
@@ -38,7 +39,7 @@ void warningDialog({
                           ),
                         ),
                         child: Text(
-                          "Warning",
+                          (message ==null) ? "Warning" : message,
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                       ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SnackBarMessage extends StatelessWidget {
+class CartMessage extends StatelessWidget {
   final String message;
 
-  const SnackBarMessage({
+  const CartMessage({
     super.key,
     required this.message,
     required BuildContext context,

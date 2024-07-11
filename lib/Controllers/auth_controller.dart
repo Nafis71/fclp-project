@@ -42,6 +42,17 @@ class AuthController extends ChangeNotifier {
     return _finalResponse;
   }
 
+  Future<bool> registration(Map<String,String> userData) async{
+    _finalResponse = false;
+    setIsLoading = true;
+    response = await AuthService.registerUser(userData);
+    if(response is Success){
+      _finalResponse = true;
+    }
+    setIsLoading = false;
+    return _finalResponse;
+  }
+
   Future<void> saveToken(String token) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setString("token", token);

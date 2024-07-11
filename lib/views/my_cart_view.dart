@@ -171,7 +171,7 @@ class _MyCartViewState extends State<MyCartView> {
                                   .removeShoppingCartListProduct(index);
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: SnackBarMessage(
+                                  content: CartMessage(
                                     context: context,
                                     message:
                                         "Removed from cart: ${product.title}",

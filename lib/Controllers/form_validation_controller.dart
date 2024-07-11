@@ -1,5 +1,6 @@
 import 'package:fclp_app/Controllers/auth_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
+import 'package:fclp_app/services/response/Failure.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/constants.dart';
 import 'package:fclp_app/views/main_bottom_nav_view.dart';
@@ -24,6 +25,18 @@ class FormValidationController {
       return 'আপনার পাসওয়ার্ড লিখুন।';
     } else if (!AppConstants.passwordRegExp.hasMatch(password)) {
       return 'পাসওয়ার্ড কমপক্ষে 8 অক্ষর দীর্ঘ হতে হবে এবং একটি বড় হাতের অক্ষর, একটি ছোট হাতের অক্ষর, একটি সংখ্যা এবং একটি বিশেষ অক্ষর অন্তর্ভুক্ত করতে হবে';
+    }
+    return null;
+  }
+
+  static String? validateConfirmPassword(
+      String? password, String? confirmPassword) {
+    if (confirmPassword == null || confirmPassword.isEmpty) {
+      return 'আপনার পাসওয়ার্ড লিখুন।';
+    } else if (!AppConstants.passwordRegExp.hasMatch(confirmPassword)) {
+      return 'পাসওয়ার্ড কমপক্ষে 8 অক্ষর দীর্ঘ হতে হবে এবং একটি বড় হাতের অক্ষর, একটি ছোট হাতের অক্ষর, একটি সংখ্যা এবং একটি বিশেষ অক্ষর অন্তর্ভুক্ত করতে হবে';
+    } else if (password != confirmPassword) {
+      return "পাসওয়ার্ড মেলেনি";
     }
     return null;
   }
@@ -124,27 +137,45 @@ class FormValidationController {
     }
   }
 
-  static void handleRegistration(BuildContext context, GlobalKey<FormState> formKey,
-      String mobile, String password) async {
-    return;
+  static void handleRegistration(
+      {required BuildContext context,
+      required GlobalKey<FormState> formKey,
+      required String name,
+      required String email,
+      required String mobile,
+      required String password,
+      required String confirmPassword}) async {
     if (formKey.currentState!.validate()) {
-      bool status =
-      await context.read<AuthController>().signIn(mobile, password);
+      Map<String, String> userData = {
+        "name": name,
+        "email": email,
+        "mobile": mobile,
+        "password": password,
+        "password_confirmation": confirmPassword
+      };
+      bool status = await context.read<AuthController>().registration(userData);
 
       if (status && context.mounted) {
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const MainBottomNavView(),
-          ),
-              (route) => false,
-        );
+        snackBarMessage(
+            message: AppStrings.registrationSuccessMessage, context: context);
+        context.read<AuthController>().setIsLoginScreen(true);
         return;
       }
       if (context.mounted) {
+        int statusCode =
+            (context.read<AuthController>().response as Failure).statusCode;
+        if (statusCode == 400) {
+          warningDialog(
+            context: context,
+            message: AppStrings.registrationFailureTitle,
+            warningDescription: AppStrings.duplicateRegistrationFailureMessage,
+          );
+          return;
+        }
         warningDialog(
           context: context,
-          warningDescription: AppStrings.unAuthorizedLoginError,
+          message: AppStrings.registrationFailureTitle,
+          warningDescription: AppStrings.registrationFailureMessage,
         );
       }
     } else {

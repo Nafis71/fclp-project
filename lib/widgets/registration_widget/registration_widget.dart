@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import '../../Controllers/auth_controller.dart';
 import '../../Controllers/form_validation_controller.dart';
 import '../../utils/color_palette.dart';
-import '../global_widgets/warning_dialog.dart';
 
 class RegistrationWidget extends StatefulWidget {
   const RegistrationWidget({super.key});
@@ -22,6 +21,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
   final GlobalKey<FormState> _formKey = GlobalKey();
   bool passwordVisibility = true;
   bool confirmPasswordVisibility = true;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -35,9 +35,8 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
         ),
         child: Form(
           key: _formKey,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -62,7 +61,8 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                           size: 30,
                         ),
                       ),
-                      validator: FormValidationController.validateMobileNumber,
+                      validator: FormValidationController.validateName,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                     ),
                   ),
                   Container(
@@ -75,7 +75,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                     ),
                     child: TextFormField(
                       controller: _emailTEController,
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
                         hintText: "ইমেইল",
                         prefixIcon: Icon(
@@ -83,7 +83,8 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                           size: 30,
                         ),
                       ),
-                      validator: FormValidationController.validateMobileNumber,
+                      validator: FormValidationController.validateEmail,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                     ),
                   ),
                   Container(
@@ -105,6 +106,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                         ),
                       ),
                       validator: FormValidationController.validateMobileNumber,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                     ),
                   ),
                   const SizedBox(
@@ -140,16 +142,17 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                               },
                               child: passwordVisibility == true
                                   ? const Icon(
-                                Icons.visibility_off,
-                                size: 30,
-                              )
+                                      Icons.visibility_off,
+                                      size: 30,
+                                    )
                                   : const Icon(
-                                Icons.visibility,
-                                size: 30,
-                              ),
+                                      Icons.visibility,
+                                      size: 30,
+                                    ),
                             ),
                           ),
                           validator: FormValidationController.validatePassword,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
                         ),
                         TextFormField(
                           controller: _confirmPasswordTEController,
@@ -165,22 +168,29 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                               onTap: () {
                                 if (mounted) {
                                   setState(() {
-                                    confirmPasswordVisibility = !confirmPasswordVisibility;
+                                    confirmPasswordVisibility =
+                                        !confirmPasswordVisibility;
                                   });
                                 }
                               },
                               child: confirmPasswordVisibility == true
                                   ? const Icon(
-                                Icons.visibility_off,
-                                size: 30,
-                              )
+                                      Icons.visibility_off,
+                                      size: 30,
+                                    )
                                   : const Icon(
-                                Icons.visibility,
-                                size: 30,
-                              ),
+                                      Icons.visibility,
+                                      size: 30,
+                                    ),
                             ),
                           ),
-                          validator: FormValidationController.validatePassword,
+                          validator: (confirmPassword) {
+                            return FormValidationController
+                                .validateConfirmPassword(
+                                    _passwordTEController.text,
+                                    confirmPassword);
+                          },
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
                         ),
                       ],
                     ),
@@ -194,13 +204,22 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                       replacement: const CircularProgressIndicator(
                         color: AppColors.themeColor,
                       ),
-                      child: ElevatedButton(
-                          onPressed: () => FormValidationController.handleRegistration(
-                              context,
-                              _formKey,
-                              _mobileNumberTEController.text.trim(),
-                              _passwordTEController.text),
-                          child: const Text("নিবন্ধন করুন")),
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: ElevatedButton(
+                            onPressed: () =>
+                                FormValidationController.handleRegistration(
+                                  context: context,
+                                  name: _nameTEController.text.trim(),
+                                  email: _emailTEController.text.trim(),
+                                  mobile: _mobileNumberTEController.text.trim(),
+                                  password: _passwordTEController.text.trim(),
+                                  confirmPassword:
+                                      _confirmPasswordTEController.text.trim(),
+                                  formKey: _formKey,
+                                ),
+                            child: const Text("নিবন্ধন করুন")),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -213,11 +232,14 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                   const SizedBox(
                     height: 10,
                   ),
-                  OutlinedButton(
-                    onPressed: () {
-                      context.read<AuthController>().setIsLoginScreen(true);
-                    },
-                    child: const Text("লগইন করুন"),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    child: OutlinedButton(
+                      onPressed: () {
+                        context.read<AuthController>().setIsLoginScreen(true);
+                      },
+                      child: const Text("লগইন করুন"),
+                    ),
                   ),
                   const SizedBox(
                     height: 24,

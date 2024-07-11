@@ -4,7 +4,9 @@ import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:fclp_app/widgets/login_widgets/account_login_form_section_widget.dart';
 import 'package:fclp_app/widgets/registration_widget/registration_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -20,36 +22,53 @@ class _LoginViewState extends State<LoginView> {
       child: Scaffold(
         appBar: customAppBar(),
         drawer: _loginViewDrawer(context),
-        body: Center(
-          child: Consumer<AuthController>(
-            builder: (_, viewModel, __) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  Text(
-                    (viewModel.isLoginScreen) ? "লগইন ফর্ম" : "নিবন্ধন ফর্ম",
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    "আমাদের সাথেই থাকুন...",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  (viewModel.isLoginScreen)
-                      ? const AccountLoginFormSection()
-                      : const RegistrationWidget(),
-                ],
-              );
-            },
+        body: PopScope(
+          canPop: false,
+          onPopInvoked: (value) {
+            if (context.read<AuthController>().isLoginScreen) {
+              SystemNavigator.pop();
+            } else {
+              context.read<AuthController>().setIsLoginScreen(true);
+            }
+          },
+          child: Center(
+            child: WidgetAnimator(
+              incomingEffect: WidgetTransitionEffects.incomingSlideInFromBottom(
+                  duration: const Duration(milliseconds: 1600)),
+              child: Consumer<AuthController>(
+                builder: (_, viewModel, __) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      Text(
+                        (viewModel.isLoginScreen)
+                            ? "লগইন ফর্ম"
+                            : "নিবন্ধন ফর্ম",
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        "আমাদের সাথেই থাকুন...",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      if (viewModel.isLoginScreen)
+                        const AccountLoginFormSection()
+                      else
+                        const RegistrationWidget(),
+                    ],
+                  );
+                },
+              ),
+            ),
           ),
         ),
       ),
@@ -71,7 +90,7 @@ class _LoginViewState extends State<LoginView> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "নোটিশ",
                 style: TextStyle(
                   color: AppColors.red,
@@ -79,7 +98,7 @@ class _LoginViewState extends State<LoginView> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Text(

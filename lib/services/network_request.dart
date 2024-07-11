@@ -56,7 +56,7 @@ class NetworkRequest {
     if (response.statusCode == 200) {
       return Success(
           response: jsonDecode(response.body), statusCode: response.statusCode);
-    } else {
+    }else {
       return Failure(statusCode: response.statusCode);
     }
   }

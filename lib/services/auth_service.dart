@@ -11,4 +11,14 @@ class AuthService {
       },
     );
   }
+
+  static Future<Object> registerUser(Map<String, String> userData) async {
+    return await NetworkRequest().postRequest(
+      url: NetworkUrls.registrationUrl,
+      body: userData,
+      headers: {
+        "content-type": "Application/json",
+      },
+    );
+  }
 }

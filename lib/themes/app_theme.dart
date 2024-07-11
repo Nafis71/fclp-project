@@ -28,14 +28,16 @@ ThemeData lightThemeData() {
       hintStyle: TextStyle(
         color: AppColors.grey,
         fontWeight: FontWeight.bold,
-        fontSize: 20,
+        fontSize: 14,
       ),
+      errorMaxLines: 4,
       border: InputBorder.none,
       fillColor: Colors.white,
       filled: true,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        minimumSize: const Size.fromHeight(50),
         backgroundColor: AppColors.green,
         foregroundColor: Colors.white,
         fixedSize: const Size.fromWidth(double.maxFinite),
@@ -43,19 +45,20 @@ ThemeData lightThemeData() {
           borderRadius: BorderRadius.circular(8),
         ),
         textStyle: const TextStyle(
-          fontSize: 20,
+          fontSize: 15,
           fontWeight: FontWeight.bold,
         ),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
+        minimumSize: const Size.fromHeight(50),
         backgroundColor: AppColors.transparent,
         foregroundColor: AppColors.red,
         overlayColor: AppColors.white,
         fixedSize: const Size.fromWidth(double.maxFinite),
         textStyle: const TextStyle(
-          fontSize: 20,
+          fontSize: 15,
           fontWeight: FontWeight.bold,
         ),
         side: const BorderSide(
