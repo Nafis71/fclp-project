@@ -5,4 +5,5 @@ class NetworkUrls {
   static const String getUserUrl = "$baseUrl/get-user";
   static const String getAirportListUrl = "$baseUrl/airport/list";
   static const String bookTicketUrl = "$baseUrl/air-tickets/store";
+  static const String ticketUrl = "$baseUrl/air-tickets/list";
 }

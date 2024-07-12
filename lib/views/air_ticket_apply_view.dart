@@ -1,7 +1,6 @@
 import 'package:fclp_app/Controllers/air_ticket_controller.dart';
 import 'package:fclp_app/Controllers/auth_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
-import 'package:fclp_app/models/entities/air_ticket_model.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/air_ticket_user_requests_view.dart';
@@ -133,7 +132,7 @@ class AirTicketApplyView extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> AirTicketUserRequestsView()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const AirTicketUserRequestsView()));
             },
             child: const Text(
               "আপনার রিকুয়েস্ট সমূহ দেখুন",

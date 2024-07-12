@@ -1,13 +1,16 @@
+import 'package:fclp_app/models/air_ticket_model/air_ticket_model.dart';
+import 'package:fclp_app/models/air_ticket_model/ticket_data.dart';
 import 'package:fclp_app/models/airport_list_models/airport_data.dart';
 import 'package:fclp_app/models/airport_list_models/airport_list_model.dart';
 import 'package:fclp_app/services/air_ticket_service.dart';
 import 'package:fclp_app/services/response/success.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class AirTicketController extends ChangeNotifier {
   Object? response;
   final List<Map<String, String>> _airports = [];
-
+  final List<TicketData> ticketData = [];
   Map<String, String> _departureAirport = {};
   Map<String, String> _arrivalAirport = {};
   String _ticketType = 'First Class';
@@ -18,6 +21,7 @@ class AirTicketController extends ChangeNotifier {
   int _countOfTravellers = 1;
   String ticketDate = "";
   bool _isLoading = false;
+  bool _isTicketListLoading = false;
   bool _finalResponse = false;
 
   Map<String, String> get departureAirport => _departureAirport;
@@ -53,7 +57,14 @@ class AirTicketController extends ChangeNotifier {
 
   bool get isLoading => _isLoading;
 
+  bool get isTicketListLoading => _isTicketListLoading;
+
   String get uITicketType => _uITicketType;
+
+  set setIsTicketListLoading(bool isTicketListLoading) {
+    _isTicketListLoading = isTicketListLoading;
+    notifyListeners();
+  }
 
   int get countOfTravellers => _countOfTravellers;
 
@@ -119,10 +130,32 @@ class AirTicketController extends ChangeNotifier {
     return _finalResponse;
   }
 
-  Future<bool> bookAirTicket(String token) async{
+  Future<bool> loadTicketList(String token) async {
+    _finalResponse = false;
+    DateTime parseDate;
+    String date;
+    response = await AirTicketService.getTicketList(token);
+    if (response is Success) {
+      AirTicketModel airTicketModel = AirTicketModel.fromJson(
+          (response as Success).response as Map<String, dynamic>);
+      if (airTicketModel.ticketData != null) {
+        for (TicketData data in airTicketModel.ticketData!) {
+          parseDate = DateTime.parse(data.travelDate.toString());
+          date = DateFormat('yyyy-MM-dd').format(parseDate);
+          data.travelDate = date;
+          ticketData.add(data);
+        }
+      }
+      _finalResponse = true;
+    }
+    setIsLoading = false;
+    return _finalResponse;
+  }
+
+  Future<bool> bookAirTicket(String token) async {
     setIsLoading = true;
     _finalResponse = false;
-    Map<String,dynamic> ticketData = {
+    Map<String, dynamic> ticketData = {
       "start": int.parse(_departureAirport['id'].toString()),
       "end": int.parse(_arrivalAirport['id'].toString()),
       "travel_date": ticketDate,
@@ -132,19 +165,18 @@ class AirTicketController extends ChangeNotifier {
       "notice": "No special notices"
     };
     response = await AirTicketService.bookAirTicket(token, ticketData);
-    if(response is Success){
+    if (response is Success) {
       _finalResponse = true;
     }
     setIsLoading = false;
     return _finalResponse;
   }
 
-  void resetData(){
+  void resetData() {
     _departureAirport = {};
     _arrivalAirport = {};
-    ticketDate ="";
+    ticketDate = "";
     _ticketType = "First Class";
     _countOfTravellers = 1;
   }
-
 }

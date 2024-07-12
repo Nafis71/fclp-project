@@ -13,6 +13,15 @@ class AirTicketService {
     return await NetworkRequest().postRequest(
         url: NetworkUrls.bookTicketUrl,
         body: ticketData,
-        headers: {"Authorization": "Bearer $token","content-type":"application/json"});
+        headers: {
+          "Authorization": "Bearer $token",
+          "content-type": "application/json"
+        });
+  }
+
+  static Future<Object> getTicketList(String token) async {
+    return await NetworkRequest().getRequest(
+        url: NetworkUrls.ticketUrl,
+        headers: {"Authorization": "Bearer $token"});
   }
 }
