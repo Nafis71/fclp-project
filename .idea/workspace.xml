@@ -4,37 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- air ticket all information show added">
-      <change afterPath="$PROJECT_DIR$/assets/images/no_ticket.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/product_model/product_category.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/product_model/product_colors.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/product_model/product_data.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/product_model/product_links.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/product_model/product_size.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/services/product_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- product added with api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/air_ticket_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/air_ticket_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/entities/product_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/product_model/product_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/air_ticket_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/air_ticket_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/network_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/network_request.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_strings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/assets_pahts.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/assets_pahts.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_user_requests_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_user_requests_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/home_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/my_cart_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/my_cart_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/product_details_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_details_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/product_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/wishlist_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/wishlist_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/product_grid_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/product_grid_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720775942183</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="- product added with api">
+      <option name="closed" value="true" />
+      <created>1720803167389</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720803167389</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -192,6 +173,7 @@
     <MESSAGE value="- air ticket card added and model created" />
     <MESSAGE value="- air ticket list connected to list builder" />
     <MESSAGE value="- air ticket all information show added" />
-    <option name="LAST_COMMIT_MESSAGE" value="- air ticket all information show added" />
+    <MESSAGE value="- product added with api" />
+    <option name="LAST_COMMIT_MESSAGE" value="- product added with api" />
   </component>
 </project>

@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
@@ -113,18 +115,18 @@ class ProductCard extends StatelessWidget {
                             ),
                           ],
                         ),
-                        if(productDiscountPrice != "0.00") const Row(
+                        if(productDiscountPrice != "0.00") Row(
                           children: [
                             Text(
-                              "50%",
+                              "${context.read<ProductController>().getDiscountPercentage(productDiscountPrice, productOriginalPrice)}%",
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16.0,
                                 color: AppColors.red,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            Icon(Icons.discount_outlined,color: Colors.red,)
+                            const Icon(Icons.discount_outlined,color: Colors.red,)
                           ],
                         )
                       ],

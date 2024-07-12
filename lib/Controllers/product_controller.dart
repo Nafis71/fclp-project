@@ -13,33 +13,44 @@ class ProductController extends ChangeNotifier {
   Object? response;
 
   List<ProductData> get productData => _productData;
+
   bool get nextPageAvailable => _nextPageAvailable;
+
   bool get isLoading => _isLoading;
-  set setIsLoading(bool isLoading){
+
+  set setIsLoading(bool isLoading) {
     _isLoading = isLoading;
   }
 
+  String getDiscountPercentage(String discountPrice, String originalPrice) {
+    double productDiscountPrice = double.parse(discountPrice);
+    double productOriginalPrice = double.parse(originalPrice);
+    double result = ((productOriginalPrice - productDiscountPrice)/productOriginalPrice) * 100;
+    String discountPercentage = result.toStringAsFixed(0);
+    return discountPercentage;
+  }
 
   Future<bool> loadProductData(int page, String token) async {
     _finalResponse = false;
     setIsLoading = true;
-    response = await ProductService.getAllProductList("page=${page.toString()}", token);
+    response = await ProductService.getAllProductList(
+        "page=${page.toString()}", token);
     if (response is Success) {
       ProductModel productModel = ProductModel.fromJson(
           (response as Success).response as Map<String, dynamic>);
-      if(productModel.productData != null){
-        if(_productData.isEmpty){
+      if (productModel.productData != null) {
+        if (_productData.isEmpty) {
           _productData = List.from(productModel.productData as Iterable);
-        } else{
+        } else {
           _productData + List.from(productModel.productData as Iterable);
         }
       }
-      if(productModel.nextPageUrl != null){
+      if (productModel.nextPageUrl != null) {
         _nextPageAvailable = true;
-      } else{
+      } else {
         _nextPageAvailable = false;
       }
-      _finalResponse =true;
+      _finalResponse = true;
     }
     setIsLoading = false;
     notifyListeners();
