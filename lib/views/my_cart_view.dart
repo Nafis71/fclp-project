@@ -19,190 +19,191 @@ class _MyCartViewState extends State<MyCartView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(),
-      body: Consumer<ProductController>(
-        builder: (context, productController, child) {
-          return Visibility(
-            visible: productController.productShoppingCartList.isNotEmpty,
-            replacement: buildEmptyWidget(
-              context: context,
-              message: "Your cart is empty.",
-            ),
-            child: ListView.builder(
-              itemCount: productController.productShoppingCartList.length,
-              itemBuilder: (context, index) {
-                var product = productController.productShoppingCartList[index];
-                return Card(
-                  margin: const EdgeInsets.all(8.0),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Stack(
-                      alignment: Alignment.topRight,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 100,
-                              width: 100,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  product.img,
-                                  fit: BoxFit.cover,
-                                  errorBuilder: (context, error, stackTrace) {
-                                    return const Center(
-                                      child: Icon(Icons.error),
-                                    );
-                                  },
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 16),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    product.title,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 8,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        "৳${productController.calculateDiscountedPrice(product).toStringAsFixed(2)}",
-                                        style: const TextStyle(
-                                          color: AppColors.green,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 8,
-                                      ),
-                                      Text(
-                                        "(৳${product.originalPrice.toString()})",
-                                        style: const TextStyle(
-                                          color: AppColors.grey,
-                                          decoration:
-                                              TextDecoration.lineThrough,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    height: 8,
-                                  ),
-                                  Row(
-                                    children: [
-                                      InkWell(
-                                        onTap: () {
-                                          productController
-                                              .incrementCartProduct(product);
-                                        },
-                                        child: Container(
-                                          height: 30,
-                                          width: 30,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
-                                              color: AppColors.green,
-                                              width: 1.5,
-                                            ),
-                                          ),
-                                          child: const Icon(
-                                            Icons.add,
-                                            color: AppColors.green,
-                                            size: 20,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 8,
-                                      ),
-                                      Text(
-                                        product.count.toString(),
-                                        style: const TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 8,
-                                      ),
-                                      InkWell(
-                                        onTap: () {
-                                          productController
-                                              .decrementCartProduct(product);
-                                        },
-                                        child: Container(
-                                          height: 30,
-                                          width: 30,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
-                                              color: AppColors.green,
-                                              width: 1.5,
-                                            ),
-                                          ),
-                                          child: const Icon(
-                                            Icons.remove,
-                                            color: AppColors.green,
-                                            size: 20,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        Positioned(
-                          child: IconButton(
-                            onPressed: () {
-                              productController
-                                  .removeShoppingCartListProduct(index);
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: CartMessage(
-                                    context: context,
-                                    message:
-                                        "Removed from cart: ${product.title}",
-                                  ),
-                                  duration: const Duration(seconds: 2),
-                                  action: SnackBarAction(
-                                    label: 'UNDO',
-                                    onPressed: () {
-                                      productController.addToCart(
-                                          index, product);
-                                    },
-                                  ),
-                                ),
-                              );
-                            },
-                            icon: const Icon(
-                              Icons.delete_outline,
-                              color: AppColors.red,
-                              size: 30,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-          );
-        },
-      ),
+      // body: Consumer<ProductController>(
+      //   builder: (context, productController, child) {
+      //     return Visibility(
+      //       visible: productController.productShoppingCartList.isNotEmpty,
+      //       replacement: buildEmptyWidget(
+      //         context: context,
+      //         message: "Your cart is empty.",
+      //       ),
+      //       child: ListView.builder(
+      //         itemCount: productController.productShoppingCartList.length,
+      //         itemBuilder: (context, index) {
+      //           var product = productController.productShoppingCartList[index];
+      //           return Card(
+      //             margin: const EdgeInsets.all(8.0),
+      //             child: Padding(
+      //               padding: const EdgeInsets.all(8.0),
+      //               child: Stack(
+      //                 alignment: Alignment.topRight,
+      //                 children: [
+      //                   Row(
+      //                     crossAxisAlignment: CrossAxisAlignment.start,
+      //                     children: [
+      //                       SizedBox(
+      //                         height: 100,
+      //                         width: 100,
+      //                         child: ClipRRect(
+      //                           borderRadius: BorderRadius.circular(8.0),
+      //                           child: Image.network(
+      //                             product.img,
+      //                             fit: BoxFit.cover,
+      //                             errorBuilder: (context, error, stackTrace) {
+      //                               return const Center(
+      //                                 child: Icon(Icons.error),
+      //                               );
+      //                             },
+      //                           ),
+      //                         ),
+      //                       ),
+      //                       const SizedBox(width: 16),
+      //                       Expanded(
+      //                         child: Column(
+      //                           crossAxisAlignment: CrossAxisAlignment.start,
+      //                           children: [
+      //                             Text(
+      //                               product.title,
+      //                               style: const TextStyle(
+      //                                 fontWeight: FontWeight.bold,
+      //                                 fontSize: 18,
+      //                               ),
+      //                             ),
+      //                             const SizedBox(
+      //                               height: 8,
+      //                             ),
+      //                             Row(
+      //                               children: [
+      //                                 Text(
+      //                                   "৳${productController.calculateDiscountedPrice(product).toStringAsFixed(2)}",
+      //                                   style: const TextStyle(
+      //                                     color: AppColors.green,
+      //                                     fontWeight: FontWeight.bold,
+      //                                     fontSize: 16,
+      //                                   ),
+      //                                 ),
+      //                                 const SizedBox(
+      //                                   width: 8,
+      //                                 ),
+      //                                 Text(
+      //                                   "(৳${product.originalPrice.toString()})",
+      //                                   style: const TextStyle(
+      //                                     color: AppColors.grey,
+      //                                     decoration:
+      //                                         TextDecoration.lineThrough,
+      //                                   ),
+      //                                 ),
+      //                               ],
+      //                             ),
+      //                             const SizedBox(
+      //                               height: 8,
+      //                             ),
+      //                             Row(
+      //                               children: [
+      //                                 InkWell(
+      //                                   onTap: () {
+      //                                     productController
+      //                                         .incrementCartProduct(product);
+      //                                   },
+      //                                   child: Container(
+      //                                     height: 30,
+      //                                     width: 30,
+      //                                     decoration: BoxDecoration(
+      //                                       shape: BoxShape.circle,
+      //                                       border: Border.all(
+      //                                         color: AppColors.green,
+      //                                         width: 1.5,
+      //                                       ),
+      //                                     ),
+      //                                     child: const Icon(
+      //                                       Icons.add,
+      //                                       color: AppColors.green,
+      //                                       size: 20,
+      //                                     ),
+      //                                   ),
+      //                                 ),
+      //                                 const SizedBox(
+      //                                   width: 8,
+      //                                 ),
+      //                                 Text(
+      //                                   product.count.toString(),
+      //                                   style: const TextStyle(
+      //                                     fontSize: 18,
+      //                                     fontWeight: FontWeight.bold,
+      //                                   ),
+      //                                 ),
+      //                                 const SizedBox(
+      //                                   width: 8,
+      //                                 ),
+      //                                 InkWell(
+      //                                   onTap: () {
+      //                                     productController
+      //                                         .decrementCartProduct(product);
+      //                                   },
+      //                                   child: Container(
+      //                                     height: 30,
+      //                                     width: 30,
+      //                                     decoration: BoxDecoration(
+      //                                       shape: BoxShape.circle,
+      //                                       border: Border.all(
+      //                                         color: AppColors.green,
+      //                                         width: 1.5,
+      //                                       ),
+      //                                     ),
+      //                                     child: const Icon(
+      //                                       Icons.remove,
+      //                                       color: AppColors.green,
+      //                                       size: 20,
+      //                                     ),
+      //                                   ),
+      //                                 ),
+      //                               ],
+      //                             ),
+      //                           ],
+      //                         ),
+      //                       ),
+      //                     ],
+      //                   ),
+      //                   Positioned(
+      //                     child: IconButton(
+      //                       onPressed: () {
+      //                         productController
+      //                             .removeShoppingCartListProduct(index);
+      //                         ScaffoldMessenger.of(context).showSnackBar(
+      //                           SnackBar(
+      //                             content: CartMessage(
+      //                               context: context,
+      //                               message:
+      //                                   "Removed from cart: ${product.title}",
+      //                             ),
+      //                             duration: const Duration(seconds: 2),
+      //                             action: SnackBarAction(
+      //                               label: 'UNDO',
+      //                               onPressed: () {
+      //                                 productController.addToCart(
+      //                                     index, product);
+      //                               },
+      //                             ),
+      //                           ),
+      //                         );
+      //                       },
+      //                       icon: const Icon(
+      //                         Icons.delete_outline,
+      //                         color: AppColors.red,
+      //                         size: 30,
+      //                       ),
+      //                     ),
+      //                   ),
+      //                 ],
+      //               ),
+      //             ),
+      //           );
+      //         },
+      //       ),
+      //     );
+      //   },
+      // )
+      body: Column(),
       bottomNavigationBar: Consumer<ProductController>(
         builder: (context, productController, child) {
           return InkWell(
@@ -234,7 +235,7 @@ class _MyCartViewState extends State<MyCartView> {
                         ),
                       ),
                       Text(
-                        "৳${productController.getTotalAmountForCartView().toStringAsFixed(2)}",
+                        "",
                         style: const TextStyle(
                           color: AppColors.white,
                           fontWeight: FontWeight.bold,

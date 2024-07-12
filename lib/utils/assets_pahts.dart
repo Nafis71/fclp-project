@@ -18,6 +18,7 @@ class AssetsPahts {
   static const bkashSvg = '$_images/bkash.svg';
   static const nagadSvg = '$_images/nagad.svg';
   static const String barCode = "$_images/barcode.png";
+  static const String noTicket = "$_images/no_ticket.svg";
 
   static const delivery = '$_lotties/delivery.json';
   static const commingSoon = '$_lotties/comming_soon.json';

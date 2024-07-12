@@ -1,3 +1,5 @@
+import 'package:fclp_app/Controllers/product_controller.dart';
+import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_drawer.dart';
@@ -7,9 +9,25 @@ import 'package:fclp_app/widgets/home_view_wigets/help_service_buttons.dart';
 import 'package:fclp_app/widgets/home_view_wigets/product_service_buttons.dart';
 import 'package:fclp_app/widgets/home_view_wigets/welcome_banner.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  final ScrollController scrollController = ScrollController();
+  int page = 1;
+
+  @override
+  void initState() {
+    scrollController.addListener(_scrollListener);
+    loadProductData(page);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +37,7 @@ class HomeView extends StatelessWidget {
         fromHomeView: true,
       ),
       body: SingleChildScrollView(
+        controller: scrollController,
         child: Column(
           children: [
             const WelcomeBanner(),
@@ -56,5 +75,22 @@ class HomeView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> loadProductData(int page) async {
+    await context
+        .read<ProductController>()
+        .loadProductData(page, context.read<ProfileController>().token);
+  }
+
+  void _scrollListener() {
+    if(!context.read<ProductController>().isLoading && context.read<ProductController>().nextPageAvailable){
+      if (scrollController.position.pixels ==
+          scrollController.position.maxScrollExtent) {
+        page += 1;
+        print("Loading");
+        loadProductData(page);
+      }
+    }
   }
 }

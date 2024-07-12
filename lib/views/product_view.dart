@@ -17,7 +17,7 @@ class _ProductViewState extends State<ProductView> {
       body: const SingleChildScrollView(
         child: Column(
           children: [
-            ProductGridView(),
+            // ProductGridView(),
           ],
         ),
       ),

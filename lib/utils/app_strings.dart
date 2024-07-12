@@ -14,4 +14,5 @@ class AppStrings {
   static const String noDateSelected = "একটি তারিখ নির্বাচন করুন";
   static const String invalidTripTitle = "ভুল ট্রিপ";
   static const String invalidTripMessage = "আপনি প্রস্থান এবং আগমনের জন্য একই গন্তব্য বেছে নিয়েছেন";
+  static const String noAirTicketMessage = "আপনি এখনো কোনো টিকিট বুক করেননি";
 }

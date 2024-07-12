@@ -53,6 +53,7 @@ class NetworkRequest {
   }
 
   Object _getResponse(Response response) {
+    print(response.statusCode);
     if (response.statusCode == 200) {
       return Success(
           response: jsonDecode(response.body), statusCode: response.statusCode);

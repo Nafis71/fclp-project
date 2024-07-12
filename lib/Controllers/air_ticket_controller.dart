@@ -23,12 +23,16 @@ class AirTicketController extends ChangeNotifier {
   bool _isLoading = false;
   bool _isTicketListLoading = false;
   bool _finalResponse = false;
+  bool _hasTicketFound = true;
+
+  bool get hasTicketFound => _hasTicketFound;
 
   Map<String, String> get departureAirport => _departureAirport;
 
   Map<String, String> get arrivalAirport => _arrivalAirport;
 
   List<Map<String, String>> get airports => _airports;
+
 
   set setDepartureAirport(Map<String, String> departureAirport) {
     _departureAirport = departureAirport;
@@ -148,8 +152,10 @@ class AirTicketController extends ChangeNotifier {
           parsedDate = DateTime.parse(ticket.createdAt.toString());
           date = DateFormat('MMMEd').format(parsedDate);
           ticket.createdAt = date;
-          ticket.departureShort = getAirportShortName(ticket.from!.airportName.toString());
-          ticket.arrivalShort = getAirportShortName(ticket.to!.airportName.toString());
+          ticket.departureShort =
+              getAirportShortName(ticket.from!.airportName.toString());
+          ticket.arrivalShort =
+              getAirportShortName(ticket.to!.airportName.toString());
           ticket.status = getTicketStatus(ticket.status.toString());
           ticket.price = (ticket.price) == null
               ? "Confirmation Pending"
@@ -160,14 +166,15 @@ class AirTicketController extends ChangeNotifier {
       }
       _finalResponse = true;
     }
+    if(ticketData.isEmpty) _hasTicketFound = false;
     setIsLoading = false;
     return _finalResponse;
   }
 
-  String getAirportShortName(String airportName){
+  String getAirportShortName(String airportName) {
     List<String> collection = airportName.split(" ");
-    String shortForm ="";
-    for(String string in collection){
+    String shortForm = "";
+    for (String string in collection) {
       shortForm = shortForm + string[0].toUpperCase();
     }
     return shortForm;
