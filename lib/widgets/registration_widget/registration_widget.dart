@@ -238,7 +238,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                       onPressed: () {
                         context.read<AuthController>().setIsLoginScreen(true);
                       },
-                      child: const Text("লগইন করুন"),
+                      child: const Text("লগইন করুন",style: TextStyle(color: Colors.black)),
                     ),
                   ),
                   const SizedBox(

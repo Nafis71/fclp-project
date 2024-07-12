@@ -1,4 +1,4 @@
-import 'package:fclp_app/utils/assets_pahts.dart';
+import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/utils/size_config.dart';
 import 'package:fclp_app/views/main_bottom_nav_view.dart';

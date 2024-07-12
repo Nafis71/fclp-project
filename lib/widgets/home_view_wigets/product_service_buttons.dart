@@ -1,4 +1,5 @@
 import 'package:fclp_app/Controllers/air_ticket_controller.dart';
+import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/air_ticket_view.dart';
 import 'package:fclp_app/views/blood_bank_view.dart';
@@ -26,7 +27,7 @@ class ProductSeviceButtons extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ServiceButtons(
-              imagePath: 'assets/air_ticket.png',
+              imagePath: AssetsPahts.airTicketIcon,
               label: 'এয়ার টিকেট',
               onTabService: () {
                 Navigator.push(
@@ -40,7 +41,7 @@ class ProductSeviceButtons extends StatelessWidget {
               },
             ),
             ServiceButtons(
-              imagePath: 'assets/newspapers.png',
+              imagePath: AssetsPahts.newsPaperIcon,
               label: 'নিউজ পেপার',
               onTabService: () {
                 Navigator.push(
@@ -52,7 +53,7 @@ class ProductSeviceButtons extends StatelessWidget {
               },
             ),
             ServiceButtons(
-              imagePath: 'assets/online_shop.png',
+              imagePath: AssetsPahts.onlineShopIcon,
               label: 'অনলাইন শপ',
               onTabService: () {
                 Navigator.push(
@@ -64,7 +65,7 @@ class ProductSeviceButtons extends StatelessWidget {
               },
             ),
             ServiceButtons(
-              imagePath: 'assets/blood_bank.png',
+              imagePath: AssetsPahts.bloodBankIcon,
               label: 'ব্লাড ব্যাংক',
               onTabService: () {
                 Navigator.push(
@@ -76,7 +77,7 @@ class ProductSeviceButtons extends StatelessWidget {
               },
             ),
             ServiceButtons(
-              imagePath: 'assets/online_doctor.png',
+              imagePath: AssetsPahts.onlineDoctorIcon,
               label: 'অনলাইন ডাক্তার',
               onTabService: () {
                 Navigator.push(

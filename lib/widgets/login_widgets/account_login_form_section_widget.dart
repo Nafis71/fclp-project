@@ -149,7 +149,7 @@ class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
                     onPressed: () {
                       context.read<AuthController>().setIsLoginScreen(false);
                     },
-                    child: const Text("রেজিস্ট্রেশন করুন"),
+                    child: const Text("রেজিস্ট্রেশন করুন",style: TextStyle(color: Colors.black),),
                   ),
                   const SizedBox(
                     height: 24,

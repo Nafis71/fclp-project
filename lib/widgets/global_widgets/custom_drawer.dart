@@ -1,6 +1,6 @@
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/Controllers/url_launcher_controller.dart';
-import 'package:fclp_app/utils/assets_pahts.dart';
+import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/utils/style.dart';
 import 'package:fclp_app/views/auth_view/login_view.dart';

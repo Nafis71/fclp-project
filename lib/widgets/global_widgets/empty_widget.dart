@@ -1,4 +1,4 @@
-import 'package:fclp_app/utils/assets_pahts.dart';
+import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';

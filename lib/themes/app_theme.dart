@@ -13,7 +13,7 @@ ThemeData lightThemeData() {
       ),
       titleLarge: TextStyle(
         fontWeight: FontWeight.bold,
-        fontSize: 20,
+        fontSize: 24,
         color: AppColors.themeColor,
       ),
       titleMedium: TextStyle(

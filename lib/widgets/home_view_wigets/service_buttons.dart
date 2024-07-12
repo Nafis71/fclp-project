@@ -1,5 +1,6 @@
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ServiceButtons extends StatelessWidget {
   final String imagePath;
@@ -28,11 +29,7 @@ class ServiceButtons extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                 horizontal: 10.0,
               ),
-              child: Image.asset(
-                imagePath,
-                height: 40.0,
-                width: 40.0,
-              ),
+              child: SvgPicture.asset(imagePath,width: 42,fit: BoxFit.cover,)
             ),
           ),
           const SizedBox(height: 5.0),

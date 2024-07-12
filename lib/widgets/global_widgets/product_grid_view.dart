@@ -1,5 +1,5 @@
 import 'package:fclp_app/Controllers/product_controller.dart';
-import 'package:fclp_app/utils/assets_pahts.dart';
+import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/product_details_view.dart';
 import 'package:fclp_app/widgets/global_widgets/product_card.dart';

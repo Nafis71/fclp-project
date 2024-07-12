@@ -12,7 +12,7 @@ class AssetsPahts {
 
 
   static const profile = '$_images/profile.png';
-  static const airTicket = '$_images/air_ticket.svg';
+  static const airTicketBanner = '$_images/air_ticket.svg';
   static const welcome = '$_images/welcome.jpg';
   static const earningPoint = '$_images/earning.png';
   static const bkashSvg = '$_images/bkash.svg';
@@ -26,4 +26,14 @@ class AssetsPahts {
   static const appLogo = "$_images/app_logo.png";
   static const String airplaneImage = "$_images/airplane.svg";
   static const String welcomeLottie = "$_lotties/welcome.json";
+
+  static const String airTicketIcon = "$icons/air_ticket.svg";
+  static const String newsPaperIcon = "$icons/news_paper.svg";
+  static const String onlineShopIcon = "$icons/online_shop.svg";
+  static const String onlineDoctorIcon = "$icons/online_doctor.svg";
+  static const String bloodBankIcon = "$icons/blood_bank.svg";
+  static const String facebookIcon = "$icons/facebook.svg";
+  static const String youtubeIcon = "$icons/youtube.svg";
+  static const String telegramIcon = "$icons/telegram.svg";
+  static const String tiktokIcon = "$icons/tiktok.svg";
 }

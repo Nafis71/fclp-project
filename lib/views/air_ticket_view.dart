@@ -1,6 +1,6 @@
 import 'package:fclp_app/Controllers/air_ticket_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
-import 'package:fclp_app/utils/assets_pahts.dart';
+import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/air_ticket_apply_view.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';

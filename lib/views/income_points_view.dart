@@ -1,4 +1,4 @@
-import 'package:fclp_app/utils/assets_pahts.dart';
+import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/auth_view/bkash_point_withdraw_form_view.dart';
 import 'package:fclp_app/views/auth_view/nagad_point_withdraw_form_view.dart';
