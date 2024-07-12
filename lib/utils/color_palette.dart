@@ -13,4 +13,14 @@ class AppColors {
   static const Color blue = Colors.blue;
   static const Color black = Colors.black;
   static const Color amber = Colors.amber;
+
+  static airTicketStatusColor(String status){
+    Map<String,Color> statusColor ={
+      "Submitted" : Colors.amber,
+      "In Review" : Colors.orange,
+      "Approved" : Colors.green,
+      "Canceled" : Colors.red,
+    };
+    return statusColor[status];
+  }
 }

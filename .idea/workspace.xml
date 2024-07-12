@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- air ticket card added and model created">
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- air ticket list connected to list builder">
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Controllers/air_ticket_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/air_ticket_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/air_ticket_model/ticket_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/air_ticket_model/ticket_data.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/services/air_ticket_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/air_ticket_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_apply_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_apply_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/network_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/network_request.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/color_palette.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/color_palette.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_user_requests_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_user_requests_view.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +65,6 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "flutter.performance.tool.window.visible": "true",
     "git-widget-placeholder": "master",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
@@ -140,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720741547115</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- air ticket list connected to list builder">
+      <option name="closed" value="true" />
+      <created>1720744133591</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720744133591</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -151,6 +160,7 @@
     <MESSAGE value="- airport list loader added" />
     <MESSAGE value="- air ticket booking added" />
     <MESSAGE value="- air ticket card added and model created" />
-    <option name="LAST_COMMIT_MESSAGE" value="- air ticket card added and model created" />
+    <MESSAGE value="- air ticket list connected to list builder" />
+    <option name="LAST_COMMIT_MESSAGE" value="- air ticket list connected to list builder" />
   </component>
 </project>

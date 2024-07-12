@@ -20,6 +20,7 @@ class AirTicketService {
   }
 
   static Future<Object> getTicketList(String token) async {
+    print(token);
     return await NetworkRequest().getRequest(
         url: NetworkUrls.ticketUrl,
         headers: {"Authorization": "Bearer $token"});

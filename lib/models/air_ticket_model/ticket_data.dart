@@ -7,7 +7,7 @@ class TicketData{
   String? travelDate;
   String? types;
   String? person;
-  Null? price;
+  String? price;
   String? userId;
   String? status;
   String? notice;
@@ -15,6 +15,8 @@ class TicketData{
   String? updatedAt;
   Transit? from;
   Transit? to;
+  String? departureShort;
+  String? arrivalShort;
 
   TicketData(
       {this.id,

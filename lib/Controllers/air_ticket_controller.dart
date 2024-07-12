@@ -10,7 +10,7 @@ import 'package:intl/intl.dart';
 class AirTicketController extends ChangeNotifier {
   Object? response;
   final List<Map<String, String>> _airports = [];
-  final List<TicketData> ticketData = [];
+  late List<TicketData> ticketData = [];
   Map<String, String> _departureAirport = {};
   Map<String, String> _arrivalAirport = {};
   String _ticketType = 'First Class';
@@ -83,7 +83,7 @@ class AirTicketController extends ChangeNotifier {
       "ইকোনমি": "Economy",
       "বিজনেস": "Business",
       "প্রিমিয়াম": "Premium",
-      "ফার্স্ট ক্লাস": "First Class"
+      "ফার্স্ট ক্লাস": "First"
     };
     _ticketType = ticketTypes[ticketType]!;
   }
@@ -132,24 +132,55 @@ class AirTicketController extends ChangeNotifier {
 
   Future<bool> loadTicketList(String token) async {
     _finalResponse = false;
-    DateTime parseDate;
+    DateTime parsedDate;
     String date;
     response = await AirTicketService.getTicketList(token);
     if (response is Success) {
+      ticketData.clear();
+      List<TicketData> tempTicketData = [];
       AirTicketModel airTicketModel = AirTicketModel.fromJson(
           (response as Success).response as Map<String, dynamic>);
       if (airTicketModel.ticketData != null) {
-        for (TicketData data in airTicketModel.ticketData!) {
-          parseDate = DateTime.parse(data.travelDate.toString());
-          date = DateFormat('yyyy-MM-dd').format(parseDate);
-          data.travelDate = date;
-          ticketData.add(data);
+        for (TicketData ticket in airTicketModel.ticketData!) {
+          parsedDate = DateTime.parse(ticket.travelDate.toString());
+          date = DateFormat('yyyy-MM-dd').format(parsedDate);
+          ticket.travelDate = date;
+          parsedDate = DateTime.parse(ticket.createdAt.toString());
+          date = DateFormat('MMMEd').format(parsedDate);
+          ticket.createdAt = date;
+          ticket.departureShort = getAirportShortName(ticket.from!.airportName.toString());
+          ticket.arrivalShort = getAirportShortName(ticket.to!.airportName.toString());
+          ticket.status = getTicketStatus(ticket.status.toString());
+          ticket.price = (ticket.price) == null
+              ? "Confirmation Pending"
+              : "${ticket.price} BDT";
+          tempTicketData.add(ticket);
         }
+        ticketData = List.from(tempTicketData.reversed.toList());
       }
       _finalResponse = true;
     }
     setIsLoading = false;
     return _finalResponse;
+  }
+
+  String getAirportShortName(String airportName){
+    List<String> collection = airportName.split(" ");
+    String shortForm ="";
+    for(String string in collection){
+      shortForm = shortForm + string[0].toUpperCase();
+    }
+    return shortForm;
+  }
+
+  String getTicketStatus(String status) {
+    Map<String, String> ticketStatus = {
+      "0": "Submitted",
+      "1": "In Review",
+      "2": "Approved",
+      "3": "Canceled",
+    };
+    return ticketStatus[status] ?? "Submitted";
   }
 
   Future<bool> bookAirTicket(String token) async {
