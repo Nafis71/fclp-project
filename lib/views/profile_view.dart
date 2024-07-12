@@ -56,11 +56,11 @@ class _ProfileViewState extends State<ProfileView> {
                   ),
                   child: const Center(
                     child: Text(
-                      "আপনার ছবি আপলোড করুন।",
+                      "আপনার ছবি পরিবর্তন করুন।",
                       style: TextStyle(
                         color: AppColors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                        fontSize: 16,
                       ),
                     ),
                   ),
@@ -98,27 +98,27 @@ class _ProfileViewState extends State<ProfileView> {
                             style: ElevatedButton.styleFrom(
                               fixedSize: const Size.fromWidth(110),
                               textStyle: const TextStyle(
-                                fontSize: 17,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             onPressed: () {
                               profileController.toggleEdit();
                             },
-                            child: const Text("Edit"),
+                            child: const Text("তথ্য সংশোধন করুন"),
                           ),
                         ],
                       ),
                 const SizedBox(
                   height: 32,
                 ),
-                const Text(
+                 Text(
                   "পাসওয়ার্ড পরিবর্তন করুন।",
                   style: TextStyle(
                     overflow: TextOverflow.ellipsis,
                     color: AppColors.themeColor,
                     fontWeight: FontWeight.bold,
-                    fontSize: 25,
+                    fontSize: 18,
                   ),
                 ),
                 const SizedBox(

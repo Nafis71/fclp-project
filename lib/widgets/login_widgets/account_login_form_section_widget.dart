@@ -123,7 +123,7 @@ class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
                   Consumer<AuthController>(
                     builder: (_, viewModel, __) => Visibility(
                       visible: !viewModel.isLoading,
-                      replacement: const CircularProgressIndicator(
+                      replacement:  CircularProgressIndicator(
                         color: AppColors.themeColor,
                       ),
                       child: ElevatedButton(

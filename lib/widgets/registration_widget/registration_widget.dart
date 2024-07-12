@@ -201,7 +201,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                   Consumer<AuthController>(
                     builder: (_, viewModel, __) => Visibility(
                       visible: !viewModel.isLoading,
-                      replacement: const CircularProgressIndicator(
+                      replacement:  CircularProgressIndicator(
                         color: AppColors.themeColor,
                       ),
                       child: SizedBox(

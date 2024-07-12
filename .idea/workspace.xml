@@ -4,10 +4,38 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- product added with api">
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- discount calculation added">
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/themes/app_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/themes/app_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/color_palette.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/color_palette.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/style.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/style.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_apply_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_apply_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_user_requests_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_user_requests_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/delivery_address_form_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/delivery_address_form_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/home_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/income_point_history_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/income_point_history_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/order_confirmation_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/order_confirmation_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/point_withdraw_history_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/point_withdraw_history_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/profile_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/profile_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/splash_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/splash_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/system_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/system_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/airport_selector.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/airport_selector.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/date_selector.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/date_selector.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/ticket_selector.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/ticket_selector.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/travellers_selector.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/travellers_selector.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/product_grid_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/product_grid_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/home_view_wigets/welcome_banner.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/home_view_wigets/welcome_banner.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/login_widgets/account_login_form_section_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/login_widgets/account_login_form_section_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/profile_widgets/form_input_decoration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/profile_widgets/form_input_decoration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/profile_widgets/info_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/profile_widgets/info_section.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/profile_widgets/password_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/profile_widgets/password_section.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/registration_widget/registration_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/registration_widget/registration_widget.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720803167389</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="- discount calculation added">
+      <option name="closed" value="true" />
+      <created>1720804063648</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1720804063648</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -174,6 +210,7 @@
     <MESSAGE value="- air ticket list connected to list builder" />
     <MESSAGE value="- air ticket all information show added" />
     <MESSAGE value="- product added with api" />
-    <option name="LAST_COMMIT_MESSAGE" value="- product added with api" />
+    <MESSAGE value="- discount calculation added" />
+    <option name="LAST_COMMIT_MESSAGE" value="- discount calculation added" />
   </component>
 </project>

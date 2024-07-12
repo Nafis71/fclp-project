@@ -2,7 +2,7 @@ import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 ButtonStyle drawerButtonStyle = ElevatedButton.styleFrom(
-  backgroundColor: AppColors.green,
+  backgroundColor: AppColors.themeColor,
   foregroundColor: Colors.white,
   fixedSize: const Size.fromWidth(double.maxFinite),
   shape: RoundedRectangleBorder(

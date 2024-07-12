@@ -30,11 +30,11 @@ Widget dateSelector({
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   "ভ্রমন এর তারিখ",
                   style: TextStyle(
                     fontSize: 15,
-                    color: AppColors.green,
+                    color: AppColors.themeColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -44,17 +44,17 @@ Widget dateSelector({
                 Text(
                   date,
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.normal,
                     fontSize: 14,
-                    color: (context.read<AirTicketController>().ticketDate.isNotEmpty) ? AppColors.green : Colors.grey,
+                    color: (context.read<AirTicketController>().ticketDate.isNotEmpty) ? AppColors.black : Colors.grey,
                   ),
                 ),
               ],
             ),
           ),
-          const Icon(
+          Icon(
             Icons.calendar_today,
-            color: AppColors.green,
+            color: AppColors.themeColor,
           ),
         ],
       ),

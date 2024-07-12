@@ -6,21 +6,21 @@ InputDecoration formInputDecoration({String? hintText}) {
       hintText: hintText,
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(
-          color: AppColors.green,
+        borderSide: BorderSide(
+          color: AppColors.secondaryThemeColor,
           width: 2,
         ),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(
-          color: AppColors.green,
+        borderSide:  BorderSide(
+          color: AppColors.themeColor,
           width: 2,
         ),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(
+        borderSide:  const BorderSide(
           color: AppColors.red,
           width: 2,
         ),

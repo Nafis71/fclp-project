@@ -42,7 +42,7 @@ class AirTicketApplyView extends StatelessWidget {
                   airports: context.read<AirTicketController>().airports,
                 ),
               ),
-              const Icon(
+               Icon(
                 Icons.airplane_ticket_rounded,
                 size: 35,
                 color: AppColors.themeColor,
@@ -122,7 +122,7 @@ class AirTicketApplyView extends StatelessWidget {
               child: const Text("সাবমিট করুন"),
             )
           else
-            const Center(
+             Center(
               child: CircularProgressIndicator(
                 color: AppColors.themeColor,
               ),
@@ -134,7 +134,7 @@ class AirTicketApplyView extends StatelessWidget {
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context)=> const AirTicketUserRequestsView()));
             },
-            child: const Text(
+            child:  Text(
               "আপনার রিকুয়েস্ট সমূহ দেখুন",
               style: TextStyle(
                   color: AppColors.themeColor, fontWeight: FontWeight.bold),

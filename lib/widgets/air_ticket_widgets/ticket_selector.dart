@@ -32,10 +32,10 @@ class TicketSelector extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
+           Text(
             "টিকেটের ধরণ",
             style: TextStyle(
-              color: AppColors.green,
+              color: AppColors.themeColor,
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
@@ -51,7 +51,7 @@ class TicketSelector extends StatelessWidget {
               ),
               iconSize: 40,
               icon: const Icon(Icons.arrow_drop_down),
-              iconEnabledColor: AppColors.green,
+              iconEnabledColor: AppColors.themeColor,
               isDense: true,
               isExpanded: true,
               itemHeight: kMinInteractiveDimension,
@@ -66,8 +66,8 @@ class TicketSelector extends StatelessWidget {
                     child: Text(
                       value,
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        color: AppColors.green,
+                      style:  const TextStyle(
+                        color: AppColors.black,
                         fontWeight: FontWeight.normal,
                         fontSize: 15
                       ),

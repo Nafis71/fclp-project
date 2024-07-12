@@ -20,9 +20,9 @@ class WelcomeBanner extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Wrap(
+               Wrap(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Text(
@@ -44,9 +44,9 @@ class WelcomeBanner extends StatelessWidget {
                     ),
                     Text(
                       context.read<ProfileController>().name,
-                      style: const TextStyle(
+                      style:  TextStyle(
                         fontSize: 16,
-                        color: Colors.green,
+                        color: AppColors.themeColor,
                         fontWeight: FontWeight.bold
                       ),
                     ),

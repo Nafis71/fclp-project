@@ -15,28 +15,28 @@ class ProductGridView extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Consumer<ProductController>(
           builder: (_, viewModel, __) {
+            if(viewModel.isLoading){
+              return Center(child: CircularProgressIndicator(color: AppColors.themeColor,),);
+            }
             return GridView.builder(
               shrinkWrap: true,
               primary: false,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 0.65,
+                childAspectRatio: 0.58,
                 crossAxisCount: 2,
-                crossAxisSpacing: 10.5,
-                mainAxisSpacing: 0.5,
+                crossAxisSpacing: 1.5,
+                mainAxisSpacing: 0,
               ),
               itemCount: viewModel.productData.length,
               itemBuilder: (context, index) {
-                if (!viewModel.isLoading) {
-                  return ProductCard(
-                      productImg:
-                          "https://fclpbd.xyz/public/storage/${viewModel.productData[index].image.toString()}",
-                      productTitle: viewModel.productData[index].name.toString(),
-                      isFavorite: false,
-                      toggleFavorite: () {},
-                      productOriginalPrice: viewModel.productData[index].price.toString(),
-                      productDiscountPrice: viewModel.productData[index].discountPrice.toString());
-                }
-                return const Center(child: CircularProgressIndicator(color: AppColors.themeColor,),);
+                return ProductCard(
+                    productImg:
+                    "https://fclpbd.xyz/public/storage/${viewModel.productData[index].image.toString()}",
+                    productTitle: viewModel.productData[index].name.toString(),
+                    isFavorite: false,
+                    toggleFavorite: () {},
+                    productOriginalPrice: viewModel.productData[index].price.toString(),
+                    productDiscountPrice: viewModel.productData[index].discountPrice.toString());
               },
             );
           },

@@ -14,11 +14,11 @@ Form passwordSection({
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+         Text(
           "নতুন পাসওয়ার্ড",
           style: TextStyle(
             color: AppColors.themeColor,
-            fontSize: 20,
+            fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -40,11 +40,11 @@ Form passwordSection({
         const SizedBox(
           height: 8,
         ),
-        const Text(
+         Text(
           "কনফার্ম পাসওয়ার্ড",
           style: TextStyle(
             color: AppColors.themeColor,
-            fontSize: 20,
+            fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -70,7 +70,7 @@ Form passwordSection({
             style: TextStyle(
               color: AppColors.white,
               fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 16,
             ),
           ),
         ),

@@ -33,7 +33,7 @@ class _OrderConfirmationViewState extends State<OrderConfirmationView> {
                 ),
                 child: Column(
                   children: [
-                    const Text(
+                    Text(
                       "অর্ডার কনফার্মড",
                       style: TextStyle(
                         fontSize: 30,

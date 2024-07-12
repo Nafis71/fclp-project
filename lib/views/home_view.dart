@@ -31,47 +31,49 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppBar(),
-      drawer: const CustomDrawer(
-        fromHomeView: true,
-      ),
-      body: SingleChildScrollView(
-        controller: scrollController,
-        child: Column(
-          children: [
-            const WelcomeBanner(),
-            const HelpServiceButtons(),
-            const AirTicketBanner(),
-            const ProductSeviceButtons(),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                height: 40,
-                width: 200,
-                decoration: const BoxDecoration(
-                    color: AppColors.themeColor,
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(50),
-                      topRight: Radius.circular(50),
-                    )),
-                child: const Center(
-                  child: FittedBox(
-                    child: Text(
-                      "আপনার প্রয়োজনীয় পণ্য",
-                      style: TextStyle(
-                        color: AppColors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 17,
+    return SafeArea(
+      child: Scaffold(
+        appBar: customAppBar(),
+        drawer: const CustomDrawer(
+          fromHomeView: true,
+        ),
+        body: SingleChildScrollView(
+          controller: scrollController,
+          child: Column(
+            children: [
+              const WelcomeBanner(),
+              const HelpServiceButtons(),
+              const AirTicketBanner(),
+              const ProductSeviceButtons(),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 15),
+                  height: 40,
+                  width: 200,
+                  decoration:  BoxDecoration(
+                      color: AppColors.themeColor,
+                      borderRadius: const BorderRadius.only(
+                        bottomRight: Radius.circular(50),
+                        topRight: Radius.circular(50),
+                      )),
+                  child: const Center(
+                    child: FittedBox(
+                      child: Text(
+                        "আপনার প্রয়োজনীয় পণ্য",
+                        style: TextStyle(
+                          color: AppColors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-            const ProductGridView(),
-          ],
+              const ProductGridView(),
+            ],
+          ),
         ),
       ),
     );
@@ -88,7 +90,6 @@ class _HomeViewState extends State<HomeView> {
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
         page += 1;
-        print("Loading");
         loadProductData(page);
       }
     }

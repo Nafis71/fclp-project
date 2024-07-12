@@ -25,8 +25,8 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColors.white,
-      elevation: 1,
+      color: AppColors.white.withOpacity(0.95),
+      elevation:0.15,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
@@ -37,7 +37,7 @@ class ProductCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                flex: 3,
+                flex: 2,
                 child: CachedNetworkImage(
                  imageUrl: productImg,
                   imageBuilder: (context,imageProvider){
@@ -50,15 +50,16 @@ class ProductCard extends StatelessWidget {
                          ),
                          image: DecorationImage(
                              image: imageProvider,fit: BoxFit.cover
+
                          ),
                      ),
                    );
                   },
-                  placeholder: (context,url) => const CircularProgressIndicator(color: AppColors.themeColor,),
+                  placeholder: (context,url) => CircularProgressIndicator(color: AppColors.themeColor,),
                 )
               ),
               Flexible(
-                flex: 2,
+                flex: 1,
                 child: Padding(
                   padding:  (productDiscountPrice != "0.00") ? const EdgeInsets.only(
                     left: 8,
@@ -75,7 +76,7 @@ class ProductCard extends StatelessWidget {
                           maxLines: 2,
                           productTitle,
                           overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
+                          style:  const TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.normal,
                             color: AppColors.black,
@@ -90,9 +91,9 @@ class ProductCard extends StatelessWidget {
                                 Text(
                                   (productDiscountPrice != "0.00") ? "ট\t$productDiscountPrice" :"ট\t$productOriginalPrice",
                                   overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
+                                  style:  TextStyle(
                                     fontSize: 15.0,
-                                    color: AppColors.green,
+                                    color: AppColors.themeColor,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -103,7 +104,7 @@ class ProductCard extends StatelessWidget {
                                   (productDiscountPrice != "0.00") ? productOriginalPrice : "",
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
-                                    fontSize: 12.0,
+                                    fontSize: 11.0,
                                     color: AppColors.grey,
                                     fontWeight: FontWeight.bold,
                                     decoration: TextDecoration.lineThrough,
@@ -120,13 +121,13 @@ class ProductCard extends StatelessWidget {
                             Text(
                               "${context.read<ProductController>().getDiscountPercentage(productDiscountPrice, productOriginalPrice)}%",
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                fontSize: 16.0,
-                                color: AppColors.red,
+                              style:  TextStyle(
+                                fontSize: 13.0,
+                                color: Colors.red.shade300,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            const Icon(Icons.discount_outlined,color: Colors.red,)
+                             Icon(Icons.discount_outlined,color: Colors.red.shade300,size: 20,)
                           ],
                         )
                       ],
@@ -144,7 +145,7 @@ class ProductCard extends StatelessWidget {
               onTap: toggleFavorite,
               child: Icon(
                 isFavorite ? Icons.favorite : Icons.favorite_outline,
-                color: isFavorite ? AppColors.red : AppColors.green,
+                color: isFavorite ? AppColors.red : AppColors.themeColor,
                 size: 30,
               ),
             ),

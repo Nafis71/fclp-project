@@ -52,7 +52,7 @@ class _SystemViewState extends State<SystemView> {
                     const SizedBox(
                       height: 16,
                     ),
-                    const Text(
+                     Text(
                       "FCLP",
                       style: TextStyle(
                         color: AppColors.themeColor,

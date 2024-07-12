@@ -11,7 +11,6 @@ import 'package:fclp_app/views/profile_view.dart';
 import 'package:fclp_app/views/reffer_id_view.dart';
 import 'package:fclp_app/views/system_view.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class CustomDrawer extends StatefulWidget {
@@ -74,27 +73,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           ),
                         ),
                       ),
-                      const Text(
-                        "এফ সি এল পি",
-                        style: TextStyle(
-                          color: AppColors.green,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        context.read<ProfileController>().mobileNumber,
-                        style: const TextStyle(
-                          color: AppColors.red,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17,
-                        ),
-                      ),
+                      const SizedBox(height: 20,),
                        Text(
                         context.read<ProfileController>().name,
-                        style: const TextStyle(
-                          color: AppColors.green,
-                          fontSize: 17,
+                        style:  TextStyle(
+                          color: AppColors.themeColor,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       )
@@ -111,7 +95,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     child: ElevatedButton(
                       style: drawerButtonStyle,
                       onPressed: () {},
-                      child: const Text("Account Complete 8%"),
+                      child: const Text("Account not activated"),
                     ),
                   ),
                 ),
@@ -125,123 +109,94 @@ class _CustomDrawerState extends State<CustomDrawer> {
             onTap: () => _onTapHomeButton(
               fromHomeView: widget.fromHomeView,
             ),
-            child: const Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  child: FaIcon(
-                    FontAwesomeIcons.house,
-                    color: AppColors.themeColor,
-                  ),
-                ),
-                title: Text("হোম"),
+            child:  ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(Icons.home_outlined,size: 31,color: AppColors.themeColor,)
               ),
+              title: const Text("হোম"),
             ),
           ),
           InkWell(
             onTap: () => _onTapProfileButton(
               fromProfileView: widget.fromProfileView,
             ),
-            child: const Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  child: FaIcon(
-                    FontAwesomeIcons.user,
-                    color: AppColors.themeColor,
-                  ),
-                ),
-                title: Text("আমার প্রোফাইল"),
+            child:  ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(Icons.perm_identity,size: 30,color: AppColors.themeColor,),
               ),
+              title: const Text("আমার প্রোফাইল"),
             ),
           ),
           InkWell(
             onTap: () => _onTapIncomePointButton(
                 fromIncomePiointView: widget.fromIncomePointView),
-            child: const Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  child: FaIcon(
-                    FontAwesomeIcons.moneyBill1Wave,
-                    color: AppColors.themeColor,
-                  ),
-                ),
-                title: Text("ইনকাম পয়েন্ট"),
+            child:  ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(Icons.currency_exchange,color: AppColors.themeColor,),
               ),
+              title: const Text("ইনকাম পয়েন্ট"),
             ),
           ),
-          const InkWell(
+           InkWell(
             onTap: UrlLauncherController.makePhoneCall,
-            child: Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  child: FaIcon(
-                    FontAwesomeIcons.phone,
-                    color: AppColors.themeColor,
-                  ),
-                ),
-                title: Text("যোগাযোগ"),
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(Icons.phone_outlined,size: 30,color: AppColors.themeColor,),
               ),
+              title: const Text("যোগাযোগ"),
             ),
           ),
           InkWell(
             onTap: () => _onTapBusinessButton(
               fromBusinessView: widget.fromBusinessView,
             ),
-            child: const Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  child: FaIcon(
-                    FontAwesomeIcons.businessTime,
-                    color: AppColors.themeColor,
-                  ),
-                ),
-                title: Text("বিজনেস"),
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(Icons.cases_outlined,color: AppColors.themeColor,),
               ),
+              title: const Text("বিজনেস"),
             ),
           ),
           InkWell(
             onTap: () => _onTapRefferIDButton(
               fromRefferIdView: widget.fromRefferIdView,
             ),
-            child: const Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  child: FaIcon(
-                    FontAwesomeIcons.userTag,
-                    color: AppColors.themeColor,
-                  ),
-                ),
-                title: Text("রেফার আইডি"),
+            child:  ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(Icons.discount_outlined,color: AppColors.themeColor,)
               ),
+              title: const Text("রেফার আইডি"),
             ),
           ),
           InkWell(
             onTap: () => _onTapSystemButton(
               fromSystemView: widget.fromSystemView,
             ),
-            child: const Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  child: FaIcon(
-                    FontAwesomeIcons.mobileScreen,
-                    color: AppColors.themeColor,
-                  ),
-                ),
-                title: Text("সিস্টেম"),
+            child:  ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(Icons.settings,color: AppColors.themeColor,)
               ),
+              title: const Text("সিস্টেম"),
             ),
           ),
           InkWell(
             onTap: _onTapLogOutButton,
-            child: const Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  child: Icon(
-                    Icons.logout,
-                    color: Colors.red,
-                  ),
+            child: const ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(
+                  Icons.logout,
+                  color: Colors.red,
                 ),
-                title: Text("লগ আউট"),
               ),
+              title: Text("লগ আউট"),
             ),
           ),
         ],

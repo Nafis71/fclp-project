@@ -32,10 +32,10 @@ class TravellerSelector extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
+           Text(
             "ভ্রমণকারীর সংখ্যা",
             style: TextStyle(
-              color: AppColors.green,
+              color: AppColors.themeColor,
               fontSize: 15,
               fontWeight: FontWeight.bold,
             ),
@@ -51,7 +51,7 @@ class TravellerSelector extends StatelessWidget {
               ),
               iconSize: 40,
               icon: const Icon(Icons.arrow_drop_down),
-              iconEnabledColor: AppColors.green,
+              iconEnabledColor: AppColors.themeColor,
               isDense: true,
               isExpanded: true,
               itemHeight: kMinInteractiveDimension,
@@ -69,7 +69,7 @@ class TravellerSelector extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 15,
                           fontWeight: FontWeight.normal,
-                        color: AppColors.green
+                        color: AppColors.black
                       ),
                     ),
                   );

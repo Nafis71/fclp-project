@@ -5,29 +5,29 @@ ThemeData lightThemeData() {
   return ThemeData(
     brightness: Brightness.light,
     scaffoldBackgroundColor: AppColors.backgroundColor,
-    textTheme: const TextTheme(
+    textTheme: TextTheme(
       bodySmall: TextStyle(
-        color: AppColors.green,
+        color: AppColors.themeColor,
         fontWeight: FontWeight.bold,
         fontSize: 15,
       ),
       titleLarge: TextStyle(
         fontWeight: FontWeight.bold,
-        fontSize: 25,
-        color: AppColors.green,
+        fontSize: 20,
+        color: AppColors.themeColor,
       ),
       titleMedium: TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 25,
-        color: AppColors.green,
+        color: AppColors.themeColor,
       ),
     ),
-    inputDecorationTheme: const InputDecorationTheme(
-      suffixIconColor: AppColors.green,
+    inputDecorationTheme:  InputDecorationTheme(
+      suffixIconColor: AppColors.themeColor,
       prefixIconColor: AppColors.grey,
-      hintStyle: TextStyle(
+      hintStyle: const TextStyle(
         color: AppColors.grey,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.normal,
         fontSize: 14,
       ),
       errorMaxLines: 4,
@@ -38,7 +38,7 @@ ThemeData lightThemeData() {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         minimumSize: const Size.fromHeight(50),
-        backgroundColor: AppColors.green,
+        backgroundColor: AppColors.themeColor,
         foregroundColor: Colors.white,
         fixedSize: const Size.fromWidth(double.maxFinite),
         shape: RoundedRectangleBorder(
@@ -61,8 +61,8 @@ ThemeData lightThemeData() {
           fontSize: 15,
           fontWeight: FontWeight.bold,
         ),
-        side: const BorderSide(
-          color: AppColors.red,
+        side: BorderSide(
+          color: AppColors.themeColor,
           width: 2,
           style: BorderStyle.solid,
           strokeAlign: BorderSide.strokeAlignOutside,
@@ -72,19 +72,20 @@ ThemeData lightThemeData() {
         ),
       ),
     ),
-    appBarTheme: const AppBarTheme(
+    appBarTheme:  AppBarTheme(
+      surfaceTintColor: AppColors.themeColor,
       iconTheme: IconThemeData(
         size: 30,
-        color: AppColors.themeColor,
+        color: AppColors.white,
       ),
       centerTitle: true,
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.themeColor,
       foregroundColor: Colors.white,
       titleTextStyle: TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.bold,
         fontFamily: "BlackOpsOne",
-        color: AppColors.themeColor,
+        color: AppColors.white,
       ),
     ),
     drawerTheme: DrawerThemeData(
@@ -184,7 +185,7 @@ ThemeData darkThemeData() {
         ),
       ),
     ),
-    appBarTheme: const AppBarTheme(
+    appBarTheme:  AppBarTheme(
       iconTheme: IconThemeData(
         size: 40,
         color: AppColors.themeColor,

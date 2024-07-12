@@ -19,18 +19,18 @@ class _PointWithdrawHistoryViewState extends State<PointWithdrawHistoryView> {
       length: 2,
       child: Scaffold(
         appBar: customAppBar(),
-        body: const Column(
+        body:  Column(
           children: [
             TabBar(
               dividerColor: Colors.white,
               labelColor: AppColors.themeColor,
               indicatorColor: AppColors.themeColor,
-              labelStyle: TextStyle(
+              labelStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
               ),
               unselectedLabelColor: AppColors.red,
-              tabs: [
+              tabs: const [
                 Tab(
                   text: "বিকাশ",
                 ),
@@ -39,7 +39,7 @@ class _PointWithdrawHistoryViewState extends State<PointWithdrawHistoryView> {
                 ),
               ],
             ),
-            Expanded(
+            const Expanded(
               child: TabBarView(
                 children: [
                   BkashWithdrawHistoryView(),

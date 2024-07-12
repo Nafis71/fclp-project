@@ -31,7 +31,7 @@ class _DeliveryAddressFormViewState extends State<DeliveryAddressFormView> {
             autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               children: [
-                const Text(
+                 Text(
                   "সরবরাহের ঠিকানা",
                   style: TextStyle(
                     fontSize: 30,

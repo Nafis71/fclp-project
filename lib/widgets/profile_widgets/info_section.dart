@@ -8,20 +8,28 @@ Widget infoSection({
   return Container(
     height: 50,
     decoration: BoxDecoration(
-      color: AppColors.white,
+      color: AppColors.secondaryThemeColor,
       borderRadius: BorderRadius.circular(8),
     ),
     child: Padding(
       padding: const EdgeInsets.all(8),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
-            "$titleHint: $title",
-            style: const TextStyle(
+            "$titleHint: ",
+            style:  TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 17,
+              fontSize: 16,
               color: AppColors.themeColor,
+            ),
+          ),
+          Text(
+            "$title",
+            style: const TextStyle(
+              fontWeight: FontWeight.normal,
+              fontSize: 15,
+              color: AppColors.black,
             ),
           ),
         ],

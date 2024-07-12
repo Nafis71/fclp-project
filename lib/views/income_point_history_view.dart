@@ -23,7 +23,7 @@ class _IncomePointHistoryViewState extends State<IncomePointHistoryView> {
               leading: CircleAvatar(
                 child: Text(
                   index.toString(),
-                  style: const TextStyle(
+                  style:  TextStyle(
                     color: AppColors.themeColor,
                   ),
                 ),

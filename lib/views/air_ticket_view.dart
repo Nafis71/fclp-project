@@ -52,7 +52,7 @@ class _AirTicketViewState extends State<AirTicketView> {
               ),
             );
           }
-          return const Center(
+          return  Center(
             child: CircularProgressIndicator(
               color: AppColors.themeColor,
             ),

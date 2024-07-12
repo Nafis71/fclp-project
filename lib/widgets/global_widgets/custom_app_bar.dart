@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 AppBar customAppBar() {
   return AppBar(
-    surfaceTintColor: AppColors.white,
     title: const Text("FCLP"),
     actions: [
       IconButton(

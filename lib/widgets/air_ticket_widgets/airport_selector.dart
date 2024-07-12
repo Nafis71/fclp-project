@@ -32,9 +32,9 @@ Widget airportSelector({
       children: [
         Text(
           location,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 16,
-            color: AppColors.green,
+            color: AppColors.themeColor,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -56,7 +56,7 @@ Widget airportSelector({
             ),
             iconSize: 40,
             icon: const Icon(Icons.arrow_drop_down),
-            iconEnabledColor: AppColors.green,
+            iconEnabledColor: AppColors.themeColor,
             isDense: true,
             isExpanded: true,
             onChanged: (Map<String, String>? value) {
@@ -74,8 +74,8 @@ Widget airportSelector({
                       Text(
                         airport['place']!,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          color: AppColors.green,
+                        style:  TextStyle(
+                          color: AppColors.themeColor,
                           fontSize: 14.5
                         ),
                       ),
@@ -84,6 +84,7 @@ Widget airportSelector({
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           color: AppColors.grey,
+                          fontWeight: FontWeight.normal,
                           fontSize: 15,
                         ),
                       ),

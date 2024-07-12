@@ -40,7 +40,7 @@ class _SplashViewState extends State<SplashView> {
                 child: Image.asset(AssetsPahts.appLogo),
               ),
             ),
-            const CircularProgressIndicator(
+             CircularProgressIndicator(
               color: AppColors.themeColor,
             ),
             const SizedBox(
