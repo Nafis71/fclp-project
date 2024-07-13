@@ -20,12 +20,31 @@ class AirTicketController extends ChangeNotifier {
   final List<int> travellers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   int _countOfTravellers = 1;
   String ticketDate = "";
-  String _nid ="";
-  String _passport ="";
+  String _nid = "";
+  String _passport = "";
   bool _isLoading = false;
   bool _isTicketListLoading = false;
   bool _finalResponse = false;
   bool _hasTicketFound = true;
+  bool _isDeletingTicket = false;
+  int _deletingIndex = -1;
+  int _ticketStatus = 0;
+  bool _isEditMode = false;
+  String _ticketId = "";
+  String _ticketNotice = "No special notices";
+
+  List<String> typeOfTicket = [
+    "ইকোনমি",
+    "বিজনেস",
+    "প্রিমিয়াম",
+    "ফার্স্ট ক্লাস"
+  ];
+
+  bool get isEditMode => _isEditMode;
+
+  bool get isDeletingTicket => _isDeletingTicket;
+
+  int get deletingIndex => _deletingIndex;
 
   bool get hasTicketFound => _hasTicketFound;
 
@@ -35,17 +54,41 @@ class AirTicketController extends ChangeNotifier {
 
   List<Map<String, String>> get airports => _airports;
 
+  String get nid => _nid;
+
+  String get passport => _passport;
+
+  set setTicketId(String ticketId) {
+    _ticketId = ticketId;
+  }
+
+  set setTicketNotice(String ticketNotice) {
+    _ticketNotice = ticketNotice;
+  }
+
+  set setStatus(int ticketStatus) {
+    _ticketStatus = ticketStatus;
+  }
+
+  void toggleIsEditMode() {
+    _isEditMode = !_isEditMode;
+  }
 
   set setDepartureAirport(Map<String, String> departureAirport) {
     _departureAirport = departureAirport;
     notifyListeners();
   }
 
-  set setNid(String nid){
+  set setIsDeletingTicket(bool value) {
+    _isDeletingTicket = value;
+    notifyListeners();
+  }
+
+  set setNid(String nid) {
     _nid = nid;
   }
 
-  set setPassport(String passport){
+  set setPassport(String passport) {
     _passport = passport;
   }
 
@@ -62,13 +105,6 @@ class AirTicketController extends ChangeNotifier {
     _arrivalAirport = arrivalAirport;
   }
 
-  List<String> typeOfTicket = [
-    "ইকোনমি",
-    "বিজনেস",
-    "প্রিমিয়াম",
-    "ফার্স্ট ক্লাস"
-  ];
-
   bool get isLoading => _isLoading;
 
   bool get isTicketListLoading => _isTicketListLoading;
@@ -82,14 +118,18 @@ class AirTicketController extends ChangeNotifier {
 
   int get countOfTravellers => _countOfTravellers;
 
-  set setCountOfTravellers(int countOfTravellers) {
+  void setCountOfTravellers(int countOfTravellers, {bool? shouldRefresh}) {
     _countOfTravellers = countOfTravellers;
-    notifyListeners();
+    if (shouldRefresh == null) {
+      notifyListeners();
+    }
   }
 
-  set setUiTicketType(String ticketType) {
+  void setUiTicketType(String ticketType, {bool? shouldRefresh}) {
     _uITicketType = ticketType;
-    notifyListeners();
+    if (shouldRefresh == null) {
+      notifyListeners();
+    }
   }
 
   set setTicketType(String ticketType) {
@@ -144,6 +184,23 @@ class AirTicketController extends ChangeNotifier {
     return _finalResponse;
   }
 
+  Future<bool> deleteAirTicket(String token, int id, int index) async {
+    _finalResponse = false;
+    _deletingIndex = index;
+    setIsDeletingTicket = true;
+    response = await AirTicketService.deleteAirTicket(token, id.toString());
+    if (response is Success) {
+      ticketData.removeWhere((ticket) => ticket.id == id);
+      if (ticketData.isEmpty) {
+        _hasTicketFound = false;
+      }
+      _finalResponse = true;
+    }
+    _deletingIndex = -1;
+    setIsDeletingTicket = false;
+    return _finalResponse;
+  }
+
   Future<bool> loadTicketList(String token) async {
     _finalResponse = false;
     DateTime parsedDate;
@@ -176,7 +233,7 @@ class AirTicketController extends ChangeNotifier {
       }
       _finalResponse = true;
     }
-    if(ticketData.isEmpty) _hasTicketFound = false;
+    if (ticketData.isEmpty) _hasTicketFound = false;
     setIsLoading = false;
     return _finalResponse;
   }
@@ -200,6 +257,16 @@ class AirTicketController extends ChangeNotifier {
     return ticketStatus[status] ?? "Submitted";
   }
 
+  int getTicketStatusInteger(String status){
+    Map<String, int> ticketStatus = {
+      "Submitted" : 0,
+      "In Review": 1,
+      "Approved": 2,
+      "Canceled": 3,
+    };
+    return ticketStatus[status] ?? 0;
+  }
+
   Future<bool> bookAirTicket(String token) async {
     setIsLoading = true;
     _finalResponse = false;
@@ -209,12 +276,17 @@ class AirTicketController extends ChangeNotifier {
       "travel_date": ticketDate,
       "types": _ticketType,
       "person": _countOfTravellers,
-      "status": 0,
-      "notice": "No special notices",
+      "status": _ticketStatus,
+      "notice": _ticketNotice,
       "nid": _nid,
       "passport": _passport
     };
-    response = await AirTicketService.bookAirTicket(token, ticketData);
+    if (!_isEditMode) {
+      response = await AirTicketService.bookAirTicket(token, ticketData);
+    } else {
+      response =
+          await AirTicketService.updateAirTicket(token, _ticketId, ticketData);
+    }
     if (response is Success) {
       _finalResponse = true;
     }
@@ -222,13 +294,17 @@ class AirTicketController extends ChangeNotifier {
     return _finalResponse;
   }
 
-  void resetData() {
+  void resetData({bool? shouldUpdate}) {
     _departureAirport = {};
     _arrivalAirport = {};
     ticketDate = "";
     _ticketType = "First Class";
+    _uITicketType = "ফার্স্ট ক্লাস";
     _countOfTravellers = 1;
     _passport = "";
     _nid = "";
+    if (shouldUpdate != null) {
+      notifyListeners();
+    }
   }
 }

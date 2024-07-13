@@ -17,6 +17,8 @@ class TicketData{
   Transit? to;
   String? departureShort;
   String? arrivalShort;
+  String? nid;
+  String? passport;
 
   TicketData(
       {this.id,
@@ -32,7 +34,10 @@ class TicketData{
         this.createdAt,
         this.updatedAt,
         this.from,
-        this.to});
+        this.to,
+        this.nid,
+        this.passport
+      });
 
   TicketData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -49,6 +54,8 @@ class TicketData{
     updatedAt = json['updated_at'];
     from = json['from'] != null ?  Transit.fromJson(json['from']) : null;
     to = json['to'] != null ?  Transit.fromJson(json['to']) : null;
+    nid = json['nid'];
+    passport = json['passport'];
   }
 
   Map<String, dynamic> toJson() {

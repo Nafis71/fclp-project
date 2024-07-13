@@ -1,8 +1,9 @@
 import 'package:fclp_app/Controllers/air_ticket_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
+import 'package:fclp_app/models/air_ticket_model/ticket_data.dart';
 import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
-import 'package:fclp_app/views/air_ticket_apply_view.dart';
+import 'package:fclp_app/views/air_ticket_booking_view/air_ticket_apply_view.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -42,8 +43,18 @@ class _AirTicketViewState extends State<AirTicketView> {
     return Scaffold(
       appBar: customAppBar(),
       body: Consumer<AirTicketController>(
-        builder: (_, viewModel, __) {
-          if (viewModel.airports.isNotEmpty) {
+        builder: (_, airTicketController, __) {
+          if (airTicketController.airports.isNotEmpty) {
+            if(airTicketController.nid.isNotEmpty){
+              _nidController.text = airTicketController.nid;
+            } else{
+              _nidController.clear();
+            }
+            if(airTicketController.passport.isNotEmpty){
+              _passportController.text = airTicketController.passport;
+            }else{
+              _passportController.clear();
+            }
             return SingleChildScrollView(
               child: Column(
                 children: [
@@ -58,6 +69,7 @@ class _AirTicketViewState extends State<AirTicketView> {
                     nidController: _nidController,
                     passportController: _passportController,
                     formKey: _formKey,
+                    airTicketController: airTicketController,
                   )
                 ],
               ),

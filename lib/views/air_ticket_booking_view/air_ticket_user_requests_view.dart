@@ -1,9 +1,13 @@
 import 'package:fclp_app/Controllers/air_ticket_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
+import 'package:fclp_app/models/air_ticket_model/ticket_data.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
+import 'package:fclp_app/views/air_ticket_booking_view/air_ticket_view.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
+import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
+import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -38,15 +42,18 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
       backgroundColor: Colors.grey.shade300,
       appBar: customAppBar(),
       body: RefreshIndicator(
-        onRefresh: ()async{
-          await context.read<AirTicketController>().loadTicketList(context.read<ProfileController>().token);
+        onRefresh: () async {
+          await context
+              .read<AirTicketController>()
+              .loadTicketList(context.read<ProfileController>().token);
         },
         color: AppColors.themeColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Consumer<AirTicketController>(builder: (_, viewModel, __) {
-              if (viewModel.ticketData.isNotEmpty) {
+            Consumer<AirTicketController>(
+                builder: (_, airTicketController, __) {
+              if (airTicketController.ticketData.isNotEmpty) {
                 return Expanded(
                   child: ListView.separated(
                     itemBuilder: (context, index) {
@@ -62,7 +69,8 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                     width: 120.0,
@@ -74,9 +82,11 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                                     ),
                                     child: Center(
                                       child: Padding(
-                                        padding: const EdgeInsets.only(left: 10),
+                                        padding:
+                                            const EdgeInsets.only(left: 10),
                                         child: Text(
-                                          viewModel.ticketData[index].types
+                                          airTicketController
+                                              .ticketData[index].types
                                               .toString(),
                                           style: const TextStyle(
                                               color: Colors.green),
@@ -87,7 +97,9 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                                   Row(
                                     children: [
                                       Text(
-                                        viewModel.ticketData[index].departureShort.toString(),
+                                        airTicketController
+                                            .ticketData[index].departureShort
+                                            .toString(),
                                         style: const TextStyle(
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold),
@@ -100,9 +112,12 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 8.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 8.0),
                                         child: Text(
-                                          viewModel.ticketData[index].arrivalShort.toString(),
+                                          airTicketController
+                                              .ticketData[index].arrivalShort
+                                              .toString(),
                                           style: const TextStyle(
                                               color: Colors.black,
                                               fontWeight: FontWeight.bold),
@@ -112,10 +127,19 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                                   )
                                 ],
                               ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              if (airTicketController.isDeletingTicket &&
+                                  airTicketController.deletingIndex == index)
+                                LinearProgressIndicator(
+                                    minHeight: 1.5,
+                                    color: AppColors.themeColor),
                               Padding(
-                                padding: const EdgeInsets.only(top: 20.0),
+                                padding: const EdgeInsets.only(top: 10.0),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     const Text(
                                       'Flight Ticket',
@@ -125,10 +149,32 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        IconButton(onPressed: (){}, icon: const Icon(Icons.edit,size: 18,),),
-                                        IconButton(onPressed: (){}, icon: const Icon(Icons.delete_outlined,size: 18,),),
+                                        IconButton(
+                                          onPressed: () {
+                                            loadAirTickerInformation(
+                                                airTicketController
+                                                    .ticketData[index]);
+                                          },
+                                          icon: const Icon(
+                                            Icons.edit,
+                                            size: 18,
+                                          ),
+                                        ),
+                                        IconButton(
+                                          onPressed: () {
+                                            deleteTicket(
+                                                airTicketController
+                                                    .ticketData[index].id!,
+                                                index);
+                                          },
+                                          icon: const Icon(
+                                            Icons.delete_outlined,
+                                            size: 18,
+                                          ),
+                                        ),
                                       ],
                                     )
                                   ],
@@ -136,27 +182,37 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                               ),
                               ticketDetailsWidget(
                                   "Passenger",
-                                  context.read<ProfileController>().userData.name.toString(),
+                                  context
+                                      .read<ProfileController>()
+                                      .userData
+                                      .name
+                                      .toString(),
                                   "Date",
-                                  viewModel.ticketData[index].travelDate
+                                  airTicketController
+                                      .ticketData[index].travelDate
                                       .toString()),
                               ticketDetailsWidget(
                                   "Departure",
-                                  viewModel.ticketData[index].from!.divisionName
+                                  airTicketController
+                                      .ticketData[index].from!.divisionName
                                       .toString(),
                                   "Arrival",
-                                  viewModel.ticketData[index].to!.divisionName
+                                  airTicketController
+                                      .ticketData[index].to!.divisionName
                                       .toString()),
                               ticketDetailsWidget(
                                   "Class",
-                                  "${viewModel.ticketData[index].types}",
+                                  "${airTicketController.ticketData[index].types}",
                                   "Person",
-                                  viewModel.ticketData[index].person.toString()),
+                                  airTicketController.ticketData[index].person
+                                      .toString()),
                               ticketDetailsWidget(
                                   "Price",
-                                  viewModel.ticketData[index].price.toString(),
+                                  airTicketController.ticketData[index].price
+                                      .toString(),
                                   "Issued on",
-                                  viewModel.ticketData[index].createdAt
+                                  airTicketController
+                                      .ticketData[index].createdAt
                                       .toString()),
                               Center(
                                 child: Padding(
@@ -186,12 +242,13 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                                                 color: AppColors.black,
                                                 fontSize: 15)),
                                         TextSpan(
-                                          text:
-                                              viewModel.ticketData[index].status,
+                                          text: airTicketController
+                                              .ticketData[index].status,
                                           style: TextStyle(
-                                              color:
-                                                  AppColors.airTicketStatusColor(
-                                                      viewModel.ticketData[index]
+                                              color: AppColors
+                                                  .airTicketStatusColor(
+                                                      airTicketController
+                                                          .ticketData[index]
                                                           .status
                                                           .toString()),
                                               fontSize: 15,
@@ -216,7 +273,8 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                                           fontWeight: FontWeight.bold),
                                     ),
                                     TextSpan(
-                                      text: viewModel.ticketData[index].notice,
+                                      text: airTicketController
+                                          .ticketData[index].notice,
                                       style: const TextStyle(
                                         fontSize: 14,
                                         color: AppColors.grey,
@@ -236,15 +294,18 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                         height: 10,
                       );
                     },
-                    itemCount: viewModel.ticketData.length,
+                    itemCount: airTicketController.ticketData.length,
                   ),
                 );
               }
-              if(!viewModel.hasTicketFound){
+              if (!airTicketController.hasTicketFound) {
                 return Center(
                   child: Column(
                     children: [
-                      SvgPicture.asset(AssetsPahts.noTicket, width: 400,),
+                      SvgPicture.asset(
+                        AssetsPahts.noTicket,
+                        width: 400,
+                      ),
                       const Text(AppStrings.noAirTicketMessage),
                     ],
                   ),
@@ -311,5 +372,65 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
         ),
       ],
     );
+  }
+
+  void loadAirTickerInformation(TicketData ticketData) {
+    AirTicketController airTicketController =
+        context.read<AirTicketController>();
+    airTicketController.resetData();
+    airTicketController.setSilentDepartureAirport = airTicketController.airports
+        .where((airport) =>
+            airport['airport'] == ticketData.from!.airportName.toString())
+        .first;
+    airTicketController.setSilentArrivalAirport = airTicketController.airports
+        .where((airport) =>
+            airport['airport'] == ticketData.to!.airportName.toString())
+        .first;
+    airTicketController.ticketDate = ticketData.travelDate.toString();
+    airTicketController.setCountOfTravellers(
+        int.parse(ticketData.person.toString()),
+        shouldRefresh: false);
+    Map<String, String> ticketTypes = {
+      "Economy Class": "ইকোনমি",
+      "Business Class": "বিজনেস",
+      "Premium Class": "প্রিমিয়াম",
+      "First Class": "ফার্স্ট ক্লাস"
+    };
+    String ticketType = ticketTypes[ticketData.types]!;
+    airTicketController.setUiTicketType(ticketType);
+    airTicketController.setTicketType = ticketType;
+    airTicketController.setNid = ticketData.nid.toString();
+    airTicketController.setPassport = ticketData.passport ?? "";
+    airTicketController.setTicketId = ticketData.id.toString();
+    airTicketController.setStatus = airTicketController
+        .getTicketStatusInteger(ticketData.status.toString());
+    airTicketController.setTicketNotice = ticketData.notice.toString();
+    airTicketController.toggleIsEditMode();
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const AirTicketView(),
+      ),
+    ).then((value) {
+      airTicketController.toggleIsEditMode();
+      airTicketController.resetData(shouldUpdate: true);
+      airTicketController.loadTicketList(context.read<ProfileController>().token);
+    });
+  }
+
+  Future<void> deleteTicket(int ticketId, int index) async {
+    bool status = await context.read<AirTicketController>().deleteAirTicket(
+        context.read<ProfileController>().token, ticketId, index);
+    if (status && mounted) {
+      snackBarMessage(
+          context: context, message: AppStrings.airTicketDeleteSuccessMessage);
+      return;
+    }
+    if (mounted) {
+      warningDialog(
+          context: context,
+          warningDescription: AppStrings.airTicketDeleteFailureMessage,
+          message: AppStrings.airTicketDeleteFailureTitle);
+    }
   }
 }

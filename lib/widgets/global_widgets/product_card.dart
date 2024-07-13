@@ -55,7 +55,7 @@ class ProductCard extends StatelessWidget {
                      ),
                    );
                   },
-                  placeholder: (context,url) => CircularProgressIndicator(color: AppColors.themeColor,),
+                  placeholder: (context,url) => Center(child: CircularProgressIndicator(color: AppColors.themeColor,)),
                 )
               ),
               Flexible(

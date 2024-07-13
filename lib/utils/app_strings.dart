@@ -18,4 +18,10 @@ class AppStrings {
   static const String profileUpdateSuccessMessage = "আপনার প্রোফাইল সফলভাবে আপডেট করা হয়েছে";
   static const String profileUpdateFailureMessage = "আমরা আপনার প্রোফাইল আপডেট করতে ব্যর্থ হয়েছি";
   static const String profileUpdateFailureTitle = "আপডেট ব্যর্থ হয়েছে";
+  static const String airTicketDeleteSuccessMessage = "আপনার বিমান টিকেট সফলভাবে মুছে ফেলা হয়েছে";
+  static const String airTicketDeleteFailureMessage = "আপনার বিমান টিকিট মুছতে ব্যর্থ হয়েছে";
+  static const String airTicketDeleteFailureTitle= "ত্রুটি ঘটেছে";
+  static const String airTicketUpdateSuccessMessage= "আপনার বিমান টিকেট সফলভাবে আপডেট করা হয়েছে";
+  static const String airTicketUpdateFailureMessage= "আমরা আপনার বিমান টিকিট আপডেট করতে ব্যর্থ হয়েছি";
+  static const String airTicketUpdateFailureTitle= "ত্রুটি ঘটেছে";
 }

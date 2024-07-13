@@ -10,6 +10,7 @@ class User {
   String? createdAt;
   String? updatedAt;
   String image ="";
+  String base64Image= "";
 
   User(
       {this.id,
@@ -22,7 +23,7 @@ class User {
       this.referredBy,
       this.createdAt,
       this.updatedAt,
-      required this.image});
+      required this.image, required this.base64Image});
 
   User.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -36,6 +37,7 @@ class User {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     image = json['image'] ?? "";
+    base64Image = json['base64'] ?? "";
   }
 
   Map<String, dynamic> toJsonUpdateProfile() {
@@ -43,7 +45,8 @@ class User {
     data['name'] = name;
     data['email'] = email;
     data['mobile'] = mobile;
-    data['image'] = image;
+    data['image'] = base64Image;
+    data['base64'] = base64Image;
     return data;
   }
   Map<String, dynamic> toJson() {
@@ -59,6 +62,7 @@ class User {
     data['email'] = email;
     data['mobile'] = mobile;
     data['image'] = image;
+    data['base64'] = base64Image;
     return data;
   }
 }

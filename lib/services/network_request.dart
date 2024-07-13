@@ -54,12 +54,26 @@ class NetworkRequest {
   }
 
   Future<Object> putRequest(
-      {required url,
+      {required String url,
       required Map<String, String> headers,
       required body}) async {
     try {
       Response response = await put(Uri.parse(url), headers: headers, body: jsonEncode(body));
-      print(response.statusCode);
+      finalResponse = _getResponse(response);
+      return finalResponse!;
+    } catch (exception) {
+      finalResponse =
+          Failure(statusCode: 600, message: AppStrings.unknownApiError);
+      if (kDebugMode) {
+        debugPrint(exception.toString());
+      }
+      return finalResponse!;
+    }
+  }
+
+  Future<Object> deleteRequest({required String url, required Map<String,String> headers})async{
+    try {
+      Response response = await delete(Uri.parse(url), headers: headers);
       finalResponse = _getResponse(response);
       return finalResponse!;
     } catch (exception) {

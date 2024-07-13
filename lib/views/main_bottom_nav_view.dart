@@ -1,5 +1,5 @@
 import 'package:fclp_app/utils/color_palette.dart';
-import 'package:fclp_app/views/air_ticket_view.dart';
+import 'package:fclp_app/views/air_ticket_booking_view/air_ticket_view.dart';
 import 'package:fclp_app/views/home_view.dart';
 import 'package:fclp_app/views/my_cart_view.dart';
 import 'package:fclp_app/views/wishlist_view.dart';
@@ -33,7 +33,10 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
           statusBarBrightness: Brightness.light
         ),
         child: Scaffold(
-          body: _screen[_selectedIndex],
+          body: IndexedStack(
+            index: _selectedIndex,
+            children: _screen,
+          ),
           bottomNavigationBar: GNav(
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
             backgroundColor: AppColors.themeColor,

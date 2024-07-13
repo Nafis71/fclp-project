@@ -1,7 +1,5 @@
-import 'package:fclp_app/Controllers/auth_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/Controllers/url_launcher_controller.dart';
-import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/utils/style.dart';
 import 'package:fclp_app/views/auth_view/login_view.dart';
@@ -11,6 +9,7 @@ import 'package:fclp_app/views/main_bottom_nav_view.dart';
 import 'package:fclp_app/views/profile_view.dart';
 import 'package:fclp_app/views/reffer_id_view.dart';
 import 'package:fclp_app/views/system_view.dart';
+import 'package:fclp_app/widgets/profile_widgets/profile_picture.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -63,21 +62,22 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        height: 70,
-                        width: 70,
-                        decoration: const BoxDecoration(
-                          color: Colors.green,
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: AssetImage(AssetsPahts.profile),
-                          ),
-                        ),
+                      CircleAvatar(
+                        radius: 50,
+                        backgroundColor: Colors.white,
+                        backgroundImage:
+                            getImage(context.read<ProfileController>()),
                       ),
-                      const SizedBox(height: 20,),
-                       Text(
-                        context.read<ProfileController>().userData.name.toString(),
-                        style:  TextStyle(
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        context
+                            .read<ProfileController>()
+                            .userData
+                            .name
+                            .toString(),
+                        style: TextStyle(
                           color: AppColors.themeColor,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -110,11 +110,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
             onTap: () => _onTapHomeButton(
               fromHomeView: widget.fromHomeView,
             ),
-            child:  ListTile(
+            child: ListTile(
               leading: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(Icons.home_outlined,size: 31,color: AppColors.themeColor,)
-              ),
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.home_outlined,
+                    size: 31,
+                    color: AppColors.themeColor,
+                  )),
               title: const Text("হোম"),
             ),
           ),
@@ -122,10 +125,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
             onTap: () => _onTapProfileButton(
               fromProfileView: widget.fromProfileView,
             ),
-            child:  ListTile(
+            child: ListTile(
               leading: CircleAvatar(
                 backgroundColor: Colors.white,
-                child: Icon(Icons.perm_identity,size: 30,color: AppColors.themeColor,),
+                child: Icon(
+                  Icons.perm_identity,
+                  size: 30,
+                  color: AppColors.themeColor,
+                ),
               ),
               title: const Text("আমার প্রোফাইল"),
             ),
@@ -133,20 +140,27 @@ class _CustomDrawerState extends State<CustomDrawer> {
           InkWell(
             onTap: () => _onTapIncomePointButton(
                 fromIncomePiointView: widget.fromIncomePointView),
-            child:  ListTile(
+            child: ListTile(
               leading: CircleAvatar(
                 backgroundColor: Colors.white,
-                child: Icon(Icons.currency_exchange,color: AppColors.themeColor,),
+                child: Icon(
+                  Icons.currency_exchange,
+                  color: AppColors.themeColor,
+                ),
               ),
               title: const Text("ইনকাম পয়েন্ট"),
             ),
           ),
-           InkWell(
+          InkWell(
             onTap: UrlLauncherController.makePhoneCall,
             child: ListTile(
               leading: CircleAvatar(
                 backgroundColor: Colors.white,
-                child: Icon(Icons.phone_outlined,size: 30,color: AppColors.themeColor,),
+                child: Icon(
+                  Icons.phone_outlined,
+                  size: 30,
+                  color: AppColors.themeColor,
+                ),
               ),
               title: const Text("যোগাযোগ"),
             ),
@@ -158,7 +172,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
             child: ListTile(
               leading: CircleAvatar(
                 backgroundColor: Colors.white,
-                child: Icon(Icons.cases_outlined,color: AppColors.themeColor,),
+                child: Icon(
+                  Icons.cases_outlined,
+                  color: AppColors.themeColor,
+                ),
               ),
               title: const Text("বিজনেস"),
             ),
@@ -167,11 +184,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
             onTap: () => _onTapRefferIDButton(
               fromRefferIdView: widget.fromRefferIdView,
             ),
-            child:  ListTile(
+            child: ListTile(
               leading: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(Icons.discount_outlined,color: AppColors.themeColor,)
-              ),
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.discount_outlined,
+                    color: AppColors.themeColor,
+                  )),
               title: const Text("রেফার আইডি"),
             ),
           ),
@@ -179,11 +198,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
             onTap: () => _onTapSystemButton(
               fromSystemView: widget.fromSystemView,
             ),
-            child:  ListTile(
+            child: ListTile(
               leading: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(Icons.settings,color: AppColors.themeColor,)
-              ),
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.settings,
+                    color: AppColors.themeColor,
+                  )),
               title: const Text("সিস্টেম"),
             ),
           ),
@@ -244,7 +265,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
       MaterialPageRoute(
         builder: (context) => const ProfileView(),
       ),
-    ).then((value){
+    ).then((value) {
       context.read<ProfileController>().setResetBase64Image();
     });
   }

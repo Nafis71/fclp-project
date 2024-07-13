@@ -4,14 +4,30 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment=" - profile update function added">
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="air ticket booking modified">
+      <change afterPath="$PROJECT_DIR$/lib/views/air_ticket_booking_view/air_ticket_form.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/profile_widgets/profile_picture.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/fclp-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fclp-project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Controllers/air_ticket_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/air_ticket_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/form_validation_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/form_validation_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_apply_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_apply_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_user_requests_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_user_requests_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/air_ticket_model/ticket_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/air_ticket_model/ticket_data.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/user_model/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/user_model/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/air_ticket_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/air_ticket_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/network_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/network_request.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/product_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/product_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/user_profile_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/user_profile_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_strings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_apply_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_booking_view/air_ticket_apply_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_user_requests_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_booking_view/air_ticket_user_requests_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_booking_view/air_ticket_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/home_view_wigets/product_service_buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/home_view_wigets/product_service_buttons.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/profile_widgets/profile_picture_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/profile_widgets/profile_picture_picker.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +90,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Flutter Projects\fclp-project\lib\views\air_ticket_booking_screen" />
       <recent name="E:\Flutter Projects\fclp-project\lib\models\user_model" />
     </key>
   </component>
@@ -204,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720873105835</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="air ticket booking modified">
+      <option name="closed" value="true" />
+      <created>1720875438155</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1720875438155</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -222,6 +247,7 @@
     <MESSAGE value="- app theme and color changed&#10;- increased aesthetic" />
     <MESSAGE value="-icons updated" />
     <MESSAGE value=" - profile update function added" />
-    <option name="LAST_COMMIT_MESSAGE" value=" - profile update function added" />
+    <MESSAGE value="air ticket booking modified" />
+    <option name="LAST_COMMIT_MESSAGE" value="air ticket booking modified" />
   </component>
 </project>
