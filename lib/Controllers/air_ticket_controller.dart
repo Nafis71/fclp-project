@@ -20,6 +20,8 @@ class AirTicketController extends ChangeNotifier {
   final List<int> travellers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   int _countOfTravellers = 1;
   String ticketDate = "";
+  String _nid ="";
+  String _passport ="";
   bool _isLoading = false;
   bool _isTicketListLoading = false;
   bool _finalResponse = false;
@@ -37,6 +39,14 @@ class AirTicketController extends ChangeNotifier {
   set setDepartureAirport(Map<String, String> departureAirport) {
     _departureAirport = departureAirport;
     notifyListeners();
+  }
+
+  set setNid(String nid){
+    _nid = nid;
+  }
+
+  set setPassport(String passport){
+    _passport = passport;
   }
 
   set setSilentDepartureAirport(Map<String, String> departureAirport) {
@@ -84,10 +94,10 @@ class AirTicketController extends ChangeNotifier {
 
   set setTicketType(String ticketType) {
     Map<String, String> ticketTypes = {
-      "ইকোনমি": "Economy",
-      "বিজনেস": "Business",
-      "প্রিমিয়াম": "Premium",
-      "ফার্স্ট ক্লাস": "First"
+      "ইকোনমি": "Economy Class",
+      "বিজনেস": "Business Class",
+      "প্রিমিয়াম": "Premium Class",
+      "ফার্স্ট ক্লাস": "First Class"
     };
     _ticketType = ticketTypes[ticketType]!;
   }
@@ -200,7 +210,9 @@ class AirTicketController extends ChangeNotifier {
       "types": _ticketType,
       "person": _countOfTravellers,
       "status": 0,
-      "notice": "No special notices"
+      "notice": "No special notices",
+      "nid": _nid,
+      "passport": _passport
     };
     response = await AirTicketService.bookAirTicket(token, ticketData);
     if (response is Success) {
@@ -216,5 +228,7 @@ class AirTicketController extends ChangeNotifier {
     ticketDate = "";
     _ticketType = "First Class";
     _countOfTravellers = 1;
+    _passport = "";
+    _nid = "";
   }
 }

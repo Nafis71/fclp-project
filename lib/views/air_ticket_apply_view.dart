@@ -1,5 +1,6 @@
 import 'package:fclp_app/Controllers/air_ticket_controller.dart';
 import 'package:fclp_app/Controllers/auth_controller.dart';
+import 'package:fclp_app/Controllers/form_validation_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/color_palette.dart';
@@ -13,8 +14,16 @@ import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../widgets/profile_widgets/form_input_decoration.dart';
+
 class AirTicketApplyView extends StatelessWidget {
-  const AirTicketApplyView({super.key});
+  final TextEditingController nidController;
+  final TextEditingController passportController;
+  final GlobalKey<FormState> formKey;
+  const AirTicketApplyView(
+      {super.key,
+      required this.nidController,
+      required this.passportController, required this.formKey});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +51,7 @@ class AirTicketApplyView extends StatelessWidget {
                   airports: context.read<AirTicketController>().airports,
                 ),
               ),
-               Icon(
+              Icon(
                 Icons.airplane_ticket_rounded,
                 size: 35,
                 color: AppColors.themeColor,
@@ -99,9 +108,7 @@ class AirTicketApplyView extends StatelessWidget {
                   travellers: context.read<AirTicketController>().travellers,
                   onChanged: (int? newValue) {
                     if (context.mounted) {
-                      context
-                              .read<AirTicketController>()
-                              .setCountOfTravellers =
+                      context.read<AirTicketController>().setCountOfTravellers =
                           newValue ??
                               context
                                   .read<AirTicketController>()
@@ -113,16 +120,44 @@ class AirTicketApplyView extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(
+            height: 15,
+          ),
+          Form(
+            key: formKey,
+              child: Column(
+            children: [
+              TextFormField(
+                controller: nidController,
+                keyboardType: TextInputType.number,
+                decoration: formInputDecoration(
+                  hintText: "আপনার NID নম্বর",
+                ),
+                validator: FormValidationController.validateNID
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              TextFormField(
+                controller: passportController,
+                keyboardType: TextInputType.number,
+                decoration: formInputDecoration(
+                  hintText: "আপনার পাসপোর্ট নম্বর (Optional)",
+                ),
+              ),
+            ],
+          )),
           const SizedBox(height: 20),
           if (!context.read<AirTicketController>().isLoading)
             ElevatedButton(
+              style: ElevatedButton.styleFrom(elevation: 4),
               onPressed: () {
                 bookAirTicket(context);
               },
               child: const Text("সাবমিট করুন"),
             )
           else
-             Center(
+            Center(
               child: CircularProgressIndicator(
                 color: AppColors.themeColor,
               ),
@@ -132,9 +167,12 @@ class AirTicketApplyView extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const AirTicketUserRequestsView()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const AirTicketUserRequestsView()));
             },
-            child:  Text(
+            child: Text(
               "আপনার রিকুয়েস্ট সমূহ দেখুন",
               style: TextStyle(
                   color: AppColors.themeColor, fontWeight: FontWeight.bold),
@@ -146,17 +184,27 @@ class AirTicketApplyView extends StatelessWidget {
   }
 
   Future<void> bookAirTicket(BuildContext context) async {
-    if(context.read<AirTicketController>().ticketDate.isEmpty){
-      warningDialog(
-          context: context,
-          warningDescription: AppStrings.noDateSelected,);
+    if(!formKey.currentState!.validate()){
       return;
     }
-    if(context.read<AirTicketController>().departureAirport['id'] == context.read<AirTicketController>().arrivalAirport['id']){
+    if (context.read<AirTicketController>().ticketDate.isEmpty) {
       warningDialog(
         context: context,
-        warningDescription: AppStrings.invalidTripMessage,message: AppStrings.invalidTripTitle);
+        warningDescription: AppStrings.noDateSelected,
+      );
       return;
+    }
+    if (context.read<AirTicketController>().departureAirport['id'] ==
+        context.read<AirTicketController>().arrivalAirport['id']) {
+      warningDialog(
+          context: context,
+          warningDescription: AppStrings.invalidTripMessage,
+          message: AppStrings.invalidTripTitle);
+      return;
+    }
+    context.read<AirTicketController>().setNid = nidController.text.trim();
+    if(passportController.text.isNotEmpty){
+      context.read<AirTicketController>().setPassport = passportController.text.trim();
     }
     bool status = await context
         .read<AirTicketController>()

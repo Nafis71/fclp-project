@@ -16,8 +16,15 @@ class AirTicketView extends StatefulWidget {
 }
 
 class _AirTicketViewState extends State<AirTicketView> {
+  late final TextEditingController _nidController;
+  late final TextEditingController _passportController;
+  late final GlobalKey<FormState> _formKey;
+
   @override
   void initState() {
+    _nidController = TextEditingController();
+    _passportController = TextEditingController();
+    _formKey = GlobalKey<FormState>();
     loadAirportData();
     super.initState();
   }
@@ -47,12 +54,16 @@ class _AirTicketViewState extends State<AirTicketView> {
                   const SizedBox(
                     height: 10,
                   ),
-                  AirTicketApplyView()
+                  AirTicketApplyView(
+                    nidController: _nidController,
+                    passportController: _passportController,
+                    formKey: _formKey,
+                  )
                 ],
               ),
             );
           }
-          return  Center(
+          return Center(
             child: CircularProgressIndicator(
               color: AppColors.themeColor,
             ),
@@ -60,5 +71,12 @@ class _AirTicketViewState extends State<AirTicketView> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _nidController.dispose();
+    _passportController.dispose();
+    super.dispose();
   }
 }

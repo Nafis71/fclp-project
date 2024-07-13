@@ -149,7 +149,7 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                                       .toString()),
                               ticketDetailsWidget(
                                   "Class",
-                                  "${viewModel.ticketData[index].types} Class",
+                                  "${viewModel.ticketData[index].types}",
                                   "Person",
                                   viewModel.ticketData[index].person.toString()),
                               ticketDetailsWidget(

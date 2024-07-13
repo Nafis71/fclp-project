@@ -208,6 +208,13 @@ class FormValidationController {
     }
   }
 
+  static String? validateNID(String? value){
+    if(value!.isEmpty){
+      return "অনুগ্রহ করে NID লিখুন";
+    }
+    return null;
+  }
+
   static Future<void> handleSave(
     BuildContext context,
     GlobalKey<FormState> formKey,
