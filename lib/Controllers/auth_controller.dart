@@ -42,6 +42,7 @@ class AuthController extends ChangeNotifier {
           (response as Success).response as Map<String, dynamic>;
       String? token = jsonData['token'];
       if (token != null) {
+        print(token);
         response = await AuthService.getAllUser(token);
         if (response is Success) {
           User? userData = await loadUserData(mobile, profileController);
@@ -87,9 +88,7 @@ class AuthController extends ChangeNotifier {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setString("userData", jsonEncode(userData.toJson()));
     preferences.setString("token", token);
-    profileController.setMobileNumber(userData.mobile.toString());
-    profileController.setEmail(userData.email.toString());
-    profileController.setName(userData.name.toString());
+    profileController.userData = userData;
     profileController.setToken(token);
   }
 }

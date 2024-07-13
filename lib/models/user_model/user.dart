@@ -9,18 +9,20 @@ class User {
   String? referredBy;
   String? createdAt;
   String? updatedAt;
+  String image ="";
 
   User(
       {this.id,
-        this.name,
-        this.email,
-        this.mobile,
-        this.role,
-        this.emailVerifiedAt,
-        this.isMobileVerified,
-        this.referredBy,
-        this.createdAt,
-        this.updatedAt});
+      this.name,
+      this.email,
+      this.mobile,
+      this.role,
+      this.emailVerifiedAt,
+      this.isMobileVerified,
+      this.referredBy,
+      this.createdAt,
+      this.updatedAt,
+      required this.image});
 
   User.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -33,20 +35,30 @@ class User {
     referredBy = json['referred_by'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
+    image = json['image'] ?? "";
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJsonUpdateProfile() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
     data['name'] = name;
     data['email'] = email;
     data['mobile'] = mobile;
+    data['image'] = image;
+    return data;
+  }
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['isMobileVerified'] = isMobileVerified;
+    data['emailVerifiedAt'] = emailVerifiedAt;
+    data['referredBy'] = referredBy;
     data['role'] = role;
-    data['email_verified_at'] = emailVerifiedAt;
-    data['is_mobile_verified'] = isMobileVerified;
-    data['referred_by'] = referredBy;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['name'] = name;
+    data['email'] = email;
+    data['mobile'] = mobile;
+    data['image'] = image;
     return data;
   }
 }

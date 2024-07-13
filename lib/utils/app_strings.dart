@@ -15,4 +15,7 @@ class AppStrings {
   static const String invalidTripTitle = "ভুল ট্রিপ";
   static const String invalidTripMessage = "আপনি প্রস্থান এবং আগমনের জন্য একই গন্তব্য বেছে নিয়েছেন";
   static const String noAirTicketMessage = "আপনি এখনো কোনো টিকিট বুক করেননি";
+  static const String profileUpdateSuccessMessage = "আপনার প্রোফাইল সফলভাবে আপডেট করা হয়েছে";
+  static const String profileUpdateFailureMessage = "আমরা আপনার প্রোফাইল আপডেট করতে ব্যর্থ হয়েছি";
+  static const String profileUpdateFailureTitle = "আপডেট ব্যর্থ হয়েছে";
 }

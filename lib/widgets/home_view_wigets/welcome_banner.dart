@@ -42,14 +42,16 @@ class WelcomeBanner extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
-                    Text(
-                      context.read<ProfileController>().name,
-                      style:  TextStyle(
-                        fontSize: 16,
-                        color: AppColors.themeColor,
-                        fontWeight: FontWeight.bold
-                      ),
-                    ),
+                    Consumer<ProfileController>(builder: (_,viewModel,__){
+                      return Text(
+                        viewModel.userData.name.toString(),
+                        style:  TextStyle(
+                            fontSize: 16,
+                            color: AppColors.themeColor,
+                            fontWeight: FontWeight.bold
+                        ),
+                      );
+                    })
                   ],
                 ),
               ),

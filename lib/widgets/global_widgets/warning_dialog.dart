@@ -66,8 +66,8 @@ void warningDialog({
                   child: Container(
                     height: 80,
                     width: 80,
-                    decoration: const BoxDecoration(
-                      color: AppColors.green,
+                    decoration: BoxDecoration(
+                      color: AppColors.themeColor,
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(

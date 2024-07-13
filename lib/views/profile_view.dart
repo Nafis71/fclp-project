@@ -25,8 +25,6 @@ class _ProfileViewState extends State<ProfileView> {
 
   @override
   Widget build(BuildContext context) {
-    final profileController = Provider.of<ProfileController>(context);
-
     return Scaffold(
       appBar: customAppBar(),
       drawer: const CustomDrawer(
@@ -40,102 +38,114 @@ class _ProfileViewState extends State<ProfileView> {
               left: 24.0,
               top: 24.0,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                profilePicturePicker(),
-                const SizedBox(
-                  height: 16,
-                ),
-                Container(
-                  height: 48,
-                  width: double.maxFinite,
-                  decoration: BoxDecoration(
-                    color: AppColors.themeColor,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "আপনার ছবি পরিবর্তন করুন।",
-                      style: TextStyle(
-                        color: AppColors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+            child: Consumer<ProfileController>(
+              builder: (_,viewModel,__) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    profilePicturePicker(viewModel),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    if(viewModel.isEdit) InkWell(
+                      onTap: (){
+                        if(!viewModel.isEdit){
+                          return;
+                        }
+                        viewModel.pickImage();
+                      },
+                      child: Container(
+                        height: 48,
+                        width: double.maxFinite,
+                        decoration: BoxDecoration(
+                          color: AppColors.themeColor,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "আপনার ছবি পরিবর্তন করুন।",
+                            style: TextStyle(
+                              color: AppColors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                profileController.isEdit == true
-                    ? const ProfileEditView()
-                    : Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          infoSection(
-                            titleHint: "নাম",
-                            title: profileController.name,
-                          ),
-                          const SizedBox(
-                            height: 8,
-                          ),
-                          infoSection(
-                            titleHint: "ইমেইল",
-                            title: profileController.email,
-                          ),
-                          const SizedBox(
-                            height: 8,
-                          ),
-                          infoSection(
-                            titleHint: "মোবাইল",
-                            title: profileController.mobileNumber,
-                          ),
-                          const SizedBox(
-                            height: 8,
-                          ),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              fixedSize: const Size.fromWidth(110),
-                              textStyle: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    viewModel.isEdit == true
+                        ? const ProfileEditView()
+                        : Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              infoSection(
+                                titleHint: "নাম",
+                                title: viewModel.userData.name,
                               ),
-                            ),
-                            onPressed: () {
-                              profileController.toggleEdit();
-                            },
-                            child: const Text("তথ্য সংশোধন করুন"),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              infoSection(
+                                titleHint: "ইমেইল",
+                                title: viewModel.userData.email,
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              infoSection(
+                                titleHint: "মোবাইল",
+                                title: viewModel.userData.mobile,
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  fixedSize: const Size.fromWidth(110),
+                                  textStyle: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                onPressed: () {
+                                  viewModel.toggleEdit();
+                                },
+                                child: const Text("তথ্য সংশোধন করুন"),
+                              ),
+                            ],
                           ),
-                        ],
+                    const SizedBox(
+                      height: 32,
+                    ),
+                     Text(
+                      "পাসওয়ার্ড পরিবর্তন করুন।",
+                      style: TextStyle(
+                        overflow: TextOverflow.ellipsis,
+                        color: AppColors.themeColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
                       ),
-                const SizedBox(
-                  height: 32,
-                ),
-                 Text(
-                  "পাসওয়ার্ড পরিবর্তন করুন।",
-                  style: TextStyle(
-                    overflow: TextOverflow.ellipsis,
-                    color: AppColors.themeColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                passwordSection(
-                  formKey: _formKey,
-                  newPasswordController: _newPasswordController,
-                  confirmPasswordController: _confirmPasswordController,
-                  saveNewPassword: () {
-                    if (_formKey.currentState!.validate()) {}
-                  },
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-              ],
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    passwordSection(
+                      formKey: _formKey,
+                      newPasswordController: _newPasswordController,
+                      confirmPasswordController: _confirmPasswordController,
+                      saveNewPassword: () {
+                        if (_formKey.currentState!.validate()) {}
+                      },
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                  ],
+                );
+              }
             ),
           ),
         ),

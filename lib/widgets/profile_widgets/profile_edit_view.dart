@@ -1,5 +1,6 @@
 import 'package:fclp_app/Controllers/form_validation_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
+import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/widgets/profile_widgets/form_input_decoration.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -20,13 +21,13 @@ class _ProfileEditViewState extends State<ProfileEditView> {
 
   @override
   void initState() {
+    _newNameController.text =
+        context.read<ProfileController>().userData.name.toString();
+    _newEmailController.text =
+        context.read<ProfileController>().userData.email.toString();
+    _newMobileNumberController.text =
+        context.read<ProfileController>().userData.mobile.toString();
     super.initState();
-
-    final profileController =
-        Provider.of<ProfileController>(context, listen: false);
-    _newNameController.text = profileController.name;
-    _newEmailController.text = profileController.email;
-    _newMobileNumberController.text = profileController.mobileNumber;
   }
 
   @override
@@ -57,25 +58,51 @@ class _ProfileEditViewState extends State<ProfileEditView> {
             validator: FormValidationController.validateMobileNumber,
           ),
           const SizedBox(height: 8),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              fixedSize: const Size.fromWidth(110),
-              textStyle: const TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            onPressed: () {
-              FormValidationController.handleSave(
-                context,
-                _formKey,
-                _newNameController,
-                _newEmailController,
-                _newMobileNumberController,
-              );
-            },
-            child: const Text("Save"),
-          ),
+          Consumer<ProfileController>(builder: (_, viewModel, __) {
+            return Column(
+              children: [
+                Visibility(
+                  visible: !viewModel.isLoading,
+                  replacement: Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.themeColor,
+                    ),
+                  ),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: const Size.fromWidth(110),
+                      textStyle: const TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    onPressed: () {
+                      FormValidationController.handleSave(
+                        context,
+                        _formKey,
+                        _newNameController,
+                        _newEmailController,
+                        _newMobileNumberController,
+                      );
+                    },
+                    child: const Text("সংরক্ষণ করুন"),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                OutlinedButton(
+                  onPressed: () {
+                    viewModel.toggleEdit();
+                  },
+                  child: const Text(
+                    "বাতিল করুন",
+                    style: TextStyle(color: AppColors.black),
+                  ),
+                ),
+              ],
+            );
+          }),
         ],
       ),
     );

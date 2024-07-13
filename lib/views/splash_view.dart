@@ -74,8 +74,6 @@ class _SplashViewState extends State<SplashView> {
     }
   }
   void loadUserData(User userData){
-    context.read<ProfileController>().setName(userData.name.toString());
-    context.read<ProfileController>().setEmail(userData.email.toString());
-    context.read<ProfileController>().setMobileNumber(userData.mobile.toString());
+    context.read<ProfileController>().userData = userData;
   }
 }

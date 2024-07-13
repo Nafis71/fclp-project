@@ -110,8 +110,9 @@ class FormValidationController {
   static void handleLogin(BuildContext context, GlobalKey<FormState> formKey,
       String mobile, String password) async {
     if (formKey.currentState!.validate()) {
-      bool status =
-          await context.read<AuthController>().signIn(mobile, password,context.read<ProfileController>());
+      bool status = await context
+          .read<AuthController>()
+          .signIn(mobile, password, context.read<ProfileController>());
 
       if (status && context.mounted) {
         Navigator.pushAndRemoveUntil(
@@ -151,6 +152,7 @@ class FormValidationController {
         "email": email,
         "mobile": mobile,
         "password": password,
+        "image": "",
         "password_confirmation": confirmPassword
       };
       bool status = await context.read<AuthController>().registration(userData);
@@ -206,24 +208,30 @@ class FormValidationController {
     }
   }
 
-  static void handleSave(
+  static Future<void> handleSave(
     BuildContext context,
     GlobalKey<FormState> formKey,
     TextEditingController nameController,
     TextEditingController emailController,
     TextEditingController mobileNumberController,
-  ) {
-    final profileController =
-        Provider.of<ProfileController>(context, listen: false);
+  ) async {
     if (formKey.currentState!.validate()) {
-      profileController.setName(nameController.text);
-      profileController.setEmail(emailController.text);
-      profileController.setMobileNumber(mobileNumberController.text);
-      snackBarMessage(context: context, message: "Edited");
-      nameController.clear();
-      emailController.clear();
-      mobileNumberController.clear();
-      profileController.toggleEdit();
+      bool status = await context.read<ProfileController>().updateProfile(
+          email: emailController.text.trim(),
+          mobile: mobileNumberController.text.trim(),
+          name: nameController.text.trim());
+      if (status && context.mounted) {
+        snackBarMessage(
+            context: context, message: AppStrings.profileUpdateSuccessMessage);
+        context.read<ProfileController>().toggleEdit();
+        return;
+      }
+      if (context.mounted) {
+        warningDialog(
+            context: context,
+            warningDescription: AppStrings.profileUpdateFailureMessage,
+            message: AppStrings.profileUpdateFailureTitle);
+      }
     }
   }
 }

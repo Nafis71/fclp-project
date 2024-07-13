@@ -7,4 +7,5 @@ class NetworkUrls {
   static const String bookTicketUrl = "$baseUrl/air-tickets/store";
   static const String ticketUrl = "$baseUrl/air-tickets/list";
   static const String productUrl = "$baseUrl/product/list?";
+  static const String userUpdateUrl = "$baseUrl/user/update";
 }

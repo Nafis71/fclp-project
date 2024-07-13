@@ -1,3 +1,4 @@
+import 'package:fclp_app/Controllers/auth_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/Controllers/url_launcher_controller.dart';
 import 'package:fclp_app/utils/assets_paths.dart';
@@ -75,7 +76,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       ),
                       const SizedBox(height: 20,),
                        Text(
-                        context.read<ProfileController>().name,
+                        context.read<ProfileController>().userData.name.toString(),
                         style:  TextStyle(
                           color: AppColors.themeColor,
                           fontSize: 16,
@@ -227,7 +228,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
     Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
-          builder: (context) => MainBottomNavView(),
+          builder: (context) => const MainBottomNavView(),
         ),
         (route) => false);
   }
@@ -243,7 +244,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
       MaterialPageRoute(
         builder: (context) => const ProfileView(),
       ),
-    );
+    ).then((value){
+      context.read<ProfileController>().setResetBase64Image();
+    });
   }
 
   void _onTapSystemButton({

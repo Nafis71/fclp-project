@@ -18,16 +18,16 @@
 	<g>
 		
 			<rect x="54.065" y="264.221" transform="matrix(-1 -1.224647e-16 1.224647e-16 -1 501.1754 690.3806)" style="fill:#FFFFFF;" width="393.045" height="161.939"/>
-		
+
 			<rect x="54.065" y="264.221" transform="matrix(-1 -1.224647e-16 1.224647e-16 -1 501.1754 690.3806)" style="fill:none;stroke:#263238;stroke-miterlimit:10;" width="393.045" height="161.939"/>
 		<g>
 			<g>
 				
-					<line style="fill:none;stroke:#263238;stroke-width:0.5;stroke-miterlimit:10;" x1="158.965" y1="264.221" x2="158.965" y2="265.221"/>
-				
-					<line style="fill:none;stroke:#263238;stroke-width:0.5;stroke-miterlimit:10;stroke-dasharray:2.0062,2.0062;" x1="158.965" y1="267.227" x2="158.965" y2="422.704"/>
-				
-					<line style="fill:none;stroke:#263238;stroke-width:0.5;stroke-miterlimit:10;" x1="158.965" y1="423.707" x2="158.965" y2="424.707"/>
+					<line style="fill:none;stroke:#047451;stroke-width:0.5;stroke-miterlimit:10;" x1="158.965" y1="264.221" x2="158.965" y2="265.221"/>
+
+					<line style="fill:none;stroke:#047451;stroke-width:0.5;stroke-miterlimit:10;stroke-dasharray:2.0062,2.0062;" x1="158.965" y1="267.227" x2="158.965" y2="422.704"/>
+
+					<line style="fill:none;stroke:#047451;stroke-width:0.5;stroke-miterlimit:10;" x1="158.965" y1="423.707" x2="158.965" y2="424.707"/>
 			</g>
 		</g>
 		<g>
@@ -1712,9 +1712,9 @@
 			<g>
 				
 					<line style="fill:none;stroke:#263238;stroke-width:0.5;stroke-miterlimit:10;" x1="342.21" y1="73.429" x2="342.21" y2="74.429"/>
-				
+
 					<line style="fill:none;stroke:#263238;stroke-width:0.5;stroke-miterlimit:10;stroke-dasharray:2.0062,2.0062;" x1="342.21" y1="76.435" x2="342.21" y2="231.912"/>
-				
+
 					<line style="fill:none;stroke:#263238;stroke-width:0.5;stroke-miterlimit:10;" x1="342.21" y1="232.915" x2="342.21" y2="233.915"/>
 			</g>
 		</g>

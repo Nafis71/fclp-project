@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:fclp_app/services/response/Failure.dart';
@@ -52,12 +53,30 @@ class NetworkRequest {
     }
   }
 
+  Future<Object> putRequest(
+      {required url,
+      required Map<String, String> headers,
+      required body}) async {
+    try {
+      Response response = await put(Uri.parse(url), headers: headers, body: jsonEncode(body));
+      print(response.statusCode);
+      finalResponse = _getResponse(response);
+      return finalResponse!;
+    } catch (exception) {
+      finalResponse =
+          Failure(statusCode: 600, message: AppStrings.unknownApiError);
+      if (kDebugMode) {
+        debugPrint(exception.toString());
+      }
+      return finalResponse!;
+    }
+  }
+
   Object _getResponse(Response response) {
-    print(response.statusCode);
     if (response.statusCode == 200) {
       return Success(
           response: jsonDecode(response.body), statusCode: response.statusCode);
-    }else {
+    } else {
       return Failure(statusCode: response.statusCode);
     }
   }

@@ -136,7 +136,7 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                               ),
                               ticketDetailsWidget(
                                   "Passenger",
-                                  context.read<ProfileController>().name,
+                                  context.read<ProfileController>().userData.name.toString(),
                                   "Date",
                                   viewModel.ticketData[index].travelDate
                                       .toString()),
