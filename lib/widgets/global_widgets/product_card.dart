@@ -36,136 +36,124 @@ class ProductCard extends StatelessWidget {
               offset: const Offset(0, 8))
         ],
       ),
-      child: Stack(
-        alignment: Alignment.topRight,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                flex: 2,
-                child: CachedNetworkImage(
-                  imageUrl: productImg,
-                  imageBuilder: (context, imageProvider) {
-                    return Container(
-                      width: double.maxFinite,
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(13),
-                            topLeft: Radius.circular(13)),
-                        image: DecorationImage(
-                            image: imageProvider, fit: BoxFit.fitHeight),
-                      ),
-                    );
-                  },
-                  placeholder: (context, url) => Center(
-                    child: CircularProgressIndicator(
-                      color: AppColors.themeColor,
-                    ),
+          Expanded(
+            flex: 2,
+            child: CachedNetworkImage(
+              imageUrl: productImg,
+              imageBuilder: (context, imageProvider) {
+                return Container(
+                  width: double.maxFinite,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(13),
+                        topLeft: Radius.circular(13)),
+                    image: DecorationImage(
+                        image: imageProvider, fit: BoxFit.fitHeight),
                   ),
+                );
+              },
+              placeholder: (context, url) => Center(
+                child: CircularProgressIndicator(
+                  color: AppColors.themeColor,
                 ),
               ),
-              Flexible(
-                flex: 1,
-                child: Padding(
-                  padding: (productDiscountPrice != "0.00")
-                      ? const EdgeInsets.only(
-                          left: 8,
-                          top: 5,
-                        )
-                      : const EdgeInsets.only(
-                          left: 8,
-                          top: 20,
-                        ),
-                  child: SingleChildScrollView(
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: (productDiscountPrice != "0.00")
+                  ? const EdgeInsets.only(
+                left: 8,
+                top: 5,
+              )
+                  : const EdgeInsets.only(
+                left: 8,
+                top: 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    maxLines: 2,
+                    productTitle,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.normal,
+                      color: AppColors.black,
+                    ),
+                  ),
+
+                  Expanded(
+                    flex: 2,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          maxLines: 2,
-                          productTitle,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 15.0,
-                            fontWeight: FontWeight.normal,
-                            color: AppColors.black,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              children: [
-                                Text(
-                                  (productDiscountPrice != "0.00")
-                                      ? "ট\t$productDiscountPrice"
-                                      : "ট\t$productOriginalPrice",
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    fontSize: 15.0,
-                                    color: AppColors.themeColor,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  (productDiscountPrice != "0.00")
-                                      ? productOriginalPrice
-                                      : "",
-                                  overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
-                                    fontSize: 11.0,
-                                    color: AppColors.grey,
-                                    fontWeight: FontWeight.bold,
-                                    decoration: TextDecoration.lineThrough,
-                                    decorationColor: AppColors.red,
-                                    decorationThickness: 2,
-                                  ),
-                                ),
-                              ],
+                            Text(
+                              (productDiscountPrice != "0.00")
+                                  ? "\u09F3\t$productDiscountPrice"
+                                  : "\u09F3\t$productOriginalPrice",
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                color: AppColors.themeColor,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              (productDiscountPrice != "0.00")
+                                  ? productOriginalPrice
+                                  : "",
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontSize: 11.0,
+                                color: AppColors.grey,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.lineThrough,
+                                decorationColor: AppColors.red,
+                                decorationThickness: 2,
+                              ),
                             ),
                           ],
                         ),
                         if (productDiscountPrice != "0.00")
-                          Row(
-                            children: [
-                              Text(
-                                "${context.read<ProductController>().getDiscountPercentage(productDiscountPrice, productOriginalPrice)}%",
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: 13.0,
-                                  color: Colors.red.shade300,
-                                  fontWeight: FontWeight.bold,
+                          Flexible(
+                            child: Row(
+                              children: [
+                                Text(
+                                  "${context.read<ProductController>().getDiscountPercentage(productDiscountPrice, productOriginalPrice)}%",
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 13.0,
+                                    color: Colors.red.shade300,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              Icon(
-                                Icons.discount_outlined,
-                                color: Colors.red.shade300,
-                                size: 20,
-                              )
-                            ],
+                                Icon(
+                                  Icons.discount_outlined,
+                                  color: Colors.red.shade300,
+                                  size: 22,
+                                )
+                              ],
+                            ),
                           )
                       ],
                     ),
                   ),
-                ),
-              ),
-            ],
-          ),
-          Positioned(
-            right: 10,
-            top: 10,
-            child: InkWell(
-              onTap: toggleFavorite,
-              child: Icon(
-                isFavorite ? Icons.favorite : Icons.favorite_outline,
-                color: isFavorite ? AppColors.red : AppColors.themeColor,
-                size: 30,
+
+                ],
               ),
             ),
           ),

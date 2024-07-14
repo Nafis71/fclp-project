@@ -21,11 +21,10 @@ class ProductGridView extends StatelessWidget {
             return GridView.builder(
               shrinkWrap: true,
               primary: false,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 0.559,
-                crossAxisCount: 2,
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                childAspectRatio: 0.7,
                 crossAxisSpacing: 7.5,
-                mainAxisSpacing: 7.5,
+                mainAxisSpacing: 7.5, maxCrossAxisExtent: 200,
               ),
               itemCount: viewModel.productData.length,
               itemBuilder: (context, index) {
