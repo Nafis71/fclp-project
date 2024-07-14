@@ -40,11 +40,14 @@ class ProductController extends ChangeNotifier {
           (response as Success).response as Map<String, dynamic>);
       if (productModel.productData != null) {
         if (_productData.isEmpty) {
-          _productData = List.from(productModel.productData as Iterable);
+          _productData = await getProductData(productModel);
+          _productData.shuffle();
         } else {
-          List<ProductData> newProductData = List.from(productModel.productData as Iterable);
+          List<ProductData> newProductData = await getProductData(productModel);
+          newProductData.shuffle();
           _productData.addAll(newProductData);
         }
+
       }
       if (productModel.nextPageUrl != null) {
         _nextPageAvailable = true;
@@ -56,5 +59,15 @@ class ProductController extends ChangeNotifier {
     setIsLoading = false;
     notifyListeners();
     return _finalResponse;
+  }
+
+  Future<List<ProductData>> getProductData(ProductModel productModel) async{
+    List<ProductData> product =[];
+    for(ProductData productData in productModel.productData!){
+      if(productData.quantity != "0"){
+        product.add(productData);
+      }
+    }
+    return product.toList();
   }
 }

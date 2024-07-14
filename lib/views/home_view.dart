@@ -97,7 +97,7 @@ class _HomeViewState extends State<HomeView> {
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
         page += 1;
-        loadProductData(page);
+        loadProductData(page,fromScrollListener: true);
       }
     }
   }
