@@ -73,19 +73,19 @@ ThemeData lightThemeData() {
       ),
     ),
     appBarTheme:  AppBarTheme(
-      surfaceTintColor: AppColors.themeColor,
-      iconTheme: IconThemeData(
+      surfaceTintColor: Colors.white,
+      iconTheme:  const IconThemeData(
         size: 30,
-        color: AppColors.white,
+        color: Colors.white,
       ),
       centerTitle: true,
       backgroundColor: AppColors.themeColor,
       foregroundColor: Colors.white,
-      titleTextStyle: TextStyle(
-        fontSize: 30,
+      titleTextStyle:  const TextStyle(
+        fontSize: 28,
         fontWeight: FontWeight.bold,
         fontFamily: "BlackOpsOne",
-        color: AppColors.white,
+        color: Colors.white,
       ),
     ),
     drawerTheme: DrawerThemeData(

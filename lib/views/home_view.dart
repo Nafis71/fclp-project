@@ -51,12 +51,19 @@ class _HomeViewState extends State<HomeView> {
                   margin: const EdgeInsets.symmetric(vertical: 15),
                   height: 40,
                   width: 200,
-                  decoration:  BoxDecoration(
-                      color: AppColors.themeColor,
-                      borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(50),
-                        topRight: Radius.circular(50),
-                      )),
+                  decoration: BoxDecoration(
+                    color: AppColors.themeColor,
+                    borderRadius: const BorderRadius.only(
+                      bottomRight: Radius.circular(50),
+                      topRight: Radius.circular(50),
+                    ),
+                    boxShadow: [BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      spreadRadius: 4,
+                      blurRadius: 20,
+                      offset: const Offset(0, 10),
+                    )]
+                  ),
                   child: const Center(
                     child: FittedBox(
                       child: Text(
@@ -64,7 +71,7 @@ class _HomeViewState extends State<HomeView> {
                         style: TextStyle(
                           color: AppColors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 15,
+                          fontSize: 14,
                         ),
                       ),
                     ),
@@ -79,13 +86,13 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Future<void> loadProductData(int page,{bool? fromScrollListener}) async {
-    if(context.read<ProductController>().productData.isEmpty){
+  Future<void> loadProductData(int page, {bool? fromScrollListener}) async {
+    if (context.read<ProductController>().productData.isEmpty) {
       await context
           .read<ProductController>()
           .loadProductData(page, context.read<ProfileController>().token);
     }
-    if(fromScrollListener != null && mounted){
+    if (fromScrollListener != null && mounted) {
       await context
           .read<ProductController>()
           .loadProductData(page, context.read<ProfileController>().token);
@@ -93,11 +100,12 @@ class _HomeViewState extends State<HomeView> {
   }
 
   void _scrollListener() {
-    if(!context.read<ProductController>().isLoading && context.read<ProductController>().nextPageAvailable){
+    if (!context.read<ProductController>().isLoading &&
+        context.read<ProductController>().nextPageAvailable) {
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
         page += 1;
-        loadProductData(page,fromScrollListener: true);
+        loadProductData(page, fromScrollListener: true);
       }
     }
   }

@@ -39,7 +39,7 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
           ),
           bottomNavigationBar: GNav(
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-            backgroundColor: AppColors.themeColor,
+            backgroundColor: Colors.white,
             selectedIndex: _selectedIndex,
             onTabChange: _onItemTapped,
             hoverColor: AppColors.grey,
@@ -52,20 +52,24 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
             tabBorderRadius: 30,
             tabMargin: const EdgeInsets.all(10),
             color: Colors.white,
-            tabs: const [
+            tabs:  const [
               GButton(
+                iconColor: AppColors.black,
                 icon: Icons.home_outlined,
                 text: " হোম",
               ),
               GButton(
+                iconColor: AppColors.black,
                 icon: Icons.airplane_ticket_outlined,
                 text: " বিমানের টিকিট",
               ),
               GButton(
+                iconColor: AppColors.black,
                 icon: Icons.add_shopping_cart_rounded,
                 text: " শপিং কার্ট",
               ),
               GButton(
+                iconColor: AppColors.black,
                 icon: Icons.favorite_border,
                 text: " উইস লিস্ট",
               ),

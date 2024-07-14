@@ -41,7 +41,7 @@ class ProductCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Expanded(
-            flex: 2,
+            flex: 1,
             child: CachedNetworkImage(
               imageUrl: productImg,
               imageBuilder: (context, imageProvider) {
@@ -68,13 +68,13 @@ class ProductCard extends StatelessWidget {
             child: Padding(
               padding: (productDiscountPrice != "0.00")
                   ? const EdgeInsets.only(
-                left: 8,
-                top: 5,
-              )
+                      left: 8,
+                      top: 5,
+                    )
                   : const EdgeInsets.only(
-                left: 8,
-                top: 20,
-              ),
+                      left: 8,
+                      top: 5,
+                    ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
@@ -85,12 +85,11 @@ class ProductCard extends StatelessWidget {
                     productTitle,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.normal,
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
                       color: AppColors.black,
                     ),
                   ),
-
                   Expanded(
                     flex: 2,
                     child: Column(
@@ -128,31 +127,58 @@ class ProductCard extends StatelessWidget {
                             ),
                           ],
                         ),
-                        if (productDiscountPrice != "0.00")
-                          Flexible(
-                            child: Row(
-                              children: [
-                                Text(
-                                  "${context.read<ProductController>().getDiscountPercentage(productDiscountPrice, productOriginalPrice)}%",
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    fontSize: 13.0,
-                                    color: Colors.red.shade300,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                        Flexible(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              if (productDiscountPrice != "0.00")
+                                Row(
+                                  children: [
+                                    Text(
+                                      "${context.read<ProductController>().getDiscountPercentage(productDiscountPrice, productOriginalPrice)}%",
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 13.0,
+                                        color: Colors.red.shade300,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.discount_outlined,
+                                      color: Colors.red.shade300,
+                                      size: 22,
+                                    )
+                                  ],
                                 ),
-                                Icon(
-                                  Icons.discount_outlined,
-                                  color: Colors.red.shade300,
-                                  size: 22,
-                                )
-                              ],
-                            ),
-                          )
+                              Container(
+                                height: 30,
+                                width: 80,
+                                margin: const EdgeInsets.symmetric(
+                                    horizontal: 2, vertical: 5),
+                                decoration: BoxDecoration(
+                                  color: AppColors.secondaryThemeColor,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child:  Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Icon(Icons.shopping_cart_checkout_rounded,color: AppColors.themeColor,),
+                                    Text(
+                                      "Add",
+                                      style: TextStyle(
+                                        color: AppColors.themeColor,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),
-
                 ],
               ),
             ),
