@@ -79,10 +79,17 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Future<void> loadProductData(int page) async {
-    await context
-        .read<ProductController>()
-        .loadProductData(page, context.read<ProfileController>().token);
+  Future<void> loadProductData(int page,{bool? fromScrollListener}) async {
+    if(context.read<ProductController>().productData.isEmpty){
+      await context
+          .read<ProductController>()
+          .loadProductData(page, context.read<ProfileController>().token);
+    }
+    if(fromScrollListener != null && mounted){
+      await context
+          .read<ProductController>()
+          .loadProductData(page, context.read<ProfileController>().token);
+    }
   }
 
   void _scrollListener() {
