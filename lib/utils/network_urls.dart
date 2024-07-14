@@ -11,4 +11,5 @@ class NetworkUrls {
   static const String userUpdateUrl = "$baseUrl/user/update";
   static const String airTicketUpdateUrl = "$baseUrl/air-tickets/edit";
   static const String passwordChangeUrl = "$baseUrl/setup-password";
+  static const String accountActiveRequest = "$baseUrl/account-active-request";
 }

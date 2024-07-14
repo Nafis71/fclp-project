@@ -42,14 +42,12 @@ class AuthController extends ChangeNotifier {
           (response as Success).response as Map<String, dynamic>;
       String? token = jsonData['token'];
       if (token != null) {
-        print(token);
         response = await AuthService.getAllUser(token);
         if (response is Success) {
           User? userData = await loadUserData(mobile, profileController);
           if(userData != null){
-            saveUserData(userData,token, profileController);
+            await saveUserData(userData,token, profileController);
           }
-
           _finalResponse = true;
         }
       }

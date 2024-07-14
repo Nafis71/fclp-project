@@ -26,4 +26,13 @@ class AppStrings {
   static const String airTicketUpdateFailureTitle= "ত্রুটি ঘটেছে";
   static const String passwordChangeSuccessMessage= "আপনার পাসওয়ার্ড সফলভাবে পরিবর্তন করা হয়েছে";
   static const String passwordChangeFailureMessage= "আপনার পাসওয়ার্ড আপডেট করতে ব্যর্থ হয়েছে";
+  static const String paymentAskingMessage= "এই অ্যাপটির সম্পূর্ণ বৈশিষ্ট্য ব্যবহার করার আগে অনুগ্রহ করে 300 টাকা প্রদান করুন";
+  static const String accountActivationRequestSuccessMessage= "অ্যাকাউন্ট সক্রিয়করণের অনুরোধ সফলভাবে স্থাপন করা হয়েছে";
+  static const String accountActivationRequestFailedMessage= "অ্যাকাউন্ট সক্রিয়করণের অনুরোধ স্থাপন করতে ব্যর্থ হয়েছে";
+  static const String accountActivationRequestFailedTitle= "ত্রুটি ঘটেছে";
+  static const String accountActivationSuccessMessage= "আপনার অ্যাকাউন্ট সক্রিয় করা হয়েছে";
+  static const String accountActivationFailedMessage= "আপনার অ্যাকাউন্ট এখনও সক্রিয় করা হয়নি, অনুগ্রহ করে অপেক্ষা করুন";
+  static const String accountActivationFailedTitle= "নিষ্ক্রিয় অ্যাকাউন্ট";
+  static const String accountActivationCanceledTitle= "নিষ্ক্রিয় অ্যাকাউন্ট";
+  static const String accountActivationCanceledMessage= "ভুল লেনদেনের তথ্যের কারণে আপনার আগের সক্রিয়করণের অনুরোধ বাতিল করা হয়েছিল";
 }

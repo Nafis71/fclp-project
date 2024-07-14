@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:fclp_app/models/user_model/user.dart';
+import 'package:fclp_app/models/user_model/user_model.dart';
 import 'package:fclp_app/services/response/success.dart';
 import 'package:fclp_app/services/user_profile_service.dart';
 import 'package:flutter/material.dart';
@@ -72,6 +73,50 @@ class ProfileController extends ChangeNotifier {
       setIsLoading = false;
       return true;
     }
+    setIsLoading = false;
+    return false;
+  }
+
+  Future<bool> activateProfile(String mobile, String transactionId, String paymentMethod) async{
+    setIsLoading = true;
+    Map<String,String> transactionDetails ={
+      "mobile":mobile,
+      "trx_id":transactionId,
+      "payment_method":paymentMethod
+    };
+    response =  await UserProfileService.accountActiveRequest(token, transactionDetails);
+    if(response is Success){
+      setIsLoading = false;
+      return true;
+    }
+    setIsLoading = false;
+    return false;
+  }
+
+  Future<bool> checkProfileActiveStatus() async{
+    setIsLoading = true;
+    SharedPreferences preferences =  await SharedPreferences.getInstance();
+    response = await UserProfileService.checkActivationStatus(token);
+    if(response is Success){
+      UserModel userModel = UserModel.fromJson((response as Success).response as Map<String,dynamic>);
+      if(userModel.user != null){
+        for(User user in userModel.user!){
+          if(user.id == userData.id && user.status == "1"){
+            userData.status = "1";
+            preferences.setString("userData", jsonEncode(userData.toJson()));
+            setIsLoading = false;
+            return true;
+          }
+          if(user.id == userData.id && user.status == "2"){
+            userData.status = "2";
+            preferences.setString("userData", jsonEncode(userData.toJson()));
+            setIsLoading = false;
+            return false;
+          }
+        }
+      }
+    }
+    setIsLoading = false;
     return false;
   }
 

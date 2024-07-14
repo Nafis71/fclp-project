@@ -4,19 +4,23 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- air ticket can now be edited&#10;- air ticket module completed">
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- change password functionality added&#10;- product loading bug fix">
+      <change afterPath="$PROJECT_DIR$/assets/images/payment.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/payment_success.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/views/non_authorized_screen/non_authorized_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/views/payment_screen/payment_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Controllers/auth_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/auth_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/auth_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/auth_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/product_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/product_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/form_validation_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/form_validation_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/user_model/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/user_model/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/user_profile_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/user_profile_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_strings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/assets_paths.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/assets_paths.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/profile_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/profile_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/product_grid_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/product_grid_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/profile_widgets/password_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/profile_widgets/password_section.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/splash_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/splash_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720904194558</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="- change password functionality added&#10;- product loading bug fix">
+      <option name="closed" value="true" />
+      <created>1720947120906</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1720947120906</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -246,6 +258,7 @@
     <MESSAGE value=" - profile update function added" />
     <MESSAGE value="air ticket booking modified" />
     <MESSAGE value="- air ticket can now be edited&#10;- air ticket module completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="- air ticket can now be edited&#10;- air ticket module completed" />
+    <MESSAGE value="- change password functionality added&#10;- product loading bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="- change password functionality added&#10;- product loading bug fix" />
   </component>
 </project>

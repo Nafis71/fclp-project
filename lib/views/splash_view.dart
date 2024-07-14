@@ -5,6 +5,7 @@ import 'package:fclp_app/models/user_model/user.dart';
 import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/auth_view/login_view.dart';
+import 'package:fclp_app/views/non_authorized_screen/non_authorized_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -62,8 +63,14 @@ class _SplashViewState extends State<SplashView> {
       if (mounted) {
         context.read<ProfileController>().setToken(token);
         loadUserData(userData);
+        WidgetBuilder? widgetBuilder;
+        if(context.read<ProfileController>().userData.status == "0" || context.read<ProfileController>().userData.status == "2"){
+          widgetBuilder = (context)=> const NonAuthorizedScreen();
+        } else{
+          widgetBuilder = (context)=> const MainBottomNavView();
+        }
         Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const MainBottomNavView()));
+            MaterialPageRoute(builder: widgetBuilder));
       }
       return;
     }

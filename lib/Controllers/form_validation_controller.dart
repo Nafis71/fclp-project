@@ -4,9 +4,11 @@ import 'package:fclp_app/services/response/Failure.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/constants.dart';
 import 'package:fclp_app/views/main_bottom_nav_view.dart';
+import 'package:fclp_app/views/non_authorized_screen/non_authorized_screen.dart';
 import 'package:fclp_app/views/order_confirmation_view.dart';
 import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
 import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
+import 'package:fclp_app/widgets/profile_widgets/profile_edit_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -113,12 +115,18 @@ class FormValidationController {
       bool status = await context
           .read<AuthController>()
           .signIn(mobile, password, context.read<ProfileController>());
-
       if (status && context.mounted) {
+        WidgetBuilder? widgetBuilder;
+        if (context.read<ProfileController>().userData.status == "0" ||
+            context.read<ProfileController>().userData.status == "2") {
+          widgetBuilder = (context) => const NonAuthorizedScreen();
+        } else {
+          widgetBuilder = (context) => const MainBottomNavView();
+        }
         Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
-            builder: (context) => const MainBottomNavView(),
+            builder: widgetBuilder,
           ),
           (route) => false,
         );
@@ -208,8 +216,8 @@ class FormValidationController {
     }
   }
 
-  static String? validateNID(String? value){
-    if(value!.isEmpty){
+  static String? validateNID(String? value) {
+    if (value!.isEmpty) {
       return "অনুগ্রহ করে NID লিখুন";
     }
     return null;

@@ -1,5 +1,6 @@
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/Controllers/url_launcher_controller.dart';
+import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/utils/style.dart';
 import 'package:fclp_app/views/auth_view/login_view.dart';
@@ -9,6 +10,7 @@ import 'package:fclp_app/views/main_bottom_nav_view.dart';
 import 'package:fclp_app/views/profile_view.dart';
 import 'package:fclp_app/views/reffer_id_view.dart';
 import 'package:fclp_app/views/system_view.dart';
+import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:fclp_app/widgets/profile_widgets/profile_picture.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -38,6 +40,7 @@ class CustomDrawer extends StatefulWidget {
 class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
+    ProfileController profileController = context.read<ProfileController>();
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -96,7 +99,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     child: ElevatedButton(
                       style: drawerButtonStyle,
                       onPressed: () {},
-                      child: const Text("Account not activated"),
+                      child: (profileController.userData.status == "1")
+                          ? const Text("Account is activated")
+                          : const Text("Account isn't activated"),
                     ),
                   ),
                 ),
@@ -107,9 +112,19 @@ class _CustomDrawerState extends State<CustomDrawer> {
             height: 30,
           ),
           InkWell(
-            onTap: () => _onTapHomeButton(
-              fromHomeView: widget.fromHomeView,
-            ),
+            onTap: () {
+              if (profileController.userData.status == "0" ||
+                  profileController.userData.status == "2") {
+                warningDialog(
+                    context: context,
+                    warningDescription: AppStrings.paymentAskingMessage);
+                Scaffold.of(context).closeDrawer();
+                return;
+              }
+              _onTapHomeButton(
+                fromHomeView: widget.fromHomeView,
+              );
+            },
             child: ListTile(
               leading: CircleAvatar(
                   backgroundColor: Colors.white,
@@ -122,9 +137,19 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
           ),
           InkWell(
-            onTap: () => _onTapProfileButton(
-              fromProfileView: widget.fromProfileView,
-            ),
+            onTap: () {
+              if (profileController.userData.status == "0" ||
+                  profileController.userData.status == "2") {
+                warningDialog(
+                    context: context,
+                    warningDescription: AppStrings.paymentAskingMessage);
+                Scaffold.of(context).closeDrawer();
+                return;
+              }
+              _onTapProfileButton(
+                fromProfileView: widget.fromProfileView,
+              );
+            },
             child: ListTile(
               leading: CircleAvatar(
                 backgroundColor: Colors.white,
@@ -138,8 +163,18 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
           ),
           InkWell(
-            onTap: () => _onTapIncomePointButton(
-                fromIncomePiointView: widget.fromIncomePointView),
+            onTap: () {
+              if (profileController.userData.status == "0" ||
+                  profileController.userData.status == "2") {
+                warningDialog(
+                    context: context,
+                    warningDescription: AppStrings.paymentAskingMessage);
+                Scaffold.of(context).closeDrawer();
+                return;
+              }
+              _onTapIncomePointButton(
+                  fromIncomePiointView: widget.fromIncomePointView);
+            },
             child: ListTile(
               leading: CircleAvatar(
                 backgroundColor: Colors.white,
@@ -152,7 +187,17 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
           ),
           InkWell(
-            onTap: UrlLauncherController.makePhoneCall,
+            onTap: () {
+              if (profileController.userData.status == "0" ||
+                  profileController.userData.status == "2") {
+                warningDialog(
+                    context: context,
+                    warningDescription: AppStrings.paymentAskingMessage);
+                Scaffold.of(context).closeDrawer();
+                return;
+              }
+              UrlLauncherController.makePhoneCall;
+            },
             child: ListTile(
               leading: CircleAvatar(
                 backgroundColor: Colors.white,
@@ -166,9 +211,19 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
           ),
           InkWell(
-            onTap: () => _onTapBusinessButton(
-              fromBusinessView: widget.fromBusinessView,
-            ),
+            onTap: () {
+              if (profileController.userData.status == "0" ||
+                  profileController.userData.status == "2") {
+                warningDialog(
+                    context: context,
+                    warningDescription: AppStrings.paymentAskingMessage);
+                Scaffold.of(context).closeDrawer();
+                return;
+              }
+              _onTapBusinessButton(
+                fromBusinessView: widget.fromBusinessView,
+              );
+            },
             child: ListTile(
               leading: CircleAvatar(
                 backgroundColor: Colors.white,
@@ -181,9 +236,19 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
           ),
           InkWell(
-            onTap: () => _onTapRefferIDButton(
-              fromRefferIdView: widget.fromRefferIdView,
-            ),
+            onTap: () {
+              if (profileController.userData.status == "0" ||
+                  profileController.userData.status == "2") {
+                warningDialog(
+                    context: context,
+                    warningDescription: AppStrings.paymentAskingMessage);
+                Scaffold.of(context).closeDrawer();
+                return;
+              }
+              _onTapRefferIDButton(
+                fromRefferIdView: widget.fromRefferIdView,
+              );
+            },
             child: ListTile(
               leading: CircleAvatar(
                   backgroundColor: Colors.white,
@@ -195,9 +260,19 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
           ),
           InkWell(
-            onTap: () => _onTapSystemButton(
-              fromSystemView: widget.fromSystemView,
-            ),
+            onTap: () {
+              if (profileController.userData.status == "0" ||
+                  profileController.userData.status == "2") {
+                warningDialog(
+                    context: context,
+                    warningDescription: AppStrings.paymentAskingMessage);
+                Scaffold.of(context).closeDrawer();
+                return;
+              }
+              _onTapSystemButton(
+                fromSystemView: widget.fromSystemView,
+              );
+            },
             child: ListTile(
               leading: CircleAvatar(
                   backgroundColor: Colors.white,
@@ -209,7 +284,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
           ),
           InkWell(
-            onTap: _onTapLogOutButton,
+            onTap: () {
+              _onTapLogOutButton;
+            },
             child: const ListTile(
               leading: CircleAvatar(
                 backgroundColor: Colors.white,
