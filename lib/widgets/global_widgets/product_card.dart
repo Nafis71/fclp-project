@@ -24,11 +24,16 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: AppColors.white.withOpacity(0.95),
-      elevation:0.15,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(13),
+        boxShadow: [BoxShadow(
+          color: Colors.black.withOpacity(0.05),
+          spreadRadius: 2,
+          blurRadius: 20,
+          offset: const Offset(0, 8)
+        )]
       ),
       child: Stack(
         alignment: Alignment.topRight,

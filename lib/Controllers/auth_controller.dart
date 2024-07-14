@@ -4,6 +4,7 @@ import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/models/user_model/user.dart';
 import 'package:fclp_app/models/user_model/user_model.dart';
 import 'package:fclp_app/services/auth_service.dart';
+import 'package:fclp_app/services/response/Failure.dart';
 import 'package:fclp_app/services/response/success.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -45,8 +46,8 @@ class AuthController extends ChangeNotifier {
         response = await AuthService.getAllUser(token);
         if (response is Success) {
           User? userData = await loadUserData(mobile, profileController);
-          if(userData != null){
-            await saveUserData(userData,token, profileController);
+          if (userData != null) {
+            await saveUserData(userData, token, profileController);
           }
           _finalResponse = true;
         }
@@ -81,16 +82,18 @@ class AuthController extends ChangeNotifier {
     return _finalResponse;
   }
 
-  Future<bool> changePassword(String mobile,String password,ProfileController profileController) async{
+  Future<bool> changePassword(String mobile, String password,
+      ProfileController profileController) async {
     _finalResponse = false;
     setIsLoading = true;
-    Map<String,String> credentials ={
-      "mobile" : mobile,
+    Map<String, String> credentials = {
+      "mobile": mobile,
       "password": password,
     };
     response = await AuthService.changePassword(credentials);
-    if(response is Success){
-      Map<String,dynamic> jsonData = (response as Success).response as Map<String,dynamic>;
+    if (response is Success) {
+      Map<String, dynamic> jsonData =
+          (response as Success).response as Map<String, dynamic>;
       profileController.setToken(jsonData['token']);
       _finalResponse = true;
     }
@@ -98,13 +101,10 @@ class AuthController extends ChangeNotifier {
     return _finalResponse;
   }
 
-  Future<void> logoutUser(String token) async{
+  Future<void> logoutUser(String token) async {
     response = await AuthService.logout(token);
-    if(response is Success){
-      SharedPreferences preferences = await SharedPreferences.getInstance();
-      preferences.clear();
-    }else{
-      if(kDebugMode){
+    if (response is Failure) {
+      if (kDebugMode) {
         debugPrint("Couldn't logout");
       }
     }

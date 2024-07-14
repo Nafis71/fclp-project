@@ -15,6 +15,7 @@ import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:fclp_app/widgets/profile_widgets/profile_picture.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({
@@ -396,6 +397,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
     await context
         .read<AuthController>()
         .logoutUser(context.read<ProfileController>().token);
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.clear();
     if (mounted) {
       Navigator.push(
         context,
