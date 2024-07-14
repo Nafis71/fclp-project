@@ -30,5 +30,9 @@ class AuthService {
   static Future<Object> changePassword(Map<String,String> credentials) async{
     return await NetworkRequest().postRequest(url: NetworkUrls.passwordChangeUrl,body: credentials,headers: {"content-type": "Application/json"});
   }
+  
+  static Future<Object> logout(String token) async{
+    return await NetworkRequest().postRequest(url: NetworkUrls.logoutUrl,headers: {"Authorization":"Bearer $token"});
+  }
 
 }

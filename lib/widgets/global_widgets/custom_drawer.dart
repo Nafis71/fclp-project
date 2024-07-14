@@ -1,3 +1,4 @@
+import 'package:fclp_app/Controllers/auth_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/Controllers/url_launcher_controller.dart';
 import 'package:fclp_app/utils/app_strings.dart';
@@ -38,6 +39,8 @@ class CustomDrawer extends StatefulWidget {
 }
 
 class _CustomDrawerState extends State<CustomDrawer> {
+  final GlobalKey alertDialogKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     ProfileController profileController = context.read<ProfileController>();
@@ -285,7 +288,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           InkWell(
             onTap: () {
-              _onTapLogOutButton;
+              _onTapLogOutButton();
             },
             child: const ListTile(
               leading: CircleAvatar(
@@ -389,12 +392,17 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
-  void _onTapLogOutButton() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const LoginView(),
-      ),
-    );
+  Future<void> _onTapLogOutButton() async {
+    await context
+        .read<AuthController>()
+        .logoutUser(context.read<ProfileController>().token);
+    if (mounted) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const LoginView(),
+        ),
+      );
+    }
   }
 }

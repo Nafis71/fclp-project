@@ -12,4 +12,5 @@ class NetworkUrls {
   static const String airTicketUpdateUrl = "$baseUrl/air-tickets/edit";
   static const String passwordChangeUrl = "$baseUrl/setup-password";
   static const String accountActiveRequest = "$baseUrl/account-active-request";
+  static const String logoutUrl = "$baseUrl/logout";
 }

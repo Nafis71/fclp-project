@@ -36,8 +36,7 @@ class NetworkRequest {
 
   Future<Object> postRequest(
       {required String url,
-      Map<String, String>? headers,
-      required Map<String, dynamic> body}) async {
+      Map<String, String>? headers, Map<String, dynamic>? body}) async {
     try {
       Response response =
           await post(Uri.parse(url), headers: headers, body: jsonEncode(body));
@@ -87,6 +86,7 @@ class NetworkRequest {
   }
 
   Object _getResponse(Response response) {
+    print(response.statusCode);
     if (response.statusCode == 200) {
       return Success(
           response: jsonDecode(response.body), statusCode: response.statusCode);

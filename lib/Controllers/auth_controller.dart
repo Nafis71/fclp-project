@@ -98,6 +98,18 @@ class AuthController extends ChangeNotifier {
     return _finalResponse;
   }
 
+  Future<void> logoutUser(String token) async{
+    response = await AuthService.logout(token);
+    if(response is Success){
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      preferences.clear();
+    }else{
+      if(kDebugMode){
+        debugPrint("Couldn't logout");
+      }
+    }
+  }
+
   Future<void> saveUserData(
       User userData, String token, ProfileController profileController) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
