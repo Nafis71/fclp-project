@@ -1,6 +1,9 @@
+import 'package:fclp_app/Controllers/auth_controller.dart';
+import 'package:fclp_app/Controllers/form_validation_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/widgets/profile_widgets/form_input_decoration.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 Form passwordSection({
   required GlobalKey formKey,
@@ -10,11 +13,10 @@ Form passwordSection({
 }) {
   return Form(
     key: formKey,
-    autovalidateMode: AutovalidateMode.onUserInteraction,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         Text(
+        Text(
           "নতুন পাসওয়ার্ড",
           style: TextStyle(
             color: AppColors.themeColor,
@@ -27,20 +29,13 @@ Form passwordSection({
           decoration: formInputDecoration(
             hintText: "নতুন পাসওয়ার্ড",
           ),
-          validator: (String? newPassword) {
-            if (newPassword?.isEmpty ?? true) {
-              return "পাসওয়ার্ড অবশ্যই দিতে হবে।";
-            }
-            if (newPassword!.length < 6) {
-              return "পাসওয়ার্ড মিনিমাম ৬ ডিজিটের হতে হবে।";
-            }
-            return null;
-          },
+          validator: FormValidationController.validatePassword,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
         ),
         const SizedBox(
           height: 8,
         ),
-         Text(
+        Text(
           "কনফার্ম পাসওয়ার্ড",
           style: TextStyle(
             color: AppColors.themeColor,
@@ -51,28 +46,33 @@ Form passwordSection({
         TextFormField(
           controller: confirmPasswordController,
           decoration: formInputDecoration(hintText: "কনফার্ম পাসওয়ার্ড"),
-          validator: (String? confirmPassowrd) {
-            if (confirmPassowrd?.isEmpty ?? true) {
-              return "পাসওয়ার্ড অবশ্যই দিতে হবে।";
-            } else if (confirmPassowrd!.length < 6) {
-              return "পাসওয়ার্ড মিনিমাম ৬ ডিজিটের হতে হবে।";
-            }
-            return null;
+          validator: (confirmPassword) {
+            return FormValidationController.validateConfirmPassword(
+                newPasswordController.text, confirmPassword);
           },
+          autovalidateMode: AutovalidateMode.onUserInteraction,
         ),
         const SizedBox(
           height: 16,
         ),
-        ElevatedButton(
-          onPressed: saveNewPassword,
-          child: const Text(
-            "পাসওয়ার্ড সংরক্ষন করুন",
-            style: TextStyle(
-              color: AppColors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-          ),
+        Consumer<AuthController>(
+          builder: (_,authController,__) {
+            return Visibility(
+              visible: !authController.isLoading,
+              replacement: Center(child: CircularProgressIndicator(color: AppColors.themeColor,),),
+              child: ElevatedButton(
+                onPressed: saveNewPassword,
+                child: const Text(
+                  "পাসওয়ার্ড সংরক্ষন করুন",
+                  style: TextStyle(
+                    color: AppColors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            );
+          }
         ),
       ],
     ),

@@ -37,19 +37,16 @@ class ProductCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                flex: 2,
+                flex:2,
                 child: CachedNetworkImage(
                  imageUrl: productImg,
                   imageBuilder: (context,imageProvider){
                    return Container(
                      width: double.maxFinite,
                      decoration: BoxDecoration(
-                         borderRadius: const BorderRadius.only(
-                           topLeft: Radius.circular(8),
-                           topRight: Radius.circular(8),
-                         ),
+                         borderRadius:  BorderRadius.circular(12),
                          image: DecorationImage(
-                             image: imageProvider,fit: BoxFit.cover
+                             image: imageProvider,fit: BoxFit.fitHeight
 
                          ),
                      ),
@@ -63,10 +60,10 @@ class ProductCard extends StatelessWidget {
                 child: Padding(
                   padding:  (productDiscountPrice != "0.00") ? const EdgeInsets.only(
                     left: 8,
-                    top: 20,
+                    top: 5,
                   ) : const EdgeInsets.only(
                     left: 8,
-                    top: 40,
+                    top: 20,
                   ),
                   child: SingleChildScrollView(
                     child: Column(

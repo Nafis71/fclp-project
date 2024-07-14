@@ -24,4 +24,6 @@ class AppStrings {
   static const String airTicketUpdateSuccessMessage= "আপনার বিমান টিকেট সফলভাবে আপডেট করা হয়েছে";
   static const String airTicketUpdateFailureMessage= "আমরা আপনার বিমান টিকিট আপডেট করতে ব্যর্থ হয়েছি";
   static const String airTicketUpdateFailureTitle= "ত্রুটি ঘটেছে";
+  static const String passwordChangeSuccessMessage= "আপনার পাসওয়ার্ড সফলভাবে পরিবর্তন করা হয়েছে";
+  static const String passwordChangeFailureMessage= "আপনার পাসওয়ার্ড আপডেট করতে ব্যর্থ হয়েছে";
 }

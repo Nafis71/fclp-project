@@ -83,6 +83,23 @@ class AuthController extends ChangeNotifier {
     return _finalResponse;
   }
 
+  Future<bool> changePassword(String mobile,String password,ProfileController profileController) async{
+    _finalResponse = false;
+    setIsLoading = true;
+    Map<String,String> credentials ={
+      "mobile" : mobile,
+      "password": password,
+    };
+    response = await AuthService.changePassword(credentials);
+    if(response is Success){
+      Map<String,dynamic> jsonData = (response as Success).response as Map<String,dynamic>;
+      profileController.setToken(jsonData['token']);
+      _finalResponse = true;
+    }
+    setIsLoading = false;
+    return _finalResponse;
+  }
+
   Future<void> saveUserData(
       User userData, String token, ProfileController profileController) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();

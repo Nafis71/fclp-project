@@ -22,7 +22,7 @@ class ProductGridView extends StatelessWidget {
               shrinkWrap: true,
               primary: false,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 0.58,
+                childAspectRatio: 0.559,
                 crossAxisCount: 2,
                 crossAxisSpacing: 1.5,
                 mainAxisSpacing: 0,

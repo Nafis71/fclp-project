@@ -42,7 +42,8 @@ class ProductController extends ChangeNotifier {
         if (_productData.isEmpty) {
           _productData = List.from(productModel.productData as Iterable);
         } else {
-          _productData + List.from(productModel.productData as Iterable);
+          List<ProductData> newProductData = List.from(productModel.productData as Iterable);
+          _productData.addAll(newProductData);
         }
       }
       if (productModel.nextPageUrl != null) {

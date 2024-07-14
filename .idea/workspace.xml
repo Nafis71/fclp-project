@@ -4,30 +4,19 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="air ticket booking modified">
-      <change afterPath="$PROJECT_DIR$/lib/views/air_ticket_booking_view/air_ticket_form.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widgets/profile_widgets/profile_picture.dart" afterDir="false" />
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- air ticket can now be edited&#10;- air ticket module completed">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fclp-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fclp-project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/air_ticket_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/air_ticket_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/air_ticket_model/ticket_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/air_ticket_model/ticket_data.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/user_model/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/user_model/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/air_ticket_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/air_ticket_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/network_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/network_request.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/auth_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/auth_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/auth_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/auth_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/services/product_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/product_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/user_profile_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/user_profile_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_strings.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_apply_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_booking_view/air_ticket_apply_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_user_requests_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_booking_view/air_ticket_user_requests_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_booking_view/air_ticket_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/profile_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/profile_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/home_view_wigets/product_service_buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/home_view_wigets/product_service_buttons.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/profile_widgets/profile_picture_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/profile_widgets/profile_picture_picker.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/product_grid_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/product_grid_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/profile_widgets/password_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/profile_widgets/password_section.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720875438155</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="- air ticket can now be edited&#10;- air ticket module completed">
+      <option name="closed" value="true" />
+      <created>1720904194558</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1720904194558</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -248,6 +245,7 @@
     <MESSAGE value="-icons updated" />
     <MESSAGE value=" - profile update function added" />
     <MESSAGE value="air ticket booking modified" />
-    <option name="LAST_COMMIT_MESSAGE" value="air ticket booking modified" />
+    <MESSAGE value="- air ticket can now be edited&#10;- air ticket module completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="- air ticket can now be edited&#10;- air ticket module completed" />
   </component>
 </project>
