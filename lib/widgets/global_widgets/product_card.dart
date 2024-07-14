@@ -28,12 +28,13 @@ class ProductCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(13),
-        boxShadow: [BoxShadow(
-          color: Colors.black.withOpacity(0.05),
-          spreadRadius: 2,
-          blurRadius: 20,
-          offset: const Offset(0, 8)
-        )]
+        boxShadow: [
+          BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              spreadRadius: 2,
+              blurRadius: 20,
+              offset: const Offset(0, 8))
+        ],
       ),
       child: Stack(
         alignment: Alignment.topRight,
@@ -42,34 +43,40 @@ class ProductCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                flex:2,
+                flex: 2,
                 child: CachedNetworkImage(
-                 imageUrl: productImg,
-                  imageBuilder: (context,imageProvider){
-                   return Container(
-                     width: double.maxFinite,
-                     decoration: BoxDecoration(
-                         borderRadius:  BorderRadius.circular(12),
-                         image: DecorationImage(
-                             image: imageProvider,fit: BoxFit.fitHeight
-
-                         ),
-                     ),
-                   );
+                  imageUrl: productImg,
+                  imageBuilder: (context, imageProvider) {
+                    return Container(
+                      width: double.maxFinite,
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.only(
+                            topRight: Radius.circular(13),
+                            topLeft: Radius.circular(13)),
+                        image: DecorationImage(
+                            image: imageProvider, fit: BoxFit.fitHeight),
+                      ),
+                    );
                   },
-                  placeholder: (context,url) => Center(child: CircularProgressIndicator(color: AppColors.themeColor,)),
-                )
+                  placeholder: (context, url) => Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.themeColor,
+                    ),
+                  ),
+                ),
               ),
               Flexible(
                 flex: 1,
                 child: Padding(
-                  padding:  (productDiscountPrice != "0.00") ? const EdgeInsets.only(
-                    left: 8,
-                    top: 5,
-                  ) : const EdgeInsets.only(
-                    left: 8,
-                    top: 20,
-                  ),
+                  padding: (productDiscountPrice != "0.00")
+                      ? const EdgeInsets.only(
+                          left: 8,
+                          top: 5,
+                        )
+                      : const EdgeInsets.only(
+                          left: 8,
+                          top: 20,
+                        ),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,22 +85,26 @@ class ProductCard extends StatelessWidget {
                           maxLines: 2,
                           productTitle,
                           overflow: TextOverflow.ellipsis,
-                          style:  const TextStyle(
+                          style: const TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.normal,
                             color: AppColors.black,
                           ),
                         ),
-                        const SizedBox(height: 10,),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               children: [
                                 Text(
-                                  (productDiscountPrice != "0.00") ? "ট\t$productDiscountPrice" :"ট\t$productOriginalPrice",
+                                  (productDiscountPrice != "0.00")
+                                      ? "ট\t$productDiscountPrice"
+                                      : "ট\t$productOriginalPrice",
                                   overflow: TextOverflow.ellipsis,
-                                  style:  TextStyle(
+                                  style: TextStyle(
                                     fontSize: 15.0,
                                     color: AppColors.themeColor,
                                     fontWeight: FontWeight.bold,
@@ -103,7 +114,9 @@ class ProductCard extends StatelessWidget {
                                   width: 5,
                                 ),
                                 Text(
-                                  (productDiscountPrice != "0.00") ? productOriginalPrice : "",
+                                  (productDiscountPrice != "0.00")
+                                      ? productOriginalPrice
+                                      : "",
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
                                     fontSize: 11.0,
@@ -118,26 +131,30 @@ class ProductCard extends StatelessWidget {
                             ),
                           ],
                         ),
-                        if(productDiscountPrice != "0.00") Row(
-                          children: [
-                            Text(
-                              "${context.read<ProductController>().getDiscountPercentage(productDiscountPrice, productOriginalPrice)}%",
-                              overflow: TextOverflow.ellipsis,
-                              style:  TextStyle(
-                                fontSize: 13.0,
-                                color: Colors.red.shade300,
-                                fontWeight: FontWeight.bold,
+                        if (productDiscountPrice != "0.00")
+                          Row(
+                            children: [
+                              Text(
+                                "${context.read<ProductController>().getDiscountPercentage(productDiscountPrice, productOriginalPrice)}%",
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 13.0,
+                                  color: Colors.red.shade300,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                             Icon(Icons.discount_outlined,color: Colors.red.shade300,size: 20,)
-                          ],
-                        )
+                              Icon(
+                                Icons.discount_outlined,
+                                color: Colors.red.shade300,
+                                size: 20,
+                              )
+                            ],
+                          )
                       ],
                     ),
                   ),
                 ),
               ),
-
             ],
           ),
           Positioned(
