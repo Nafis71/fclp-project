@@ -4,14 +4,24 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="-product card design updated">
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- color changed">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/product_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/product_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/themes/app_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/themes/app_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/style.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/style.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/home_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/product_details_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_details_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/product_grid_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/product_grid_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/home_view_wigets/product_service_buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/home_view_wigets/product_service_buttons.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/home_view_wigets/service_buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/home_view_wigets/service_buttons.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720972722966</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="- color changed">
+      <option name="closed" value="true" />
+      <created>1720977681005</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1720977681005</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -312,6 +330,7 @@
     <MESSAGE value="- product load bug fix in homeScreen" />
     <MESSAGE value="- product in home screen will be shown randomly" />
     <MESSAGE value="-product card design updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="-product card design updated" />
+    <MESSAGE value="- color changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="- color changed" />
   </component>
 </project>

@@ -1,4 +1,5 @@
 import 'package:fclp_app/utils/color_palette.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -26,10 +27,10 @@ class ServiceButtons extends StatelessWidget {
               color: AppColors.white,
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 10.0,
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * 0.035,
               ),
-              child: SvgPicture.asset(imagePath,width: 42,fit: BoxFit.cover,)
+              child: SvgPicture.asset(imagePath,width: 32,fit: BoxFit.cover,)
             ),
           ),
           const SizedBox(height: 5.0),

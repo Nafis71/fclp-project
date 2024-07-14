@@ -44,7 +44,7 @@ class _HomeViewState extends State<HomeView> {
               const WelcomeBanner(),
               const HelpServiceButtons(),
               const AirTicketBanner(),
-              const ProductSeviceButtons(),
+              const ProductServiceButtons(),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +87,7 @@ class ProductCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                       fontSize: 15.0,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
                       color: AppColors.black,
                     ),
                   ),
@@ -105,7 +106,7 @@ class ProductCard extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 14.0,
                                 color: AppColors.themeColor,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w700,
                               ),
                             ),
                             const SizedBox(
@@ -163,7 +164,7 @@ class ProductCard extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Icon(Icons.shopping_cart_checkout_rounded,color: AppColors.themeColor,),
+                                    Icon(EvaIcons.shoppingCartOutline,color: AppColors.themeColor,),
                                     Text(
                                       "Add",
                                       style: TextStyle(

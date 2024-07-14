@@ -73,7 +73,7 @@ ThemeData lightThemeData() {
       ),
     ),
     appBarTheme:  AppBarTheme(
-      surfaceTintColor: Colors.white,
+      surfaceTintColor: AppColors.themeColor,
       iconTheme:  const IconThemeData(
         size: 30,
         color: Colors.white,

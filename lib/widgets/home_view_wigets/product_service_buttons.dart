@@ -10,8 +10,8 @@ import 'package:fclp_app/widgets/home_view_wigets/service_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ProductSeviceButtons extends StatelessWidget {
-  const ProductSeviceButtons({super.key});
+class ProductServiceButtons extends StatelessWidget {
+  const ProductServiceButtons({super.key});
 
   @override
   Widget build(BuildContext context) {

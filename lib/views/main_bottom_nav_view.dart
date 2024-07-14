@@ -1,3 +1,4 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/air_ticket_booking_view/air_ticket_view.dart';
 import 'package:fclp_app/views/home_view.dart';
@@ -55,7 +56,7 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
             tabs:  const [
               GButton(
                 iconColor: AppColors.black,
-                icon: Icons.home_outlined,
+                icon: EvaIcons.homeOutline,
                 text: " হোম",
               ),
               GButton(
@@ -65,7 +66,7 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
               ),
               GButton(
                 iconColor: AppColors.black,
-                icon: Icons.add_shopping_cart_rounded,
+                icon: EvaIcons.shoppingCartOutline,
                 text: " শপিং কার্ট",
               ),
               GButton(
