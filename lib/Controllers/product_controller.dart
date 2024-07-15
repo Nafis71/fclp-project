@@ -11,6 +11,15 @@ class ProductController extends ChangeNotifier {
   bool _nextPageAvailable = false;
   bool _isLoading = false;
   Object? response;
+  bool _willShowMoreProductDescription = false;
+  double _selectedProductPrice = 0.0;
+  int _selectedProductQuantity = 1;
+
+  double get selectedProductPrice => _selectedProductPrice;
+
+  int get selectedProductQuantity => _selectedProductQuantity;
+
+  bool get willShowMoreProductDescription => _willShowMoreProductDescription;
 
   List<ProductData> get productData => _productData;
 
@@ -20,6 +29,32 @@ class ProductController extends ChangeNotifier {
 
   set setIsLoading(bool isLoading) {
     _isLoading = isLoading;
+  }
+
+  void setProductPrice(double price){
+    _selectedProductPrice = price;
+  }
+  void increaseProductQuantity(double productUnitPrice){
+    _selectedProductQuantity++;
+    _selectedProductPrice += productUnitPrice;
+    notifyListeners();
+  }
+
+  void decreaseProductQuantity(double productUnitPrice){
+    if(_selectedProductQuantity != 1){
+      _selectedProductQuantity--;
+      _selectedProductPrice -= productUnitPrice;
+      notifyListeners();
+    }
+  }
+
+  void resetSelectedProductData(){
+    _selectedProductQuantity = 1;
+  }
+
+  void toggleWillShowMoreProductDescription(){
+    _willShowMoreProductDescription = !_willShowMoreProductDescription;
+    notifyListeners();
   }
 
   String getDiscountPercentage(String discountPrice, String originalPrice) {

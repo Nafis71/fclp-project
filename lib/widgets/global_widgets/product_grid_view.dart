@@ -1,6 +1,7 @@
 import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
-import 'package:fclp_app/views/product_details_view.dart';
+import 'package:fclp_app/utils/network_urls.dart';
+import 'package:fclp_app/views/product_details_screen/product_details_view.dart';
 import 'package:fclp_app/widgets/global_widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,8 +14,8 @@ class ProductGridView extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Consumer<ProductController>(
-          builder: (_, viewModel, __) {
-            if (viewModel.isLoading) {
+          builder: (_, productController, __) {
+            if (productController.isLoading) {
               return Center(
                 child: CircularProgressIndicator(
                   color: AppColors.themeColor,
@@ -30,7 +31,7 @@ class ProductGridView extends StatelessWidget {
                 mainAxisSpacing: 7.5,
                 maxCrossAxisExtent: 220,
               ),
-              itemCount: viewModel.productData.length,
+              itemCount: productController.productData.length,
               itemBuilder: (context, index) {
                 return InkWell(
                   splashColor: Colors.transparent,
@@ -39,20 +40,22 @@ class ProductGridView extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => ProductDetailsView(
-                            productData: viewModel.productData[index]),
+                            productData: productController.productData[index]),
                       ),
-                    );
+                    ).then((value){
+                      productController.resetSelectedProductData();
+                    });
                   },
                   child: ProductCard(
                       productImg:
-                          "https://fclpbd.xyz/public/storage/${viewModel.productData[index].image.toString()}",
+                          "${NetworkUrls.storageBaseUrl}${productController.productData[index].image.toString()}",
                       productTitle:
-                          viewModel.productData[index].name.toString(),
+                          productController.productData[index].name.toString(),
                       isFavorite: false,
                       toggleFavorite: () {},
                       productOriginalPrice:
-                          viewModel.productData[index].price.toString(),
-                      productDiscountPrice: viewModel
+                          productController.productData[index].price.toString(),
+                      productDiscountPrice: productController
                           .productData[index].discountPrice
                           .toString()),
                 );

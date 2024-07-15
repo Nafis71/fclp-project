@@ -35,4 +35,10 @@ class AppStrings {
   static const String accountActivationFailedTitle= "নিষ্ক্রিয় অ্যাকাউন্ট";
   static const String accountActivationCanceledTitle= "নিষ্ক্রিয় অ্যাকাউন্ট";
   static const String accountActivationCanceledMessage= "ভুল লেনদেনের তথ্যের কারণে আপনার আগের সক্রিয়করণের অনুরোধ বাতিল করা হয়েছিল";
+
+  //product detail strings
+  static const String productDetailsHeaderText = "পণ্যের বিবরণ";
+  static const String productDetailsPhoneVariantText = "ভ্যারিয়েন্ট";
+  static const String productDetailsSizeText = "আকার";
+  static const String productCategorySmartPhone = "Smart Phone";
 }

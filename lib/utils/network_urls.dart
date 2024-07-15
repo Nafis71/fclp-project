@@ -13,4 +13,8 @@ class NetworkUrls {
   static const String passwordChangeUrl = "$baseUrl/setup-password";
   static const String accountActiveRequest = "$baseUrl/account-active-request";
   static const String logoutUrl = "$baseUrl/logout";
+  static const String storageBaseUrl = "https://fclpbd.xyz/public/storage/";
+  static const String cartListUrl = "$baseUrl/cart/list";
+  static const String cartStoreUrl = "$baseUrl/cart/store";
+  static const String cartDeleteUrl = "$baseUrl/cart/delete";
 }

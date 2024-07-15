@@ -64,25 +64,25 @@ class ProductData{
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['price'] = this.price;
-    data['discount_price'] = this.discountPrice;
-    data['image'] = this.image;
-    data['category_id'] = this.categoryId;
-    data['description'] = this.description;
-    data['quantity'] = this.quantity;
-    data['status'] = this.status;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    if (this.colors != null) {
-      data['colors'] = this.colors!.map((v) => v.toJson()).toList();
+    data['id'] = id;
+    data['name'] = name;
+    data['price'] = price;
+    data['discount_price'] = discountPrice;
+    data['image'] = image;
+    data['category_id'] = categoryId;
+    data['description'] = description;
+    data['quantity'] = quantity;
+    data['status'] = status;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    if (colors != null) {
+      data['colors'] = colors!.map((v) => v.toJson()).toList();
     }
-    if (this.sizes != null) {
-      data['sizes'] = this.sizes!.map((v) => v.toJson()).toList();
+    if (sizes != null) {
+      data['sizes'] = sizes!.map((v) => v.toJson()).toList();
     }
-    if (this.category != null) {
-      data['category'] = this.category!.toJson();
+    if (category != null) {
+      data['category'] = category!.toJson();
     }
     return data;
   }
