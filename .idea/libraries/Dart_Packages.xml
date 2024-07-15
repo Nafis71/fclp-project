@@ -305,6 +305,13 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter">
+          <value>
+            <list>
+              <option value="$USER_HOME$/fvm/versions/3.22.2/packages/flutter/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_cache_manager">
           <value>
             <list>
@@ -312,10 +319,24 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_goldens">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../portfolio/.fvm/flutter_sdk/packages/flutter_goldens/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_lints">
           <value>
             <list>
               <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-3.0.2/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="flutter_localizations">
+          <value>
+            <list>
+              <option value="$USER_HOME$/fvm/versions/3.22.2/packages/flutter_localizations/lib" />
             </list>
           </value>
         </entry>
@@ -337,6 +358,21 @@
           <value>
             <list>
               <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_template_images-4.2.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="flutter_test">
+          <value>
+            <list>
+              <option value="$USER_HOME$/fvm/versions/3.22.2/packages/flutter_test/lib" />
+              <option value="$PROJECT_DIR$/../portfolio/.fvm/flutter_sdk/packages/flutter_test/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="flutter_web_plugins">
+          <value>
+            <list>
+              <option value="$USER_HOME$/fvm/versions/3.22.2/packages/flutter_web_plugins/lib" />
             </list>
           </value>
         </entry>
@@ -837,6 +873,14 @@
           <value>
             <list>
               <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/shelf_web_socket-1.0.4/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="sky_engine">
+          <value>
+            <list>
+              <option value="$USER_HOME$/fvm/versions/3.22.2/bin/cache/pkg/sky_engine/lib" />
+              <option value="$PROJECT_DIR$/../portfolio/.fvm/flutter_sdk/bin/cache/pkg/sky_engine/lib" />
             </list>
           </value>
         </entry>
@@ -1353,6 +1397,14 @@
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/xml-6.5.0/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/yaml-3.1.2/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/yaml_edit-2.2.0/lib" />
+      <root url="file://$USER_HOME$/fvm/versions/3.22.2/bin/cache/pkg/sky_engine/lib" />
+      <root url="file://$USER_HOME$/fvm/versions/3.22.2/packages/flutter/lib" />
+      <root url="file://$USER_HOME$/fvm/versions/3.22.2/packages/flutter_localizations/lib" />
+      <root url="file://$USER_HOME$/fvm/versions/3.22.2/packages/flutter_test/lib" />
+      <root url="file://$USER_HOME$/fvm/versions/3.22.2/packages/flutter_web_plugins/lib" />
+      <root url="file://$PROJECT_DIR$/../portfolio/.fvm/flutter_sdk/bin/cache/pkg/sky_engine/lib" />
+      <root url="file://$PROJECT_DIR$/../portfolio/.fvm/flutter_sdk/packages/flutter_goldens/lib" />
+      <root url="file://$PROJECT_DIR$/../portfolio/.fvm/flutter_sdk/packages/flutter_test/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
