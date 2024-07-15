@@ -154,27 +154,32 @@ class ProductCard extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                              Container(
-                                height: 30,
-                                width: 80,
-                                margin: const EdgeInsets.symmetric(
-                                    horizontal: 2, vertical: 5),
-                                decoration: BoxDecoration(
-                                  color: AppColors.secondaryThemeColor,
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child:  Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Icon(EvaIcons.shoppingCartOutline,color: AppColors.themeColor,),
-                                    Text(
-                                      "Add",
-                                      style: TextStyle(
-                                        color: AppColors.themeColor,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
+                              InkWell(
+                                splashColor: AppColors.transparent,
+                                onTap: (){
+                                  //
+                                },
+                                child: Container(
+                                  height: 30,
+                                  width: 80,
+                                  margin: const EdgeInsets.only(left: 4,right: 6,bottom: 8,top: 5),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.secondaryThemeColor,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child:  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Icon(EvaIcons.shoppingCartOutline,color: AppColors.themeColor,),
+                                      Text(
+                                        "Add",
+                                        style: TextStyle(
+                                          color: AppColors.themeColor,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               )
                             ],

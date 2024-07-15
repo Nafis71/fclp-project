@@ -3,10 +3,10 @@ import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/air_ticket_booking_view/air_ticket_view.dart';
 import 'package:fclp_app/views/blood_bank_view.dart';
+import 'package:fclp_app/views/home_screen/home_view_wigets/service_buttons.dart';
 import 'package:fclp_app/views/news_paper_view.dart';
 import 'package:fclp_app/views/online_doctor_view.dart';
 import 'package:fclp_app/views/online_shop_category_view.dart';
-import 'package:fclp_app/widgets/home_view_wigets/service_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

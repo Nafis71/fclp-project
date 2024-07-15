@@ -3,9 +3,9 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/utils/network_urls.dart';
-import 'package:fclp_app/views/product_details_screen/product_description_section.dart';
-import 'package:fclp_app/views/product_details_screen/product_details_footer.dart';
-import 'package:fclp_app/views/product_details_screen/product_header_section.dart';
+import 'package:fclp_app/views/product_details_screen/product_details_widgets/product_description_section.dart';
+import 'package:fclp_app/views/product_details_screen/product_details_widgets/product_details_footer.dart';
+import 'package:fclp_app/views/product_details_screen/product_details_widgets/product_header_section.dart';
 import 'package:flutter/material.dart';
 import '../../models/product_model/product_data.dart';
 

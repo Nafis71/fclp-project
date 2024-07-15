@@ -3,13 +3,15 @@ import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_drawer.dart';
-import 'package:fclp_app/widgets/global_widgets/product_grid_view.dart';
-import 'package:fclp_app/widgets/home_view_wigets/air_ticket_banner.dart';
-import 'package:fclp_app/widgets/home_view_wigets/help_service_buttons.dart';
-import 'package:fclp_app/widgets/home_view_wigets/product_service_buttons.dart';
-import 'package:fclp_app/widgets/home_view_wigets/welcome_banner.dart';
+import 'package:fclp_app/views/home_screen/home_product_widget/product_grid_view.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'home_view_wigets/air_ticket_banner.dart';
+import 'home_view_wigets/help_service_buttons.dart';
+import 'home_view_wigets/product_service_buttons.dart';
+import 'home_view_wigets/welcome_banner.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -25,8 +27,18 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     scrollController.addListener(_scrollListener);
-    loadProductData(page);
+    loadInitialData();
     super.initState();
+  }
+
+  Future<void> loadInitialData() async {
+    try {
+      await Future.wait([loadCartData(), loadProductData(page)]);
+    } catch (exception) {
+      if (kDebugMode) {
+        debugPrint(exception.toString());
+      }
+    }
   }
 
   @override
@@ -52,18 +64,19 @@ class _HomeViewState extends State<HomeView> {
                   height: 40,
                   width: 200,
                   decoration: BoxDecoration(
-                    color: AppColors.themeColor,
-                    borderRadius: const BorderRadius.only(
-                      bottomRight: Radius.circular(50),
-                      topRight: Radius.circular(50),
-                    ),
-                    boxShadow: [BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      spreadRadius: 4,
-                      blurRadius: 20,
-                      offset: const Offset(0, 10),
-                    )]
-                  ),
+                      color: AppColors.themeColor,
+                      borderRadius: const BorderRadius.only(
+                        bottomRight: Radius.circular(50),
+                        topRight: Radius.circular(50),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          spreadRadius: 4,
+                          blurRadius: 20,
+                          offset: const Offset(0, 10),
+                        )
+                      ]),
                   child: const Center(
                     child: FittedBox(
                       child: Text(
@@ -84,6 +97,15 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
     );
+  }
+
+  Future<void> loadCartData() async {
+    if (context.read<ProductController>().cartList.isNotEmpty) {
+      return;
+    }
+    await context
+        .read<ProductController>()
+        .loadCartData(context.read<ProfileController>().token);
   }
 
   Future<void> loadProductData(int page, {bool? fromScrollListener}) async {

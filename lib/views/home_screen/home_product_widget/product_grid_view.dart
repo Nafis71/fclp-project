@@ -2,7 +2,7 @@ import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/utils/network_urls.dart';
 import 'package:fclp_app/views/product_details_screen/product_details_view.dart';
-import 'package:fclp_app/widgets/global_widgets/product_card.dart';
+import 'package:fclp_app/views/home_screen/home_product_widget/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

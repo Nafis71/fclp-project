@@ -7,6 +7,8 @@ void snackBarMessage({
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       content: Text(message),
+      padding: const EdgeInsets.all(20),
+      duration: const Duration(seconds: 3),
     ),
   );
 }

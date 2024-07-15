@@ -22,4 +22,15 @@ class ProductService {
       body: productData,
     );
   }
+
+  static Future<Object> getCartData(
+      String token) async {
+    return await NetworkRequest().getRequest(
+      url: NetworkUrls.cartListUrl,
+      headers: {
+        "Authorization": "Bearer $token",
+      },
+    );
+  }
+
 }

@@ -1,6 +1,6 @@
 import 'package:fclp_app/Controllers/url_launcher_controller.dart';
 import 'package:fclp_app/utils/assets_paths.dart';
-import 'package:fclp_app/widgets/home_view_wigets/service_buttons.dart';
+import 'package:fclp_app/views/home_screen/home_view_wigets/service_buttons.dart';
 import 'package:flutter/material.dart';
 
 class HelpServiceButtons extends StatelessWidget {

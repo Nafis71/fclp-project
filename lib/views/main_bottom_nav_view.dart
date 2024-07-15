@@ -1,7 +1,7 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/air_ticket_booking_view/air_ticket_view.dart';
-import 'package:fclp_app/views/home_view.dart';
+import 'package:fclp_app/views/home_screen/home_view.dart';
 import 'package:fclp_app/views/my_cart_view.dart';
 import 'package:fclp_app/views/wishlist_view.dart';
 import 'package:flutter/material.dart';

@@ -3,7 +3,7 @@ import 'package:fclp_app/models/product_model/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../utils/color_palette.dart';
+import '../../../utils/color_palette.dart';
 
 class ProductDescriptionSection extends StatelessWidget {
   final ProductData productData;
@@ -39,7 +39,7 @@ class ProductDescriptionSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.35,
+              width: MediaQuery.of(context).size.width * 0.33,
               height: 40,
               child: Consumer<ProductController>(
                 builder: (_,productController,__) {
@@ -54,7 +54,7 @@ class ProductDescriptionSection extends StatelessWidget {
                     },
                     child: Text(
                       (productController.willShowMoreProductDescription) ? "কম দেখুন" : "আরো দেখুন",
-                      style: TextStyle(color: AppColors.themeColor),
+                      style: TextStyle(color: AppColors.themeColor,fontSize: 13),
                     ),
                   );
                 }

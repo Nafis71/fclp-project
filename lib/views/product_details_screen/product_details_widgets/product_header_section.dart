@@ -3,7 +3,7 @@ import 'package:fclp_app/models/product_model/product_data.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../utils/color_palette.dart';
+import '../../../utils/color_palette.dart';
 
 class ProductHeaderSection extends StatelessWidget {
   final ProductData productData;

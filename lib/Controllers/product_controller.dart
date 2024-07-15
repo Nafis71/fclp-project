@@ -1,3 +1,5 @@
+import 'package:fclp_app/models/cart_models/cart_model.dart';
+import 'package:fclp_app/models/cart_models/carts.dart';
 import 'package:fclp_app/models/product_model/product_model.dart';
 import 'package:fclp_app/services/product_service.dart';
 import 'package:fclp_app/services/response/success.dart';
@@ -7,6 +9,7 @@ import '../models/product_model/product_data.dart';
 
 class ProductController extends ChangeNotifier {
   List<ProductData> _productData = [];
+  List<CartData> cartList =[];
   bool _finalResponse = false;
   bool _nextPageAvailable = false;
   bool _isLoading = false;
@@ -75,24 +78,35 @@ class ProductController extends ChangeNotifier {
   Future<bool> addToCart(String token, ProductData product) async {
     _finalResponse = false;
     setIsLoading = true;
+    notifyListeners();
+    int quantity = selectedProductQuantity;
+    if(cartList.isNotEmpty){
+      for(CartData cartData in cartList){
+        if(cartData.productId == product.id.toString()){
+          quantity += int.parse(cartData.quantity.toString());
+          cartData.quantity = quantity.toString();
+          break;
+        }
+      }
+    }
     Map<String, String> productData = {
       "product_id": product.id.toString(),
-      "quantity": _selectedProductQuantity.toString(),
+      "quantity": quantity.toString(),
       "price": (product.discountPrice == "0")
           ? product.price.toString()
           : product.discountPrice.toString(),
     };
     response = await ProductService.addToCart(token, productData);
-    if(response is Success){
+    if (response is Success) {
       _finalResponse = true;
       _isProductAddedToCart = true;
     }
     setIsLoading = false;
+    notifyListeners();
     return _finalResponse;
   }
 
-  Future<bool> loadProductData(int page, String token) async {
-    _finalResponse = false;
+  Future<void> loadProductData(int page, String token) async {
     setIsLoading = true;
     response = await ProductService.getAllProductList(
         "page=${page.toString()}", token);
@@ -118,7 +132,23 @@ class ProductController extends ChangeNotifier {
     }
     setIsLoading = false;
     notifyListeners();
-    return _finalResponse;
+  }
+
+  Future<void> loadCartData(String token) async {
+    setIsLoading = true;
+    response = await ProductService.getCartData(token);
+    if (response is Success) {
+      CartModel cartModel = CartModel.fromJson(
+          (response as Success).response as Map<String, dynamic>);
+      if(cartModel.cartData != null){
+        for(CartData cart in cartModel.cartData!){
+          cartList.add(cart);
+        }
+        setIsLoading = false;
+      }
+    }
+    setIsLoading = false;
+    notifyListeners();
   }
 
   Future<List<ProductData>> getProductData(ProductModel productModel) async {

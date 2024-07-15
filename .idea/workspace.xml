@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- some minor changes">
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="-add to cart api call added &#10;- cart model added">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/cart_models/cart_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/cart_models/cart_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/cart_models/carts.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/cart_models/carts.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/services/product_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/product_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_strings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/home_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/product_details_screen/product_description_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_details_screen/product_description_section.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_footer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_footer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/product_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/snack_bar_message.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/snack_bar_message.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,12 +314,19 @@
       <option name="project" value="LOCAL" />
       <updated>1721071341390</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="-add to cart api call added &#10;- cart model added">
+      <option name="closed" value="true" />
+      <created>1721074286172</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1721074286172</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="splash_screen and token initialization added" />
     <MESSAGE value="-registration screen added" />
     <MESSAGE value="-UI fix and added animation" />
     <MESSAGE value="- airport list loader added" />
@@ -339,6 +351,7 @@
     <MESSAGE value="- color changed" />
     <MESSAGE value="- product details layout added" />
     <MESSAGE value="- some minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="- some minor changes" />
+    <MESSAGE value="-add to cart api call added &#10;- cart model added" />
+    <option name="LAST_COMMIT_MESSAGE" value="-add to cart api call added &#10;- cart model added" />
   </component>
 </project>

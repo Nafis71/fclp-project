@@ -1,4 +1,4 @@
-class Carts {
+class CartData {
   int? id;
   String? userId;
   String? productId;
@@ -7,7 +7,7 @@ class Carts {
   String? createdAt;
   String? updatedAt;
 
-  Carts({this.id,
+  CartData({this.id,
     this.userId,
     this.productId,
     this.quantity,
@@ -15,7 +15,7 @@ class Carts {
     this.createdAt,
     this.updatedAt});
 
-  Carts.fromJson(Map<String, dynamic> json) {
+  CartData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     userId = json['user_id'];
     productId = json['product_id'];

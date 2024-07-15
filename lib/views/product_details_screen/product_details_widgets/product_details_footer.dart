@@ -7,7 +7,7 @@ import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../utils/color_palette.dart';
+import '../../../utils/color_palette.dart';
 
 class ProductDetailsFooter extends StatelessWidget {
   final ProductData productData;
@@ -50,7 +50,7 @@ class ProductDetailsFooter extends StatelessWidget {
                   "Price",
                   style: TextStyle(
                     color: Colors.grey.shade700,
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -60,7 +60,7 @@ class ProductDetailsFooter extends StatelessWidget {
                     "\u09F3\t${productController.selectedProductPrice}",
                     style: TextStyle(
                       color: AppColors.themeColor,
-                      fontSize: 16,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   );
@@ -80,17 +80,21 @@ class ProductDetailsFooter extends StatelessWidget {
                         size: 30,
                         color: AppColors.themeColor,
                       ),
-                      Text("কার্টে যোগ হয়েছে"),
+                      const Text("কার্টে যোগ হয়েছে",style: TextStyle(fontWeight: FontWeight.bold),),
                     ],
                   );
                 }
-                return ElevatedButton(
-                  onPressed: () {
-                    addToCart(productController, context);
-                  },
-                  child: const Text(
-                    "কার্টে যোগ করুন",
-                    style: TextStyle(fontSize: 13),
+                return Visibility(
+                  visible: !productController.isLoading,
+                  replacement: Center(child: CircularProgressIndicator(color: AppColors.themeColor,),),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      addToCart(productController, context);
+                    },
+                    child: const Text(
+                      "কার্টে যোগ করুন",
+                      style: TextStyle(fontSize: 13),
+                    ),
                   ),
                 );
               }),
