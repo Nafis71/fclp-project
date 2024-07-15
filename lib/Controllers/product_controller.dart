@@ -14,6 +14,7 @@ class ProductController extends ChangeNotifier {
   bool _willShowMoreProductDescription = false;
   double _selectedProductPrice = 0.0;
   int _selectedProductQuantity = 1;
+  bool _isProductAddedToCart = false;
 
   double get selectedProductPrice => _selectedProductPrice;
 
@@ -27,32 +28,36 @@ class ProductController extends ChangeNotifier {
 
   bool get isLoading => _isLoading;
 
+  bool get isProductAddedToCart => _isProductAddedToCart;
+
   set setIsLoading(bool isLoading) {
     _isLoading = isLoading;
   }
 
-  void setProductPrice(double price){
+  void setProductPrice(double price) {
     _selectedProductPrice = price;
   }
-  void increaseProductQuantity(double productUnitPrice){
+
+  void increaseProductQuantity(double productUnitPrice) {
     _selectedProductQuantity++;
     _selectedProductPrice += productUnitPrice;
     notifyListeners();
   }
 
-  void decreaseProductQuantity(double productUnitPrice){
-    if(_selectedProductQuantity != 1){
+  void decreaseProductQuantity(double productUnitPrice) {
+    if (_selectedProductQuantity != 1) {
       _selectedProductQuantity--;
       _selectedProductPrice -= productUnitPrice;
       notifyListeners();
     }
   }
 
-  void resetSelectedProductData(){
+  void resetSelectedProductData() {
     _selectedProductQuantity = 1;
+    _isProductAddedToCart = false;
   }
 
-  void toggleWillShowMoreProductDescription(){
+  void toggleWillShowMoreProductDescription() {
     _willShowMoreProductDescription = !_willShowMoreProductDescription;
     notifyListeners();
   }
@@ -60,9 +65,30 @@ class ProductController extends ChangeNotifier {
   String getDiscountPercentage(String discountPrice, String originalPrice) {
     double productDiscountPrice = double.parse(discountPrice);
     double productOriginalPrice = double.parse(originalPrice);
-    double result = ((productOriginalPrice - productDiscountPrice)/productOriginalPrice) * 100;
+    double result =
+        ((productOriginalPrice - productDiscountPrice) / productOriginalPrice) *
+            100;
     String discountPercentage = result.toStringAsFixed(0);
     return discountPercentage;
+  }
+
+  Future<bool> addToCart(String token, ProductData product) async {
+    _finalResponse = false;
+    setIsLoading = true;
+    Map<String, String> productData = {
+      "product_id": product.id.toString(),
+      "quantity": _selectedProductQuantity.toString(),
+      "price": (product.discountPrice == "0")
+          ? product.price.toString()
+          : product.discountPrice.toString(),
+    };
+    response = await ProductService.addToCart(token, productData);
+    if(response is Success){
+      _finalResponse = true;
+      _isProductAddedToCart = true;
+    }
+    setIsLoading = false;
+    return _finalResponse;
   }
 
   Future<bool> loadProductData(int page, String token) async {
@@ -82,7 +108,6 @@ class ProductController extends ChangeNotifier {
           newProductData.shuffle();
           _productData.addAll(newProductData);
         }
-
       }
       if (productModel.nextPageUrl != null) {
         _nextPageAvailable = true;
@@ -96,10 +121,10 @@ class ProductController extends ChangeNotifier {
     return _finalResponse;
   }
 
-  Future<List<ProductData>> getProductData(ProductModel productModel) async{
-    List<ProductData> product =[];
-    for(ProductData productData in productModel.productData!){
-      if(productData.quantity != "0"){
+  Future<List<ProductData>> getProductData(ProductModel productModel) async {
+    List<ProductData> product = [];
+    for (ProductData productData in productModel.productData!) {
+      if (productData.quantity != "0") {
         product.add(productData);
       }
     }

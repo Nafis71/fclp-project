@@ -1,5 +1,9 @@
 import 'package:fclp_app/Controllers/product_controller.dart';
+import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/models/product_model/product_data.dart';
+import 'package:fclp_app/utils/app_strings.dart';
+import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
+import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -65,17 +69,52 @@ class ProductDetailsFooter extends StatelessWidget {
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.39,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  "কার্টে যোগ করুন",
-                  style: TextStyle(fontSize: 13),
-                ),
-              ),
+              child: Consumer<ProductController>(
+                  builder: (_, productController, __) {
+                if (productController.isProductAddedToCart) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        Icons.done,
+                        size: 30,
+                        color: AppColors.themeColor,
+                      ),
+                      Text("কার্টে যোগ হয়েছে"),
+                    ],
+                  );
+                }
+                return ElevatedButton(
+                  onPressed: () {
+                    addToCart(productController, context);
+                  },
+                  child: const Text(
+                    "কার্টে যোগ করুন",
+                    style: TextStyle(fontSize: 13),
+                  ),
+                );
+              }),
             ),
           ],
         ),
       ),
     );
+  }
+
+  Future<void> addToCart(
+      ProductController productController, BuildContext context) async {
+    bool status = await productController.addToCart(
+        context.read<ProfileController>().token, productData);
+    if (status && context.mounted) {
+      snackBarMessage(
+          context: context, message: AppStrings.addToCartSuccessMessage);
+      return;
+    }
+    if (context.mounted) {
+      warningDialog(
+          context: context,
+          warningDescription: AppStrings.addToCartFailureMessage,
+          message: AppStrings.addToCartFailureTitle);
+    }
   }
 }

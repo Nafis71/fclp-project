@@ -41,4 +41,7 @@ class AppStrings {
   static const String productDetailsPhoneVariantText = "ভ্যারিয়েন্ট";
   static const String productDetailsSizeText = "আকার";
   static const String productCategorySmartPhone = "Smart Phone";
+  static const String addToCartSuccessMessage = "পণ্য আপনার শপিং কার্টে যোগ করা হয়েছে";
+  static const String addToCartFailureMessage = "আপনার শপিং কার্টে পণ্য যোগ করতে ব্যর্থ হয়েছে";
+  static const String addToCartFailureTitle = "ত্রুটি ঘটেছে";
 }
