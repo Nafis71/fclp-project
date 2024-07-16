@@ -95,18 +95,21 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                       ],
                     ),
                   ),
-                  CachedNetworkImage(
-                    imageUrl:
-                        "${NetworkUrls.storageBaseUrl}${productData.image.toString()}",
-                    imageBuilder: (context, imageProvider) {
-                      return Container(
-                        height: 320,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: imageProvider, fit: BoxFit.contain)),
-                      );
-                    },
+                  Hero(
+                    tag: productData.name.toString(),
+                    child: CachedNetworkImage(
+                      imageUrl:
+                          "${NetworkUrls.storageBaseUrl}${productData.image.toString()}",
+                      imageBuilder: (context, imageProvider) {
+                        return Container(
+                          height: 320,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: imageProvider, fit: BoxFit.contain)),
+                        );
+                      },
+                    ),
                   ),
                   Container(
                     margin: const EdgeInsets.symmetric(
@@ -141,7 +144,6 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
       );
       return;
     }
-    print("Sending this Value : ${product.id}");
     context.read<ProductController>().specificProductData.clear();
     await context.read<ProductController>().loadSpecificProductData(
         product.categoryId.toString(),
@@ -156,7 +158,6 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
         page += 1;
-        print(page);
         _loadSpecificProductData(page,widget.productData, fromScrollListener: true);
       }
     }

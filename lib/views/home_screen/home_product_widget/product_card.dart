@@ -43,23 +43,26 @@ class ProductCard extends StatelessWidget {
         children: [
           Expanded(
             flex: 1,
-            child: CachedNetworkImage(
-              imageUrl: "${NetworkUrls.storageBaseUrl}${product.image}",
-              imageBuilder: (context, imageProvider) {
-                return Container(
-                  width: double.maxFinite,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(13),
-                        topLeft: Radius.circular(13)),
-                    image: DecorationImage(
-                        image: imageProvider, fit: BoxFit.fitHeight),
+            child: Hero(
+              tag: (isCategorial == null) ? product.name.toString() : product.image.toString(),
+              child: CachedNetworkImage(
+                imageUrl: "${NetworkUrls.storageBaseUrl}${product.image}",
+                imageBuilder: (context, imageProvider) {
+                  return Container(
+                    width: double.maxFinite,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.only(
+                          topRight: Radius.circular(13),
+                          topLeft: Radius.circular(13)),
+                      image: DecorationImage(
+                          image: imageProvider, fit: BoxFit.fitHeight),
+                    ),
+                  );
+                },
+                placeholder: (context, url) => Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.themeColor,
                   ),
-                );
-              },
-              placeholder: (context, url) => Center(
-                child: CircularProgressIndicator(
-                  color: AppColors.themeColor,
                 ),
               ),
             ),

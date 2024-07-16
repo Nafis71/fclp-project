@@ -162,11 +162,9 @@ class ProductController extends ChangeNotifier {
           (response as Success).response as Map<String, dynamic>);
       if (productModel.productData != null) {
         if (_specificProductData.isEmpty) {
-          print("Accessing First");
           _specificProductData = await getProductData(productModel,categoryId: categoryId,currentProductId: currentProductId);
           _specificProductData.shuffle();
         } else {
-          print("Accessing Second");
           List<ProductData> newProductData = await getProductData(productModel,categoryId: categoryId,currentProductId: currentProductId);
           newProductData.shuffle();
           _specificProductData.addAll(newProductData);
@@ -205,9 +203,7 @@ class ProductController extends ChangeNotifier {
     for (ProductData productData in productModel.productData!) {
       if (productData.quantity != "0") {
         if(categoryId != null && productData.categoryId == categoryId){
-          print("Current : $currentProductId");
           if(productData.id != currentProductId){
-            print(productData.id);
             product.add(productData);
           }
           continue;
