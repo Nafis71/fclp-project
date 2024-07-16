@@ -6,6 +6,7 @@ import 'package:fclp_app/models/product_model/product_data.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/utils/network_urls.dart';
+import 'package:fclp_app/views/product_details_screen/product_details_view.dart';
 import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
 import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +15,13 @@ import 'package:provider/provider.dart';
 class ProductCard extends StatelessWidget {
   final ProductData product;
   final ProductController productController;
+  final bool? isCategorial;
 
   const ProductCard(
-      {super.key, required this.product, required this.productController});
+      {super.key,
+      required this.product,
+      required this.productController,
+      this.isCategorial});
 
   @override
   Widget build(BuildContext context) {
@@ -149,7 +154,19 @@ class ProductCard extends StatelessWidget {
                               InkWell(
                                 splashColor: AppColors.transparent,
                                 onTap: () {
-                                  addToCart(context);
+                                  if (isCategorial == null) {
+                                    addToCart(context);
+                                  } else {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            ProductDetailsView(
+                                          productData: product,
+                                        ),
+                                      ),
+                                    );
+                                  }
                                 },
                                 child: Container(
                                   height: 30,
@@ -164,12 +181,17 @@ class ProductCard extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      Icon(
-                                        EvaIcons.shoppingCartOutline,
-                                        color: AppColors.themeColor,
-                                      ),
+                                      (isCategorial == null)
+                                          ? Icon(
+                                              EvaIcons.shoppingCartOutline,
+                                              color: AppColors.themeColor,
+                                            )
+                                          : Icon(
+                                              EvaIcons.shoppingBagOutline,
+                                              color: AppColors.themeColor,
+                                            ),
                                       Text(
-                                        "Add",
+                                        (isCategorial == null) ? "Add" : "View",
                                         style: TextStyle(
                                             color: AppColors.themeColor,
                                             fontWeight: FontWeight.bold),

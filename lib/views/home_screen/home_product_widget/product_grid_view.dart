@@ -94,6 +94,7 @@ class ProductGridView extends StatelessWidget {
       child: ProductCard(
         product: (categoryId == null) ? productController.productData[index] : productController.specificProductData[index],
         productController: productController,
+        isCategorial: (categoryId == null) ? null : true,
       ),
     );
   }
