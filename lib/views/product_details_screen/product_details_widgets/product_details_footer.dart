@@ -85,7 +85,7 @@ class ProductDetailsFooter extends StatelessWidget {
                   );
                 }
                 return Visibility(
-                  visible: !productController.isLoading,
+                  visible: !productController.isStoringCartList,
                   replacement: Center(child: CircularProgressIndicator(color: AppColors.themeColor,),),
                   child: ElevatedButton(
                     onPressed: () {

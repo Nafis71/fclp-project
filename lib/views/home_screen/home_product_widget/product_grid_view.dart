@@ -7,15 +7,17 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ProductGridView extends StatelessWidget {
-  const ProductGridView({super.key});
+  final String? categoryId;
+  const ProductGridView({super.key,this.categoryId});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Consumer<ProductController>(
-          builder: (_, productController, __) {
-            if (productController.isLoading) {
+      padding: const EdgeInsets.all(8.0),
+      child: Consumer<ProductController>(
+        builder: (_, productController, __) {
+          if(categoryId != null){
+            if(productController.isCategorialProductFetching){
               return Center(
                 child: CircularProgressIndicator(
                   color: AppColors.themeColor,
@@ -31,37 +33,68 @@ class ProductGridView extends StatelessWidget {
                 mainAxisSpacing: 7.5,
                 maxCrossAxisExtent: 220,
               ),
-              itemCount: productController.productData.length,
+              itemCount: productController.specificProductData.length,
               itemBuilder: (context, index) {
-                return InkWell(
-                  splashColor: Colors.transparent,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductDetailsView(
-                            productData: productController.productData[index]),
-                      ),
-                    ).then((value){
-                      productController.resetSelectedProductData();
-                    });
-                  },
-                  child: ProductCard(
-                      productImg:
-                          "${NetworkUrls.storageBaseUrl}${productController.productData[index].image.toString()}",
-                      productTitle:
-                          productController.productData[index].name.toString(),
-                      isFavorite: false,
-                      toggleFavorite: () {},
-                      productOriginalPrice:
-                          productController.productData[index].price.toString(),
-                      productDiscountPrice: productController
-                          .productData[index].discountPrice
-                          .toString()),
-                );
+                return product(context, productController, index);
               },
             );
-          },
-        ));
+          }
+          if (productController.isLoading) {
+            return Center(
+              child: CircularProgressIndicator(
+                color: AppColors.themeColor,
+              ),
+            );
+          }
+          return GridView.builder(
+            shrinkWrap: true,
+            primary: false,
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              childAspectRatio: 0.7,
+              crossAxisSpacing: 7.5,
+              mainAxisSpacing: 7.5,
+              maxCrossAxisExtent: 220,
+            ),
+            itemCount: productController.productData.length,
+            itemBuilder: (context, index) {
+              return product(context, productController, index);
+            },
+          );
+        },
+      ),
+    );
+  }
+
+  Widget product(BuildContext context,ProductController productController,int index){
+    return InkWell(
+      splashColor: Colors.transparent,
+      onTap: () {
+        if(categoryId!= null){
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProductDetailsView(
+                  productData: productController.specificProductData[index]),
+            ),
+          ).then((value) {
+            productController.resetSelectedProductData();
+          });
+          return;
+        }
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProductDetailsView(
+                productData: productController.productData[index]),
+          ),
+        ).then((value) {
+          productController.resetSelectedProductData();
+        });
+      },
+      child: ProductCard(
+        product: (categoryId == null) ? productController.productData[index] : productController.specificProductData[index],
+        productController: productController,
+      ),
+    );
   }
 }

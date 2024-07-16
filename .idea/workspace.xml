@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- cart functionality added and refactored the code" />
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- fvm version changed">
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/fclp-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fclp-project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/home_screen/home_product_widget/product_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_screen/home_product_widget/product_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/home_screen/home_product_widget/product_grid_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_screen/home_product_widget/product_grid_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_widgets/product_description_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_widgets/product_description_section.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_widgets/product_details_footer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_widgets/product_details_footer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/login_widgets/account_login_form_section_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/login_widgets/account_login_form_section_widget.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -320,12 +331,27 @@
       <option name="project" value="LOCAL" />
       <updated>1721078670617</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="- fvm version changed">
+      <option name="closed" value="true" />
+      <created>1721078894403</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1721078894403</updated>
+    </task>
+    <task id="LOCAL-00031" summary="- fvm version changed">
+      <option name="closed" value="true" />
+      <created>1721078977739</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1721078977739</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="-UI fix and added animation" />
     <MESSAGE value="- airport list loader added" />
     <MESSAGE value="- air ticket booking added" />
     <MESSAGE value="- air ticket card added and model created" />
@@ -350,6 +376,7 @@
     <MESSAGE value="- some minor changes" />
     <MESSAGE value="-add to cart api call added &#10;- cart model added" />
     <MESSAGE value="- cart functionality added and refactored the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="- cart functionality added and refactored the code" />
+    <MESSAGE value="- fvm version changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fvm version changed" />
   </component>
 </project>

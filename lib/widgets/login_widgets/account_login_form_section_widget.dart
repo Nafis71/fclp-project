@@ -1,7 +1,6 @@
 import 'package:fclp_app/Controllers/auth_controller.dart';
 import 'package:fclp_app/Controllers/form_validation_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
-import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -123,16 +122,17 @@ class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
                   Consumer<AuthController>(
                     builder: (_, viewModel, __) => Visibility(
                       visible: !viewModel.isLoading,
-                      replacement:  CircularProgressIndicator(
+                      replacement: CircularProgressIndicator(
                         color: AppColors.themeColor,
                       ),
                       child: ElevatedButton(
-                          onPressed: () => FormValidationController.handleLogin(
-                              context,
-                              _formKey,
-                              _mobileNumberTEController.text.trim(),
-                              _passwordTEController.text),
-                          child: const Text("লগইন করুন")),
+                        onPressed: () => FormValidationController.handleLogin(
+                            context,
+                            _formKey,
+                            _mobileNumberTEController.text.trim(),
+                            _passwordTEController.text),
+                        child: const Text("লগইন করুন"),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -149,7 +149,10 @@ class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
                     onPressed: () {
                       context.read<AuthController>().setIsLoginScreen(false);
                     },
-                    child: const Text("রেজিস্ট্রেশন করুন",style: TextStyle(color: Colors.black),),
+                    child: const Text(
+                      "রেজিস্ট্রেশন করুন",
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                   const SizedBox(
                     height: 24,

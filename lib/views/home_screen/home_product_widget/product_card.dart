@@ -1,27 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:fclp_app/Controllers/product_controller.dart';
+import 'package:fclp_app/Controllers/profile_controller.dart';
+import 'package:fclp_app/models/product_model/product_data.dart';
+import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/color_palette.dart';
+import 'package:fclp_app/utils/network_urls.dart';
+import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
+import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({
-    super.key,
-    required this.productImg,
-    required this.productTitle,
-    required this.isFavorite,
-    required this.toggleFavorite,
-    required this.productOriginalPrice,
-    required this.productDiscountPrice,
-  });
+  final ProductData product;
+  final ProductController productController;
 
-  final String productImg;
-  final String productTitle;
-  final String productOriginalPrice;
-  final String productDiscountPrice;
-  final bool isFavorite;
-  final VoidCallback toggleFavorite;
+  const ProductCard(
+      {super.key, required this.product, required this.productController});
 
   @override
   Widget build(BuildContext context) {
@@ -43,26 +38,23 @@ class ProductCard extends StatelessWidget {
         children: [
           Expanded(
             flex: 1,
-            child: Hero(
-              tag: productTitle,
-              child: CachedNetworkImage(
-                imageUrl: productImg,
-                imageBuilder: (context, imageProvider) {
-                  return Container(
-                    width: double.maxFinite,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                          topRight: Radius.circular(13),
-                          topLeft: Radius.circular(13)),
-                      image: DecorationImage(
-                          image: imageProvider, fit: BoxFit.fitHeight),
-                    ),
-                  );
-                },
-                placeholder: (context, url) => Center(
-                  child: CircularProgressIndicator(
-                    color: AppColors.themeColor,
+            child: CachedNetworkImage(
+              imageUrl: "${NetworkUrls.storageBaseUrl}${product.image}",
+              imageBuilder: (context, imageProvider) {
+                return Container(
+                  width: double.maxFinite,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(13),
+                        topLeft: Radius.circular(13)),
+                    image: DecorationImage(
+                        image: imageProvider, fit: BoxFit.fitHeight),
                   ),
+                );
+              },
+              placeholder: (context, url) => Center(
+                child: CircularProgressIndicator(
+                  color: AppColors.themeColor,
                 ),
               ),
             ),
@@ -70,7 +62,7 @@ class ProductCard extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Padding(
-              padding: (productDiscountPrice != "0.00")
+              padding: (product.discountPrice != "0.00")
                   ? const EdgeInsets.only(
                       left: 8,
                       top: 5,
@@ -86,7 +78,7 @@ class ProductCard extends StatelessWidget {
                 children: [
                   Text(
                     maxLines: 2,
-                    productTitle,
+                    product.name.toString(),
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                       fontSize: 15.0,
@@ -102,9 +94,9 @@ class ProductCard extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              (productDiscountPrice != "0.00")
-                                  ? "\u09F3\t$productDiscountPrice"
-                                  : "\u09F3\t$productOriginalPrice",
+                              (product.discountPrice != "0.00")
+                                  ? "\u09F3\t${product.discountPrice}"
+                                  : "\u09F3\t${product.price}",
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                 fontSize: 14.0,
@@ -116,8 +108,8 @@ class ProductCard extends StatelessWidget {
                               width: 5,
                             ),
                             Text(
-                              (productDiscountPrice != "0.00")
-                                  ? productOriginalPrice
+                              (product.discountPrice != "0.00")
+                                  ? product.price.toString()
                                   : "",
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
@@ -135,11 +127,11 @@ class ProductCard extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              if (productDiscountPrice != "0.00")
+                              if (product.discountPrice != "0.00")
                                 Row(
                                   children: [
                                     Text(
-                                      "${context.read<ProductController>().getDiscountPercentage(productDiscountPrice, productOriginalPrice)}%",
+                                      "${context.read<ProductController>().getDiscountPercentage(product.discountPrice.toString(), product.price.toString())}%",
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 13.0,
@@ -156,26 +148,30 @@ class ProductCard extends StatelessWidget {
                                 ),
                               InkWell(
                                 splashColor: AppColors.transparent,
-                                onTap: (){
-                                  //
+                                onTap: () {
+                                  addToCart(context);
                                 },
                                 child: Container(
                                   height: 30,
                                   width: 80,
-                                  margin: const EdgeInsets.only(left: 4,right: 6,bottom: 8,top: 5),
+                                  margin: const EdgeInsets.only(
+                                      left: 4, right: 6, bottom: 8, top: 5),
                                   decoration: BoxDecoration(
                                     color: AppColors.secondaryThemeColor,
                                     borderRadius: BorderRadius.circular(20),
                                   ),
-                                  child:  Row(
+                                  child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      Icon(EvaIcons.shoppingCartOutline,color: AppColors.themeColor,),
+                                      Icon(
+                                        EvaIcons.shoppingCartOutline,
+                                        color: AppColors.themeColor,
+                                      ),
                                       Text(
                                         "Add",
                                         style: TextStyle(
-                                          color: AppColors.themeColor,
+                                            color: AppColors.themeColor,
                                             fontWeight: FontWeight.bold),
                                       ),
                                     ],
@@ -195,5 +191,21 @@ class ProductCard extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> addToCart(BuildContext context) async {
+    bool status = await productController.addToCart(
+        context.read<ProfileController>().token, product);
+    if (status && context.mounted) {
+      snackBarMessage(
+          context: context, message: AppStrings.addToCartSuccessMessage);
+      return;
+    }
+    if (context.mounted) {
+      warningDialog(
+          context: context,
+          warningDescription: AppStrings.addToCartFailureMessage,
+          message: AppStrings.addToCartFailureTitle);
+    }
   }
 }

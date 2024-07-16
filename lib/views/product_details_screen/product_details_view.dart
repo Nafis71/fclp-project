@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:fclp_app/Controllers/product_controller.dart';
+import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/utils/network_urls.dart';
@@ -7,6 +9,7 @@ import 'package:fclp_app/views/product_details_screen/product_details_widgets/pr
 import 'package:fclp_app/views/product_details_screen/product_details_widgets/product_details_footer.dart';
 import 'package:fclp_app/views/product_details_screen/product_details_widgets/product_header_section.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../models/product_model/product_data.dart';
 
 class ProductDetailsView extends StatefulWidget {
@@ -22,15 +25,27 @@ class ProductDetailsView extends StatefulWidget {
 }
 
 class _ProductDetailsViewState extends State<ProductDetailsView> {
+  int page = 1;
+  final ScrollController _scrollController = ScrollController();
+  late final ProductData productData;
+  @override
+  void initState() {
+    productData = widget.productData;
+    _scrollController.addListener(_scrollListener);
+    _loadSpecificProductData(page, widget.productData);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final ProductData productData = widget.productData;
+
     return Scaffold(
         body: SafeArea(
       child: Column(
         children: [
           Expanded(
             child: SingleChildScrollView(
+              controller: _scrollController,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -42,10 +57,13 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                         Row(
                           children: [
                             IconButton(
-                              onPressed: (){
+                              onPressed: () {
                                 Navigator.pop(context);
                               },
-                              icon: const Icon(EvaIcons.arrowIosBack,size: 28,),
+                              icon: const Icon(
+                                EvaIcons.arrowIosBack,
+                                size: 28,
+                              ),
                             ),
                             const SizedBox(
                               width: 5,
@@ -77,21 +95,18 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                       ],
                     ),
                   ),
-                  Hero(
-                    tag: productData.name.toString(),
-                    child: CachedNetworkImage(
-                      imageUrl:
-                          "${NetworkUrls.storageBaseUrl}${productData.image.toString()}",
-                      imageBuilder: (context, imageProvider) {
-                        return Container(
-                          height: 320,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: imageProvider, fit: BoxFit.contain)),
-                        );
-                      },
-                    ),
+                  CachedNetworkImage(
+                    imageUrl:
+                        "${NetworkUrls.storageBaseUrl}${productData.image.toString()}",
+                    imageBuilder: (context, imageProvider) {
+                      return Container(
+                        height: 320,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: imageProvider, fit: BoxFit.contain)),
+                      );
+                    },
                   ),
                   Container(
                     margin: const EdgeInsets.symmetric(
@@ -99,7 +114,9 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                     child: Column(
                       children: [
                         ProductHeaderSection(productData: productData),
-                        const SizedBox(height: 10,),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         ProductDescriptionSection(productData: productData),
                       ],
                     ),
@@ -112,5 +129,42 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
         ],
       ),
     ));
+  }
+
+  Future<void> _loadSpecificProductData(int page, ProductData product,
+      {bool? fromScrollListener}) async {
+    if (fromScrollListener != null && mounted) {
+      await context.read<ProductController>().loadSpecificProductData(
+          product.categoryId.toString(),
+          context.read<ProfileController>().token,
+          page,productData.id!
+      );
+      return;
+    }
+    print("Sending this Value : ${product.id}");
+    context.read<ProductController>().specificProductData.clear();
+    await context.read<ProductController>().loadSpecificProductData(
+        product.categoryId.toString(),
+        context.read<ProfileController>().token,
+        page,productData.id!
+    );
+  }
+
+  void _scrollListener() {
+    if (!context.read<ProductController>().isCategorialProductFetching &&
+        context.read<ProductController>().categorialNextPageAvailable) {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        page += 1;
+        print(page);
+        _loadSpecificProductData(page,widget.productData, fromScrollListener: true);
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 }
