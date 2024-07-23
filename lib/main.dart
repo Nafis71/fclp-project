@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:fclp_app/Controllers/air_ticket_controller.dart';
 import 'package:fclp_app/Controllers/auth_controller.dart';
+import 'package:fclp_app/Controllers/cart_controller.dart';
 import 'package:fclp_app/Controllers/product_category_view_controller.dart';
 import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
@@ -18,6 +19,7 @@ void main() {
             create: (context) => ProdudctCategoryViewController()),
         ChangeNotifierProvider(create: (context) => ProductController()),
         ChangeNotifierProvider(create: (context) => AuthController()),
+        ChangeNotifierProvider(create: (context) => CartController()),
       ],
       child: DevicePreview(builder: (_)=>const FCLP(),),
     ),

@@ -36,10 +36,7 @@ class ServiceButtons extends StatelessWidget {
           const SizedBox(height: 5.0),
           Text(
             label,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 12.0,
-            ),
+            style: Theme.of(context).textTheme.bodySmall,
             textAlign: TextAlign.center,
           ),
         ],

@@ -98,9 +98,13 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: BlackOpsOne
+    - family: Poppins Bold
       fonts:
-        - asset: assets/fonts/BlackOpsOne-Regular.ttf
+        - asset: assets/fonts/Poppins-Bold.ttf
+
+    - family: Poppins Regular
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

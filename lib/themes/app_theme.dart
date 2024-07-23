@@ -1,3 +1,4 @@
+import 'package:fclp_app/themes/app_text_theme.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
@@ -5,23 +6,7 @@ ThemeData lightThemeData() {
   return ThemeData(
     brightness: Brightness.light,
     scaffoldBackgroundColor: AppColors.backgroundColor,
-    textTheme: TextTheme(
-      bodySmall: TextStyle(
-        color: AppColors.themeColor,
-        fontWeight: FontWeight.bold,
-        fontSize: 15,
-      ),
-      titleLarge: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 24,
-        color: AppColors.themeColor,
-      ),
-      titleMedium: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 25,
-        color: AppColors.themeColor,
-      ),
-    ),
+    textTheme: AppTextTheme.getLightTextTheme(),
     inputDecorationTheme:  InputDecorationTheme(
       suffixIconColor: AppColors.themeColor,
       prefixIconColor: AppColors.grey,
@@ -82,9 +67,9 @@ ThemeData lightThemeData() {
       backgroundColor: AppColors.themeColor,
       foregroundColor: Colors.white,
       titleTextStyle:  const TextStyle(
-        fontSize: 28,
+        fontSize: 25,
         fontWeight: FontWeight.bold,
-        fontFamily: "BlackOpsOne",
+        fontFamily: "Poppins Bold",
         color: Colors.white,
       ),
     ),

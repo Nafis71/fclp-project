@@ -1,8 +1,8 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/air_ticket_booking_view/air_ticket_view.dart';
+import 'package:fclp_app/views/cart_screen/cart_screen.dart';
 import 'package:fclp_app/views/home_screen/home_view.dart';
-import 'package:fclp_app/views/my_cart_view.dart';
 import 'package:fclp_app/views/wishlist_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,7 +21,7 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
   final List<Widget> _screen = [
     const HomeView(),
     const AirTicketView(),
-    const MyCartView(),
+    const CartScreen(),
     const WishlistView()
   ];
 

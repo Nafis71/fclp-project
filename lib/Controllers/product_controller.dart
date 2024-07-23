@@ -1,5 +1,7 @@
+import 'package:fclp_app/Controllers/cart_controller.dart';
 import 'package:fclp_app/models/cart_models/cart_model.dart';
-import 'package:fclp_app/models/cart_models/carts.dart';
+import 'package:fclp_app/models/cart_models/cart_data.dart';
+import 'package:fclp_app/models/cart_models/cart_product.dart';
 import 'package:fclp_app/models/product_model/product_model.dart';
 import 'package:fclp_app/services/product_service.dart';
 import 'package:fclp_app/services/response/success.dart';
@@ -11,7 +13,6 @@ import '../models/product_model/product_data.dart';
 class ProductController extends ChangeNotifier {
   List<ProductData> _productData = [];
   List<ProductData> _specificProductData =[];
-  List<CartData> cartList =[];
   bool _finalResponse = false;
   bool _isCategorialProductFetching = false;
   bool _nextPageAvailable = false;
@@ -96,13 +97,13 @@ class ProductController extends ChangeNotifier {
     return discountPercentage;
   }
 
-  Future<bool> addToCart(String token, ProductData product) async {
+  Future<bool> addToCart(String token, ProductData product, CartController cartController) async {
     _finalResponse = false;
     setIsStoringCartList = true;
     int quantity = selectedProductQuantity;
-    if(cartList.isNotEmpty){
-      for(CartData cartData in cartList){
-        if(cartData.productId == product.id.toString()){
+    if(cartController.cartList.isNotEmpty){
+      for(CartProduct cartData in cartController.cartList){
+        if(cartData.name == product.name.toString()){
           quantity += int.parse(cartData.quantity.toString());
           cartData.quantity = quantity.toString();
           break;
@@ -155,7 +156,6 @@ class ProductController extends ChangeNotifier {
 
   Future<void> loadSpecificProductData(String categoryId,String token,int page,int currentProductId) async{
     setIsCategorialProductFetching = true;
-    print("getting product Id : $currentProductId");
     response =  await ProductService.getAllProductList("page=${page.toString()}", token);
     if(response is Success){
       ProductModel productModel = ProductModel.fromJson(
@@ -179,25 +179,6 @@ class ProductController extends ChangeNotifier {
     setIsCategorialProductFetching = false;
     notifyListeners();
   }
-
-
-  Future<void> loadCartData(String token) async {
-    setIsLoading = true;
-    response = await ProductService.getCartData(token);
-    if (response is Success) {
-      CartModel cartModel = CartModel.fromJson(
-          (response as Success).response as Map<String, dynamic>);
-      if(cartModel.cartData != null){
-        for(CartData cart in cartModel.cartData!){
-          cartList.add(cart);
-        }
-        setIsLoading = false;
-      }
-    }
-    setIsLoading = false;
-    notifyListeners();
-  }
-
   Future<List<ProductData>> getProductData(ProductModel productModel,{String? categoryId,int? currentProductId}) async {
     List<ProductData> product = [];
     for (ProductData productData in productModel.productData!) {
@@ -212,5 +193,10 @@ class ProductController extends ChangeNotifier {
       }
     }
     return product.toList();
+  }
+
+  void productAddedFromCard(){
+    _isProductAddedToCart = false;
+    notifyListeners();
   }
 }

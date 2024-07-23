@@ -1,3 +1,4 @@
+import 'package:fclp_app/Controllers/cart_controller.dart';
 import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/models/product_model/product_data.dart';
@@ -108,7 +109,7 @@ class ProductDetailsFooter extends StatelessWidget {
   Future<void> addToCart(
       ProductController productController, BuildContext context) async {
     bool status = await productController.addToCart(
-        context.read<ProfileController>().token, productData);
+        context.read<ProfileController>().token, productData, context.read<CartController>());
     if (status && context.mounted) {
       snackBarMessage(
           context: context, message: AppStrings.addToCartSuccessMessage);

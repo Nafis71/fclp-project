@@ -17,6 +17,7 @@ class ProductData{
   List<ProductColors>? colors;
   List<ProductSize>? sizes;
   ProductCategory? category;
+  bool isProductAddedToCart = false;
 
   ProductData(
       {this.id,

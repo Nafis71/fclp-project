@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:fclp_app/Controllers/cart_controller.dart';
 import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/models/product_model/product_data.dart';
@@ -44,7 +45,9 @@ class ProductCard extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Hero(
-              tag: (isCategorial == null) ? product.name.toString() : product.image.toString(),
+              tag: (isCategorial == null)
+                  ? product.name.toString()
+                  : product.image.toString(),
               child: CachedNetworkImage(
                 imageUrl: "${NetworkUrls.storageBaseUrl}${product.image}",
                 imageBuilder: (context, imageProvider) {
@@ -88,11 +91,7 @@ class ProductCard extends StatelessWidget {
                     maxLines: 2,
                     product.name.toString(),
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.black,
-                    ),
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                   Expanded(
                     flex: 2,
@@ -106,11 +105,13 @@ class ProductCard extends StatelessWidget {
                                   ? "\u09F3\t${product.discountPrice}"
                                   : "\u09F3\t${product.price}",
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                color: AppColors.themeColor,
-                                fontWeight: FontWeight.w700,
-                              ),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleMedium!
+                                  .copyWith(
+                                    color: AppColors.themeColor,
+                                    fontWeight: FontWeight.w800,
+                                  ),
                             ),
                             const SizedBox(
                               width: 5,
@@ -120,14 +121,15 @@ class ProductCard extends StatelessWidget {
                                   ? product.price.toString()
                                   : "",
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                fontSize: 11.0,
-                                color: AppColors.grey,
-                                fontWeight: FontWeight.bold,
-                                decoration: TextDecoration.lineThrough,
-                                decorationColor: AppColors.red,
-                                decorationThickness: 2,
-                              ),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(
+                                    color: Colors.grey,
+                                    fontSize: 11,
+                                    decoration: TextDecoration.lineThrough,
+                                    decorationColor: Colors.red,
+                                  ),
                             ),
                           ],
                         ),
@@ -154,55 +156,30 @@ class ProductCard extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                              InkWell(
-                                splashColor: AppColors.transparent,
-                                onTap: () {
-                                  if (isCategorial == null) {
-                                    addToCart(context);
-                                  } else {
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            ProductDetailsView(
-                                          productData: product,
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                },
-                                child: Container(
-                                  height: 30,
-                                  width: 80,
-                                  margin: const EdgeInsets.only(
-                                      left: 4, right: 6, bottom: 8, top: 5),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.secondaryThemeColor,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      (isCategorial == null)
-                                          ? Icon(
-                                              EvaIcons.shoppingCartOutline,
-                                              color: AppColors.themeColor,
-                                            )
-                                          : Icon(
-                                              EvaIcons.shoppingBagOutline,
-                                              color: AppColors.themeColor,
+                              (!product.isProductAddedToCart)
+                                  ? InkWell(
+                                      splashColor: AppColors.transparent,
+                                      onTap: () {
+                                        if (isCategorial == null) {
+                                          addToCart(context);
+                                        } else {
+                                          Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ProductDetailsView(
+                                                productData: product,
+                                              ),
                                             ),
-                                      Text(
-                                        (isCategorial == null) ? "Add" : "View",
-                                        style: TextStyle(
-                                            color: AppColors.themeColor,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              )
+                                          );
+                                        }
+                                      },
+                                      child: productCartButton(
+                                          icon: Icons
+                                              .shopping_cart_checkout_rounded,
+                                          bodyText: "Add"))
+                                  : productCartButton(
+                                      icon: Icons.done, bodyText: "Added")
                             ],
                           ),
                         )
@@ -218,12 +195,47 @@ class ProductCard extends StatelessWidget {
     );
   }
 
+  Widget productCartButton({required IconData icon, required String bodyText}) {
+    return Container(
+      height: 30,
+      width: 80,
+      margin: const EdgeInsets.only(left: 4, right: 6, bottom: 8, top: 5),
+      decoration: BoxDecoration(
+        color: AppColors.secondaryThemeColor,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          (isCategorial == null)
+              ? Icon(
+                  icon,
+                  color: AppColors.themeColor,
+                )
+              : Icon(
+                  EvaIcons.shoppingBagOutline,
+                  color: AppColors.themeColor,
+                ),
+          Text(
+            (isCategorial == null) ? bodyText : "View",
+            style: TextStyle(
+                color: AppColors.themeColor, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
+  }
+
   Future<void> addToCart(BuildContext context) async {
     bool status = await productController.addToCart(
-        context.read<ProfileController>().token, product);
+        context.read<ProfileController>().token,
+        product,
+        context.read<CartController>());
     if (status && context.mounted) {
       snackBarMessage(
           context: context, message: AppStrings.addToCartSuccessMessage);
+      product.isProductAddedToCart = true;
+      productController.productAddedFromCard();
       return;
     }
     if (context.mounted) {

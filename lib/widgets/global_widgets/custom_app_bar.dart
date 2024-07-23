@@ -1,16 +1,17 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-AppBar customAppBar() {
+AppBar customAppBar({String? title}) {
   return AppBar(
     centerTitle: false,
-    title: const Text("FCLP"),
+    title: (title == null) ? const Text("FCLP") : Text(title),
     actions: [
       IconButton(
         onPressed: () {},
-        icon: const Icon(EvaIcons.bellOutline,size: 29,),
+        icon: const Icon(
+          EvaIcons.bellOutline,
+          size: 29,
+        ),
       ),
     ],
   );

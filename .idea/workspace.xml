@@ -4,12 +4,32 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- minor changes">
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- cart api modified">
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Poppins-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Poppins-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Controllers/cart_controller.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/cart_models/cart_product.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/themes/app_text_theme.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/views/cart_screen/cart_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/BlackOpsOne-Regular.ttf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/cart_models/cart_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/cart_models/cart_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/cart_models/carts.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/cart_models/cart_data.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/product_model/product_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/product_model/product_data.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/product_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/product_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/themes/app_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/themes/app_theme.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/home_screen/home_product_widget/product_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_screen/home_product_widget/product_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/home_screen/home_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_screen/home_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/home_screen/home_view_wigets/service_buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_screen/home_view_wigets/service_buttons.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/my_cart_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_widgets/product_details_footer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_widgets/product_details_footer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,12 +85,15 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Flutter Projects/crafty_bay&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Flutter Projects/fclp-project/assets/fonts&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;flutter.settings&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Flutter Projects\fclp-project\assets\fonts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Flutter Projects\fclp-project\lib\views\home_screen\home_product_widget" />
       <recent name="E:\Flutter Projects\fclp-project\lib\views\product_details_screen\product_details_widgets" />
@@ -358,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721143442390</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="- minor changes">
+      <option name="closed" value="true" />
+      <created>1721157580076</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1721157580076</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

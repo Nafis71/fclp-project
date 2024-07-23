@@ -1,3 +1,4 @@
+import 'package:fclp_app/Controllers/cart_controller.dart';
 import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
@@ -100,11 +101,11 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Future<void> loadCartData() async {
-    if (context.read<ProductController>().cartList.isNotEmpty) {
+    if (context.read<CartController>().cartList.isNotEmpty) {
       return;
     }
     await context
-        .read<ProductController>()
+        .read<CartController>()
         .loadCartData(context.read<ProfileController>().token);
   }
 
