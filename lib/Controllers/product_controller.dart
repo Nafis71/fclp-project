@@ -101,11 +101,13 @@ class ProductController extends ChangeNotifier {
     _finalResponse = false;
     setIsStoringCartList = true;
     int quantity = selectedProductQuantity;
+    bool hasFoundInCart = false;
     if(cartController.cartList.isNotEmpty){
       for(CartProduct cartData in cartController.cartList){
         if(cartData.name == product.name.toString()){
           quantity += int.parse(cartData.quantity.toString());
           cartData.quantity = quantity.toString();
+          hasFoundInCart = true;
           break;
         }
       }
@@ -119,6 +121,21 @@ class ProductController extends ChangeNotifier {
     };
     response = await ProductService.addToCart(token, productData);
     if (response is Success) {
+      Map<String,dynamic> responseJson = (response as Success).response as Map<String,dynamic>;
+      if(!hasFoundInCart){
+        CartProduct cartProduct = CartProduct(itemId: responseJson['cartItem']['id'], name: product.name,image: product.image,quantity: quantity.toString(),price:  (product.discountPrice == "0")
+            ? product.price.toString()
+            : product.discountPrice.toString());
+        cartController.insertAtCart(0, cartProduct);
+      } else{
+        for(int i=0; i<cartController.cartList.length; i++){
+          if(cartController.cartList[i].itemId == responseJson['cartItem']['id']){
+            cartController.updateQuantity(i, quantity.toString());
+            break;
+          }
+        }
+      }
+      cartController.calculateTotalCartPrice();
       _finalResponse = true;
       _isProductAddedToCart = true;
     }

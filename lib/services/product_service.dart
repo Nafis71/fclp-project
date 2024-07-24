@@ -3,7 +3,6 @@ import 'package:fclp_app/utils/network_urls.dart';
 
 class ProductService {
   static Future<Object> getAllProductList(String page, String token) async {
-    print(token);
     return await NetworkRequest().getRequest(
       url: "${NetworkUrls.productUrl}$page",
       headers: {
@@ -24,8 +23,7 @@ class ProductService {
     );
   }
 
-  static Future<Object> getCartData(
-      String token) async {
+  static Future<Object> getCartData(String token) async {
     return await NetworkRequest().getRequest(
       url: NetworkUrls.cartListUrl,
       headers: {
@@ -34,4 +32,9 @@ class ProductService {
     );
   }
 
+  static Future<Object> deleteCartItem(String token, String productId) async {
+    return await NetworkRequest().deleteRequest(
+        url: "${NetworkUrls.cartDeleteUrl}/$productId",
+        headers: {"Authorization": "Bearer $token"});
+  }
 }
