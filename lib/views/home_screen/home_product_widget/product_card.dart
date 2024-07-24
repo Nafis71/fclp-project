@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:fclp_app/Controllers/bottom_navbar_controller.dart';
 import 'package:fclp_app/Controllers/cart_controller.dart';
 import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
@@ -236,6 +237,7 @@ class ProductCard extends StatelessWidget {
           context: context, message: AppStrings.addToCartSuccessMessage);
       product.isProductAddedToCart = true;
       productController.productAddedFromCard();
+      context.read<BottomNavbarController>().refreshNavbar();
       return;
     }
     if (context.mounted) {
