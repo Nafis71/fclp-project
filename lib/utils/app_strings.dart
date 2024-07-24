@@ -47,4 +47,5 @@ class AppStrings {
   static const String removeFromCartSuccessMessage = "পণ্য কার্ট থেকে সরানো হয়েছে";
   static const String removeFromCartFailureTitle = "ত্রুটি ঘটেছে";
   static const String removeFromCartFailureMessage = "আপনার কার্ট থেকে পণ্য অপসারণ করতে ব্যর্থ হয়েছে";
+  static const String cartProductQuantityUpdateFailedMessage = "পণ্যের পরিমাণ আপডেট করতে ব্যর্থ হয়েছে";
 }

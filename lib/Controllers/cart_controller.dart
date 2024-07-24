@@ -1,3 +1,4 @@
+import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/models/cart_models/cart_product.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -16,12 +17,12 @@ class CartController extends ChangeNotifier {
 
   List<CartProduct> get cartList => _cartList;
 
-  void insertAtCart(int index, CartProduct element){
+  void insertAtCart(int index, CartProduct element) {
     _cartList.insert(index, element);
     notifyListeners();
   }
 
-  void updateQuantity(int index, String quantity){
+  void updateQuantity(int index, String quantity) {
     _cartList[index].quantity = quantity;
     notifyListeners();
   }
@@ -62,15 +63,39 @@ class CartController extends ChangeNotifier {
     return _finalResponse;
   }
 
-  void calculateTotalCartPrice(){
+  void calculateTotalCartPrice() {
     int totalPrice = 0;
-    for(CartProduct cartProduct in _cartList){
+    for (CartProduct cartProduct in _cartList) {
       totalPrice += getProductTotalPrice(
-          cartProduct.quantity.toString(), cartProduct.price.toString())
+              cartProduct.quantity.toString(), cartProduct.price.toString())
           .toInt();
     }
     totalCartPrice = totalPrice;
     notifyListeners();
+  }
+
+  Future<bool> updateCart(int index, String token, bool willIncrement) async {
+    _finalResponse = false;
+    late int quantity;
+    if(willIncrement){
+      quantity =
+          (int.parse(_cartList[index].quantity.toString()) + 1);
+    } else{
+      quantity =
+          (int.parse(_cartList[index].quantity.toString()) - 1);
+    }
+    Map<String,String> productData ={
+      "product_id":_cartList[index].itemId.toString(),
+      "quantity":quantity.toString(),
+    };
+    response =  await ProductService.addToCart(token, productData);
+    if(response is Success){
+      _cartList[index].quantity = quantity.toString();
+      calculateTotalCartPrice();
+      notifyListeners();
+      _finalResponse = true;
+    }
+    return _finalResponse;
   }
 
   double getProductTotalPrice(String quantity, String unitPrice) {

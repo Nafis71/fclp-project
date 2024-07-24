@@ -95,8 +95,14 @@ class CartProductCard extends StatelessWidget {
                             ),
                             InkWell(
                               splashColor: AppColors.transparent,
-                              onTap: (){
-                                deleteFromCart(index, cartController.cartList[index].itemId!, cartController, context);
+                              onTap: () {
+                                deleteFromCart(
+                                  index: index,
+                                  productId:
+                                      cartController.cartList[index].itemId!,
+                                  cartController: cartController,
+                                  context: context,
+                                );
                               },
                               child: Icon(
                                 Icons.delete_outlined,
@@ -118,15 +124,31 @@ class CartProductCard extends StatelessWidget {
                               color: AppColors.secondaryThemeColor,
                               borderRadius: BorderRadius.circular(6)),
                           alignment: Alignment.center,
-                          child: Icon(
-                            Icons.remove,
-                          color: AppColors.themeColor,
-                                                      ),
+                          child: InkWell(
+                            splashColor: AppColors.transparent,
+                            onTap: () {
+                              if (cartController.cartList[index].quantity ==
+                                  "1") {
+                                return;
+                              }
+                              updateCart(
+                                context: context,
+                                cartController: cartController,
+                                index: index,
+                                willIncrement: false,
+                              );
+                            },
+                            child: Icon(
+                              Icons.remove,
+                              color: AppColors.themeColor,
+                            ),
+                          ),
                         ),
                         const SizedBox(
                           height: 5,
                         ),
-                        Text(cartController.cartList[index].quantity.toString()),
+                        Text(
+                            cartController.cartList[index].quantity.toString()),
                         const SizedBox(
                           height: 5,
                         ),
@@ -137,22 +159,34 @@ class CartProductCard extends StatelessWidget {
                               color: AppColors.secondaryThemeColor,
                               borderRadius: BorderRadius.circular(6)),
                           alignment: Alignment.center,
-                          child: Icon(
-                            Icons.add,
-                            color: AppColors.themeColor,
+                          child: InkWell(
+                            splashColor: AppColors.transparent,
+                            onTap: (){
+                              updateCart(
+                                context: context,
+                                cartController: cartController,
+                                index: index,
+                                willIncrement: true,
+                              );
+                            },
+                            child: Icon(
+                              Icons.add,
+                              color: AppColors.themeColor,
+                            ),
                           ),
                         ),
                       ],
                     )
                   ],
                 ),
-                if(cartController.selectedProductIndex == index) SizedBox(
-                  width: size.width * 0.8,
-                  child: LinearProgressIndicator(
-                    color: AppColors.themeColor,
-                    minHeight: 1,
+                if (cartController.selectedProductIndex == index)
+                  SizedBox(
+                    width: size.width * 0.8,
+                    child: LinearProgressIndicator(
+                      color: AppColors.themeColor,
+                      minHeight: 1,
+                    ),
                   ),
-                ),
               ],
             ),
           ),
@@ -165,15 +199,53 @@ class CartProductCard extends StatelessWidget {
       ),
     );
   }
-  Future<void> deleteFromCart(int index,int productId, CartController cartController,BuildContext context) async{
-    bool status =  await cartController.deleteFromCart(context.read<ProfileController>().token, productId, index);
-    if(status && context.mounted){
-      snackBarMessage(context: context, message: AppStrings.removeFromCartSuccessMessage);
+
+  Future<void> deleteFromCart(
+      {required int index,
+      required int productId,
+      required CartController cartController,
+      required BuildContext context}) async {
+    bool status = await cartController.deleteFromCart(
+        context.read<ProfileController>().token, productId, index);
+    if (status && context.mounted) {
+      snackBarMessage(
+          context: context, message: AppStrings.removeFromCartSuccessMessage);
       context.read<BottomNavbarController>().refreshNavbar();
       return;
     }
-    if(context.mounted){
-      warningDialog(context: context, warningDescription: AppStrings.removeFromCartFailureMessage,message: AppStrings.removeFromCartFailureTitle);
+    if (context.mounted) {
+      warningDialog(
+          context: context,
+          warningDescription: AppStrings.removeFromCartFailureMessage,
+          message: AppStrings.removeFromCartFailureTitle);
+    }
+  }
+
+  Future<void> updateCart(
+      {required BuildContext context,
+      required CartController cartController,
+      required int index,
+      required bool willIncrement}) async {
+    late BuildContext alertContext;
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          alertContext = context;
+          return const AlertDialog(
+            title: Text("Testing"),
+            content: Text("Loading"),
+          );
+        });
+    bool status = await cartController.updateCart(
+        index, context.read<ProfileController>().token, willIncrement);
+    if (context.mounted) {
+      Navigator.pop(alertContext);
+      if (!status) {
+        snackBarMessage(
+            context: context,
+            message: AppStrings.cartProductQuantityUpdateFailedMessage);
+      }
     }
   }
 }
