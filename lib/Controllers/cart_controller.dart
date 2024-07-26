@@ -46,14 +46,14 @@ class CartController extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> deleteFromCart(String token, int productId, int index) async {
+  Future<bool> deleteFromCart(String token, int itemId, int index) async {
     _finalResponse = false;
     _selectedProductIndex = index;
     notifyListeners();
-    response = await ProductService.deleteCartItem(token, productId.toString());
+    response = await ProductService.deleteCartItem(token, itemId.toString());
     if (response is Success) {
       _finalResponse = true;
-      _cartList.removeWhere((product) => product.itemId == productId);
+      _cartList.removeWhere((product) => product.itemId == itemId);
       calculateTotalCartPrice();
       _selectedProductIndex = -1;
       return _finalResponse;
