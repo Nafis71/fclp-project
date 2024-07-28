@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="minor changes">
+      <change afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_details_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/cart_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/cart_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/product_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/product_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_strings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/cart_screen/cart_screen_bottom_layout.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/cart_screen/cart_screen_bottom_layout.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -405,7 +412,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722006325137</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1722096154450</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1722096154450</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

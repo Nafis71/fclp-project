@@ -37,4 +37,10 @@ class ProductService {
         url: "${NetworkUrls.cartDeleteUrl}/$productId",
         headers: {"Authorization": "Bearer $token"});
   }
+
+  static Future<Object> cartToOrder(String token) async {
+    return await NetworkRequest().postRequest(
+        url: NetworkUrls.cartToOrder,
+        headers: {"Authorization": "Bearer $token"});
+  }
 }

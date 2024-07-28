@@ -1,4 +1,6 @@
 import 'package:fclp_app/Controllers/cart_controller.dart';
+import 'package:fclp_app/views/delivery_confirmation_screen/delivery_details_view.dart';
+import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -6,6 +8,7 @@ import '../../utils/color_palette.dart';
 
 class CartScreenBottomLayout extends StatelessWidget {
   final Size size;
+
   const CartScreenBottomLayout({super.key, required this.size});
 
   @override
@@ -16,12 +19,10 @@ class CartScreenBottomLayout extends StatelessWidget {
       decoration: BoxDecoration(
           color: AppColors.secondaryThemeColor,
           borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20))),
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       alignment: Alignment.center,
       child: Padding(
-        padding:
-        const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -45,14 +46,18 @@ class CartScreenBottomLayout extends StatelessWidget {
               height: 50,
               width: size.height * 0.2,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DeliveryDetailsView()));
+                },
                 child: Text(
                   "এখন কেনুন",
-                  style:
-                  Theme.of(context).textTheme.bodySmall!.copyWith(
-                    color: Colors.white,
-                    fontSize: 13,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.white,
+                        fontSize: 13,
+                      ),
                 ),
               ),
             ),

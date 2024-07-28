@@ -98,6 +98,15 @@ class CartController extends ChangeNotifier {
     return _finalResponse;
   }
 
+  Future<bool> cartToOrder(String token) async{
+    _finalResponse = false;
+    response = await ProductService.cartToOrder(token);
+    if(response is Success){
+      _finalResponse = true;
+    }
+    return _finalResponse;
+  }
+
   double getProductTotalPrice(String quantity, String unitPrice) {
     int productQuantity = int.parse(quantity);
     double productUnitPrice = double.parse(unitPrice);
