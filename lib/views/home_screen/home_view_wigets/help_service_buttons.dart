@@ -16,22 +16,22 @@ class HelpServiceButtons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           ServiceButtons(
-            imagePath: AssetsPahts.facebookIcon,
+            imagePath: AssetsPaths.facebookIcon,
             label: 'গ্রুপে যুক্ত হন',
             onTabService: UrlLauncherController.facebookLauncheUrl,
           ),
           ServiceButtons(
-            imagePath: AssetsPahts.youtubeIcon,
+            imagePath: AssetsPaths.youtubeIcon,
             label: 'ভিডিও দেখুন',
             onTabService: UrlLauncherController.youTubeLauncheUrl,
           ),
           ServiceButtons(
-            imagePath: AssetsPahts.telegramIcon,
+            imagePath: AssetsPaths.telegramIcon,
             label: 'টেলিগ্রাম',
             onTabService: UrlLauncherController.telegramLauncheUrl,
           ),
           ServiceButtons(
-            imagePath: AssetsPahts.tiktokIcon,
+            imagePath: AssetsPaths.tiktokIcon,
             label: 'টিকটক',
             onTabService: UrlLauncherController.tiktokLaunchUrl,
           ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DeliveryDetailsView extends StatefulWidget {
-  const DeliveryDetailsView({super.key});
+  final int orderId;
+  const DeliveryDetailsView({super.key, required this.orderId});
 
   @override
   State<DeliveryDetailsView> createState() => _DeliveryDetailsViewState();

@@ -11,7 +11,7 @@ class AirTicketBanner extends StatelessWidget {
     return SizedBox(
       height: 310,
       width: double.maxFinite,
-      child: SvgPicture.asset(AssetsPahts.airTicketBanner,fit: BoxFit.fill,),
+      child: SvgPicture.asset(AssetsPaths.airTicketBanner,fit: BoxFit.fill,),
     );
   }
 }

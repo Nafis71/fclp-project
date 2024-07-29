@@ -17,7 +17,7 @@ class _NewsPaperViewState extends State<NewsPaperView> {
       child: Scaffold(
         appBar: customAppBar(),
         body: Center(
-          child: Lottie.asset(AssetsPahts.commingSoon),
+          child: Lottie.asset(AssetsPaths.commingSoon),
         ),
       ),
     );

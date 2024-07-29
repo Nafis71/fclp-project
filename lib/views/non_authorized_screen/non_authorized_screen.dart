@@ -29,7 +29,7 @@ class NonAuthorizedScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SvgPicture.asset(
-                    AssetsPahts.payment,
+                    AssetsPaths.payment,
                     fit: BoxFit.contain,
                     width: 400,
                   ),
@@ -80,7 +80,7 @@ class NonAuthorizedScreen extends StatelessWidget {
                           );
                         },
                         child: SvgPicture.asset(
-                          AssetsPahts.bkashSvg,
+                          AssetsPaths.bkashSvg,
                           fit: BoxFit.contain,
                           width: 100,
                         ),
@@ -97,7 +97,7 @@ class NonAuthorizedScreen extends StatelessWidget {
                           );
                         },
                         child: SvgPicture.asset(
-                          AssetsPahts.nagadSvg,
+                          AssetsPaths.nagadSvg,
                           fit: BoxFit.contain,
                           width: 100,
                         ),

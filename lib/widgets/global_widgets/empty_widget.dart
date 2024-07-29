@@ -13,7 +13,7 @@ Widget buildEmptyWidget({
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Lottie.asset(
-          AssetsPahts.empty,
+          AssetsPaths.empty,
           width: SizeConfig.screenWidth! / 1.5,
         ),
         Text(

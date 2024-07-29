@@ -17,7 +17,7 @@ class _BloodBannkViewState extends State<BloodBannkView> {
       child: Scaffold(
         appBar: customAppBar(),
         body: Center(
-          child: Lottie.asset(AssetsPahts.commingSoon),
+          child: Lottie.asset(AssetsPaths.commingSoon),
         ),
       ),
     );

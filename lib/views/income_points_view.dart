@@ -77,7 +77,7 @@ class _IncomePointsViewState extends State<IncomePointsView> {
               ),
               buildPaymentInfoSection(
                 context: context,
-                leadingIcon: AssetsPahts.incomeHistory,
+                leadingIcon: AssetsPaths.incomeHistory,
                 trailingIcon: Icons.arrow_forward,
                 title: "আপনার পয়েন্ট উত্তোলনের হিস্ট্রি।",
                 onTap: _onTapPointWithfrawHistoryButton,
@@ -99,7 +99,7 @@ class _IncomePointsViewState extends State<IncomePointsView> {
                     height: 30,
                     width: 30,
                     child: Image.asset(
-                      AssetsPahts.withdraw,
+                      AssetsPaths.withdraw,
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -132,14 +132,14 @@ class _IncomePointsViewState extends State<IncomePointsView> {
                             InkWell(
                               onTap: _onTapBkashButton,
                               child: SvgPicture.asset(
-                                AssetsPahts.bkashSvg,
+                                AssetsPaths.bkashSvg,
                                 width: 150,
                               ),
                             ),
                             InkWell(
                               onTap: _onTapNagadButton,
                               child: SvgPicture.asset(
-                                AssetsPahts.nagadSvg,
+                                AssetsPaths.nagadSvg,
                                 width: 150,
                               ),
                             ),
@@ -155,7 +155,7 @@ class _IncomePointsViewState extends State<IncomePointsView> {
               ),
               buildPaymentInfoSection(
                 context: context,
-                leadingIcon: AssetsPahts.pointHistory,
+                leadingIcon: AssetsPaths.pointHistory,
                 trailingIcon: Icons.arrow_forward,
                 title: "ইনকাম পয়েন্টগুলি দেখুন",
                 onTap: _onTapIncomePointHistoryButton,

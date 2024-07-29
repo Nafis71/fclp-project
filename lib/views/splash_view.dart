@@ -6,11 +6,13 @@ import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/auth_view/login_view.dart';
 import 'package:fclp_app/views/non_authorized_screen/non_authorized_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
+import '../services/prefetch_service.dart';
 import 'main_bottom_nav_view.dart';
 
 class SplashView extends StatefulWidget {
@@ -38,10 +40,10 @@ class _SplashViewState extends State<SplashView> {
               child: WidgetAnimator(
                 incomingEffect: WidgetTransitionEffects.incomingScaleUp(
                     duration: const Duration(seconds: 3)),
-                child: Image.asset(AssetsPahts.appLogo),
+                child: Image.asset(AssetsPaths.appLogo),
               ),
             ),
-             CircularProgressIndicator(
+            CircularProgressIndicator(
               color: AppColors.themeColor,
             ),
             const SizedBox(
@@ -57,20 +59,23 @@ class _SplashViewState extends State<SplashView> {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     String? token = preferences.getString("token");
     if (token != null) {
-      User userData =
-      User.fromJson(jsonDecode(preferences.getString("userData").toString()));
-      await Future.delayed(const Duration(seconds: 3));
+      User userData = User.fromJson(
+          jsonDecode(preferences.getString("userData").toString()));
       if (mounted) {
         context.read<ProfileController>().setToken(token);
         loadUserData(userData);
+        await loadInitialData();
         WidgetBuilder? widgetBuilder;
-        if(context.read<ProfileController>().userData.status == "0" || context.read<ProfileController>().userData.status == "2"){
-          widgetBuilder = (context)=> const NonAuthorizedScreen();
-        } else{
-          widgetBuilder = (context)=> const MainBottomNavView();
+        if(mounted){
+          if (context.read<ProfileController>().userData.status == "0" ||
+              context.read<ProfileController>().userData.status == "2") {
+            widgetBuilder = (context) => const NonAuthorizedScreen();
+          } else {
+            widgetBuilder = (context) => const MainBottomNavView();
+          }
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: widgetBuilder));
         }
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: widgetBuilder));
       }
       return;
     }
@@ -80,7 +85,22 @@ class _SplashViewState extends State<SplashView> {
           context, MaterialPageRoute(builder: (context) => const LoginView()));
     }
   }
-  void loadUserData(User userData){
+
+  void loadUserData(User userData) {
     context.read<ProfileController>().userData = userData;
+  }
+
+  Future<void> loadInitialData() async {
+    try {
+      await Future.wait([
+        PrefetchService.loadCartData(context),
+        PrefetchService.loadProductData(1, context),
+        PrefetchService.loadOrderList(context),
+      ]);
+    } catch (exception) {
+      if (kDebugMode) {
+        debugPrint(exception.toString());
+      }
+    }
   }
 }

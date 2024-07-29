@@ -14,8 +14,16 @@ class CartController extends ChangeNotifier {
   int _selectedProductIndex = -1;
   int totalCartPrice = 0;
   Object? response;
+  bool _isBusy = false;
+
+  bool get isBusy => _isBusy;
 
   List<CartProduct> get cartList => _cartList;
+
+  set setIsBusy(bool value){
+    _isBusy = value;
+    notifyListeners();
+  }
 
   void insertAtCart(int index, CartProduct element) {
     _cartList.insert(index, element);
@@ -100,10 +108,13 @@ class CartController extends ChangeNotifier {
 
   Future<bool> cartToOrder(String token) async{
     _finalResponse = false;
+    setIsBusy = true;
     response = await ProductService.cartToOrder(token);
     if(response is Success){
       _finalResponse = true;
     }
+    _cartList.clear();
+    setIsBusy = false;
     return _finalResponse;
   }
 

@@ -10,7 +10,7 @@ ImageProvider getImage(ProfileController profileController) {
     return MemoryImage(base64Decode(profileController.base64Image));
   }
   if (profileController.userData.base64Image.isEmpty) {
-    return const AssetImage(AssetsPahts.profile);
+    return const AssetImage(AssetsPaths.profile);
   }
   return MemoryImage(base64Decode(profileController.userData.base64Image.toString()));
 }

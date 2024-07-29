@@ -17,7 +17,7 @@ class _OnlineDoctorViewState extends State<OnlineDoctorView> {
       child: Scaffold(
         appBar: customAppBar(),
         body: Center(
-          child: Lottie.asset(AssetsPahts.commingSoon),
+          child: Lottie.asset(AssetsPaths.commingSoon),
         ),
       ),
     );

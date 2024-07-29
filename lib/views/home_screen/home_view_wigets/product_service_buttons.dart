@@ -27,7 +27,7 @@ class ProductServiceButtons extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ServiceButtons(
-              imagePath: AssetsPahts.airTicketIcon,
+              imagePath: AssetsPaths.airTicketIcon,
               label: 'এয়ার টিকেট',
               onTabService: () {
                 Navigator.push(
@@ -41,7 +41,7 @@ class ProductServiceButtons extends StatelessWidget {
               },
             ),
             ServiceButtons(
-              imagePath: AssetsPahts.newsPaperIcon,
+              imagePath: AssetsPaths.newsPaperIcon,
               label: 'নিউজ পেপার',
               onTabService: () {
                 Navigator.push(
@@ -53,7 +53,7 @@ class ProductServiceButtons extends StatelessWidget {
               },
             ),
             ServiceButtons(
-              imagePath: AssetsPahts.onlineShopIcon,
+              imagePath: AssetsPaths.onlineShopIcon,
               label: 'অনলাইন শপ',
               onTabService: () {
                 Navigator.push(
@@ -65,7 +65,7 @@ class ProductServiceButtons extends StatelessWidget {
               },
             ),
             ServiceButtons(
-              imagePath: AssetsPahts.bloodBankIcon,
+              imagePath: AssetsPaths.bloodBankIcon,
               label: 'ব্লাড ব্যাংক',
               onTabService: () {
                 Navigator.push(
@@ -77,7 +77,7 @@ class ProductServiceButtons extends StatelessWidget {
               },
             ),
             ServiceButtons(
-              imagePath: AssetsPahts.onlineDoctorIcon,
+              imagePath: AssetsPaths.onlineDoctorIcon,
               label: 'অনলাইন ডাক্তার',
               onTabService: () {
                 Navigator.push(

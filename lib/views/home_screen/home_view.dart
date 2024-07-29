@@ -1,6 +1,7 @@
 import 'package:fclp_app/Controllers/cart_controller.dart';
 import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
+import 'package:fclp_app/services/prefetch_service.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_drawer.dart';
@@ -34,7 +35,11 @@ class _HomeViewState extends State<HomeView> {
 
   Future<void> loadInitialData() async {
     try {
-      await Future.wait([loadCartData(), loadProductData(page)]);
+      await Future.wait([
+        PrefetchService.loadCartData(context),
+        PrefetchService.loadProductData(1, context),
+        PrefetchService.loadOrderList(context),
+      ]);
     } catch (exception) {
       if (kDebugMode) {
         debugPrint(exception.toString());
@@ -100,27 +105,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Future<void> loadCartData() async {
-    if (context.read<CartController>().cartList.isNotEmpty) {
-      return;
-    }
-    await context
-        .read<CartController>()
-        .loadCartData(context.read<ProfileController>().token);
-  }
 
-  Future<void> loadProductData(int page, {bool? fromScrollListener}) async {
-    if (context.read<ProductController>().productData.isEmpty) {
-      await context
-          .read<ProductController>()
-          .loadProductData(page, context.read<ProfileController>().token);
-    }
-    if (fromScrollListener != null && mounted) {
-      await context
-          .read<ProductController>()
-          .loadProductData(page, context.read<ProfileController>().token);
-    }
-  }
 
   void _scrollListener() {
     if (!context.read<ProductController>().isLoading &&
@@ -128,7 +113,7 @@ class _HomeViewState extends State<HomeView> {
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
         page += 1;
-        loadProductData(page, fromScrollListener: true);
+        PrefetchService.loadProductData(page,context, fromScrollListener: true);
       }
     }
   }

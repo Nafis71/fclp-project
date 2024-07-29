@@ -59,7 +59,7 @@ class _AirTicketViewState extends State<AirTicketView> {
               child: Column(
                 children: [
                   SvgPicture.asset(
-                    AssetsPahts.airplaneImage,
+                    AssetsPaths.airplaneImage,
                     width: 200,
                   ),
                   const SizedBox(

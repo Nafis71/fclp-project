@@ -5,7 +5,7 @@ import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/air_ticket_booking_view/air_ticket_view.dart';
 import 'package:fclp_app/views/cart_screen/cart_screen.dart';
 import 'package:fclp_app/views/home_screen/home_view.dart';
-import 'package:fclp_app/views/wishlist_view.dart';
+import 'package:fclp_app/views/orderlist_screen/order_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -25,7 +25,7 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
     const HomeView(),
     const AirTicketView(),
     const CartScreen(),
-    const WishlistView()
+    const OrderListScreen()
   ];
 
   @override
@@ -83,8 +83,8 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
                   ),
                   const GButton(
                     iconColor: AppColors.black,
-                    icon: Icons.favorite_border,
-                    text: " উইস লিস্ট",
+                    icon: Icons.shopping_bag_outlined,
+                    text: " অর্ডার লিস্ট",
                   ),
                 ],
               );

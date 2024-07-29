@@ -96,12 +96,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     ),
                     (widget.paymentMethod.toLowerCase() == "bkash")
                         ? SvgPicture.asset(
-                            AssetsPahts.bkashSvg,
+                            AssetsPaths.bkashSvg,
                             width: 170,
                             fit: BoxFit.contain,
                           )
                         : SvgPicture.asset(
-                            AssetsPahts.nagadSvg,
+                            AssetsPaths.nagadSvg,
                             width: 170,
                             fit: BoxFit.contain,
                           ),

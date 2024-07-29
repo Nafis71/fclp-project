@@ -120,6 +120,31 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                             width: 2),
                       ),
                     ),
+                    child: TextFormField(
+                      controller: _mobileNumberTEController,
+                      keyboardType: TextInputType.number,
+                      decoration: const InputDecoration(
+                        hintText: "রেফার আইডি",
+                        prefixIcon: Icon(
+                          Icons.person,
+                          size: 30,
+                        ),
+                      ),
+                      validator: FormValidationController.validateMobileNumber,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                            color: AppColors.textFormFieldBorderColor,
+                            width: 2),
+                      ),
+                    ),
                     child: Column(
                       children: [
                         TextFormField(

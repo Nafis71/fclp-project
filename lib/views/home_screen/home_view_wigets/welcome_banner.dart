@@ -58,7 +58,7 @@ class WelcomeBanner extends StatelessWidget {
 
             ],
           ),
-          Lottie.asset(AssetsPahts.welcomeLottie,
+          Lottie.asset(AssetsPaths.welcomeLottie,
               fit: BoxFit.contain, backgroundLoading: true, width: 180, renderCache: RenderCache.drawingCommands,repeat: true),
         ],
       ),

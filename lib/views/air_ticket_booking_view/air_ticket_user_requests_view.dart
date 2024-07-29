@@ -224,7 +224,7 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                                     decoration: const BoxDecoration(
                                         image: DecorationImage(
                                             image:
-                                                AssetImage(AssetsPahts.barCode),
+                                                AssetImage(AssetsPaths.barCode),
                                             fit: BoxFit.fill)),
                                   ),
                                 ),
@@ -303,7 +303,7 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                   child: Column(
                     children: [
                       SvgPicture.asset(
-                        AssetsPahts.noTicket,
+                        AssetsPaths.noTicket,
                         width: 400,
                       ),
                       const Text(AppStrings.noAirTicketMessage),

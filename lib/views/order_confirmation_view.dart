@@ -23,7 +23,7 @@ class _OrderConfirmationViewState extends State<OrderConfirmationView> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Lottie.asset(AssetsPahts.delivery),
+              Lottie.asset(AssetsPaths.delivery),
               const SizedBox(
                 height: 16,
               ),

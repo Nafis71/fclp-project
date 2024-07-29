@@ -5,51 +5,51 @@ class ProdudctCategoryViewController extends ChangeNotifier {
   List<Map<dynamic, dynamic>> productCategoryViewData = [
     {
       'title': 'কাগজ',
-      'img': '${AssetsPahts.icons}/kagoj.png',
+      'img': '${AssetsPaths.icons}/kagoj.png',
     },
     {
       'title': 'জুতা',
-      'img': '${AssetsPahts.icons}/juta.png',
+      'img': '${AssetsPaths.icons}/juta.png',
     },
     {
       'title': 'গেঞ্জি',
-      'img': '${AssetsPahts.icons}/tshirt.png',
+      'img': '${AssetsPaths.icons}/tshirt.png',
     },
     {
       'title': 'ব্যাগ',
-      'img': '${AssetsPahts.icons}/bag.png',
+      'img': '${AssetsPaths.icons}/bag.png',
     },
     {
       'title': 'প্যান্ট',
-      'img': '${AssetsPahts.icons}/pant.png',
+      'img': '${AssetsPaths.icons}/pant.png',
     },
     {
       'title': 'শাড়ি',
-      'img': '${AssetsPahts.icons}/saree.png',
+      'img': '${AssetsPaths.icons}/saree.png',
     },
     {
       'title': 'নকশী কাথা',
-      'img': '${AssetsPahts.icons}/nakshi_kantha.png',
+      'img': '${AssetsPaths.icons}/nakshi_kantha.png',
     },
     {
       'title': 'থ্রী পিচ',
-      'img': '${AssetsPahts.icons}/three_piece.png',
+      'img': '${AssetsPaths.icons}/three_piece.png',
     },
     {
       'title': 'পাঞ্জাবী',
-      'img': '${AssetsPahts.icons}/panjabi.png',
+      'img': '${AssetsPaths.icons}/panjabi.png',
     },
     {
       'title': 'শার্ট',
-      'img': '${AssetsPahts.icons}/shirt.png',
+      'img': '${AssetsPaths.icons}/shirt.png',
     },
     {
       'title': 'আধুনিক লুঙ্গি',
-      'img': '${AssetsPahts.icons}/lungi.png',
+      'img': '${AssetsPaths.icons}/lungi.png',
     },
     {
       'title': 'চাদর',
-      'img': '${AssetsPahts.icons}/chador.png',
+      'img': '${AssetsPaths.icons}/chador.png',
     },
   ];
 }

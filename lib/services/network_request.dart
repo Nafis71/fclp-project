@@ -36,7 +36,8 @@ class NetworkRequest {
 
   Future<Object> postRequest(
       {required String url,
-      Map<String, String>? headers, Map<String, dynamic>? body}) async {
+      Map<String, String>? headers,
+      Map<String, dynamic>? body}) async {
     try {
       Response response =
           await post(Uri.parse(url), headers: headers, body: jsonEncode(body));
@@ -57,7 +58,8 @@ class NetworkRequest {
       required Map<String, String> headers,
       required body}) async {
     try {
-      Response response = await put(Uri.parse(url), headers: headers, body: jsonEncode(body));
+      Response response =
+          await put(Uri.parse(url), headers: headers, body: jsonEncode(body));
       finalResponse = _getResponse(response);
       return finalResponse!;
     } catch (exception) {
@@ -70,7 +72,8 @@ class NetworkRequest {
     }
   }
 
-  Future<Object> deleteRequest({required String url, required Map<String,String> headers})async{
+  Future<Object> deleteRequest(
+      {required String url, required Map<String, String> headers}) async {
     try {
       Response response = await delete(Uri.parse(url), headers: headers);
       finalResponse = _getResponse(response);
@@ -86,8 +89,7 @@ class NetworkRequest {
   }
 
   Object _getResponse(Response response) {
-    print(response.statusCode);
-    if (response.statusCode == 200) {
+    if (response.statusCode == 200 || response.statusCode == 201) {
       return Success(
           response: jsonDecode(response.body), statusCode: response.statusCode);
     } else {

@@ -1,4 +1,4 @@
-class AssetsPahts {
+class AssetsPaths {
   static const _basePath = 'assets';
   static const icons = '$_basePath/icons';
   static const _images = '$_basePath/images';
@@ -21,6 +21,7 @@ class AssetsPahts {
   static const String noTicket = "$_images/no_ticket.svg";
   static const String payment = "$_images/payment.svg";
   static const String paymentSuccess = "$_images/payment_success.svg";
+  static const String emptyCart = "$_images/empty_cart.svg";
 
   static const delivery = '$_lotties/delivery.json';
   static const commingSoon = '$_lotties/comming_soon.json';
@@ -38,4 +39,5 @@ class AssetsPahts {
   static const String youtubeIcon = "$icons/youtube.svg";
   static const String telegramIcon = "$icons/telegram.svg";
   static const String tiktokIcon = "$icons/tiktok.svg";
+  static const String boxIcon = "$icons/box.svg";
 }
