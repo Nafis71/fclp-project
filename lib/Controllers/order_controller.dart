@@ -122,4 +122,10 @@ class OrderController extends ChangeNotifier {
     setIsBusy = false;
     return _finalResponse;
   }
+
+  Future<void> cancelOrder(String token, int orderId) async{
+    _orderList.removeWhere((order)=> order.id == orderId);
+    notifyListeners();
+    response = await OrderService.cancelOrder(token, orderId.toString());
+  }
 }

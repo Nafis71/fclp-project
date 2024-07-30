@@ -28,7 +28,7 @@ class ProductGridView extends StatelessWidget {
               shrinkWrap: true,
               primary: false,
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                childAspectRatio: 0.7,
+                childAspectRatio: 0.45,
                 crossAxisSpacing: 7.5,
                 mainAxisSpacing: 7.5,
                 maxCrossAxisExtent: 220,
@@ -50,7 +50,7 @@ class ProductGridView extends StatelessWidget {
             shrinkWrap: true,
             primary: false,
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              childAspectRatio: 0.7,
+              childAspectRatio: 0.5,
               crossAxisSpacing: 7.5,
               mainAxisSpacing: 7.5,
               maxCrossAxisExtent: 220,

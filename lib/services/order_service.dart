@@ -13,16 +13,30 @@ class OrderService {
       String token, Map<String, String> deliveryInfo) async {
     return await NetworkRequest().postRequest(
       url: NetworkUrls.confirmDeliveryCost,
-      headers: {"Authorization": "Bearer $token","content-type":"Application/json"},
+      headers: {
+        "Authorization": "Bearer $token",
+        "content-type": "Application/json"
+      },
       body: deliveryInfo,
     );
   }
+
   static Future<Object> storeDeliveryPaymentInfo(
       String token, Map<String, dynamic> paymentInfo) async {
     return await NetworkRequest().postRequest(
       url: NetworkUrls.payDeliveryCost,
-      headers: {"Authorization": "Bearer $token","content-type":"Application/json"},
+      headers: {
+        "Authorization": "Bearer $token",
+        "content-type": "Application/json"
+      },
       body: paymentInfo,
+    );
+  }
+
+  static Future<Object> cancelOrder(String token, String orderId) async {
+    return await NetworkRequest().deleteRequest(
+      url: "${NetworkUrls.deleteOrder}/$orderId",
+      headers: {"Authorization": "Bearer $token"},
     );
   }
 }

@@ -41,7 +41,9 @@ class _OrderListScreenState extends State<OrderListScreen> {
                     openThreshold: 0.1,
                     children: [
                       SlidableAction(
-                        onPressed: (context) {},
+                        onPressed: (context) {
+                          orderController.cancelOrder(context.read<ProfileController>().token, orderController.orderList[index].id!);
+                        },
                         borderRadius: BorderRadius.circular(5),
                         icon: Icons.delete,
                         label: "অর্ডার বাতিল করুন",
@@ -49,66 +51,68 @@ class _OrderListScreenState extends State<OrderListScreen> {
                       )
                     ],
                   ),
-                  child: ListTile(
-                      tileColor: const Color(0xFFF4F9F9),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      contentPadding: const EdgeInsets.all(10),
-                      leading: SvgPicture.asset(
-                        AssetsPaths.boxIcon,
-                        fit: BoxFit.contain,
-                        width: 60,
-                      ),
-                      title: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "#Order ${orderController.orderList[index].id}",
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleLarge!
-                                .copyWith(fontSize: 16),
-                          ),
-                          const SizedBox(
-                            height: 3,
-                          ),
-                          Text(
-                            "Total Item: ${orderController.orderList[index].items!.length}",
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
-                          const SizedBox(
-                            height: 3,
-                          ),
-                          Text(
-                            "Total Price:",
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
-                          Text(
-                            "\u09F3\t${orderController.orderList[index].total}",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                    color: AppColors.themeColor,
-                                    fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(
-                            height: 3,
-                          ),
-                          Text(
-                            "Order Date: ${orderController.orderList[index].createdAt}",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall!
-                                .copyWith(fontSize: 11),
-                          ),
-                        ],
-                      ),
-                      trailing: getTrailingWidget(
-                          orderController.orderList[index].status.toString(),
-                          orderController,
-                          index)),
+                  child: Material(
+                    child: ListTile(
+                        tileColor: const Color(0xFFF4F9F9),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        contentPadding: const EdgeInsets.all(10),
+                        leading: SvgPicture.asset(
+                          AssetsPaths.boxIcon,
+                          fit: BoxFit.contain,
+                          width: 60,
+                        ),
+                        title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "#Order ${orderController.orderList[index].id}",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleLarge!
+                                  .copyWith(fontSize: 16),
+                            ),
+                            const SizedBox(
+                              height: 3,
+                            ),
+                            Text(
+                              "Total Item: ${orderController.orderList[index].items!.length}",
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                            const SizedBox(
+                              height: 3,
+                            ),
+                            Text(
+                              "Total Price:",
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                            Text(
+                              "\u09F3\t${orderController.orderList[index].total}",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .copyWith(
+                                      color: AppColors.themeColor,
+                                      fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              height: 3,
+                            ),
+                            Text(
+                              "Order Date: ${orderController.orderList[index].createdAt}",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(fontSize: 11),
+                            ),
+                          ],
+                        ),
+                        trailing: getTrailingWidget(
+                            orderController.orderList[index].status.toString(),
+                            orderController,
+                            index)),
+                  ),
                 ),
               );
             },
@@ -145,7 +149,7 @@ class _OrderListScreenState extends State<OrderListScreen> {
         ),
       );
     } else if (status == "1") {
-      return getStatusContainer("প্রক্রিয়াকরণ হচ্ছে", Color(0xFFFB9B3F));
+      return getStatusContainer("প্রক্রিয়াকরণ হচ্ছে", const Color(0xFFFB9B3F));
     } else if(status == "2"){
       return getStatusContainer("বাতিল হয়েছে", Colors.redAccent);
     } else if(status == "3"){
@@ -161,7 +165,14 @@ class _OrderListScreenState extends State<OrderListScreen> {
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
           color: statusColor,
-          borderRadius: BorderRadius.circular(25)
+          borderRadius: BorderRadius.circular(6),
+        boxShadow: [BoxShadow(
+          color: Colors.black.withOpacity(0.1),
+          spreadRadius: 2,
+          blurRadius: 20,
+          offset: const Offset(0, 5),
+          blurStyle: BlurStyle.normal
+        )]
       ),
       child: Text(
         statusText,

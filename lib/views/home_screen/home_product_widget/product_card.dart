@@ -29,22 +29,15 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(13),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.black.withOpacity(0.05),
-              spreadRadius: 2,
-              blurRadius: 20,
-              offset: const Offset(0, 8))
-        ],
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(5),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           Expanded(
-            flex: 1,
+            flex: 2,
             child: Hero(
               tag: (isCategorial == null)
                   ? product.name.toString()
@@ -55,11 +48,10 @@ class ProductCard extends StatelessWidget {
                   return Container(
                     width: double.maxFinite,
                     decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                          topRight: Radius.circular(13),
-                          topLeft: Radius.circular(13)),
+                      color: Colors.grey.shade100,
+                      borderRadius: BorderRadius.circular(5),
                       image: DecorationImage(
-                          image: imageProvider, fit: BoxFit.fitHeight),
+                          image: imageProvider, fit: BoxFit.cover),
                     ),
                   );
                 },
