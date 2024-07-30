@@ -9,7 +9,6 @@ class DeliveryLocationContainer extends StatelessWidget {
   final String location, deliveryAmount;
   final Color borderColor;
   final double borderWidth;
-  final OrderController orderController;
   final bool hasPressed;
 
   const DeliveryLocationContainer(
@@ -17,7 +16,7 @@ class DeliveryLocationContainer extends StatelessWidget {
       required this.location,
       required this.deliveryAmount,
       required this.borderColor,
-      required this.borderWidth, required this.orderController, required this.hasPressed});
+      required this.borderWidth, required this.hasPressed});
 
   @override
   Widget build(BuildContext context) {

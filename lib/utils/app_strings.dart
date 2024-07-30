@@ -53,4 +53,6 @@ class AppStrings {
 
   //cart screen Strings
   static const String emptyCartText = "আপনার কার্ট এখন খালি আছে";
+  static const String storePaymentInfoFailureMessage = "আপনার পেমেন্ট তথ্য সংরক্ষণ করতে ব্যর্থ হয়েছে";
+  static const String storePaymentInfoFailureTitle = "ত্রুটি ঘটেছে";
 }

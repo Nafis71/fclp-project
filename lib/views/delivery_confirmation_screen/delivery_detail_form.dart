@@ -48,7 +48,6 @@ class _DeliveryDetailFormState extends State<DeliveryDetailForm> {
                             ? AppColors.themeColor
                             : Colors.grey,
                         borderWidth: 1,
-                        orderController: orderController,
                         hasPressed: orderController.isInsideDhakaPressed),
                   ),
                   InkWell(
@@ -65,7 +64,6 @@ class _DeliveryDetailFormState extends State<DeliveryDetailForm> {
                             ? AppColors.themeColor
                             : Colors.grey,
                         borderWidth: 1,
-                        orderController: orderController,
                         hasPressed: orderController.isOutsideDhakaPressed),
                   ),
                 ],

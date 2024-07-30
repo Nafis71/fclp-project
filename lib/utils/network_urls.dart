@@ -19,4 +19,6 @@ class NetworkUrls {
   static const String cartDeleteUrl = "$baseUrl/cart/delete";
   static const String cartToOrder = "$baseUrl/cart-to-order";
   static const String orderList = "$baseUrl/order/list";
+  static const String confirmDeliveryCost = "$baseUrl/confirm-delivery-cost";
+  static const String payDeliveryCost = "$baseUrl/pay-delivery-cost";
 }
