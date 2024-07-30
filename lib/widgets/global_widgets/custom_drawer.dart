@@ -310,6 +310,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
             InkWell(
               onTap: () {
                 _onTapLogOutButton();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginView(),
+                  ),
+                );
               },
               child: const ListTile(
                 leading: CircleAvatar(
@@ -420,13 +426,5 @@ class _CustomDrawerState extends State<CustomDrawer> {
         .logoutUser(context.read<ProfileController>().token);
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.clear();
-    if (mounted) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const LoginView(),
-        ),
-      );
-    }
   }
 }

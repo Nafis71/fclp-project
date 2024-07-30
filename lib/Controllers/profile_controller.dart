@@ -67,9 +67,9 @@ class ProfileController extends ChangeNotifier {
     if(base64Image.isNotEmpty){
       userData.base64Image = base64Image;
     }
+    await saveUserData(name,mobile,email);
     response = await UserProfileService.updateProfile(_token, userData.id.toString(), userData);
     if(response is Success){
-      await saveUserData(name,mobile,email);
       setIsLoading = false;
       return true;
     }

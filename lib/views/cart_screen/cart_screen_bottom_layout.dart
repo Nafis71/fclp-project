@@ -1,7 +1,7 @@
 import 'package:fclp_app/Controllers/cart_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/app_strings.dart';
-import 'package:fclp_app/views/delivery_confirmation_screen/delivery_details_view.dart';
+import 'package:fclp_app/views/delivery_confirmation_screen/delivery_confirmation.dart';
 import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

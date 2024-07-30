@@ -40,4 +40,6 @@ class AssetsPaths {
   static const String telegramIcon = "$icons/telegram.svg";
   static const String tiktokIcon = "$icons/tiktok.svg";
   static const String boxIcon = "$icons/box.svg";
+  static const String paymentMethod = "$icons/payment_method.svg";
+  static const String deliveryTruck = "$icons/delivery_truck.svg";
 }

@@ -12,6 +12,9 @@ class User {
   String image ="";
   String base64Image= "";
   String status = "";
+  String totalRefer ="";
+  String points = "";
+  String referralCode ="";
 
   User(
       {this.id,
@@ -40,6 +43,9 @@ class User {
     image = json['image'] ?? "";
     base64Image = json['base64'] ?? "";
     status = json['status'];
+    totalRefer = json['total_refer'] ?? "";
+    points = json['points'] ?? "";
+    referralCode = json['referral_code'] ?? "";
   }
 
   Map<String, dynamic> toJsonUpdateProfile() {

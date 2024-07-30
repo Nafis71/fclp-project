@@ -43,32 +43,13 @@ class AuthController extends ChangeNotifier {
           (response as Success).response as Map<String, dynamic>;
       String? token = jsonData['token'];
       if (token != null) {
-        response = await AuthService.getAllUser(token);
-        if (response is Success) {
-          User? userData = await loadUserData(mobile, profileController);
-          if (userData != null) {
-            await saveUserData(userData, token, profileController);
-          }
-          _finalResponse = true;
-        }
+        User? userData = User.fromJson(jsonData['user']);
+        await saveUserData(userData, token, profileController);
+        _finalResponse = true;
       }
     }
     setIsLoading = false;
     return _finalResponse;
-  }
-
-  Future<User?> loadUserData(
-      String mobile, ProfileController profileController) async {
-    UserModel userModel = UserModel.fromJson(
-        (response as Success).response as Map<String, dynamic>);
-    if (userModel.user != null) {
-      for (User user in userModel.user!) {
-        if (user.mobile == mobile) {
-          return user;
-        }
-      }
-    }
-    return null;
   }
 
   Future<bool> registration(Map<String, String> userData) async {
