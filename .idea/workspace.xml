@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="profile controller bug fix&#10;delivery information layout added&#10;new api">
-      <change afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_payment_form.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_payment_method_container.dart" afterDir="false" />
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- delivery payment module completed">
+      <change afterPath="$PROJECT_DIR$/assets/images/delivery_payment_done.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/order_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/order_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/order_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/order_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/assets_paths.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/assets_paths.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_confirmation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_confirmation.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_detail_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_detail_form.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_location_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_location_container.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_confirmation_finish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_confirmation_finish.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_payment_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_payment_form.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -446,12 +445,19 @@
       <option name="project" value="LOCAL" />
       <updated>1722348704231</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="- delivery payment module completed">
+      <option name="closed" value="true" />
+      <created>1722356692053</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1722356692053</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value=" - profile update function added" />
     <MESSAGE value="air ticket booking modified" />
     <MESSAGE value="- air ticket can now be edited&#10;- air ticket module completed" />
     <MESSAGE value="- change password functionality added&#10;- product loading bug fix" />
@@ -476,6 +482,7 @@
     <MESSAGE value="implemented cart to order api call" />
     <MESSAGE value="-order list added" />
     <MESSAGE value="profile controller bug fix&#10;delivery information layout added&#10;new api" />
-    <option name="LAST_COMMIT_MESSAGE" value="profile controller bug fix&#10;delivery information layout added&#10;new api" />
+    <MESSAGE value="- delivery payment module completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="- delivery payment module completed" />
   </component>
 </project>
