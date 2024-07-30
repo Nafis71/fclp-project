@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- delivery payment module completed">
-      <change afterPath="$PROJECT_DIR$/assets/images/delivery_payment_done.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/assets_paths.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/assets_paths.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_confirmation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_confirmation.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_confirmation_finish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_confirmation_finish.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_payment_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_payment_form.dart" afterDir="false" />
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- minor changes">
       <change beforePath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -453,7 +445,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722356692053</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="- minor changes">
+      <option name="closed" value="true" />
+      <created>1722372850953</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1722372850953</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -474,7 +474,6 @@
     <MESSAGE value="- cart functionality added and refactored the code" />
     <MESSAGE value="- fvm version changed" />
     <MESSAGE value="- related product data added" />
-    <MESSAGE value="- minor changes" />
     <MESSAGE value="- major changes" />
     <MESSAGE value="- added cart delete&#10;- added badge" />
     <MESSAGE value="- product quantity update code added" />
@@ -483,6 +482,7 @@
     <MESSAGE value="-order list added" />
     <MESSAGE value="profile controller bug fix&#10;delivery information layout added&#10;new api" />
     <MESSAGE value="- delivery payment module completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="- delivery payment module completed" />
+    <MESSAGE value="- minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="- minor changes" />
   </component>
 </project>

@@ -24,6 +24,8 @@ class _OrderListScreenState extends State<OrderListScreen> {
       appBar: customAppBar(title: "Order List"),
       body: Consumer<OrderController>(builder: (_, orderController, __) {
         return RefreshIndicator(
+          backgroundColor: AppColors.themeColor,
+          color: Colors.white,
           onRefresh: ()async{
             await orderController.loadOrderList(context.read<ProfileController>().token);
           },
