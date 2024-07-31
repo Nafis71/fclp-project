@@ -30,6 +30,7 @@ class AssetsPaths {
   static const appLogo = "$_images/app_logo.png";
   static const String airplaneImage = "$_images/airplane.svg";
   static const String welcomeLottie = "$_lotties/welcome.json";
+  static const String loadingLottie = "$_lotties/loading.json";
 
   static const String airTicketIcon = "$icons/air_ticket.svg";
   static const String newsPaperIcon = "$icons/news_paper.svg";

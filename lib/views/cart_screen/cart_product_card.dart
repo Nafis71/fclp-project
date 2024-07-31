@@ -3,9 +3,11 @@ import 'package:fclp_app/Controllers/bottom_navbar_controller.dart';
 import 'package:fclp_app/Controllers/cart_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/app_strings.dart';
+import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
 import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 import '../../utils/color_palette.dart';
@@ -232,10 +234,8 @@ class CartProductCard extends StatelessWidget {
         context: context,
         builder: (context) {
           alertContext = context;
-          return const AlertDialog(
-            title: Text("Testing"),
-            content: Text("Loading"),
-          );
+          return Center(
+              child: Lottie.asset(AssetsPaths.loadingLottie,height: 100,width: 100));
         });
     bool status = await cartController.updateCart(
         index, context.read<ProfileController>().token, willIncrement);

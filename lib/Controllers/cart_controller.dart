@@ -93,7 +93,7 @@ class CartController extends ChangeNotifier {
           (int.parse(_cartList[index].quantity.toString()) - 1);
     }
     Map<String,String> productData ={
-      "product_id":_cartList[index].itemId.toString(),
+      "product_id":_cartList[index].productId.toString(),
       "quantity":quantity.toString(),
     };
     response =  await ProductService.addToCart(token, productData);

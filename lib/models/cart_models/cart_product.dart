@@ -4,6 +4,7 @@ class CartProduct{
   String? image;
   String? quantity;
   String? price;
+  int? productId;
 
   CartProduct({this.itemId, this.name, this.image, this.quantity, this.price});
 
@@ -13,10 +14,11 @@ class CartProduct{
     image = json['image'];
     quantity = json['quantity'];
     price = json['price'];
+    productId = json['product_id'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['item_id'] = this.itemId;
     data['name'] = this.name;
     data['image'] = this.image;

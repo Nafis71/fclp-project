@@ -1,10 +1,12 @@
 import 'package:fclp_app/Controllers/cart_controller.dart';
 import 'package:fclp_app/Controllers/order_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
+import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/delivery_confirmation_screen/delivery_confirmation.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
+import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -26,8 +28,9 @@ class _OrderListScreenState extends State<OrderListScreen> {
         return RefreshIndicator(
           backgroundColor: AppColors.themeColor,
           color: Colors.white,
-          onRefresh: ()async{
-            await orderController.loadOrderList(context.read<ProfileController>().token);
+          onRefresh: () async {
+            await orderController
+                .loadOrderList(context.read<ProfileController>().token);
           },
           child: ListView.builder(
             itemCount: orderController.orderList.length,
@@ -42,11 +45,17 @@ class _OrderListScreenState extends State<OrderListScreen> {
                     children: [
                       SlidableAction(
                         onPressed: (context) {
-                          orderController.cancelOrder(context.read<ProfileController>().token, orderController.orderList[index].id!);
+                          if (orderController.orderList[index].status == "0" ||
+                              orderController.orderList[index].status == "4") {
+                            orderController.cancelOrder(
+                                context.read<ProfileController>().token,
+                                orderController.orderList[index].id!);
+                          }
+                          snackBarMessage(context: context, message: AppStrings.orderCancelErrorMessage);
                         },
                         borderRadius: BorderRadius.circular(5),
                         icon: Icons.delete,
-                        label: "অর্ডার বাতিল করুন",
+                        label: orderController.orderList[index].status != "4" ? "অর্ডার বাতিল করুন" : "অর্ডার ডিলিট করুন",
                         backgroundColor: AppColors.themeColor,
                       )
                     ],
@@ -150,36 +159,35 @@ class _OrderListScreenState extends State<OrderListScreen> {
       );
     } else if (status == "1") {
       return getStatusContainer("প্রক্রিয়াকরণ হচ্ছে", const Color(0xFFFB9B3F));
-    } else if(status == "2"){
+    } else if (status == "2") {
       return getStatusContainer("বাতিল হয়েছে", Colors.redAccent);
-    } else if(status == "3"){
+    } else if (status == "3") {
       return getStatusContainer("পাঠানো হয়েছে", Colors.blueAccent);
-    }
-    else{
+    } else {
       return getStatusContainer("ডেলিভারি হয়েছে", AppColors.themeColor);
     }
   }
 
-  Widget getStatusContainer(String statusText,Color statusColor){
+  Widget getStatusContainer(String statusText, Color statusColor) {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
           color: statusColor,
           borderRadius: BorderRadius.circular(6),
-        boxShadow: [BoxShadow(
-          color: Colors.black.withOpacity(0.1),
-          spreadRadius: 2,
-          blurRadius: 20,
-          offset: const Offset(0, 5),
-          blurStyle: BlurStyle.normal
-        )]
-      ),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                spreadRadius: 2,
+                blurRadius: 20,
+                offset: const Offset(0, 5),
+                blurStyle: BlurStyle.normal)
+          ]),
       child: Text(
         statusText,
-        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-            color: Colors.white,
-            fontWeight: FontWeight.bold
-        ),
+        style: Theme.of(context)
+            .textTheme
+            .bodyMedium!
+            .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
       ),
     );
   }

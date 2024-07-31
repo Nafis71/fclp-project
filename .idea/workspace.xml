@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- changed style of refresh indicator">
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="minor changes">
+      <change afterPath="$PROJECT_DIR$/assets/lotties/loading.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/order_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/order_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/order_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/order_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/home_screen/home_product_widget/product_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_screen/home_product_widget/product_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/home_screen/home_product_widget/product_grid_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_screen/home_product_widget/product_grid_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/cart_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/cart_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/cart_models/cart_product.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/cart_models/cart_product.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_strings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/assets_paths.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/assets_paths.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/cart_screen/cart_product_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/cart_screen/cart_product_card.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -468,7 +469,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722373058141</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1722376166033</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1722376166033</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -491,13 +500,13 @@
     <MESSAGE value="- major changes" />
     <MESSAGE value="- added cart delete&#10;- added badge" />
     <MESSAGE value="- product quantity update code added" />
-    <MESSAGE value="minor changes" />
     <MESSAGE value="implemented cart to order api call" />
     <MESSAGE value="-order list added" />
     <MESSAGE value="profile controller bug fix&#10;delivery information layout added&#10;new api" />
     <MESSAGE value="- delivery payment module completed" />
     <MESSAGE value="- minor changes" />
     <MESSAGE value="- changed style of refresh indicator" />
-    <option name="LAST_COMMIT_MESSAGE" value="- changed style of refresh indicator" />
+    <MESSAGE value="minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
   </component>
 </project>
