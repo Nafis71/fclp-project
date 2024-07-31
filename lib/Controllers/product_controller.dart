@@ -123,7 +123,7 @@ class ProductController extends ChangeNotifier {
     if (response is Success) {
       Map<String,dynamic> responseJson = (response as Success).response as Map<String,dynamic>;
       if(!hasFoundInCart){
-        CartProduct cartProduct = CartProduct(itemId: responseJson['cartItem']['id'], name: product.name,image: product.image,quantity: quantity.toString(),price:  (product.discountPrice == "0")
+        CartProduct cartProduct = CartProduct(productId: product.id,itemId: responseJson['cartItem']['id'], name: product.name,image: product.image,quantity: quantity.toString(),price:  (product.discountPrice == "0")
             ? product.price.toString()
             : product.discountPrice.toString());
         cartController.insertAtCart(0, cartProduct);

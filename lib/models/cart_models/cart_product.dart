@@ -6,7 +6,7 @@ class CartProduct{
   String? price;
   int? productId;
 
-  CartProduct({this.itemId, this.name, this.image, this.quantity, this.price});
+  CartProduct({this.productId, this.itemId, this.name, this.image, this.quantity, this.price});
 
   CartProduct.fromJson(Map<String, dynamic> json) {
     itemId = json['item_id'];

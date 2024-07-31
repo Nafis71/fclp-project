@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="minor changes">
-      <change afterPath="$PROJECT_DIR$/assets/lotties/loading.json" afterDir="false" />
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- E-commerce part completed">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/cart_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/cart_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/order_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/order_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/models/cart_models/cart_product.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/cart_models/cart_product.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_strings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/assets_paths.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/assets_paths.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/cart_screen/cart_product_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/cart_screen/cart_product_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_confirmation_finish.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_confirmation_finish.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -477,12 +476,19 @@
       <option name="project" value="LOCAL" />
       <updated>1722376166033</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="- E-commerce part completed">
+      <option name="closed" value="true" />
+      <created>1722416152314</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1722416152314</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- air ticket can now be edited&#10;- air ticket module completed" />
     <MESSAGE value="- change password functionality added&#10;- product loading bug fix" />
     <MESSAGE value="- launch app payment added" />
     <MESSAGE value="- log out functionality added" />
@@ -507,6 +513,7 @@
     <MESSAGE value="- minor changes" />
     <MESSAGE value="- changed style of refresh indicator" />
     <MESSAGE value="minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
+    <MESSAGE value="- E-commerce part completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="- E-commerce part completed" />
   </component>
 </project>

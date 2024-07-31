@@ -51,11 +51,15 @@ class _OrderListScreenState extends State<OrderListScreen> {
                                 context.read<ProfileController>().token,
                                 orderController.orderList[index].id!);
                           }
-                          snackBarMessage(context: context, message: AppStrings.orderCancelErrorMessage);
+                          snackBarMessage(
+                              context: context,
+                              message: AppStrings.orderCancelErrorMessage);
                         },
                         borderRadius: BorderRadius.circular(5),
                         icon: Icons.delete,
-                        label: orderController.orderList[index].status != "4" ? "অর্ডার বাতিল করুন" : "অর্ডার ডিলিট করুন",
+                        label: orderController.orderList[index].status != "4"
+                            ? "অর্ডার বাতিল করুন"
+                            : "অর্ডার ডিলিট করুন",
                         backgroundColor: AppColors.themeColor,
                       )
                     ],
@@ -146,7 +150,9 @@ class _OrderListScreenState extends State<OrderListScreen> {
                   orderId: orderController.orderList[index].id!,
                 ),
               ),
-            );
+            ).then((value){
+              orderController.resetOrderController();
+            });
           },
           child: Text(
             "Pay Fee",
@@ -172,16 +178,17 @@ class _OrderListScreenState extends State<OrderListScreen> {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: statusColor,
-          borderRadius: BorderRadius.circular(6),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                spreadRadius: 2,
-                blurRadius: 20,
-                offset: const Offset(0, 5),
-                blurStyle: BlurStyle.normal)
-          ]),
+        color: statusColor,
+        borderRadius: BorderRadius.circular(6),
+        boxShadow: [
+          BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 2,
+              blurRadius: 20,
+              offset: const Offset(0, 5),
+              blurStyle: BlurStyle.normal)
+        ],
+      ),
       child: Text(
         statusText,
         style: Theme.of(context)

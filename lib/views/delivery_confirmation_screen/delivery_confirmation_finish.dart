@@ -1,13 +1,16 @@
+import 'package:fclp_app/Controllers/order_controller.dart';
 import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 class DeliveryConfirmationFinish extends StatelessWidget {
   const DeliveryConfirmationFinish({super.key});
 
   @override
   Widget build(BuildContext context) {
+    context.read<OrderController>().resetOrderController();
     return SingleChildScrollView(
       child: Center(
         child: Padding(

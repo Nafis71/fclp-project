@@ -18,13 +18,13 @@ class OrderController extends ChangeNotifier {
   int activeStep = 0;
   bool _isBusy = false;
   Object? response;
-  Map<String, String> _deliveryDetails = {
+  final Map<String, String> _deliveryDetails = {
     "address": "",
     "city": "",
     "cost": "",
     "order_id": ""
   };
-  Map<String, dynamic> _paymentDetails = {
+  final Map<String, dynamic> _paymentDetails = {
     "delivery_cost_id": 0,
     "payment_method":"", // bkash,nagad
     "trx_id":"",
@@ -128,4 +128,15 @@ class OrderController extends ChangeNotifier {
     notifyListeners();
     response = await OrderService.cancelOrder(token, orderId.toString());
   }
+
+  void resetOrderController(){
+    _deliveryDetails.clear();
+    _paymentDetails.clear();
+    _isInsideDhaka = true;
+    _isBkashSelected =  true;
+    _isBkashPressed = true;
+    _isInsideDhakaPressed = true;
+    activeStep = 0;
+  }
+
 }
