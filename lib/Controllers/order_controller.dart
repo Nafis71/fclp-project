@@ -136,6 +136,8 @@ class OrderController extends ChangeNotifier {
     _isBkashSelected =  true;
     _isBkashPressed = true;
     _isInsideDhakaPressed = true;
+    _isOutsideDhakaPressed = false;
+    _isNagadPressed = false;
     activeStep = 0;
   }
 

@@ -23,95 +23,97 @@ class _DeliveryDetailFormState extends State<DeliveryDetailForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Form(
-        key: _formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Consumer<OrderController>(builder: (_, orderController, __) {
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  InkWell(
-                    splashColor: AppColors.transparent,
-                    onTap: () {
-                      orderController.setIsInsideDhaka = true;
-                      orderController.setIsInsideDhakaPressed = true;
-                      orderController.setOutsideDhakaPressed = false;
-                    },
-                    child: DeliveryLocationContainer(
-                        location: "ঢাকার ভিতরে",
-                        deliveryAmount: "\u09F380",
-                        borderColor: (orderController.isInsideDhakaPressed)
-                            ? AppColors.themeColor
-                            : Colors.grey,
-                        borderWidth: 1,
-                        hasPressed: orderController.isInsideDhakaPressed),
-                  ),
-                  InkWell(
-                    splashColor: AppColors.transparent,
-                    onTap: () {
-                      orderController.setIsInsideDhaka = false;
-                      orderController.setIsInsideDhakaPressed = false;
-                      orderController.setOutsideDhakaPressed = true;
-                    },
-                    child: DeliveryLocationContainer(
-                        location: "ঢাকার বাহিরে",
-                        deliveryAmount: "\u09F3120",
-                        borderColor: (orderController.isOutsideDhakaPressed)
-                            ? AppColors.themeColor
-                            : Colors.grey,
-                        borderWidth: 1,
-                        hasPressed: orderController.isOutsideDhakaPressed),
-                  ),
-                ],
-              );
-            }),
-            const SizedBox(
-              height: 30,
-            ),
-            TextFormField(
-              controller: _addressTEController,
-              keyboardType: TextInputType.text,
-              decoration: formInputDecoration(
-                hintText: "আপনার ঠিকানা",
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Consumer<OrderController>(builder: (_, orderController, __) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    InkWell(
+                      splashColor: AppColors.transparent,
+                      onTap: () {
+                        orderController.setIsInsideDhaka = true;
+                        orderController.setIsInsideDhakaPressed = true;
+                        orderController.setOutsideDhakaPressed = false;
+                      },
+                      child: DeliveryLocationContainer(
+                          location: "ঢাকার ভিতরে",
+                          deliveryAmount: "\u09F380",
+                          borderColor: (orderController.isInsideDhakaPressed)
+                              ? AppColors.themeColor
+                              : Colors.grey,
+                          borderWidth: 1,
+                          hasPressed: orderController.isInsideDhakaPressed),
+                    ),
+                    InkWell(
+                      splashColor: AppColors.transparent,
+                      onTap: () {
+                        orderController.setIsInsideDhaka = false;
+                        orderController.setIsInsideDhakaPressed = false;
+                        orderController.setOutsideDhakaPressed = true;
+                      },
+                      child: DeliveryLocationContainer(
+                          location: "ঢাকার বাহিরে",
+                          deliveryAmount: "\u09F3120",
+                          borderColor: (orderController.isOutsideDhakaPressed)
+                              ? AppColors.themeColor
+                              : Colors.grey,
+                          borderWidth: 1,
+                          hasPressed: orderController.isOutsideDhakaPressed),
+                    ),
+                  ],
+                );
+              }),
+              const SizedBox(
+                height: 30,
               ),
-              validator: FormValidationController.validateAddress,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Consumer<OrderController>(builder: (_, orderController, __) {
-              if (orderController.isInsideDhaka) {
-                return const SizedBox.shrink();
-              }
-              _cityTEController.clear();
-              return TextFormField(
-                controller: _cityTEController,
+              TextFormField(
+                controller: _addressTEController,
                 keyboardType: TextInputType.text,
                 decoration: formInputDecoration(
-                  hintText: "শহরের নাম",
+                  hintText: "আপনার ঠিকানা",
                 ),
                 validator: FormValidationController.validateAddress,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
-              );
-            }),
-            const SizedBox(
-              height: 50,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    context.read<OrderController>().recordDeliveryDetails(
-                        _addressTEController.text.trim(),
-                        _cityTEController.text.trim());
-                  }
-                },
-                child: const Text("Next"))
-          ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Consumer<OrderController>(builder: (_, orderController, __) {
+                if (orderController.isInsideDhaka) {
+                  return const SizedBox.shrink();
+                }
+                _cityTEController.clear();
+                return TextFormField(
+                  controller: _cityTEController,
+                  keyboardType: TextInputType.text,
+                  decoration: formInputDecoration(
+                    hintText: "শহরের নাম",
+                  ),
+                  validator: FormValidationController.validateAddress,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                );
+              }),
+              const SizedBox(
+                height: 50,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      context.read<OrderController>().recordDeliveryDetails(
+                          _addressTEController.text.trim(),
+                          _cityTEController.text.trim());
+                    }
+                  },
+                  child: const Text("Next"))
+            ],
+          ),
         ),
       ),
     );
