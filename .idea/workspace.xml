@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="cart bug fix">
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="orderController bug fix">
+      <change afterPath="$PROJECT_DIR$/assets/images/refer.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/order_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/order_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/cart_screen/cart_product_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/cart_screen/cart_product_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_detail_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_detail_form.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/form_validation_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/form_validation_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/user_model/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/user_model/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_strings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/assets_paths.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/assets_paths.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_payment_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_payment_form.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/reffer_id_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/refer_id_screen/reffer_id_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/registration_widget/registration_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/registration_widget/registration_widget.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,11 +81,11 @@
       <recent name="E:\Flutter Projects\fclp-project\assets\fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Flutter Projects\fclp-project\lib\views\refer_id_screen" />
       <recent name="E:\Flutter Projects\fclp-project\lib\views\home_screen\home_product_widget" />
       <recent name="E:\Flutter Projects\fclp-project\lib\views\product_details_screen\product_details_widgets" />
       <recent name="E:\Flutter Projects\fclp-project\lib\views\home_screen" />
       <recent name="E:\Flutter Projects\fclp-project\lib\views\product_details_screen" />
-      <recent name="E:\Flutter Projects\fclp-project\lib\views\air_ticket_booking_screen" />
     </key>
   </component>
   <component name="RunManager">
@@ -96,14 +102,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720627303393</updated>
-    </task>
-    <task id="LOCAL-00001" summary="splash_screen and token initialization added">
-      <option name="closed" value="true" />
-      <created>1720675191421</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1720675191421</updated>
     </task>
     <task id="LOCAL-00002" summary="-registration screen added">
       <option name="closed" value="true" />
@@ -489,12 +487,19 @@
       <option name="project" value="LOCAL" />
       <updated>1722425491735</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="orderController bug fix">
+      <option name="closed" value="true" />
+      <created>1722431102916</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1722431102917</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- launch app payment added" />
     <MESSAGE value="- log out functionality added" />
     <MESSAGE value="- product grid changes&#10;- log out bug fix" />
     <MESSAGE value="- product load bug fix in homeScreen" />
@@ -519,6 +524,7 @@
     <MESSAGE value="minor changes" />
     <MESSAGE value="- E-commerce part completed" />
     <MESSAGE value="cart bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="cart bug fix" />
+    <MESSAGE value="orderController bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="orderController bug fix" />
   </component>
 </project>

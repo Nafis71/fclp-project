@@ -23,6 +23,7 @@ class AssetsPaths {
   static const String paymentSuccess = "$_images/payment_success.svg";
   static const String emptyCart = "$_images/empty_cart.svg";
   static const String deliveryPaymentDone = "$_images/delivery_payment_done.svg";
+  static const String referImage = "$_images/refer.svg";
 
   static const delivery = '$_lotties/delivery.json';
   static const commingSoon = '$_lotties/comming_soon.json';

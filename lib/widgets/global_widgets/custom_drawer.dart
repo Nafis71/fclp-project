@@ -10,7 +10,7 @@ import 'package:fclp_app/views/business_view.dart';
 import 'package:fclp_app/views/income_points_view.dart';
 import 'package:fclp_app/views/main_bottom_nav_view.dart';
 import 'package:fclp_app/views/profile_view.dart';
-import 'package:fclp_app/views/reffer_id_view.dart';
+import 'package:fclp_app/views/refer_id_screen/reffer_id_view.dart';
 import 'package:fclp_app/views/system_view.dart';
 import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:fclp_app/widgets/profile_widgets/profile_picture.dart';

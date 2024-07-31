@@ -5,6 +5,7 @@ class AppStrings {
   static const String registrationSuccessTitle = "সফল নিবন্ধন!";
   static const String registrationFailureTitle = "ব্যর্থ নিবন্ধন!";
   static const String registrationSuccessMessage = "আপনার নিবন্ধন সফল হয়েছে";
+  static const String invalidReferIdMessage = "আপনার রেফার আইডিটি সঠিক নয়";
   static const String registrationFailureMessage =
       "আপনার নিবন্ধন ব্যর্থ হয়েছে";
   static const String duplicateRegistrationFailureMessage =

@@ -18,6 +18,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
   final _confirmPasswordTEController = TextEditingController();
   final _nameTEController = TextEditingController();
   final _emailTEController = TextEditingController();
+  final _referTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
   bool passwordVisibility = true;
   bool confirmPasswordVisibility = true;
@@ -121,16 +122,16 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                       ),
                     ),
                     child: TextFormField(
-                      controller: _mobileNumberTEController,
+                      controller: _referTEController,
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         hintText: "রেফার আইডি",
                         prefixIcon: Icon(
-                          Icons.person,
+                          Icons.group_add,
                           size: 30,
                         ),
                       ),
-                      validator: FormValidationController.validateMobileNumber,
+                      validator: FormValidationController.validateReferId,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                     ),
                   ),
@@ -241,7 +242,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                   password: _passwordTEController.text.trim(),
                                   confirmPassword:
                                       _confirmPasswordTEController.text.trim(),
-                                  formKey: _formKey,
+                                  formKey: _formKey, referredBy: _referTEController.text.trim(),
                                 ),
                             child: const Text("নিবন্ধন করুন")),
                       ),
@@ -276,5 +277,15 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
         ),
       ),
     );
+  }
+  @override
+  void dispose() {
+    _nameTEController.dispose();
+    _emailTEController.dispose();
+    _mobileNumberTEController.dispose();
+    _referTEController.dispose();
+    _passwordTEController.dispose();
+    _confirmPasswordTEController.dispose();
+    super.dispose();
   }
 }

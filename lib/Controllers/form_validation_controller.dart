@@ -22,6 +22,13 @@ class FormValidationController {
     return null;
   }
 
+  static String? validateReferId(String? referId) {
+    if (referId == null || referId.isEmpty) {
+      return 'রেফার আইডি লিখুন।';
+    }
+    return null;
+  }
+
   static String? validatePassword(String? password) {
     if (password == null || password.isEmpty) {
       return 'আপনার পাসওয়ার্ড লিখুন।';
@@ -153,7 +160,9 @@ class FormValidationController {
       required String email,
       required String mobile,
       required String password,
-      required String confirmPassword}) async {
+      required String confirmPassword,
+      required String referredBy
+      }) async {
     if (formKey.currentState!.validate()) {
       Map<String, String> userData = {
         "name": name,
@@ -161,7 +170,8 @@ class FormValidationController {
         "mobile": mobile,
         "password": password,
         "image": "",
-        "password_confirmation": confirmPassword
+        "password_confirmation": confirmPassword,
+        "referred_by" : referredBy
       };
       bool status = await context.read<AuthController>().registration(userData);
 
@@ -182,17 +192,20 @@ class FormValidationController {
           );
           return;
         }
+        if(statusCode == 405){
+          warningDialog(
+            context: context,
+            message: AppStrings.registrationFailureTitle,
+            warningDescription: AppStrings.invalidReferIdMessage,
+          );
+          return;
+        }
         warningDialog(
           context: context,
           message: AppStrings.registrationFailureTitle,
           warningDescription: AppStrings.registrationFailureMessage,
         );
       }
-    } else {
-      warningDialog(
-        context: context,
-        warningDescription: 'মোবাইল নাম্বার এবং পাসওয়ার্ড অবশ্যই দিতে হবে।',
-      );
     }
   }
 

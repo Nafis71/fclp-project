@@ -72,6 +72,9 @@ class User {
     data['image'] = image;
     data['base64'] = base64Image;
     data['status'] = status;
+    data['referral_code'] = referralCode;
+    data['points'] = points;
+    data['total_refer']= totalRefer;
     return data;
   }
 }

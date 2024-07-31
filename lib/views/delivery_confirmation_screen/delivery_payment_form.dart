@@ -200,4 +200,10 @@ class _DeliveryPaymentFormState extends State<DeliveryPaymentForm> {
           message: AppStrings.storePaymentInfoFailureTitle);
     }
   }
+  @override
+  void dispose() {
+    _mobileTEController.dispose();
+    _transTEController.dispose();
+    super.dispose();
+  }
 }
