@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="orderController bug fix">
-      <change afterPath="$PROJECT_DIR$/assets/images/refer.svg" afterDir="false" />
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="refer id added in registration form">
+      <change afterPath="$PROJECT_DIR$/lib/models/referral_model/referral_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/form_validation_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/form_validation_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/user_model/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/user_model/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/user_profile_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/user_profile_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_strings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/assets_paths.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/assets_paths.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_payment_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/delivery_confirmation_screen/delivery_payment_form.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/reffer_id_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/refer_id_screen/reffer_id_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/refer_id_screen/reffer_id_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/refer_id_screen/reffer_id_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/registration_widget/registration_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/registration_widget/registration_widget.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,14 +100,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720627303393</updated>
-    </task>
-    <task id="LOCAL-00002" summary="-registration screen added">
-      <option name="closed" value="true" />
-      <created>1720685748372</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1720685748372</updated>
     </task>
     <task id="LOCAL-00003" summary="-UI fix and added animation">
       <option name="closed" value="true" />
@@ -495,12 +485,19 @@
       <option name="project" value="LOCAL" />
       <updated>1722431102917</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="refer id added in registration form">
+      <option name="closed" value="true" />
+      <created>1722455479020</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1722455479020</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- log out functionality added" />
     <MESSAGE value="- product grid changes&#10;- log out bug fix" />
     <MESSAGE value="- product load bug fix in homeScreen" />
     <MESSAGE value="- product in home screen will be shown randomly" />
@@ -525,6 +522,7 @@
     <MESSAGE value="- E-commerce part completed" />
     <MESSAGE value="cart bug fix" />
     <MESSAGE value="orderController bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="orderController bug fix" />
+    <MESSAGE value="refer id added in registration form" />
+    <option name="LAST_COMMIT_MESSAGE" value="refer id added in registration form" />
   </component>
 </project>

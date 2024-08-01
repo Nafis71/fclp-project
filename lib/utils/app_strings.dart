@@ -57,4 +57,10 @@ class AppStrings {
   static const String storePaymentInfoFailureMessage = "আপনার পেমেন্ট তথ্য সংরক্ষণ করতে ব্যর্থ হয়েছে";
   static const String storePaymentInfoFailureTitle = "ত্রুটি ঘটেছে";
   static const String orderCancelErrorMessage = "আপনি এই মুহূর্তে অর্ডারটি বাতিল করতে পারবেন না";
+
+  //refer screen strings
+  static const String referralInformation = "01. ১ম জেনারেশন রেফারের জন্য আপনি পাবেন ৫০ কয়েন।\n02. ২য় জেনারেশন রেফারের জন্য আপনি পাবেন ১০ কয়েন।\n03. ৩য় জেনারেশন রেফারের জন্য আপনি পাবেন ১০ কয়েন।\n04. ৪র্থ জেনারেশন রেফারের জন্য আপনি পাবেন ১০ কয়েন।\n05. ৫ম জেনারেশন রেফারের জন্য আপনি পাবেন ৫ কয়েন।\n06. ৬ষ্ঠ জেনারেশন রেফারের জন্য আপনি পাবেন ৫ কয়েন।\n07. ৭ম জেনারেশন রেফারের জন্য আপনি পাবেন ৫ কয়েন।";
+  static const String yourReferText = "আপনার রেফারেন্স";
+  static const String totalReferText = "সর্বোমোট রেফারেন্স";
+  static const String referralInfoHeaderText = "রেফারেল তথ্য";
 }

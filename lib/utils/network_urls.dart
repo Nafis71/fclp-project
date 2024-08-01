@@ -22,4 +22,5 @@ class NetworkUrls {
   static const String confirmDeliveryCost = "$baseUrl/confirm-delivery-cost";
   static const String payDeliveryCost = "$baseUrl/pay-delivery-cost";
   static const String deleteOrder = "$baseUrl/order";
+  static const String referrals = "$baseUrl/user/referrals";
 }

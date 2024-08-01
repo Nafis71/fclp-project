@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:fclp_app/models/referral_model/referral_model.dart';
 import 'package:fclp_app/models/user_model/user.dart';
 import 'package:fclp_app/models/user_model/user_model.dart';
 import 'package:fclp_app/services/response/success.dart';
@@ -16,7 +17,8 @@ class ProfileController extends ChangeNotifier {
   Object? response;
   final ImagePicker _imagePicker = ImagePicker();
   bool _isLoading = false;
-
+  bool isLoadingReferral = false;
+  List<ReferralModel> referralList = [];
   bool get isLoading => _isLoading;
 
   set setIsLoading(bool value){
@@ -118,6 +120,20 @@ class ProfileController extends ChangeNotifier {
     }
     setIsLoading = false;
     return false;
+  }
+  
+  Future<void> loadReferrals() async{
+    isLoadingReferral = true;
+    response = await UserProfileService.getReferrals(token);
+    if(response is Success){
+      referralList.clear();
+      List<dynamic> jsonData = (response as Success).response as List<dynamic>;
+      for(Map<String,dynamic> json in jsonData){
+        referralList.add(ReferralModel.fromJson(json));
+      }
+    }
+    isLoadingReferral = false;
+    notifyListeners();
   }
 
   Future<void> saveUserData(String name, String mobile,String email) async{

@@ -30,4 +30,11 @@ class UserProfileService {
         url: NetworkUrls.getUserUrl,
         headers: {"Authorization": "Bearer $token"});
   }
+
+  static Future<Object> getReferrals(String token) async {
+    return await NetworkRequest().getRequest(
+      url: NetworkUrls.referrals,
+      headers: {"Authorization": "Bearer $token"},
+    );
+  }
 }
