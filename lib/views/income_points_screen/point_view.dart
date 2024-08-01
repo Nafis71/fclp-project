@@ -47,12 +47,16 @@ class _PointViewState extends State<PointView> {
                       AppStrings.incomePointHeaderText,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
-                    Text(
-                      context.read<ProfileController>().userData.points,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleLarge!
-                          .copyWith(color: Colors.black),
+                    Consumer<ProfileController>(
+                      builder: (_,profileController,__) {
+                        return Text(
+                          profileController.userData.points,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge!
+                              .copyWith(color: Colors.black),
+                        );
+                      }
                     ),
                     const SizedBox(
                       height: 20,

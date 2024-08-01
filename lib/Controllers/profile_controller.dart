@@ -156,12 +156,14 @@ class ProfileController extends ChangeNotifier {
     setIsLoading = true;
     Map<String,dynamic> redeemData = {
       "point":points,
-      "payment_method":paymentMethod, // bkash , nagad
+      "payment_method":paymentMethod,
       "mobile":mobile
     };
     response = await UserProfileService.redeemPoint(token, redeemData);
     if(response is Success){
       userData.points = (int.parse(userData.points) - points).toString();
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      preferences.setString("userData", json.encode(userData.toJson()));
       _finalResponse = true;
     }
     setIsLoading = false;

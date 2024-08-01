@@ -29,7 +29,7 @@ class FormValidationController {
     return null;
   }
 
-  static String? validatePoints(String? points){
+  static String? validatePoints(String? points,int userPoint){
     if(points == null || points.isEmpty){
       return 'আপনি কত পয়েন্ট চান তা লিখুন';
     }
@@ -38,6 +38,9 @@ class FormValidationController {
     }
     if(int.parse(points) < 10){
       return 'পয়েন্ট অবশ্যই 10 এর চেয়ে বড় বা সমান হতে হবে';
+    }
+    if((userPoint - int.parse(points)).isNegative){
+      return 'আপনার যথেষ্ট পয়েন্ট নেই';
     }
     return null;
   }

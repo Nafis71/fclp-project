@@ -67,4 +67,7 @@ class AppStrings {
   //incomePoint strings
   static const String incomePointHeaderText = "আপনার মোট পয়েন্ট";
   static const String incomePointNoticeText = "১. প্রতি ১ পয়েন্ট ১ টাকার সমান\n২. আপনি ন্যূনতম ১০ পয়েন্ট ভাঙাতে পারবেন\n৩. এই অ্যাপে কাউকে রেফার করে পয়েন্ট অর্জন করতে পারবেন";
+  static const String redeemPointSuccessMessage = "আপনি সফলভাবে আপনার পয়েন্টগুলি রিডিম করেছেন";
+  static const String redeemPointFailureMessage = "আপনার পয়েন্ট রিডিম করতে ব্যর্থ হয়েছে, আবার চেষ্টা করুন";
+  static const String redeemPointFailureTitle = "ত্রুটি ঘটেছে";
 }

@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- point redeem view UI completed&#10;- made minor changes in UI In refer view">
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- added redeem point api call">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/form_validation_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/form_validation_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/user_profile_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/user_profile_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_strings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/income_points_screen/income_point_withdrawal_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/income_points_screen/income_point_withdrawal_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/income_points_screen/point_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/income_points_screen/point_view.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,14 +97,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720627303393</updated>
-    </task>
-    <task id="LOCAL-00006" summary="- air ticket card added and model created">
-      <option name="closed" value="true" />
-      <created>1720741547115</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1720741547115</updated>
     </task>
     <task id="LOCAL-00007" summary="- air ticket list connected to list builder">
       <option name="closed" value="true" />
@@ -488,12 +482,19 @@
       <option name="project" value="LOCAL" />
       <updated>1722545191100</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="- added redeem point api call">
+      <option name="closed" value="true" />
+      <created>1722546121619</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1722546121619</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="-product card design updated" />
     <MESSAGE value="- color changed" />
     <MESSAGE value="- product details layout added" />
     <MESSAGE value="- some minor changes" />
@@ -518,6 +519,7 @@
     <MESSAGE value="-referral screen completed" />
     <MESSAGE value="- point view completed" />
     <MESSAGE value="- point redeem view UI completed&#10;- made minor changes in UI In refer view" />
-    <option name="LAST_COMMIT_MESSAGE" value="- point redeem view UI completed&#10;- made minor changes in UI In refer view" />
+    <MESSAGE value="- added redeem point api call" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added redeem point api call" />
   </component>
 </project>
