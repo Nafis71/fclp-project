@@ -22,11 +22,6 @@ class AuthService {
     );
   }
 
-  static Future<Object> getAllUser(String token) async {
-    return await NetworkRequest().getRequest(
-        url: NetworkUrls.getUserUrl, headers: {'Authorization': "Bearer $token",});
-  }
-
   static Future<Object> changePassword(Map<String,String> credentials) async{
     return await NetworkRequest().postRequest(url: NetworkUrls.passwordChangeUrl,body: credentials,headers: {"content-type": "Application/json"});
   }

@@ -1,13 +1,10 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:fclp_app/Controllers/auth_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/Controllers/url_launcher_controller.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/color_palette.dart';
-import 'package:fclp_app/utils/style.dart';
 import 'package:fclp_app/views/auth_view/login_view.dart';
 import 'package:fclp_app/views/business_view.dart';
-import 'package:fclp_app/views/income_points_view.dart';
 import 'package:fclp_app/views/main_bottom_nav_view.dart';
 import 'package:fclp_app/views/profile_view.dart';
 import 'package:fclp_app/views/refer_id_screen/reffer_id_view.dart';
@@ -17,6 +14,8 @@ import 'package:fclp_app/widgets/profile_widgets/profile_picture.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../views/income_points_screen/income_points_view.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({
@@ -346,6 +345,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         builder: (context) => const IncomePointsView(),
       ),
     );
+    Scaffold.of(context).closeDrawer();
   }
 
   void _onTapHomeButton({

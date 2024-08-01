@@ -63,4 +63,8 @@ class AppStrings {
   static const String yourReferText = "আপনার রেফারেন্স";
   static const String totalReferText = "সর্বোমোট রেফারেন্স";
   static const String referralInfoHeaderText = "রেফারেল তথ্য";
+
+  //incomePoint strings
+  static const String incomePointHeaderText = "আপনার মোট পয়েন্ট";
+  static const String incomePointNoticeText = "১. প্রতি ১ পয়েন্ট ১ টাকার সমান\n২. আপনি ন্যূনতম ১০ পয়েন্ট ভাঙাতে পারবেন\n৩. এই অ্যাপে কাউকে রেফার করে পয়েন্ট অর্জন করতে পারবেন";
 }

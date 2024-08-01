@@ -58,19 +58,19 @@ ThemeData lightThemeData() {
       ),
     ),
     appBarTheme:  AppBarTheme(
-      surfaceTintColor: AppColors.themeColor,
-      iconTheme:  const IconThemeData(
+      surfaceTintColor: Colors.white,
+      iconTheme:   IconThemeData(
         size: 30,
-        color: Colors.white,
+        color: AppColors.themeColor,
       ),
       centerTitle: true,
-      backgroundColor: AppColors.themeColor,
-      foregroundColor: Colors.white,
-      titleTextStyle:  const TextStyle(
-        fontSize: 25,
+      backgroundColor: Colors.white,
+      foregroundColor: AppColors.themeColor,
+      titleTextStyle:  TextStyle(
+        fontSize: 22,
         fontWeight: FontWeight.bold,
         fontFamily: "Poppins Bold",
-        color: Colors.white,
+        color: AppColors.themeColor,
       ),
     ),
     drawerTheme: DrawerThemeData(

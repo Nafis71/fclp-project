@@ -4,15 +4,24 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="refer id added in registration form">
-      <change afterPath="$PROJECT_DIR$/lib/models/referral_model/referral_model.dart" afterDir="false" />
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="-referral screen completed">
+      <change afterPath="$PROJECT_DIR$/assets/images/bag_of_coin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/views/income_points_screen/income_points_view.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/views/income_points_screen/point_view.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/views/income_points_screen/transaction_history.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/auth_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/auth_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/services/user_profile_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/user_profile_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/themes/app_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/themes/app_theme.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_strings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/refer_id_screen/reffer_id_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/refer_id_screen/reffer_id_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/assets_paths.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/assets_paths.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/delivery_address_form_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/income_point_history_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/income_points_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/nagad_withdraw_history_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/point_withdraw_history_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,11 +88,11 @@
       <recent name="E:\Flutter Projects\fclp-project\assets\fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Flutter Projects\fclp-project\lib\views\income_points_view" />
       <recent name="E:\Flutter Projects\fclp-project\lib\views\refer_id_screen" />
       <recent name="E:\Flutter Projects\fclp-project\lib\views\home_screen\home_product_widget" />
       <recent name="E:\Flutter Projects\fclp-project\lib\views\product_details_screen\product_details_widgets" />
       <recent name="E:\Flutter Projects\fclp-project\lib\views\home_screen" />
-      <recent name="E:\Flutter Projects\fclp-project\lib\views\product_details_screen" />
     </key>
   </component>
   <component name="RunManager">
@@ -100,14 +109,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720627303393</updated>
-    </task>
-    <task id="LOCAL-00003" summary="-UI fix and added animation">
-      <option name="closed" value="true" />
-      <created>1720691094178</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1720691094178</updated>
     </task>
     <task id="LOCAL-00004" summary="- airport list loader added">
       <option name="closed" value="true" />
@@ -493,12 +494,19 @@
       <option name="project" value="LOCAL" />
       <updated>1722455479020</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="-referral screen completed">
+      <option name="closed" value="true" />
+      <created>1722507074788</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1722507074788</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- product grid changes&#10;- log out bug fix" />
     <MESSAGE value="- product load bug fix in homeScreen" />
     <MESSAGE value="- product in home screen will be shown randomly" />
     <MESSAGE value="-product card design updated" />
@@ -523,6 +531,7 @@
     <MESSAGE value="cart bug fix" />
     <MESSAGE value="orderController bug fix" />
     <MESSAGE value="refer id added in registration form" />
-    <option name="LAST_COMMIT_MESSAGE" value="refer id added in registration form" />
+    <MESSAGE value="-referral screen completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="-referral screen completed" />
   </component>
 </project>
