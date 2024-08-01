@@ -17,12 +17,13 @@ class UserProfileService {
   static Future<Object> accountActiveRequest(
       String token, Map<String, String> transactionDetails) async {
     return await NetworkRequest().postRequest(
-        url: NetworkUrls.accountActiveRequest,
-        body: transactionDetails,
-        headers: {
-          "Authorization": "Bearer $token",
-          "content-type": "Application/json"
-        });
+      url: NetworkUrls.accountActiveRequest,
+      body: transactionDetails,
+      headers: {
+        "Authorization": "Bearer $token",
+        "content-type": "Application/json",
+      },
+    );
   }
 
   static Future<Object> checkActivationStatus(String token) async {
@@ -39,7 +40,21 @@ class UserProfileService {
   }
 
   static Future<Object> getAllUser(String token) async {
-    return await NetworkRequest().getRequest(
-        url: NetworkUrls.getUserUrl, headers: {'Authorization': "Bearer $token",});
+    return await NetworkRequest()
+        .getRequest(url: NetworkUrls.getUserUrl, headers: {
+      'Authorization': "Bearer $token",
+    });
+  }
+
+  static Future<Object> redeemPoint(
+      String token, Map<String, dynamic> redeemData) async {
+    return NetworkRequest().postRequest(
+      url: NetworkUrls.pointRedeemUrl,
+      headers: {
+        "Authorization": "Bearer $token",
+        "content-type": "Application/json"
+      },
+      body: redeemData,
+    );
   }
 }

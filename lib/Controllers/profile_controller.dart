@@ -20,6 +20,7 @@ class ProfileController extends ChangeNotifier {
   bool isLoadingReferral = false;
   List<ReferralModel> referralList = [];
   bool get isLoading => _isLoading;
+  bool _finalResponse = false;
 
   set setIsLoading(bool value){
     _isLoading = value;
@@ -65,6 +66,7 @@ class ProfileController extends ChangeNotifier {
   Future<bool> updateProfile({required String email,
     required String mobile,
     required String name}) async {
+    _finalResponse = false;
     setIsLoading = true;
     if(base64Image.isNotEmpty){
       userData.base64Image = base64Image;
@@ -73,13 +75,14 @@ class ProfileController extends ChangeNotifier {
     response = await UserProfileService.updateProfile(_token, userData.id.toString(), userData);
     if(response is Success){
       setIsLoading = false;
-      return true;
+      _finalResponse = true;
     }
     setIsLoading = false;
-    return false;
+    return _finalResponse;
   }
 
   Future<bool> activateProfile(String mobile, String transactionId, String paymentMethod) async{
+    _finalResponse = false;
     setIsLoading = true;
     Map<String,String> transactionDetails ={
       "mobile":mobile,
@@ -89,13 +92,14 @@ class ProfileController extends ChangeNotifier {
     response =  await UserProfileService.accountActiveRequest(token, transactionDetails);
     if(response is Success){
       setIsLoading = false;
-      return true;
+      _finalResponse = true;
     }
     setIsLoading = false;
-    return false;
+    return _finalResponse;
   }
 
   Future<bool> checkProfileActiveStatus() async{
+    _finalResponse = false;
     setIsLoading = true;
     SharedPreferences preferences =  await SharedPreferences.getInstance();
     response = await UserProfileService.checkActivationStatus(token);
@@ -106,20 +110,18 @@ class ProfileController extends ChangeNotifier {
           if(user.id == userData.id && user.status == "1"){
             userData.status = "1";
             preferences.setString("userData", jsonEncode(userData.toJson()));
-            setIsLoading = false;
-            return true;
+            _finalResponse = true;
           }
           if(user.id == userData.id && user.status == "2"){
             userData.status = "2";
             preferences.setString("userData", jsonEncode(userData.toJson()));
-            setIsLoading = false;
-            return false;
+            _finalResponse = false;
           }
         }
       }
     }
     setIsLoading = false;
-    return false;
+    return _finalResponse;
   }
   
   Future<void> loadReferrals() async{
@@ -147,6 +149,23 @@ class ProfileController extends ChangeNotifier {
       }
       notifyListeners();
     }
+  }
+
+  Future<bool> redeemPoint(int points,String paymentMethod,String mobile) async{
+    _finalResponse = false;
+    setIsLoading = true;
+    Map<String,dynamic> redeemData = {
+      "point":points,
+      "payment_method":paymentMethod, // bkash , nagad
+      "mobile":mobile
+    };
+    response = await UserProfileService.redeemPoint(token, redeemData);
+    if(response is Success){
+      userData.points = (int.parse(userData.points) - points).toString();
+      _finalResponse = true;
+    }
+    setIsLoading = false;
+    return _finalResponse;
   }
 
   Future<void> saveUserData(String name, String mobile,String email) async{
