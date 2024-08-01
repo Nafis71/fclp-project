@@ -43,7 +43,7 @@ class _IncomePointsViewState extends State<IncomePointsView> {
             ],
           ),
         ),
-        body: TabBarView(children: [
+        body: const TabBarView(children: [
           PointView(),
           TransactionHistory()
         ],),

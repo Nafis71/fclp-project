@@ -2,19 +2,33 @@ import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
+import 'package:fclp_app/views/income_points_screen/income_point_withdrawal_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
-class PointView extends StatelessWidget {
+class PointView extends StatefulWidget {
   const PointView({super.key});
+
+  @override
+  State<PointView> createState() => _PointViewState();
+}
+
+class _PointViewState extends State<PointView> {
+  @override
+  void initState() {
+    context.read<ProfileController>().getUserReferralPoint();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
       backgroundColor: AppColors.themeColor,
       color: Colors.white,
-      onRefresh: ()async{},
+      onRefresh: () async {
+        await context.read<ProfileController>().getUserReferralPoint();
+      },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -40,27 +54,30 @@ class PointView extends StatelessWidget {
                           .titleLarge!
                           .copyWith(color: Colors.black),
                     ),
-                    const SizedBox(height: 20,),
-                    Consumer<ProfileController>(
-                      builder: (_,profileController,__) {
-                        int points = int.parse(profileController.userData.points);
-                        return SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: points > 10 ? AppColors.themeColor : Colors.grey,
-                              elevation: 5
-                            ),
-                            onPressed: () {
-                              if(points <= 10){
-                                return;
-                              }
-                            },
-                            child: const Text("উত্তোলন করুন"),
-                          ),
-                        );
-                      }
+                    const SizedBox(
+                      height: 20,
                     ),
+                    Consumer<ProfileController>(
+                        builder: (_, profileController, __) {
+                      int points = int.parse(profileController.userData.points);
+                      return SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: points > 10
+                                  ? AppColors.themeColor
+                                  : Colors.grey,
+                              elevation: 5),
+                          onPressed: () {
+                            if (points < 10) {
+                              return;
+                            }
+                            showPaymentDialog();
+                          },
+                          child: const Text("উত্তোলন করুন"),
+                        ),
+                      );
+                    }),
                     const SizedBox(
                       height: 40,
                     ),
@@ -80,8 +97,9 @@ class PointView extends StatelessWidget {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  "Note :",
-                                  style: Theme.of(context).textTheme.titleMedium,
+                                  "উল্লেক্ষ্য :",
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
                                 ),
                                 const SizedBox(
                                   height: 5,
@@ -104,6 +122,59 @@ class PointView extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  void showPaymentDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: Colors.white,
+            title: Text(
+              "Choose Mobile Banking",
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            contentPadding: const EdgeInsets.all(30),
+            content: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                InkWell(
+                  splashColor: Colors.transparent,
+                  onTap: () {
+                    Navigator.pop(context);
+                    navigateToRedeemPointView("bkash");
+                  },
+                  child: SvgPicture.asset(
+                    AssetsPaths.bkashSvg,
+                    width: 70,
+                  ),
+                ),
+                InkWell(
+                  splashColor: Colors.transparent,
+                  onTap: () {
+                    Navigator.pop(context);
+                    navigateToRedeemPointView("nagad");
+                  },
+                  child: SvgPicture.asset(
+                    AssetsPaths.nagadSvg,
+                    width: 70,
+                  ),
+                ),
+              ],
+            ),
+          );
+        });
+  }
+
+  void navigateToRedeemPointView(String paymentMethod) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => IncomePointWithdrawalView(
+          paymentMethod: paymentMethod,
         ),
       ),
     );

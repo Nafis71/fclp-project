@@ -136,6 +136,19 @@ class ProfileController extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> getUserReferralPoint()async{
+    response = await UserProfileService.getAllUser(token);
+    if(response is Success){
+      Map<String,dynamic> jsonData = (response as Success).response as Map<String,dynamic>;
+      for(Map<String,dynamic> json in jsonData['user']){
+        if(json['id'] == userData.id){
+          userData.points = json['points'];
+        }
+      }
+      notifyListeners();
+    }
+  }
+
   Future<void> saveUserData(String name, String mobile,String email) async{
    userData.name = name;
    userData.mobile = mobile;

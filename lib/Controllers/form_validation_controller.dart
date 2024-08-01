@@ -29,6 +29,19 @@ class FormValidationController {
     return null;
   }
 
+  static String? validatePoints(String? points){
+    if(points == null || points.isEmpty){
+      return 'আপনি কত পয়েন্ট চান তা লিখুন';
+    }
+    if(!AppConstants.withdrawAmountRegExp.hasMatch(points)){
+      return 'ভুল পয়েন্ট নম্বর';
+    }
+    if(int.parse(points) < 10){
+      return 'পয়েন্ট অবশ্যই 10 এর চেয়ে বড় বা সমান হতে হবে';
+    }
+    return null;
+  }
+
   static String? validatePassword(String? password) {
     if (password == null || password.isEmpty) {
       return 'আপনার পাসওয়ার্ড লিখুন।';

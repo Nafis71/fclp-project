@@ -3,7 +3,7 @@ class AppConstants {
 
   static RegExp withdrawNumberRegExp = RegExp(r'^(01[3-9]\d{8})$');
 
-  static RegExp withdrawAmountRegExp = RegExp(r'^(100|[1-9][0-9]{2,})$');
+  static RegExp withdrawAmountRegExp = RegExp(r'^[0-9]+$');
 
   static RegExp passwordRegExp = RegExp(
       r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$');

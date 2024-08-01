@@ -268,6 +268,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   Scaffold.of(context).closeDrawer();
                   return;
                 }
+                Scaffold.of(context).closeDrawer();
                 _onTapRefferIDButton(
                   fromRefferIdView: widget.fromRefferIdView,
                 );
