@@ -22,7 +22,7 @@ class _IncomePointsViewState extends State<IncomePointsView> {
       length: 2,
       child: Scaffold(
         appBar: customAppBar(
-          title: "Income Point",
+          title: "Income Point",context,
           preferredSizeWidget: TabBar(
             indicatorColor: AppColors.themeColor,
             dividerHeight: 0.5,

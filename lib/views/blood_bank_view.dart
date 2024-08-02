@@ -15,7 +15,7 @@ class _BloodBannkViewState extends State<BloodBannkView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: customAppBar(),
+        appBar: customAppBar(context),
         body: Center(
           child: Lottie.asset(AssetsPaths.commingSoon),
         ),

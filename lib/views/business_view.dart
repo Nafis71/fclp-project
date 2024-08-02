@@ -15,7 +15,7 @@ class _BusinessViewState extends State<BusinessView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(),
+      appBar: customAppBar(context),
       drawer: const CustomDrawer(
         fromBusinessView: true,
       ),

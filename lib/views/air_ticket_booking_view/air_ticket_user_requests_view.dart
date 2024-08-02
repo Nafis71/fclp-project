@@ -40,7 +40,7 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade300,
-      appBar: customAppBar(),
+      appBar: customAppBar(context),
       body: RefreshIndicator(
         onRefresh: () async {
           await context

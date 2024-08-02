@@ -29,7 +29,7 @@ class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(),
+      appBar: customAppBar(context),
       drawer: const CustomDrawer(
         fromProfileView: true,
       ),

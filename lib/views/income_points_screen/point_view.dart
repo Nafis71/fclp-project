@@ -17,7 +17,7 @@ class PointView extends StatefulWidget {
 class _PointViewState extends State<PointView> {
   @override
   void initState() {
-    context.read<ProfileController>().getUserReferralPoint();
+    context.read<ProfileController>().getUserReferralPoint(forceRefresh: false);
     super.initState();
   }
 
@@ -27,7 +27,7 @@ class _PointViewState extends State<PointView> {
       backgroundColor: AppColors.themeColor,
       color: Colors.white,
       onRefresh: () async {
-        await context.read<ProfileController>().getUserReferralPoint();
+        await context.read<ProfileController>().getUserReferralPoint(forceRefresh: true);
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

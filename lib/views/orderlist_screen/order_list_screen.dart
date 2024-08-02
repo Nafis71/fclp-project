@@ -23,7 +23,7 @@ class _OrderListScreenState extends State<OrderListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(title: "Order List"),
+      appBar: customAppBar(title: "Order List",context),
       body: Consumer<OrderController>(builder: (_, orderController, __) {
         return RefreshIndicator(
           backgroundColor: AppColors.themeColor,

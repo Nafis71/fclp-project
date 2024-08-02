@@ -18,7 +18,7 @@ class NonAuthorizedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(),
+      appBar: customAppBar(context),
       drawer: const CustomDrawer(),
       body: SingleChildScrollView(
         child: Container(

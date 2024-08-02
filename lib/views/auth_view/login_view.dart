@@ -21,7 +21,7 @@ class _LoginViewState extends State<LoginView> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey.shade100,
-        appBar: customAppBar(),
+        appBar: customAppBar(context),
         drawer: _loginViewDrawer(context),
         body: PopScope(
           canPop: false,

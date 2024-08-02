@@ -38,7 +38,7 @@ class _IncomePointWithdrawalViewState extends State<IncomePointWithdrawalView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(title: "Redeem Points"),
+      appBar: customAppBar(title: "Redeem Points",context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15),

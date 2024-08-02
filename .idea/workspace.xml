@@ -4,14 +4,37 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- minor changes and bug fix">
-      <change afterPath="$PROJECT_DIR$/assets/icons/transaction.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/redeem_list_model/redeem_list.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/redeem_list_model/redeem_list_model.dart" afterDir="false" />
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- transaction history Ui added">
+      <change afterPath="$PROJECT_DIR$/assets/images/notransaction.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/user_profile_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/user_profile_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/assets_paths.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/assets_paths.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_booking_view/air_ticket_user_requests_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_booking_view/air_ticket_user_requests_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/air_ticket_booking_view/air_ticket_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/air_ticket_booking_view/air_ticket_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/auth_view/bkash_point_withdraw_form_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/auth_view/bkash_point_withdraw_form_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/auth_view/login_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/auth_view/login_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/auth_view/nagad_point_withdraw_form_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/auth_view/nagad_point_withdraw_form_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/blood_bank_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/blood_bank_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/business_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/business_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/cart_screen/cart_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/cart_screen/cart_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/home_screen/home_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_screen/home_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/income_points_screen/income_point_withdrawal_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/income_points_screen/income_point_withdrawal_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/income_points_screen/income_points_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/income_points_screen/income_points_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/income_points_screen/point_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/income_points_screen/point_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/income_points_screen/transaction_history.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/income_points_screen/transaction_history.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/news_paper_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/news_paper_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/non_authorized_screen/non_authorized_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/non_authorized_screen/non_authorized_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/online_doctor_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/online_doctor_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/online_shop_category_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/online_shop_category_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/payment_screen/payment_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/payment_screen/payment_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/product_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/profile_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/profile_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/system_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/system_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,14 +121,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720627303393</updated>
-    </task>
-    <task id="LOCAL-00008" summary="- air ticket all information show added">
-      <option name="closed" value="true" />
-      <created>1720775942183</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1720775942183</updated>
     </task>
     <task id="LOCAL-00009" summary="- product added with api">
       <option name="closed" value="true" />
@@ -491,12 +506,19 @@
       <option name="project" value="LOCAL" />
       <updated>1722548257489</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="- transaction history Ui added">
+      <option name="closed" value="true" />
+      <created>1722596938413</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1722596938413</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- product details layout added" />
     <MESSAGE value="- some minor changes" />
     <MESSAGE value="-add to cart api call added &#10;- cart model added" />
     <MESSAGE value="- cart functionality added and refactored the code" />
@@ -521,6 +543,7 @@
     <MESSAGE value="- point redeem view UI completed&#10;- made minor changes in UI In refer view" />
     <MESSAGE value="- added redeem point api call" />
     <MESSAGE value="- minor changes and bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="- minor changes and bug fix" />
+    <MESSAGE value="- transaction history Ui added" />
+    <option name="LAST_COMMIT_MESSAGE" value="- transaction history Ui added" />
   </component>
 </project>

@@ -24,4 +24,5 @@ class NetworkUrls {
   static const String deleteOrder = "$baseUrl/order";
   static const String referrals = "$baseUrl/user/referrals";
   static const String pointRedeemUrl = "$baseUrl/coin-redeem";
+  static const String redeemListUrl = "$baseUrl/redeemed-point";
 }

@@ -41,7 +41,7 @@ class _AirTicketViewState extends State<AirTicketView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(),
+      appBar: customAppBar(context),
       body: Consumer<AirTicketController>(
         builder: (_, airTicketController, __) {
           if (airTicketController.airports.isNotEmpty) {

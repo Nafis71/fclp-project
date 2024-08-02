@@ -18,7 +18,7 @@ class _OnlineShopCategoryViewState extends State<OnlineShopCategoryView> {
     final produdctController =
         Provider.of<ProdudctCategoryViewController>(context);
     return Scaffold(
-      appBar: customAppBar(),
+      appBar: customAppBar(context),
       body: Padding(
         padding: const EdgeInsets.all(8),
         child: GridView.builder(

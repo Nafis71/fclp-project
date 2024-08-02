@@ -24,7 +24,7 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.sizeOf(context);
     return Scaffold(
-      appBar: customAppBar(title: "My Cart"),
+      appBar: customAppBar(title: "My Cart",context),
       body: Consumer<CartController>(builder: (_, cartController, __) {
         if (cartController.cartList.isEmpty) {
           return SingleChildScrollView(

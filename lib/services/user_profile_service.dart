@@ -57,4 +57,11 @@ class UserProfileService {
       body: redeemData,
     );
   }
+
+  static Future<Object> redeemPointList(String token) {
+    return NetworkRequest().getRequest(
+      url: NetworkUrls.redeemListUrl,
+      headers: {"Authorization": "Bearer $token"},
+    );
+  }
 }

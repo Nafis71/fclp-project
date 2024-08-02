@@ -1,11 +1,13 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:fclp_app/models/redeem_list_model/redeem_list.dart';
+import 'package:fclp_app/models/redeem_list_model/redeem_list_model.dart';
 import 'package:fclp_app/models/referral_model/referral_model.dart';
 import 'package:fclp_app/models/user_model/user.dart';
 import 'package:fclp_app/models/user_model/user_model.dart';
 import 'package:fclp_app/services/response/success.dart';
 import 'package:fclp_app/services/user_profile_service.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -19,13 +21,22 @@ class ProfileController extends ChangeNotifier {
   bool _isLoading = false;
   bool isLoadingReferral = false;
   List<ReferralModel> referralList = [];
+  List<RedeemList> redeemList =[];
   bool get isLoading => _isLoading;
   bool _finalResponse = false;
+  String _total_redeem = "0";
+  String _total_amount = "0";
+  bool _isTransactionHistoryLoading = false;
 
   set setIsLoading(bool value){
     _isLoading = value;
     notifyListeners();
   }
+
+  bool get isTransactionHistoryLoading => _isTransactionHistoryLoading;
+
+  String get total_redeem => _total_redeem;
+  String get total_amount => _total_amount;
 
   String get base64Image => _base64Image;
 
@@ -138,7 +149,10 @@ class ProfileController extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> getUserReferralPoint()async{
+  Future<void> getUserReferralPoint({required bool forceRefresh})async{
+    if(redeemList.isNotEmpty && !forceRefresh){
+      return ;
+    }
     response = await UserProfileService.getAllUser(token);
     if(response is Success){
       Map<String,dynamic> jsonData = (response as Success).response as Map<String,dynamic>;
@@ -166,8 +180,36 @@ class ProfileController extends ChangeNotifier {
       preferences.setString("userData", json.encode(userData.toJson()));
       _finalResponse = true;
     }
+    await getRedeemTransactionList(forceRefresh: true);
     setIsLoading = false;
     return _finalResponse;
+  }
+
+  Future<void> getRedeemTransactionList({required bool forceRefresh}) async{
+    if(redeemList.isNotEmpty && !forceRefresh){
+      return ;
+    }
+    _isTransactionHistoryLoading = true;
+    redeemList.clear();
+    try{
+      response = await UserProfileService.redeemPointList(token);
+      if(response is Success){
+        RedeemListModel redeemListModel = RedeemListModel.fromJson((response as Success).response as Map<String,dynamic>);
+        _total_amount = redeemListModel.totalAmount?? "0";
+        _total_redeem = redeemListModel.totalRedeem?? "0";
+        List<RedeemList> tempList =[];
+        for(RedeemList redeem in redeemListModel.redeemList!){
+          tempList.add(redeem);
+        }
+       redeemList = tempList.reversed.toList();
+      }
+      _isTransactionHistoryLoading = false;
+      notifyListeners();
+    }catch(exception){
+      if(kDebugMode){
+        debugPrint(exception.toString());
+      }
+    }
   }
 
   Future<void> saveUserData(String name, String mobile,String email) async{

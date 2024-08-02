@@ -14,7 +14,7 @@ class _SystemViewState extends State<SystemView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(),
+      appBar: customAppBar(context),
       drawer: const CustomDrawer(
         fromSystemView: true,
       ),
