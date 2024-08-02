@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:fclp_app/Controllers/notification_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/models/user_model/user.dart';
 import 'package:fclp_app/utils/assets_paths.dart';
@@ -71,10 +72,13 @@ class _SplashViewState extends State<SplashView> {
               context.read<ProfileController>().userData.status == "2") {
             widgetBuilder = (context) => const NonAuthorizedScreen();
           } else {
+            await context.read<NotificationController>().getAllNotification(token);
             widgetBuilder = (context) => const MainBottomNavView();
           }
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: widgetBuilder));
+          if(mounted){
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: widgetBuilder));
+          }
         }
       }
       return;

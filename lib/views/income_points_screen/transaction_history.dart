@@ -62,37 +62,34 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                         ),
                         leading: SvgPicture.asset(
                           AssetsPaths.transaction,
-                          width: 35,
-                          color: AppColors.themeColor,
+                          width: 33,
+
                         ),
-                        title: Column(
+                        title: RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "Mobile Banking: ",
+                                style:
+                                    Theme.of(context).textTheme.titleMedium,
+                              ),
+                              TextSpan(
+                                text: profileController
+                                    .redeemList[index].paymentMethod!
+                                    .toUpperCase(),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(
+                                      color: AppColors.themeColor,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: "Mobile Banking: ",
-                                    style:
-                                        Theme.of(context).textTheme.titleMedium,
-                                  ),
-                                  TextSpan(
-                                    text: profileController
-                                        .redeemList[index].paymentMethod!
-                                        .toUpperCase(),
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium!
-                                        .copyWith(
-                                          color: AppColors.themeColor,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
                             RichText(
                               text: TextSpan(
                                 children: [
@@ -103,12 +100,12 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                         .textTheme
                                         .titleMedium!
                                         .copyWith(
-                                          color: profileController
-                                                      .redeemList[index]
-                                                      .status ==
-                                                  "unpaid"
-                                              ? Colors.red
-                                              : AppColors.themeColor),
+                                        color: profileController
+                                            .redeemList[index]
+                                            .status ==
+                                            "unpaid"
+                                            ? Colors.red
+                                            : AppColors.themeColor),
                                   ),
                                 ],
                               ),
@@ -121,7 +118,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                     .textTheme
                                     .bodyMedium!
                                     .copyWith(
-                                        color: Colors.grey, fontSize: 14)),
+                                    color: Colors.grey, fontSize: 14)),
                             const SizedBox(
                               height: 5,
                             ),

@@ -25,4 +25,5 @@ class NetworkUrls {
   static const String referrals = "$baseUrl/user/referrals";
   static const String pointRedeemUrl = "$baseUrl/coin-redeem";
   static const String redeemListUrl = "$baseUrl/redeemed-point";
+  static const String notificationUrl = "$baseUrl/user/notification";
 }
