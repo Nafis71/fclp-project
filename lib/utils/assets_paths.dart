@@ -9,6 +9,7 @@ class AssetsPaths {
   static const withdraw = '$icons/withdraw.png';
   static const submit = '$icons/submit.svg';
   static const coin = '$icons/coin.png';
+  static const transaction = '$icons/transaction.svg';
 
 
   static const profile = '$_images/profile.png';
