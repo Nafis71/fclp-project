@@ -57,6 +57,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                   itemBuilder: (context, index) {
                     return Material(
                       child: ListTile(
+                        contentPadding: const EdgeInsets.all(15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5),
                         ),

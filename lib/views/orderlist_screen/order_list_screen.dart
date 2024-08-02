@@ -66,7 +66,7 @@ class _OrderListScreenState extends State<OrderListScreen> {
                   ),
                   child: Material(
                     child: ListTile(
-                        tileColor: const Color(0xFFF4F9F9),
+                        tileColor: Colors.grey.shade100,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5),
                         ),

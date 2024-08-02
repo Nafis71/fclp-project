@@ -8,4 +8,12 @@ class NotificationService {
       headers: {"Authorization": "Bearer $token"},
     );
   }
+
+  static Future<Object> removeNotification(
+      String token, String notificationId) async {
+    return NetworkRequest().getRequest(
+      url: "${NetworkUrls.removeNotificationUrl}/$notificationId",
+      headers: {"Authorization": "Bearer $token"},
+    );
+  }
 }

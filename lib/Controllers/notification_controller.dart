@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import '../models/notification_models/notification.dart';
 
 class NotificationController extends ChangeNotifier{
-  String _totalNotification = "";
+  String _totalNotification = "0";
   List<Notification> _notificationList = [];
   bool _isNotificationSeen = false;
 
@@ -32,9 +32,19 @@ class NotificationController extends ChangeNotifier{
         tempNotificationList.add(notification);
       }
       _notificationList = tempNotificationList.reversed.toList();
-      _totalNotification = notificationModel.totalNotification.toString();
+      int newNotifications = notificationModel.totalNotification! - int.parse(_totalNotification);
+      if(newNotifications != 0){
+        _totalNotification = newNotifications.toString();
+        _isNotificationSeen = false;
+      }
+
       notifyListeners();
     }
+  }
+
+  Future<void> removeNotification(String token, int notificationId) async{
+    _notificationList.removeWhere((notification)=> notification.id == notificationId);
+    Object? response = await NotificationService.removeNotification(token, notificationId.toString());
   }
 
 }

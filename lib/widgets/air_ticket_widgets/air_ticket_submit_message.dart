@@ -8,6 +8,7 @@ void airticketSubmissionMessage(
     context: context,
     builder: (context) {
       return AlertDialog(
+        backgroundColor: Colors.white,
         title: const Icon(
           Icons.check,
           size: 60,

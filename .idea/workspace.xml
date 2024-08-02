@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="Point module completed&#10;notification UI completed">
-      <change afterPath="$PROJECT_DIR$/lib/Controllers/notification_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/notification_models/notification.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/notification_models/notification_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/services/notification_service.dart" afterDir="false" />
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="notification api and badges added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/icons/transaction.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/icons/transaction.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/notification_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/notification_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/notification_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/notification_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/views/income_points_screen/transaction_history.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/income_points_screen/transaction_history.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/splash_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/splash_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/air_ticket_submit_message.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/air_ticket_widgets/air_ticket_submit_message.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,14 +100,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720627303393</updated>
-    </task>
-    <task id="LOCAL-00010" summary="- discount calculation added">
-      <option name="closed" value="true" />
-      <created>1720804063648</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1720804063648</updated>
     </task>
     <task id="LOCAL-00011" summary="- app theme and color changed&#10;- increased aesthetic">
       <option name="closed" value="true" />
@@ -495,12 +485,19 @@
       <option name="project" value="LOCAL" />
       <updated>1722632554399</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="notification api and badges added">
+      <option name="closed" value="true" />
+      <created>1722637380014</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1722637380014</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="-add to cart api call added &#10;- cart model added" />
     <MESSAGE value="- cart functionality added and refactored the code" />
     <MESSAGE value="- fvm version changed" />
     <MESSAGE value="- related product data added" />
@@ -525,6 +522,7 @@
     <MESSAGE value="- minor changes and bug fix" />
     <MESSAGE value="- transaction history Ui added" />
     <MESSAGE value="Point module completed&#10;notification UI completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Point module completed&#10;notification UI completed" />
+    <MESSAGE value="notification api and badges added" />
+    <option name="LAST_COMMIT_MESSAGE" value="notification api and badges added" />
   </component>
 </project>

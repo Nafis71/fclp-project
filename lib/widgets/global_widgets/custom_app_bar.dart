@@ -16,102 +16,120 @@ AppBar customAppBar(BuildContext buildContext,
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: Consumer<NotificationController>(
-          builder: (_,notificationController,__) {
-            return Badge(
-              label: Text(notificationController.totalNotification),
-              isLabelVisible: (notificationController.totalNotification == "0" || !notificationController.isNotificationSeen),
-              child: InkWell(
-                splashColor: AppColors.transparent,
-                onTap: () {
-                  notificationController.setIsNotificationSeen = true;
-                  int index = -1;
-                  if (buildContext
-                      .read<NotificationController>()
-                      .notificationList
-                      .isEmpty) {
-                    showEmptyNotificationMenu(buildContext);
-                    return;
-                  }
-                  showMenu(
-                    elevation: 10,
-                    popUpAnimationStyle: AnimationStyle(
-                        curve: Curves.easeInCirc,
-                        duration: const Duration(milliseconds: 500)),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5)),
-                    color: Colors.white,
-                    context: buildContext,
-                    position: const RelativeRect.fromLTRB(60, 100, 0, 100),
-                    items: List.generate(
-                      buildContext
-                          .read<NotificationController>()
-                          .notificationList
-                          .length,
-                      (context) {
-                        index++;
-                        return PopupMenuItem(
-                          child: Slidable(
-                            key: Key(index.toString()),
-                            endActionPane: ActionPane(
-                                motion: const DrawerMotion(),
-                                openThreshold: 0.1,
+            builder: (_, notificationController, __) {
+          return Badge(
+            label: Text(notificationController.totalNotification),
+            isLabelVisible: (notificationController.totalNotification == "0" ||
+                !notificationController.isNotificationSeen),
+            child: InkWell(
+              splashColor: AppColors.transparent,
+              onTap: () {
+                notificationController.setIsNotificationSeen = true;
+                int index = -1;
+                if (buildContext
+                    .read<NotificationController>()
+                    .notificationList
+                    .isEmpty) {
+                  showEmptyNotificationMenu(buildContext);
+                  return;
+                }
+                showMenu(
+                  elevation: 10,
+                  popUpAnimationStyle: AnimationStyle(
+                      curve: Curves.easeInCirc,
+                      duration: const Duration(milliseconds: 500)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)),
+                  color: Colors.white,
+                  context: buildContext,
+                  position: const RelativeRect.fromLTRB(60, 100, 0, 100),
+                  items: List.generate(
+                    buildContext
+                        .read<NotificationController>()
+                        .notificationList
+                        .length,
+                    (context) {
+                      index++;
+                      return PopupMenuItem(
+                        child: Slidable(
+                          key: Key(index.toString()),
+                          endActionPane: ActionPane(
+                              motion: const DrawerMotion(),
+                              openThreshold: 0.1,
+                              children: [
+                                SlidableAction(
+                                  onPressed: (context) {
+                                    Navigator.pop(context);
+                                    buildContext
+                                        .read<NotificationController>()
+                                        .removeNotification(
+                                          buildContext
+                                              .read<ProfileController>()
+                                              .token,
+                                          buildContext
+                                              .read<NotificationController>()
+                                              .notificationList[index]
+                                              .id!,
+                                        );
+                                  },
+                                  icon: Icons.delete,
+                                  backgroundColor: AppColors.themeColor,
+                                  label: "Remove",
+                                  spacing: 1,
+                                ),
+                              ]),
+                          child: Material(
+                            color: Colors.white,
+                            child: ListTile(
+                              leading: Icon(
+                                Icons.notifications_active_outlined,
+                                color: AppColors.themeColor,
+                              ),
+                              title: Text(
+                                buildContext
+                                    .read<NotificationController>()
+                                    .notificationList[index]
+                                    .title!,
+                              ),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  SlidableAction(
-                                    onPressed: (context) {},
-                                    icon: Icons.delete,
-                                    backgroundColor: AppColors.themeColor,
-                                    label: "Remove",
-                                    spacing: 1,
-                                  ),
-                                ]),
-                            child: Material(
-                              color: Colors.white,
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.notifications_active_outlined,
-                                  color: AppColors.themeColor,
-                                ),
-                                title: Text(
-                                  buildContext
-                                      .read<NotificationController>()
-                                      .notificationList[index]
-                                      .title!,
-                                ),
-                                subtitle: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      textAlign: TextAlign.justify,
-                                      buildContext
-                                          .read<NotificationController>()
-                                          .notificationList[index]
-                                          .details!,style: const TextStyle(
-                                      fontSize: 11
-                                    ),
-                                    ),
-                                    const SizedBox(height: 5,),
-                                    Text(buildContext
+                                  Text(
+                                    textAlign: TextAlign.justify,
+                                    buildContext
                                         .read<NotificationController>()
                                         .notificationList[index]
-                                        .createdAt!,style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
-                                  ],
-                                ),
+                                        .details!,
+                                    style: const TextStyle(fontSize: 11),
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    buildContext
+                                        .read<NotificationController>()
+                                        .notificationList[index]
+                                        .createdAt!,
+                                    style: const TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
+                                  )
+                                ],
                               ),
                             ),
                           ),
-                        );
-                      },
-                    ),
-                  );
-                },
-                child: const Icon(
-                  EvaIcons.bellOutline,
-                  color: Colors.black,
-                ),
+                        ),
+                      );
+                    },
+                  ),
+                );
+              },
+              child: const Icon(
+                EvaIcons.bellOutline,
               ),
-            );
-          }
-        ),
+            ),
+          );
+        }),
       )
     ],
     bottom: preferredSizeWidget,
