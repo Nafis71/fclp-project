@@ -74,100 +74,110 @@ class _TransactionHistoryState extends State<TransactionHistory> {
               ),
             ),
             Expanded(
-              child: ListView.separated(
-                  itemBuilder: (context, index) {
-                    return Material(
-                      child: ListTile(
-                        contentPadding: const EdgeInsets.all(15),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        leading: SvgPicture.asset(
-                          AssetsPaths.transaction,
-                          width: 33,
-                        ),
-                        title: RichText(
-                          text: TextSpan(
+              child: RefreshIndicator(
+                backgroundColor: AppColors.themeColor,
+                color: Colors.white,
+                onRefresh: () async {
+                  await context
+                      .read<ProfileController>()
+                      .getRedeemTransactionList(forceRefresh: true);
+                },
+                child: ListView.separated(
+                    itemBuilder: (context, index) {
+                      return Material(
+                        child: ListTile(
+                          contentPadding: const EdgeInsets.all(15),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          leading: SvgPicture.asset(
+                            AssetsPaths.transaction,
+                            width: 33,
+                          ),
+                          title: RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "Mobile Banking: ",
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
+                                ),
+                                TextSpan(
+                                  text: profileController
+                                      .redeemList[index].paymentMethod!
+                                      .toUpperCase(),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium!
+                                      .copyWith(
+                                        color: AppColors.themeColor,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              TextSpan(
-                                text: "Mobile Banking: ",
-                                style: Theme.of(context).textTheme.titleMedium,
-                              ),
-                              TextSpan(
-                                text: profileController
-                                    .redeemList[index].paymentMethod!
-                                    .toUpperCase(),
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium!
-                                    .copyWith(
-                                      color: AppColors.themeColor,
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: profileController
+                                          .redeemList[index].status,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium!
+                                          .copyWith(
+                                              color: profileController
+                                                          .redeemList[index]
+                                                          .status ==
+                                                      "unpaid"
+                                                  ? Colors.red
+                                                  : AppColors.themeColor),
                                     ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                  "${profileController.redeemList[index].point!} points",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(
+                                          color: Colors.grey, fontSize: 14)),
+                              const SizedBox(
+                                height: 5,
                               ),
                             ],
                           ),
-                        ),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: profileController
-                                        .redeemList[index].status,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium!
-                                        .copyWith(
-                                            color: profileController
-                                                        .redeemList[index]
-                                                        .status ==
-                                                    "unpaid"
-                                                ? Colors.red
-                                                : AppColors.themeColor),
-                                  ),
-                                ],
+                          tileColor: Colors.grey.shade100,
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.attach_money,
+                                color: AppColors.themeColor,
                               ),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                                "${profileController.redeemList[index].point!} points",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                        color: Colors.grey, fontSize: 14)),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                          ],
+                              Text(
+                                profileController.redeemList[index].amount!,
+                                style: Theme.of(context).textTheme.titleMedium,
+                              )
+                            ],
+                          ),
                         ),
-                        tileColor: Colors.grey.shade100,
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              Icons.attach_money,
-                              color: AppColors.themeColor,
-                            ),
-                            Text(
-                              profileController.redeemList[index].amount!,
-                              style: Theme.of(context).textTheme.titleMedium,
-                            )
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(
-                      height: 10,
-                    );
-                  },
-                  itemCount: profileController.redeemList.length),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(
+                        height: 10,
+                      );
+                    },
+                    itemCount: profileController.redeemList.length),
+              ),
             )
           ],
         ),

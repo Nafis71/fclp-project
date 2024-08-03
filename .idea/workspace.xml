@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- code refactored">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="- Bug fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/order_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/order_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/main_bottom_nav_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/income_points_screen/transaction_history.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/income_points_screen/transaction_history.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,14 +93,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720627303393</updated>
-    </task>
-    <task id="LOCAL-00013" summary="-icons updated">
-      <option name="closed" value="true" />
-      <created>1720818281875</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1720818281875</updated>
     </task>
     <task id="LOCAL-00014" summary=" - profile update function added">
       <option name="closed" value="true" />
@@ -489,12 +478,19 @@
       <option name="project" value="LOCAL" />
       <updated>1722674832180</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="- Bug fix">
+      <option name="closed" value="true" />
+      <created>1722675385434</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1722675385434</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- related product data added" />
     <MESSAGE value="- major changes" />
     <MESSAGE value="- added cart delete&#10;- added badge" />
     <MESSAGE value="- product quantity update code added" />
@@ -519,6 +515,7 @@
     <MESSAGE value="notification api and badges added" />
     <MESSAGE value="- notification module completed" />
     <MESSAGE value="- code refactored" />
-    <option name="LAST_COMMIT_MESSAGE" value="- code refactored" />
+    <MESSAGE value="- Bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Bug fix" />
   </component>
 </project>
