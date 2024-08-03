@@ -48,7 +48,7 @@ class UserProfileService {
 
   static Future<Object> redeemPoint(
       String token, Map<String, dynamic> redeemData) async {
-    return NetworkRequest().postRequest(
+    return await NetworkRequest().postRequest(
       url: NetworkUrls.pointRedeemUrl,
       headers: {
         "Authorization": "Bearer $token",
@@ -58,10 +58,16 @@ class UserProfileService {
     );
   }
 
-  static Future<Object> redeemPointList(String token) {
-    return NetworkRequest().getRequest(
+  static Future<Object> redeemPointList(String token) async {
+    return await NetworkRequest().getRequest(
       url: NetworkUrls.redeemListUrl,
       headers: {"Authorization": "Bearer $token"},
     );
+  }
+
+  static Future<Object> getSocialLinks(String token) async {
+    return await NetworkRequest().getRequest(
+        url: NetworkUrls.socialLinkUrl,
+        headers: {"Authorization": "Bearer $token"});
   }
 }

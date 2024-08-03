@@ -109,6 +109,7 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
       ),
     );
   }
+
   @override
   void dispose() {
     timer.cancel();

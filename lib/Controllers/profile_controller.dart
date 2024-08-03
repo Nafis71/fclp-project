@@ -29,11 +29,23 @@ class ProfileController extends ChangeNotifier {
   String _total_redeem = "0";
   String _total_amount = "0";
   bool _isTransactionHistoryLoading = false;
+  String _facebookLink = "";
+  String _youtubeLink = "";
+  String _telegramLink = "";
+  String _tiktokLink = "";
 
   set setIsLoading(bool value) {
     _isLoading = value;
     notifyListeners();
   }
+
+  String get facebookLink => _facebookLink;
+
+  String get youtubeLink => _youtubeLink;
+
+  String get telegramLink => _telegramLink;
+
+  String get tiktokLink => _tiktokLink;
 
   bool get isTransactionHistoryLoading => _isTransactionHistoryLoading;
 
@@ -218,6 +230,18 @@ class ProfileController extends ChangeNotifier {
       if (kDebugMode) {
         debugPrint(exception.toString());
       }
+    }
+  }
+
+  Future<void> getSocialLink() async {
+    response = await UserProfileService.getSocialLinks(token);
+    if (response is Success) {
+      Map<String, dynamic> jsonData =
+          (response as Success).response as Map<String, dynamic>;
+      _facebookLink = jsonData['facebook'];
+      _youtubeLink = jsonData['youtube'];
+      _telegramLink = jsonData['telegram'];
+      _tiktokLink = jsonData['tiktok'];
     }
   }
 

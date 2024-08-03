@@ -222,7 +222,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   Scaffold.of(context).closeDrawer();
                   return;
                 }
-                UrlLauncherController.makePhoneCall;
+                UrlLauncherController.makePhoneCall();
               },
               child: ListTile(
                 leading: CircleAvatar(

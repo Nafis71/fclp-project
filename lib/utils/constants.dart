@@ -14,9 +14,5 @@ class AppConstants {
 
   static RegExp addressRegExp = RegExp(r'^[a-zA-Z0-9\s,.-]+$');
 
-  static const String phoneNumber = "01777777777";
-  static const youtubeUrl = "https://www.youtube.com/";
-  static const facebookUrl = "https://www.facebook.com/";
-  static const telegramUrl = "https://telegram.org/";
-  static const tiktokUrl = "https://www.tiktok.com/en/";
+  static const String phoneNumber = "+8801610658696";
 }

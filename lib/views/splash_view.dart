@@ -75,6 +75,7 @@ class _SplashViewState extends State<SplashView> {
             await context
                 .read<NotificationController>()
                 .getAllNotification(token);
+            await context.read<ProfileController>().getSocialLink();
             widgetBuilder = (context) => const MainBottomNavView();
           }
           if (mounted) {

@@ -37,6 +37,7 @@ class _HomeViewState extends State<HomeView> {
         PrefetchService.loadCartData(context),
         PrefetchService.loadProductData(1, context),
         PrefetchService.loadOrderList(context),
+        PrefetchService.loadSocialLinks(context),
       ]);
     } catch (exception) {
       if (kDebugMode) {

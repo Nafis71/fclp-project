@@ -38,4 +38,11 @@ class PrefetchService {
         .read<OrderController>()
         .loadOrderList(context.read<ProfileController>().token);
   }
+
+  static Future<void> loadSocialLinks(BuildContext context) async {
+    if (await context.read<ProfileController>().facebookLink.isNotEmpty) {
+      return;
+    }
+    await context.read<ProfileController>().getSocialLink();
+  }
 }

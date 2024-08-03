@@ -47,7 +47,7 @@ class NotificationController extends ChangeNotifier {
   Future<void> removeNotification(String token, int notificationId) async {
     _notificationList
         .removeWhere((notification) => notification.id == notificationId);
-    _totalNotification = (int.parse(_totalNotification)- 1).toString();
+    _totalNotification = (int.parse(_totalNotification) - 1).toString();
     await NotificationService.removeNotification(
         token, notificationId.toString());
   }

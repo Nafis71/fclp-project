@@ -1,6 +1,4 @@
 import 'package:fclp_app/Controllers/cart_controller.dart';
-import 'package:fclp_app/models/cart_models/cart_model.dart';
-import 'package:fclp_app/models/cart_models/cart_data.dart';
 import 'package:fclp_app/models/cart_models/cart_product.dart';
 import 'package:fclp_app/models/product_model/product_model.dart';
 import 'package:fclp_app/services/product_service.dart';
