@@ -124,6 +124,7 @@ class OrderController extends ChangeNotifier {
         _finalResponse = true;
         activeStep++;
       }
+      await loadOrderList(token);
     }
     setIsBusy = false;
     return _finalResponse;
