@@ -49,6 +49,7 @@ class _OrderListScreenState extends State<OrderListScreen> {
                             orderController.cancelOrder(
                                 context.read<ProfileController>().token,
                                 orderController.orderList[index].id!);
+                            return;
                           }
                           snackBarMessage(
                               context: context,

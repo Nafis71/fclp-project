@@ -85,6 +85,7 @@ class OrderController extends ChangeNotifier {
   Future<void> loadOrderList(String token) async {
     response = await OrderService.getOrderList(token);
     if (response is Success) {
+      _orderList.clear();
       List<dynamic> jsonData = (response as Success).response as List<dynamic>;
       for (Map<String, dynamic> json in jsonData) {
         OrderModel orderModel = OrderModel.fromJson(json);
