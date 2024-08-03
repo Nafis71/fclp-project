@@ -14,9 +14,9 @@ class ProductHeaderSection extends StatelessWidget {
   Widget build(BuildContext context) {
     ProductController productController = context.read<ProductController>();
     double productPrice = 0;
-    if(productData.discountPrice != "0.00"){
+    if (productData.discountPrice != "0.00") {
       productPrice = double.parse(productData.discountPrice.toString());
-    } else{
+    } else {
       productPrice = double.parse(productData.price.toString());
     }
     return Column(
@@ -76,9 +76,11 @@ class ProductHeaderSection extends StatelessWidget {
                 ),
                 InkWell(
                   splashColor: AppColors.transparent,
-                  onTap: (){
-                    int productQuantity = int.parse(productData.quantity.toString());
-                    if(productController.selectedProductQuantity >= productQuantity){
+                  onTap: () {
+                    int productQuantity =
+                        int.parse(productData.quantity.toString());
+                    if (productController.selectedProductQuantity >=
+                        productQuantity) {
                       debugPrint("limit exceeded");
                       return;
                     }

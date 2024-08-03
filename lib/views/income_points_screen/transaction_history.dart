@@ -15,24 +15,33 @@ class TransactionHistory extends StatefulWidget {
 class _TransactionHistoryState extends State<TransactionHistory> {
   @override
   void initState() {
-    context.read<ProfileController>().getRedeemTransactionList(forceRefresh: false);
+    context
+        .read<ProfileController>()
+        .getRedeemTransactionList(forceRefresh: false);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<ProfileController>(builder: (_, profileController, __) {
-      if(profileController.isTransactionHistoryLoading){
+      if (profileController.isTransactionHistoryLoading) {
         return Column(
           children: [
-            LinearProgressIndicator(color: AppColors.themeColor,minHeight: 2,),
+            LinearProgressIndicator(
+              color: AppColors.themeColor,
+              minHeight: 2,
+            ),
           ],
         );
       }
-      if(profileController.redeemList.isEmpty){
+      if (profileController.redeemList.isEmpty) {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(AssetsPaths.noTransaction,width: 250,),
+            SvgPicture.asset(
+              AssetsPaths.noTransaction,
+              width: 250,
+            ),
             const Text("আপনার বর্তমানে কোনো লেনদেনের ইতিহাস নেই")
           ],
         );
@@ -47,8 +56,20 @@ class _TransactionHistoryState extends State<TransactionHistory> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("পয়েন্ট ব্যাবহার করেছেন : ${profileController.total_redeem}",style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 15),),
-                  Text("সর্বমোট টাকা তুলেছেন : ${profileController.total_amount} BDT",style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 13),)
+                  Text(
+                    "পয়েন্ট ব্যাবহার করেছেন : ${profileController.total_redeem}",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .copyWith(fontSize: 15),
+                  ),
+                  Text(
+                    "সর্বমোট টাকা তুলেছেন : ${profileController.total_amount} BDT",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .copyWith(fontSize: 13),
+                  )
                 ],
               ),
             ),
@@ -64,15 +85,13 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                         leading: SvgPicture.asset(
                           AssetsPaths.transaction,
                           width: 33,
-
                         ),
                         title: RichText(
                           text: TextSpan(
                             children: [
                               TextSpan(
                                 text: "Mobile Banking: ",
-                                style:
-                                    Theme.of(context).textTheme.titleMedium,
+                                style: Theme.of(context).textTheme.titleMedium,
                               ),
                               TextSpan(
                                 text: profileController
@@ -101,12 +120,12 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                         .textTheme
                                         .titleMedium!
                                         .copyWith(
-                                        color: profileController
-                                            .redeemList[index]
-                                            .status ==
-                                            "unpaid"
-                                            ? Colors.red
-                                            : AppColors.themeColor),
+                                            color: profileController
+                                                        .redeemList[index]
+                                                        .status ==
+                                                    "unpaid"
+                                                ? Colors.red
+                                                : AppColors.themeColor),
                                   ),
                                 ],
                               ),
@@ -114,12 +133,13 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                             const SizedBox(
                               height: 5,
                             ),
-                            Text("${profileController.redeemList[index].point!} points",
+                            Text(
+                                "${profileController.redeemList[index].point!} points",
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
                                     .copyWith(
-                                    color: Colors.grey, fontSize: 14)),
+                                        color: Colors.grey, fontSize: 14)),
                             const SizedBox(
                               height: 5,
                             ),

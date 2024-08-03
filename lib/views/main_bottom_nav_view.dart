@@ -11,7 +11,6 @@ import 'package:fclp_app/views/cart_screen/cart_screen.dart';
 import 'package:fclp_app/views/home_screen/home_view.dart';
 import 'package:fclp_app/views/orderlist_screen/order_list_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
 
@@ -30,14 +29,18 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
     const CartScreen(),
     const OrderListScreen()
   ];
+
   @override
   void initState() {
     initiateNotificationService();
     super.initState();
   }
-  void initiateNotificationService(){
-    timer = Timer.periodic(const Duration(seconds: 30), (time){
-      context.read<NotificationController>().getAllNotification(context.read<ProfileController>().token);
+
+  void initiateNotificationService() {
+    timer = Timer.periodic(const Duration(seconds: 30), (time) {
+      context
+          .read<NotificationController>()
+          .getAllNotification(context.read<ProfileController>().token);
     });
   }
 
@@ -50,54 +53,59 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
           children: _screen,
         ),
         bottomNavigationBar: Consumer<BottomNavbarController>(
-          builder: (_,bottomNavbarController,__) {
-            return GNav(
-              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-              backgroundColor: Colors.white,
-              selectedIndex: bottomNavbarController.navBarIndex,
-              onTabChange: (value){
-                bottomNavbarController.setNavBarIndex = value;
-              },
-              hoverColor: AppColors.grey,
-              textSize: 20,
-              iconSize: 28,
-              haptic: false,
-              style: GnavStyle.google,
-              activeColor: AppColors.themeColor,
-              tabBackgroundColor: AppColors.secondaryThemeColor,
-              tabBorderRadius: 30,
-              tabMargin: const EdgeInsets.all(10),
-              color: Colors.white,
-              tabs:   [
-                const GButton(
-                  iconColor: AppColors.black,
-                  icon: EvaIcons.homeOutline,
-                  text: " হোম",
-                ),
-                const GButton(
-                  iconColor: AppColors.black,
-                  icon: Icons.airplane_ticket_outlined,
-                  text: " বিমানের টিকিট",
-                ),
-                GButton(
-                  iconColor: AppColors.black,
-                  icon: EvaIcons.shoppingCartOutline,
-                  text: " শপিং কার্ট",
-                  leading: (context.read<CartController>().cartList.isNotEmpty) ? Badge(
-                    backgroundColor: AppColors.themeColor,
-                    label: Text(context.read<CartController>().cartList.length.toString()),
-                    child: const Icon(EvaIcons.shoppingCartOutline),
-                  ) : null,
-                ),
-                const GButton(
-                  iconColor: AppColors.black,
-                  icon: Icons.shopping_bag_outlined,
-                  text: " অর্ডার লিস্ট",
-                ),
-              ],
-            );
-          }
-        ),
+            builder: (_, bottomNavbarController, __) {
+          return GNav(
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+            backgroundColor: Colors.white,
+            selectedIndex: bottomNavbarController.navBarIndex,
+            onTabChange: (value) {
+              bottomNavbarController.setNavBarIndex = value;
+            },
+            hoverColor: AppColors.grey,
+            textSize: 20,
+            iconSize: 28,
+            haptic: false,
+            style: GnavStyle.google,
+            activeColor: AppColors.themeColor,
+            tabBackgroundColor: AppColors.secondaryThemeColor,
+            tabBorderRadius: 30,
+            tabMargin: const EdgeInsets.all(10),
+            color: Colors.white,
+            tabs: [
+              const GButton(
+                iconColor: AppColors.black,
+                icon: EvaIcons.homeOutline,
+                text: " হোম",
+              ),
+              const GButton(
+                iconColor: AppColors.black,
+                icon: Icons.airplane_ticket_outlined,
+                text: " বিমানের টিকিট",
+              ),
+              GButton(
+                iconColor: AppColors.black,
+                icon: EvaIcons.shoppingCartOutline,
+                text: " শপিং কার্ট",
+                leading: (context.read<CartController>().cartList.isNotEmpty)
+                    ? Badge(
+                        backgroundColor: AppColors.themeColor,
+                        label: Text(context
+                            .read<CartController>()
+                            .cartList
+                            .length
+                            .toString()),
+                        child: const Icon(EvaIcons.shoppingCartOutline),
+                      )
+                    : null,
+              ),
+              const GButton(
+                iconColor: AppColors.black,
+                icon: Icons.shopping_bag_outlined,
+                text: " অর্ডার লিস্ট",
+              ),
+            ],
+          );
+        }),
       ),
     );
   }

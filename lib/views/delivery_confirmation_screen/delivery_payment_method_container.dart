@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../Controllers/order_controller.dart';
-import '../../utils/assets_paths.dart';
 import '../../utils/color_palette.dart';
 
 class DeliveryPaymentMethodContainer extends StatelessWidget {
@@ -15,7 +13,8 @@ class DeliveryPaymentMethodContainer extends StatelessWidget {
       {super.key,
       required this.borderColor,
       required this.borderWidth,
-      required this.hasPressed, required this.assetName});
+      required this.hasPressed,
+      required this.assetName});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,10 @@ class DeliveryPaymentMethodContainer extends StatelessWidget {
               border: Border.fromBorderSide(
                   BorderSide(color: borderColor, width: borderWidth)),
             ),
-            child: SvgPicture.asset(assetName,width: 120,),
+            child: SvgPicture.asset(
+              assetName,
+              width: 120,
+            ),
           ),
         ),
         if (hasPressed)

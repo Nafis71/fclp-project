@@ -163,7 +163,7 @@ class CartProductCard extends StatelessWidget {
                           alignment: Alignment.center,
                           child: InkWell(
                             splashColor: AppColors.transparent,
-                            onTap: (){
+                            onTap: () {
                               updateCart(
                                 context: context,
                                 cartController: cartController,
@@ -235,7 +235,8 @@ class CartProductCard extends StatelessWidget {
         builder: (context) {
           alertContext = context;
           return Center(
-              child: Lottie.asset(AssetsPaths.loadingLottie,height: 100,width: 100));
+              child: Lottie.asset(AssetsPaths.loadingLottie,
+                  height: 100, width: 100));
         });
     bool status = await cartController.updateCart(
         index, context.read<ProfileController>().token, willIncrement);

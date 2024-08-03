@@ -18,7 +18,7 @@ Widget infoSection({
         children: [
           Text(
             "$titleHint: ",
-            style:  TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
               color: AppColors.themeColor,

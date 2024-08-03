@@ -10,13 +10,13 @@ class Notification {
 
   Notification(
       {this.id,
-        this.title,
-        this.details,
-        this.status,
-        this.userId,
-        this.type,
-        this.createdAt,
-        this.updatedAt});
+      this.title,
+      this.details,
+      this.status,
+      this.userId,
+      this.type,
+      this.createdAt,
+      this.updatedAt});
 
   Notification.fromJson(Map<String, dynamic> json) {
     id = json['id'];

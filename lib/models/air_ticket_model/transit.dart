@@ -1,4 +1,4 @@
-class Transit{
+class Transit {
   int? id;
   String? airportName;
   String? divisionName;
@@ -7,10 +7,10 @@ class Transit{
 
   Transit(
       {this.id,
-        this.airportName,
-        this.divisionName,
-        this.createdAt,
-        this.updatedAt});
+      this.airportName,
+      this.divisionName,
+      this.createdAt,
+      this.updatedAt});
 
   Transit.fromJson(Map<String, dynamic> json) {
     id = json['id'];

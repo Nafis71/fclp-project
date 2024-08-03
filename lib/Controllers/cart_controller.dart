@@ -1,10 +1,8 @@
-import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/models/cart_models/cart_product.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../models/cart_models/cart_model.dart';
-import '../models/cart_models/cart_data.dart';
 import '../services/product_service.dart';
 import '../services/response/success.dart';
 
@@ -20,7 +18,7 @@ class CartController extends ChangeNotifier {
 
   List<CartProduct> get cartList => _cartList;
 
-  set setIsBusy(bool value){
+  set setIsBusy(bool value) {
     _isBusy = value;
     notifyListeners();
   }
@@ -85,19 +83,17 @@ class CartController extends ChangeNotifier {
   Future<bool> updateCart(int index, String token, bool willIncrement) async {
     _finalResponse = false;
     late int quantity;
-    if(willIncrement){
-      quantity =
-          (int.parse(_cartList[index].quantity.toString()) + 1);
-    } else{
-      quantity =
-          (int.parse(_cartList[index].quantity.toString()) - 1);
+    if (willIncrement) {
+      quantity = (int.parse(_cartList[index].quantity.toString()) + 1);
+    } else {
+      quantity = (int.parse(_cartList[index].quantity.toString()) - 1);
     }
-    Map<String,String> productData ={
-      "product_id":_cartList[index].productId.toString(),
-      "quantity":quantity.toString(),
+    Map<String, String> productData = {
+      "product_id": _cartList[index].productId.toString(),
+      "quantity": quantity.toString(),
     };
-    response =  await ProductService.addToCart(token, productData);
-    if(response is Success){
+    response = await ProductService.addToCart(token, productData);
+    if (response is Success) {
       _cartList[index].quantity = quantity.toString();
       calculateTotalCartPrice();
       notifyListeners();
@@ -106,11 +102,11 @@ class CartController extends ChangeNotifier {
     return _finalResponse;
   }
 
-  Future<bool> cartToOrder(String token) async{
+  Future<bool> cartToOrder(String token) async {
     _finalResponse = false;
     setIsBusy = true;
     response = await ProductService.cartToOrder(token);
-    if(response is Success){
+    if (response is Success) {
       _finalResponse = true;
     }
     _cartList.clear();

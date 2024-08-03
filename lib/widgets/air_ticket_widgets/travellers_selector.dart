@@ -17,22 +17,23 @@ class TravellerSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-          boxShadow: [BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 30,
-            spreadRadius: 2,
-            offset: const Offset(0, 5),
-          )]
-      ),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 30,
+              spreadRadius: 2,
+              offset: const Offset(0, 5),
+            )
+          ]),
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-           Text(
+          Text(
             "ভ্রমণকারীর সংখ্যা",
             style: TextStyle(
               color: AppColors.themeColor,
@@ -67,10 +68,9 @@ class TravellerSelector extends StatelessWidget {
                       "${value.toString()} জন",
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                        fontSize: 15,
+                          fontSize: 15,
                           fontWeight: FontWeight.normal,
-                        color: AppColors.black
-                      ),
+                          color: AppColors.black),
                     ),
                   );
                 },

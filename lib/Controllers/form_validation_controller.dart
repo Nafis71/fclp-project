@@ -8,7 +8,6 @@ import 'package:fclp_app/views/non_authorized_screen/non_authorized_screen.dart'
 import 'package:fclp_app/views/order_confirmation_view.dart';
 import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
 import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
-import 'package:fclp_app/widgets/profile_widgets/profile_edit_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -29,17 +28,17 @@ class FormValidationController {
     return null;
   }
 
-  static String? validatePoints(String? points,int userPoint){
-    if(points == null || points.isEmpty){
+  static String? validatePoints(String? points, int userPoint) {
+    if (points == null || points.isEmpty) {
       return 'আপনি কত পয়েন্ট চান তা লিখুন';
     }
-    if(!AppConstants.withdrawAmountRegExp.hasMatch(points)){
+    if (!AppConstants.withdrawAmountRegExp.hasMatch(points)) {
       return 'ভুল পয়েন্ট নম্বর';
     }
-    if(int.parse(points) < 10){
+    if (int.parse(points) < 10) {
       return 'পয়েন্ট অবশ্যই 10 এর চেয়ে বড় বা সমান হতে হবে';
     }
-    if((userPoint - int.parse(points)).isNegative){
+    if ((userPoint - int.parse(points)).isNegative) {
       return 'আপনার যথেষ্ট পয়েন্ট নেই';
     }
     return null;
@@ -177,8 +176,7 @@ class FormValidationController {
       required String mobile,
       required String password,
       required String confirmPassword,
-      required String referredBy
-      }) async {
+      required String referredBy}) async {
     if (formKey.currentState!.validate()) {
       Map<String, String> userData = {
         "name": name,
@@ -187,7 +185,7 @@ class FormValidationController {
         "password": password,
         "image": "",
         "password_confirmation": confirmPassword,
-        "referred_by" : referredBy
+        "referred_by": referredBy
       };
       bool status = await context.read<AuthController>().registration(userData);
 
@@ -208,7 +206,7 @@ class FormValidationController {
           );
           return;
         }
-        if(statusCode == 405){
+        if (statusCode == 405) {
           warningDialog(
             context: context,
             message: AppStrings.registrationFailureTitle,

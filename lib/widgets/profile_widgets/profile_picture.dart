@@ -12,5 +12,6 @@ ImageProvider getImage(ProfileController profileController) {
   if (profileController.userData.base64Image.isEmpty) {
     return const AssetImage(AssetsPaths.profile);
   }
-  return MemoryImage(base64Decode(profileController.userData.base64Image.toString()));
+  return MemoryImage(
+      base64Decode(profileController.userData.base64Image.toString()));
 }

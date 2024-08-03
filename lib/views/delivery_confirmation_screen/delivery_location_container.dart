@@ -1,4 +1,3 @@
-import 'package:fclp_app/Controllers/order_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -16,7 +15,8 @@ class DeliveryLocationContainer extends StatelessWidget {
       required this.location,
       required this.deliveryAmount,
       required this.borderColor,
-      required this.borderWidth, required this.hasPressed});
+      required this.borderWidth,
+      required this.hasPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -77,13 +77,14 @@ class DeliveryLocationContainer extends StatelessWidget {
             ),
           ),
         ),
-        if(hasPressed) Positioned(
-          top: -2,
-          child: Icon(
-            Icons.verified_rounded,
-            color: AppColors.themeColor,
+        if (hasPressed)
+          Positioned(
+            top: -2,
+            child: Icon(
+              Icons.verified_rounded,
+              color: AppColors.themeColor,
+            ),
           ),
-        ),
       ],
     );
   }

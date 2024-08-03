@@ -12,15 +12,15 @@ class RedeemList {
 
   RedeemList(
       {this.id,
-        this.userId,
-        this.paymentMethod,
-        this.mobile,
-        this.trxId,
-        this.point,
-        this.amount,
-        this.status,
-        this.createdAt,
-        this.updatedAt});
+      this.userId,
+      this.paymentMethod,
+      this.mobile,
+      this.trxId,
+      this.point,
+      this.amount,
+      this.status,
+      this.createdAt,
+      this.updatedAt});
 
   RedeemList.fromJson(Map<String, dynamic> json) {
     id = json['id'];

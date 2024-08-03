@@ -82,13 +82,20 @@ class ProductDetailsFooter extends StatelessWidget {
                         size: 30,
                         color: AppColors.themeColor,
                       ),
-                      const Text("কার্টে যোগ হয়েছে",style: TextStyle(fontWeight: FontWeight.bold),),
+                      const Text(
+                        "কার্টে যোগ হয়েছে",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     ],
                   );
                 }
                 return Visibility(
                   visible: !productController.isStoringCartList,
-                  replacement: Center(child: CircularProgressIndicator(color: AppColors.themeColor,),),
+                  replacement: Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.themeColor,
+                    ),
+                  ),
                   child: ElevatedButton(
                     onPressed: () {
                       addToCart(productController, context);
@@ -110,7 +117,9 @@ class ProductDetailsFooter extends StatelessWidget {
   Future<void> addToCart(
       ProductController productController, BuildContext context) async {
     bool status = await productController.addToCart(
-        context.read<ProfileController>().token, productData, context.read<CartController>());
+        context.read<ProfileController>().token,
+        productData,
+        context.read<CartController>());
     if (status && context.mounted) {
       snackBarMessage(
           context: context, message: AppStrings.addToCartSuccessMessage);

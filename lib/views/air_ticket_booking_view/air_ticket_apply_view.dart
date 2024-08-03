@@ -19,13 +19,13 @@ class AirTicketApplyView extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final AirTicketController airTicketController;
 
-  const AirTicketApplyView(
-      {super.key,
-      required this.nidController,
-      required this.passportController,
-      required this.formKey,
-      required this.airTicketController,
-      });
+  const AirTicketApplyView({
+    super.key,
+    required this.nidController,
+    required this.passportController,
+    required this.formKey,
+    required this.airTicketController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -139,10 +139,12 @@ class AirTicketApplyView extends StatelessWidget {
     bool status =
         await airTicketController.bookAirTicket(profileController.token);
     if (status && context.mounted) {
-      if(airTicketController.isEditMode){
-        snackBarMessage(context: context, message: AppStrings.airTicketUpdateSuccessMessage);
+      if (airTicketController.isEditMode) {
+        snackBarMessage(
+            context: context,
+            message: AppStrings.airTicketUpdateSuccessMessage);
         Navigator.pop(context);
-      } else{
+      } else {
         airticketSubmissionMessage(context);
       }
       nidController.clear();
@@ -151,7 +153,7 @@ class AirTicketApplyView extends StatelessWidget {
       return;
     }
     if (context.mounted) {
-      if(airTicketController.isEditMode){
+      if (airTicketController.isEditMode) {
         warningDialog(
             context: context,
             warningDescription: AppStrings.airTicketUpdateFailureMessage,

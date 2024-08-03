@@ -1,4 +1,4 @@
-class ProductSize{
+class ProductSize {
   int? id;
   String? name;
   String? createdAt;

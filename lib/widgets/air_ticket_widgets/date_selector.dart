@@ -13,15 +13,16 @@ Widget dateSelector({
     child: Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-          boxShadow: [BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            spreadRadius: 2,
-            offset: const Offset(0, 5),
-          )]
-      ),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 10,
+              spreadRadius: 2,
+              offset: const Offset(0, 5),
+            )
+          ]),
       padding: const EdgeInsets.all(18),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,7 +47,12 @@ Widget dateSelector({
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
                     fontSize: 14,
-                    color: (context.read<AirTicketController>().ticketDate.isNotEmpty) ? AppColors.black : Colors.grey,
+                    color: (context
+                            .read<AirTicketController>()
+                            .ticketDate
+                            .isNotEmpty)
+                        ? AppColors.black
+                        : Colors.grey,
                   ),
                 ),
               ],

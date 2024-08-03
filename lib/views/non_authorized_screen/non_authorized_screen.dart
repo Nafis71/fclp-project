@@ -122,7 +122,8 @@ class NonAuthorizedScreen extends StatelessWidget {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(elevation: 4),
                             onPressed: () {
-                              checkProfileActiveStatus(profileController, context);
+                              checkProfileActiveStatus(
+                                  profileController, context);
                             },
                             child:
                                 const Text("অ্যাকাউন্টের অবস্থা পরীক্ষা করুন"),

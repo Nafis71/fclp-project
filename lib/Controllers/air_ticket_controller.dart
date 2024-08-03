@@ -257,9 +257,9 @@ class AirTicketController extends ChangeNotifier {
     return ticketStatus[status] ?? "Submitted";
   }
 
-  int getTicketStatusInteger(String status){
+  int getTicketStatusInteger(String status) {
     Map<String, int> ticketStatus = {
-      "Submitted" : 0,
+      "Submitted": 0,
       "In Review": 1,
       "Approved": 2,
       "Canceled": 3,

@@ -35,7 +35,7 @@ class ProductServiceButtons extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => const AirTicketView(),
                   ),
-                ).then((value){
+                ).then((value) {
                   context.read<AirTicketController>().resetData();
                 });
               },

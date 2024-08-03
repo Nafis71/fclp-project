@@ -55,25 +55,27 @@ Form passwordSection({
         const SizedBox(
           height: 16,
         ),
-        Consumer<AuthController>(
-          builder: (_,authController,__) {
-            return Visibility(
-              visible: !authController.isLoading,
-              replacement: Center(child: CircularProgressIndicator(color: AppColors.themeColor,),),
-              child: ElevatedButton(
-                onPressed: saveNewPassword,
-                child: const Text(
-                  "পাসওয়ার্ড সংরক্ষন করুন",
-                  style: TextStyle(
-                    color: AppColors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
+        Consumer<AuthController>(builder: (_, authController, __) {
+          return Visibility(
+            visible: !authController.isLoading,
+            replacement: Center(
+              child: CircularProgressIndicator(
+                color: AppColors.themeColor,
+              ),
+            ),
+            child: ElevatedButton(
+              onPressed: saveNewPassword,
+              child: const Text(
+                "পাসওয়ার্ড সংরক্ষন করুন",
+                style: TextStyle(
+                  color: AppColors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
                 ),
               ),
-            );
-          }
-        ),
+            ),
+          );
+        }),
       ],
     ),
   );

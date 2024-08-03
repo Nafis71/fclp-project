@@ -1,11 +1,10 @@
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
-void warningDialog({
-  required BuildContext context,
-  required String warningDescription,
-  String? message
-}) {
+void warningDialog(
+    {required BuildContext context,
+    required String warningDescription,
+    String? message}) {
   showDialog(
       context: context,
       builder: (context) {
@@ -39,7 +38,7 @@ void warningDialog({
                           ),
                         ),
                         child: Text(
-                          (message ==null) ? "Warning" : message,
+                          (message == null) ? "Warning" : message,
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                       ),

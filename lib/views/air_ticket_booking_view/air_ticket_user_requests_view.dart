@@ -414,7 +414,8 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
     ).then((value) {
       airTicketController.toggleIsEditMode();
       airTicketController.resetData(shouldUpdate: true);
-      airTicketController.loadTicketList(context.read<ProfileController>().token);
+      airTicketController
+          .loadTicketList(context.read<ProfileController>().token);
     });
   }
 

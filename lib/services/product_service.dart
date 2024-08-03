@@ -14,7 +14,6 @@ class ProductService {
 
   static Future<Object> addToCart(
       String token, Map<String, String> productData) async {
-
     return await NetworkRequest().postRequest(
       url: NetworkUrls.cartStoreUrl,
       headers: {

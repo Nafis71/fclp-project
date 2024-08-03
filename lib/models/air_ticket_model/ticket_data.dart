@@ -1,6 +1,6 @@
 import 'package:fclp_app/models/air_ticket_model/transit.dart';
 
-class TicketData{
+class TicketData {
   int? id;
   String? start;
   String? end;
@@ -22,22 +22,21 @@ class TicketData{
 
   TicketData(
       {this.id,
-        this.start,
-        this.end,
-        this.travelDate,
-        this.types,
-        this.person,
-        this.price,
-        this.userId,
-        this.status,
-        this.notice,
-        this.createdAt,
-        this.updatedAt,
-        this.from,
-        this.to,
-        this.nid,
-        this.passport
-      });
+      this.start,
+      this.end,
+      this.travelDate,
+      this.types,
+      this.person,
+      this.price,
+      this.userId,
+      this.status,
+      this.notice,
+      this.createdAt,
+      this.updatedAt,
+      this.from,
+      this.to,
+      this.nid,
+      this.passport});
 
   TicketData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -52,8 +51,8 @@ class TicketData{
     notice = json['notice'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    from = json['from'] != null ?  Transit.fromJson(json['from']) : null;
-    to = json['to'] != null ?  Transit.fromJson(json['to']) : null;
+    from = json['from'] != null ? Transit.fromJson(json['from']) : null;
+    to = json['to'] != null ? Transit.fromJson(json['to']) : null;
     nid = json['nid'];
     passport = json['passport'];
   }

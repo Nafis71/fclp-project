@@ -13,14 +13,14 @@ InputDecoration formInputDecoration({String? hintText}) {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide:  BorderSide(
+        borderSide: BorderSide(
           color: AppColors.themeColor,
           width: 2,
         ),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide:  const BorderSide(
+        borderSide: const BorderSide(
           color: AppColors.red,
           width: 2,
         ),

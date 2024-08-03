@@ -11,12 +11,12 @@ class OrderModel {
 
   OrderModel(
       {this.id,
-        this.userId,
-        this.total,
-        this.status,
-        this.createdAt,
-        this.updatedAt,
-        this.items});
+      this.userId,
+      this.total,
+      this.status,
+      this.createdAt,
+      this.updatedAt,
+      this.items});
 
   OrderModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];

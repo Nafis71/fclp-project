@@ -1,4 +1,4 @@
-class ProductColors{
+class ProductColors {
   int? id;
   String? name;
   String? createdAt;

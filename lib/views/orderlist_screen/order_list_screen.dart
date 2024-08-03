@@ -1,4 +1,3 @@
-import 'package:fclp_app/Controllers/cart_controller.dart';
 import 'package:fclp_app/Controllers/order_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/app_strings.dart';
@@ -8,9 +7,9 @@ import 'package:fclp_app/views/delivery_confirmation_screen/delivery_confirmatio
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 
 class OrderListScreen extends StatefulWidget {
   const OrderListScreen({super.key});
@@ -23,7 +22,7 @@ class _OrderListScreenState extends State<OrderListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(title: "Order List",context),
+      appBar: customAppBar(title: "Order List", context),
       body: Consumer<OrderController>(builder: (_, orderController, __) {
         return RefreshIndicator(
           backgroundColor: AppColors.themeColor,
@@ -150,7 +149,7 @@ class _OrderListScreenState extends State<OrderListScreen> {
                   orderId: orderController.orderList[index].id!,
                 ),
               ),
-            ).then((value){
+            ).then((value) {
               orderController.resetOrderController();
             });
           },

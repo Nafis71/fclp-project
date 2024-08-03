@@ -9,12 +9,12 @@ class User {
   String? referredBy;
   String? createdAt;
   String? updatedAt;
-  String image ="";
-  String base64Image= "";
+  String image = "";
+  String base64Image = "";
   String status = "";
-  String totalRefer ="";
+  String totalRefer = "";
   String points = "";
-  String referralCode ="";
+  String referralCode = "";
 
   User(
       {this.id,
@@ -27,7 +27,9 @@ class User {
       this.referredBy,
       this.createdAt,
       this.updatedAt,
-      required this.image, required this.base64Image, required this.status});
+      required this.image,
+      required this.base64Image,
+      required this.status});
 
   User.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -57,6 +59,7 @@ class User {
     data['base64'] = base64Image;
     return data;
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
@@ -74,7 +77,7 @@ class User {
     data['status'] = status;
     data['referral_code'] = referralCode;
     data['points'] = points;
-    data['total_refer']= totalRefer;
+    data['total_refer'] = totalRefer;
     return data;
   }
 }

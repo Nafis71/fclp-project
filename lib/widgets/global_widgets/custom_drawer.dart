@@ -105,24 +105,27 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         margin: const EdgeInsets.all(50),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                            foregroundColor: AppColors.themeColor,
-                            elevation: 4
-                          ),
+                              backgroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                              foregroundColor: AppColors.themeColor,
+                              elevation: 4),
                           onPressed: () {},
                           child: (profileController.userData.status == "1")
                               ? Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Icon(Icons.verified,color: AppColors.themeColor,),
-                                  const Text("Account is activated",style: TextStyle(
-                                    fontSize: 14
-                                  ),),
-                                ],
-                              )
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Icon(
+                                      Icons.verified,
+                                      color: AppColors.themeColor,
+                                    ),
+                                    const Text(
+                                      "Account is activated",
+                                      style: TextStyle(fontSize: 14),
+                                    ),
+                                  ],
+                                )
                               : const Text("Account isn't activated"),
                         ),
                       ),

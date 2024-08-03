@@ -67,15 +67,17 @@ class _SplashViewState extends State<SplashView> {
         loadUserData(userData);
         await loadInitialData();
         WidgetBuilder? widgetBuilder;
-        if(mounted){
+        if (mounted) {
           if (context.read<ProfileController>().userData.status == "0" ||
               context.read<ProfileController>().userData.status == "2") {
             widgetBuilder = (context) => const NonAuthorizedScreen();
           } else {
-            await context.read<NotificationController>().getAllNotification(token);
+            await context
+                .read<NotificationController>()
+                .getAllNotification(token);
             widgetBuilder = (context) => const MainBottomNavView();
           }
-          if(mounted){
+          if (mounted) {
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: widgetBuilder));
           }

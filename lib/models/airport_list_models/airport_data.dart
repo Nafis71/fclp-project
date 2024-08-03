@@ -1,4 +1,4 @@
-class AirportData{
+class AirportData {
   int? id;
   String? airportName;
   String? divisionName;
@@ -7,10 +7,10 @@ class AirportData{
 
   AirportData(
       {this.id,
-        this.airportName,
-        this.divisionName,
-        this.createdAt,
-        this.updatedAt});
+      this.airportName,
+      this.divisionName,
+      this.createdAt,
+      this.updatedAt});
 
   AirportData.fromJson(Map<String, dynamic> json) {
     id = json['id'];

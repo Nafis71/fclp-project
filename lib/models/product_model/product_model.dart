@@ -1,7 +1,7 @@
 import 'package:fclp_app/models/product_model/product_data.dart';
 import 'package:fclp_app/models/product_model/product_links.dart';
 
-class ProductModel{
+class ProductModel {
   int? currentPage;
   List<ProductData>? productData;
   String? firstPageUrl;
@@ -18,18 +18,18 @@ class ProductModel{
 
   ProductModel(
       {this.currentPage,
-        this.productData,
-        this.firstPageUrl,
-        this.from,
-        this.lastPage,
-        this.lastPageUrl,
-        this.links,
-        this.nextPageUrl,
-        this.path,
-        this.perPage,
-        this.prevPageUrl,
-        this.to,
-        this.total});
+      this.productData,
+      this.firstPageUrl,
+      this.from,
+      this.lastPage,
+      this.lastPageUrl,
+      this.links,
+      this.nextPageUrl,
+      this.path,
+      this.perPage,
+      this.prevPageUrl,
+      this.to,
+      this.total});
 
   ProductModel.fromJson(Map<String, dynamic> json) {
     currentPage = json['current_page'];

@@ -1,4 +1,4 @@
-class ProductLinks{
+class ProductLinks {
   String? url;
   String? label;
   bool? active;

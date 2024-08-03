@@ -227,7 +227,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                   Consumer<AuthController>(
                     builder: (_, viewModel, __) => Visibility(
                       visible: !viewModel.isLoading,
-                      replacement:  CircularProgressIndicator(
+                      replacement: CircularProgressIndicator(
                         color: AppColors.themeColor,
                       ),
                       child: SizedBox(
@@ -242,7 +242,8 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                                   password: _passwordTEController.text.trim(),
                                   confirmPassword:
                                       _confirmPasswordTEController.text.trim(),
-                                  formKey: _formKey, referredBy: _referTEController.text.trim(),
+                                  formKey: _formKey,
+                                  referredBy: _referTEController.text.trim(),
                                 ),
                             child: const Text("নিবন্ধন করুন")),
                       ),
@@ -264,7 +265,8 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                       onPressed: () {
                         context.read<AuthController>().setIsLoginScreen(true);
                       },
-                      child: const Text("লগইন করুন",style: TextStyle(color: Colors.black)),
+                      child: const Text("লগইন করুন",
+                          style: TextStyle(color: Colors.black)),
                     ),
                   ),
                   const SizedBox(
@@ -278,6 +280,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
       ),
     );
   }
+
   @override
   void dispose() {
     _nameTEController.dispose();

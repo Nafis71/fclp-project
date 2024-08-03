@@ -1,5 +1,4 @@
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
-import 'package:fclp_app/views/home_screen/home_product_widget/product_grid_view.dart';
 import 'package:flutter/material.dart';
 
 class ProductView extends StatefulWidget {

@@ -12,7 +12,7 @@ import '../models/product_model/product_data.dart';
 
 class ProductController extends ChangeNotifier {
   List<ProductData> _productData = [];
-  List<ProductData> _specificProductData =[];
+  List<ProductData> _specificProductData = [];
   bool _finalResponse = false;
   bool _isCategorialProductFetching = false;
   bool _nextPageAvailable = false;
@@ -50,10 +50,12 @@ class ProductController extends ChangeNotifier {
   set setIsLoading(bool isLoading) {
     _isLoading = isLoading;
   }
-  set setIsCategorialProductFetching (bool value){
+
+  set setIsCategorialProductFetching(bool value) {
     _isCategorialProductFetching = value;
   }
-  set setIsStoringCartList(bool value){
+
+  set setIsStoringCartList(bool value) {
     _isStoringCartList = value;
     notifyListeners();
   }
@@ -79,7 +81,6 @@ class ProductController extends ChangeNotifier {
   void resetSelectedProductData() {
     _selectedProductQuantity = 1;
     _isProductAddedToCart = false;
-
   }
 
   void toggleWillShowMoreProductDescription() {
@@ -97,14 +98,15 @@ class ProductController extends ChangeNotifier {
     return discountPercentage;
   }
 
-  Future<bool> addToCart(String token, ProductData product, CartController cartController) async {
+  Future<bool> addToCart(
+      String token, ProductData product, CartController cartController) async {
     _finalResponse = false;
     setIsStoringCartList = true;
     int quantity = selectedProductQuantity;
     bool hasFoundInCart = false;
-    if(cartController.cartList.isNotEmpty){
-      for(CartProduct cartData in cartController.cartList){
-        if(cartData.name == product.name.toString()){
+    if (cartController.cartList.isNotEmpty) {
+      for (CartProduct cartData in cartController.cartList) {
+        if (cartData.name == product.name.toString()) {
           quantity += int.parse(cartData.quantity.toString());
           cartData.quantity = quantity.toString();
           hasFoundInCart = true;
@@ -121,15 +123,23 @@ class ProductController extends ChangeNotifier {
     };
     response = await ProductService.addToCart(token, productData);
     if (response is Success) {
-      Map<String,dynamic> responseJson = (response as Success).response as Map<String,dynamic>;
-      if(!hasFoundInCart){
-        CartProduct cartProduct = CartProduct(productId: product.id,itemId: responseJson['cartItem']['id'], name: product.name,image: product.image,quantity: quantity.toString(),price:  (product.discountPrice == "0")
-            ? product.price.toString()
-            : product.discountPrice.toString());
+      Map<String, dynamic> responseJson =
+          (response as Success).response as Map<String, dynamic>;
+      if (!hasFoundInCart) {
+        CartProduct cartProduct = CartProduct(
+            productId: product.id,
+            itemId: responseJson['cartItem']['id'],
+            name: product.name,
+            image: product.image,
+            quantity: quantity.toString(),
+            price: (product.discountPrice == "0")
+                ? product.price.toString()
+                : product.discountPrice.toString());
         cartController.insertAtCart(0, cartProduct);
-      } else{
-        for(int i=0; i<cartController.cartList.length; i++){
-          if(cartController.cartList[i].itemId == responseJson['cartItem']['id']){
+      } else {
+        for (int i = 0; i < cartController.cartList.length; i++) {
+          if (cartController.cartList[i].itemId ==
+              responseJson['cartItem']['id']) {
             cartController.updateQuantity(i, quantity.toString());
             break;
           }
@@ -165,24 +175,27 @@ class ProductController extends ChangeNotifier {
       } else {
         _nextPageAvailable = false;
       }
-
     }
     setIsLoading = false;
     notifyListeners();
   }
 
-  Future<void> loadSpecificProductData(String categoryId,String token,int page,int currentProductId) async{
+  Future<void> loadSpecificProductData(
+      String categoryId, String token, int page, int currentProductId) async {
     setIsCategorialProductFetching = true;
-    response =  await ProductService.getAllProductList("page=${page.toString()}", token);
-    if(response is Success){
+    response = await ProductService.getAllProductList(
+        "page=${page.toString()}", token);
+    if (response is Success) {
       ProductModel productModel = ProductModel.fromJson(
           (response as Success).response as Map<String, dynamic>);
       if (productModel.productData != null) {
         if (_specificProductData.isEmpty) {
-          _specificProductData = await getProductData(productModel,categoryId: categoryId,currentProductId: currentProductId);
+          _specificProductData = await getProductData(productModel,
+              categoryId: categoryId, currentProductId: currentProductId);
           _specificProductData.shuffle();
         } else {
-          List<ProductData> newProductData = await getProductData(productModel,categoryId: categoryId,currentProductId: currentProductId);
+          List<ProductData> newProductData = await getProductData(productModel,
+              categoryId: categoryId, currentProductId: currentProductId);
           newProductData.shuffle();
           _specificProductData.addAll(newProductData);
         }
@@ -196,12 +209,14 @@ class ProductController extends ChangeNotifier {
     setIsCategorialProductFetching = false;
     notifyListeners();
   }
-  Future<List<ProductData>> getProductData(ProductModel productModel,{String? categoryId,int? currentProductId}) async {
+
+  Future<List<ProductData>> getProductData(ProductModel productModel,
+      {String? categoryId, int? currentProductId}) async {
     List<ProductData> product = [];
     for (ProductData productData in productModel.productData!) {
       if (productData.quantity != "0") {
-        if(categoryId != null && productData.categoryId == categoryId){
-          if(productData.id != currentProductId){
+        if (categoryId != null && productData.categoryId == categoryId) {
+          if (productData.id != currentProductId) {
             product.add(productData);
           }
           continue;
@@ -212,7 +227,7 @@ class ProductController extends ChangeNotifier {
     return product.toList();
   }
 
-  void productAddedFromCard(){
+  void productAddedFromCard() {
     _isProductAddedToCart = false;
     notifyListeners();
   }

@@ -1,6 +1,6 @@
 import 'cart_data.dart';
 
-class CartModel{
+class CartModel {
   int? totalItems;
   CartData? cart;
 

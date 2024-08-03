@@ -27,7 +27,9 @@ class _PointViewState extends State<PointView> {
       backgroundColor: AppColors.themeColor,
       color: Colors.white,
       onRefresh: () async {
-        await context.read<ProfileController>().getUserReferralPoint(forceRefresh: true);
+        await context
+            .read<ProfileController>()
+            .getUserReferralPoint(forceRefresh: true);
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -48,16 +50,15 @@ class _PointViewState extends State<PointView> {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Consumer<ProfileController>(
-                      builder: (_,profileController,__) {
-                        return Text(
-                          profileController.userData.points,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleLarge!
-                              .copyWith(color: Colors.black),
-                        );
-                      }
-                    ),
+                        builder: (_, profileController, __) {
+                      return Text(
+                        profileController.userData.points,
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .copyWith(color: Colors.black),
+                      );
+                    }),
                     const SizedBox(
                       height: 20,
                     ),

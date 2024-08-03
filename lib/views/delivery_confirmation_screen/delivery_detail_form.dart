@@ -1,9 +1,7 @@
 import 'package:fclp_app/Controllers/order_controller.dart';
-import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/delivery_confirmation_screen/delivery_location_container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 import '../../Controllers/form_validation_controller.dart';
@@ -118,6 +116,7 @@ class _DeliveryDetailFormState extends State<DeliveryDetailForm> {
       ),
     );
   }
+
   @override
   void dispose() {
     _addressTEController.dispose();

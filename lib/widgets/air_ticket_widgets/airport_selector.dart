@@ -16,15 +16,16 @@ Widget airportSelector({
   return Container(
     alignment: Alignment.center,
     decoration: BoxDecoration(
-      color: AppColors.white,
-      borderRadius: BorderRadius.circular(8),
-      boxShadow: [BoxShadow(
-        color: Colors.black.withOpacity(0.1),
-        blurRadius: 30,
-        spreadRadius: 5,
-        offset: const Offset(0, 5),
-      )]
-    ),
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 30,
+            spreadRadius: 5,
+            offset: const Offset(0, 5),
+          )
+        ]),
     padding: const EdgeInsets.all(8),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,10 +75,8 @@ Widget airportSelector({
                       Text(
                         airport['place']!,
                         overflow: TextOverflow.ellipsis,
-                        style:  TextStyle(
-                          color: AppColors.themeColor,
-                          fontSize: 14.5
-                        ),
+                        style: TextStyle(
+                            color: AppColors.themeColor, fontSize: 14.5),
                       ),
                       Text(
                         airport['airport']!,

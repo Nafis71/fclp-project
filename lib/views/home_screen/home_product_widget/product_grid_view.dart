@@ -1,14 +1,14 @@
 import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
-import 'package:fclp_app/utils/network_urls.dart';
-import 'package:fclp_app/views/product_details_screen/product_details_view.dart';
 import 'package:fclp_app/views/home_screen/home_product_widget/product_card.dart';
+import 'package:fclp_app/views/product_details_screen/product_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ProductGridView extends StatelessWidget {
   final String? categoryId;
-  const ProductGridView({super.key,this.categoryId});
+
+  const ProductGridView({super.key, this.categoryId});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +16,8 @@ class ProductGridView extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Consumer<ProductController>(
         builder: (_, productController, __) {
-          if(categoryId != null){
-            if(productController.isCategorialProductFetching){
+          if (categoryId != null) {
+            if (productController.isCategorialProductFetching) {
               return Center(
                 child: CircularProgressIndicator(
                   color: AppColors.themeColor,
@@ -65,11 +65,12 @@ class ProductGridView extends StatelessWidget {
     );
   }
 
-  Widget product(BuildContext context,ProductController productController,int index){
+  Widget product(
+      BuildContext context, ProductController productController, int index) {
     return InkWell(
       splashColor: Colors.transparent,
       onTap: () {
-        if(categoryId!= null){
+        if (categoryId != null) {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -92,7 +93,9 @@ class ProductGridView extends StatelessWidget {
         });
       },
       child: ProductCard(
-        product: (categoryId == null) ? productController.productData[index] : productController.specificProductData[index],
+        product: (categoryId == null)
+            ? productController.productData[index]
+            : productController.specificProductData[index],
         productController: productController,
         isCategorial: (categoryId == null) ? null : true,
       ),

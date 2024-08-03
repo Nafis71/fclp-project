@@ -1,9 +1,7 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/income_points_screen/point_view.dart';
 import 'package:fclp_app/views/income_points_screen/transaction_history.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
-import 'package:fclp_app/widgets/global_widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 class IncomePointsView extends StatefulWidget {
@@ -22,13 +20,15 @@ class _IncomePointsViewState extends State<IncomePointsView> {
       length: 2,
       child: Scaffold(
         appBar: customAppBar(
-          title: "Income Point",context,
+          title: "Income Point",
+          context,
           preferredSizeWidget: TabBar(
             indicatorColor: AppColors.themeColor,
             dividerHeight: 0.5,
             labelColor: AppColors.themeColor,
             splashBorderRadius: BorderRadius.circular(5),
-            overlayColor: WidgetStateProperty.all(AppColors.secondaryThemeColor),
+            overlayColor:
+                WidgetStateProperty.all(AppColors.secondaryThemeColor),
             tabs: const [
               Tab(
                 icon: Icon(Icons.account_balance_wallet),
@@ -43,10 +43,9 @@ class _IncomePointsViewState extends State<IncomePointsView> {
             ],
           ),
         ),
-        body: const TabBarView(children: [
-          PointView(),
-          TransactionHistory()
-        ],),
+        body: const TabBarView(
+          children: [PointView(), TransactionHistory()],
+        ),
       ),
     );
   }

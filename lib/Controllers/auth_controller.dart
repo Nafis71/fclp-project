@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/models/user_model/user.dart';
-import 'package:fclp_app/models/user_model/user_model.dart';
 import 'package:fclp_app/services/auth_service.dart';
 import 'package:fclp_app/services/response/Failure.dart';
 import 'package:fclp_app/services/response/success.dart';

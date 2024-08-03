@@ -2,7 +2,6 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:fclp_app/Controllers/notification_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';

@@ -2,7 +2,7 @@ import 'package:fclp_app/models/product_model/product_category.dart';
 import 'package:fclp_app/models/product_model/product_colors.dart';
 import 'package:fclp_app/models/product_model/product_size.dart';
 
-class ProductData{
+class ProductData {
   int? id;
   String? name;
   String? price;
@@ -21,18 +21,19 @@ class ProductData{
 
   ProductData(
       {this.id,
-        this.name,
-        this.price,
-        this.discountPrice,
-        this.image,
-        this.categoryId,
-        this.description,
-        this.quantity,
-        this.status,
-        this.createdAt,
-        this.updatedAt,
-        this.colors,
-        this.sizes,this.category});
+      this.name,
+      this.price,
+      this.discountPrice,
+      this.image,
+      this.categoryId,
+      this.description,
+      this.quantity,
+      this.status,
+      this.createdAt,
+      this.updatedAt,
+      this.colors,
+      this.sizes,
+      this.category});
 
   ProductData.fromJson(Map<String, dynamic> json) {
     id = json['id'];

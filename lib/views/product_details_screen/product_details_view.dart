@@ -10,6 +10,7 @@ import 'package:fclp_app/views/product_details_screen/product_details_widgets/pr
 import 'package:fclp_app/views/product_details_screen/product_details_widgets/product_header_section.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../models/product_model/product_data.dart';
 
 class ProductDetailsView extends StatefulWidget {
@@ -28,6 +29,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
   int page = 1;
   final ScrollController _scrollController = ScrollController();
   late final ProductData productData;
+
   @override
   void initState() {
     productData = widget.productData;
@@ -38,7 +40,6 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         body: SafeArea(
       child: Column(
@@ -140,16 +141,16 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
       await context.read<ProductController>().loadSpecificProductData(
           product.categoryId.toString(),
           context.read<ProfileController>().token,
-          page,productData.id!
-      );
+          page,
+          productData.id!);
       return;
     }
     context.read<ProductController>().specificProductData.clear();
     await context.read<ProductController>().loadSpecificProductData(
         product.categoryId.toString(),
         context.read<ProfileController>().token,
-        page,productData.id!
-    );
+        page,
+        productData.id!);
   }
 
   void _scrollListener() {
@@ -158,7 +159,8 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
         page += 1;
-        _loadSpecificProductData(page,widget.productData, fromScrollListener: true);
+        _loadSpecificProductData(page, widget.productData,
+            fromScrollListener: true);
       }
     }
   }

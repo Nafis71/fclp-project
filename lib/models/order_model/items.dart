@@ -12,13 +12,13 @@ class Items {
 
   Items(
       {this.id,
-        this.orderId,
-        this.productId,
-        this.quantity,
-        this.price,
-        this.createdAt,
-        this.updatedAt,
-        this.product});
+      this.orderId,
+      this.productId,
+      this.quantity,
+      this.price,
+      this.createdAt,
+      this.updatedAt,
+      this.product});
 
   Items.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -29,7 +29,7 @@ class Items {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     product =
-    json['product'] != null ? new Product.fromJson(json['product']) : null;
+        json['product'] != null ? new Product.fromJson(json['product']) : null;
   }
 
   Map<String, dynamic> toJson() {

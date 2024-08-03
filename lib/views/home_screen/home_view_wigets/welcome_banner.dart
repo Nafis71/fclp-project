@@ -20,7 +20,7 @@ class WelcomeBanner extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               Wrap(
+              Wrap(
                 children: [
                   const SizedBox(
                     width: 10,
@@ -28,10 +28,9 @@ class WelcomeBanner extends StatelessWidget {
                   Text(
                     "স্বাগতম",
                     style: TextStyle(
-                      fontSize: 30,
-                      color: AppColors.themeColor,
-                      fontWeight: FontWeight.bold
-                    ),
+                        fontSize: 30,
+                        color: AppColors.themeColor,
+                        fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -42,24 +41,26 @@ class WelcomeBanner extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
-                    Consumer<ProfileController>(builder: (_,viewModel,__){
+                    Consumer<ProfileController>(builder: (_, viewModel, __) {
                       return Text(
                         viewModel.userData.name.toString(),
-                        style:  TextStyle(
+                        style: TextStyle(
                             fontSize: 16,
                             color: AppColors.themeColor,
-                            fontWeight: FontWeight.bold
-                        ),
+                            fontWeight: FontWeight.bold),
                       );
                     })
                   ],
                 ),
               ),
-
             ],
           ),
           Lottie.asset(AssetsPaths.welcomeLottie,
-              fit: BoxFit.contain, backgroundLoading: true, width: 180, renderCache: RenderCache.drawingCommands,repeat: true),
+              fit: BoxFit.contain,
+              backgroundLoading: true,
+              width: 180,
+              renderCache: RenderCache.drawingCommands,
+              repeat: true),
         ],
       ),
     );

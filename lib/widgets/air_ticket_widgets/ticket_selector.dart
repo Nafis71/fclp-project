@@ -17,22 +17,23 @@ class TicketSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-          boxShadow: [BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 30,
-            spreadRadius: 5,
-            offset: const Offset(0, 5),
-          )]
-      ),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 30,
+              spreadRadius: 5,
+              offset: const Offset(0, 5),
+            )
+          ]),
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-           Text(
+          Text(
             "টিকেটের ধরণ",
             style: TextStyle(
               color: AppColors.themeColor,
@@ -66,11 +67,10 @@ class TicketSelector extends StatelessWidget {
                     child: Text(
                       value,
                       overflow: TextOverflow.ellipsis,
-                      style:  const TextStyle(
-                        color: AppColors.black,
-                        fontWeight: FontWeight.normal,
-                        fontSize: 15
-                      ),
+                      style: const TextStyle(
+                          color: AppColors.black,
+                          fontWeight: FontWeight.normal,
+                          fontSize: 15),
                     ),
                   );
                 },

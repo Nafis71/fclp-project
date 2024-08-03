@@ -163,15 +163,17 @@ class _ProfileViewState extends State<ProfileView> {
         context.read<ProfileController>().userData.mobile.toString(),
         _newPasswordController.text,
         context.read<ProfileController>());
-    if(status && mounted){
-      snackBarMessage(context: context, message: AppStrings.passwordChangeSuccessMessage);
+    if (status && mounted) {
+      snackBarMessage(
+          context: context, message: AppStrings.passwordChangeSuccessMessage);
       _formKey.currentState!.reset();
       _newPasswordController.clear();
       _confirmPasswordController.clear();
       return;
     }
-    if(mounted){
-      snackBarMessage(context: context, message: AppStrings.passwordChangeFailureMessage);
+    if (mounted) {
+      snackBarMessage(
+          context: context, message: AppStrings.passwordChangeFailureMessage);
     }
   }
 

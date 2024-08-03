@@ -1,6 +1,6 @@
 import 'package:fclp_app/models/user_model/user.dart';
 
-class UserModel{
+class UserModel {
   String? message;
   List<User>? user;
 
