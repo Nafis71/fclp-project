@@ -86,13 +86,11 @@ class OrderController extends ChangeNotifier {
     response = await OrderService.getOrderList(token);
     if (response is Success) {
       List<dynamic> jsonData = (response as Success).response as List<dynamic>;
-      List<OrderModel> tempOrderList = [];
       for (Map<String, dynamic> json in jsonData) {
         OrderModel orderModel = OrderModel.fromJson(json);
         DateTime date = DateTime.parse(orderModel.createdAt.toString());
         orderModel.createdAt = DateFormat('dd-MM-yyyy').format(date);
-        tempOrderList.add(orderModel);
-        _orderList = tempOrderList.reversed.toList();
+        _orderList.add(orderModel);
       }
     }
     notifyListeners();

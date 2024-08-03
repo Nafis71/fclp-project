@@ -5,6 +5,7 @@ import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/utils/network_urls.dart';
+import 'package:fclp_app/views/cart_screen/cart_screen.dart';
 import 'package:fclp_app/views/product_details_screen/product_details_widgets/product_description_section.dart';
 import 'package:fclp_app/views/product_details_screen/product_details_widgets/product_details_footer.dart';
 import 'package:fclp_app/views/product_details_screen/product_details_widgets/product_header_section.dart';
@@ -78,19 +79,25 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                         ),
                         Row(
                           children: [
-                            Icon(
-                              EvaIcons.shoppingCartOutline,
-                              size: 30,
-                              color: AppColors.themeColor,
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const CartScreen(),
+                                  ),
+                                );
+                              },
+                              child: Icon(
+                                EvaIcons.shoppingCartOutline,
+                                size: 30,
+                                color: AppColors.themeColor,
+                              ),
                             ),
                             const SizedBox(
                               width: 10,
                             ),
-                            Icon(
-                              Icons.favorite_outline_rounded,
-                              size: 30,
-                              color: AppColors.themeColor,
-                            )
                           ],
                         )
                       ],
