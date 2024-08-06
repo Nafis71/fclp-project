@@ -3,6 +3,7 @@ import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/assets_paths.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/income_points_screen/income_points_view.dart';
+import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,7 @@ class _ReferredIdViewState extends State<ReferredIdView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: customAppBar(context,title: "Your Refer ID"),
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: SingleChildScrollView(

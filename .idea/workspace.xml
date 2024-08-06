@@ -4,31 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="minor changes">
-      <change afterPath="$PROJECT_DIR$/assets/images/shopping_bag.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/category_model/category_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/category_model/data.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/cart_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/cart_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/product_category_view_controller.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/product_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/order_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/order_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/prefetch_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/prefetch_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/product_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/product_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/user_profile_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/user_profile_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/assets_paths.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/assets_paths.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/network_urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network_urls.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/cart_screen/cart_screen_bottom_layout.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/cart_screen/cart_screen_bottom_layout.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/home_screen/home_product_widget/product_grid_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_screen/home_product_widget/product_grid_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/home_screen/home_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_screen/home_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/online_shop_category_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/online_shop_category_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/orderlist_screen/order_list_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_widgets/product_description_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_details_screen/product_details_widgets/product_description_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/product_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/product_view.dart" afterDir="false" />
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="Bug fix">
+      <change beforePath="$PROJECT_DIR$/lib/views/refer_id_screen/reffer_id_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/refer_id_screen/reffer_id_view.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,14 +92,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720627303393</updated>
-    </task>
-    <task id="LOCAL-00018" summary="- launch app payment added">
-      <option name="closed" value="true" />
-      <created>1720959102613</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1720959102613</updated>
     </task>
     <task id="LOCAL-00019" summary="- log out functionality added">
       <option name="closed" value="true" />
@@ -508,12 +477,19 @@
       <option name="project" value="LOCAL" />
       <updated>1722721903830</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Bug fix">
+      <option name="closed" value="true" />
+      <created>1722976272307</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1722976272307</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="implemented cart to order api call" />
     <MESSAGE value="-order list added" />
     <MESSAGE value="profile controller bug fix&#10;delivery information layout added&#10;new api" />
     <MESSAGE value="- delivery payment module completed" />
@@ -538,6 +514,7 @@
     <MESSAGE value="-notification bug fix" />
     <MESSAGE value="- phone calling bug fix&#10;- code refactored" />
     <MESSAGE value="minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
+    <MESSAGE value="Bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fix" />
   </component>
 </project>
