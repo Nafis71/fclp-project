@@ -28,4 +28,5 @@ class NetworkUrls {
   static const String notificationUrl = "$baseUrl/user/notification";
   static const String removeNotificationUrl = "$baseUrl/notification/read";
   static const String socialLinkUrl = "$baseUrl/social-links";
+  static const String productCategoryLink = "$baseUrl/product/category";
 }

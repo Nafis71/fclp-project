@@ -238,10 +238,10 @@ class ProfileController extends ChangeNotifier {
     if (response is Success) {
       Map<String, dynamic> jsonData =
           (response as Success).response as Map<String, dynamic>;
-      _facebookLink = jsonData['facebook'];
-      _youtubeLink = jsonData['youtube'];
-      _telegramLink = jsonData['telegram'];
-      _tiktokLink = jsonData['tiktok'];
+      _facebookLink = jsonData['facebook'] ?? "https://facebook.com";
+      _youtubeLink = jsonData['youtube'] ?? "https://youtube.com";
+      _telegramLink = jsonData['telegram'] ?? "https://telegram.com";
+      _tiktokLink = jsonData['tiktok'] ?? "https://telegram.com";
     }
   }
 

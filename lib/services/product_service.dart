@@ -43,4 +43,11 @@ class ProductService {
         url: NetworkUrls.cartToOrder,
         headers: {"Authorization": "Bearer $token"});
   }
+
+  static Future<Object> getCategoryList(String token) async {
+    return await NetworkRequest().getRequest(
+        url: NetworkUrls.productCategoryLink,
+        headers: {"Authorization": "Bearer $token"});
+  }
+
 }

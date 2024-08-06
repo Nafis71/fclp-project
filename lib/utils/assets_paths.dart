@@ -28,6 +28,7 @@ class AssetsPaths {
   static const String bagOfCoin = "$_images/bag_of_coin.svg";
   static const String redeemPoints = "$_images/redeem_points.svg";
   static const String noTransaction = "$_images/notransaction.svg";
+  static const String shoppingBag = "$_images/shopping_bag.svg";
 
   static const delivery = '$_lotties/delivery.json';
   static const commingSoon = '$_lotties/comming_soon.json';

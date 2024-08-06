@@ -1,5 +1,7 @@
 import 'package:fclp_app/Controllers/cart_controller.dart';
 import 'package:fclp_app/models/cart_models/cart_product.dart';
+import 'package:fclp_app/models/category_model/category_model.dart';
+import 'package:fclp_app/models/category_model/data.dart';
 import 'package:fclp_app/models/product_model/product_model.dart';
 import 'package:fclp_app/services/product_service.dart';
 import 'package:fclp_app/services/response/success.dart';
@@ -11,21 +13,26 @@ import '../models/product_model/product_data.dart';
 class ProductController extends ChangeNotifier {
   List<ProductData> _productData = [];
   List<ProductData> _specificProductData = [];
+  List<ProductData> _categorialProductData = [];
+  List<Data> _categoryList = [];
   bool _finalResponse = false;
-  bool _isCategorialProductFetching = false;
+  bool _isRelatedProductFetching = false;
   bool _nextPageAvailable = false;
-  bool _categorialNextPageAvailable = true;
+  bool _relatedProductNextPageAvailable = true;
   bool _isLoading = true;
   bool _isStoringCartList = false;
+  bool _categorialNextPageAvailable = false;
   Object? response;
   bool _willShowMoreProductDescription = false;
   double _selectedProductPrice = 0.0;
   int _selectedProductQuantity = 1;
   bool _isProductAddedToCart = false;
 
+  bool get relatedProductNextPageAvailable => _relatedProductNextPageAvailable;
+
   bool get categorialNextPageAvailable => _categorialNextPageAvailable;
 
-  bool get isCategorialProductFetching => _isCategorialProductFetching;
+  bool get isRelatedProductFetching => _isRelatedProductFetching;
 
   double get selectedProductPrice => _selectedProductPrice;
 
@@ -36,6 +43,10 @@ class ProductController extends ChangeNotifier {
   bool get willShowMoreProductDescription => _willShowMoreProductDescription;
 
   List<ProductData> get productData => _productData;
+
+  List<Data> get categoryList => _categoryList;
+
+  List<ProductData> get categorialProductData => _categorialProductData;
 
   bool get nextPageAvailable => _nextPageAvailable;
 
@@ -50,7 +61,7 @@ class ProductController extends ChangeNotifier {
   }
 
   set setIsCategorialProductFetching(bool value) {
-    _isCategorialProductFetching = value;
+    _isRelatedProductFetching = value;
   }
 
   set setIsStoringCartList(bool value) {
@@ -178,8 +189,37 @@ class ProductController extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> loadCategorialProductData(String categoryId, String token, int page) async{
+    setIsCategorialProductFetching = true;
+    response = await ProductService.getAllProductList(
+        "page=${page.toString()}", token);
+    if(response is Success){
+      ProductModel productModel = ProductModel.fromJson(
+          (response as Success).response as Map<String, dynamic>);
+      if(productModel.productData != null){
+        if(_categorialProductData.isEmpty){
+          _categorialProductData = await getProductData(productModel,
+              categoryId: categoryId,);
+          _categorialProductData.shuffle();
+        }else {
+          List<ProductData> newProductData = await getProductData(productModel,
+              categoryId: categoryId,);
+          newProductData.shuffle();
+          _categorialProductData.addAll(newProductData);
+        }
+      }
+      if (productModel.nextPageUrl != null) {
+        _relatedProductNextPageAvailable = true;
+      } else {
+        _relatedProductNextPageAvailable = false;
+      }
+    }
+    setIsCategorialProductFetching = false;
+    notifyListeners();
+  }
+
   Future<void> loadSpecificProductData(
-      String categoryId, String token, int page, int currentProductId) async {
+      String categoryId, String token, int page, {int? currentProductId}) async {
     setIsCategorialProductFetching = true;
     response = await ProductService.getAllProductList(
         "page=${page.toString()}", token);
@@ -199,9 +239,9 @@ class ProductController extends ChangeNotifier {
         }
       }
       if (productModel.nextPageUrl != null) {
-        _categorialNextPageAvailable = true;
+        _relatedProductNextPageAvailable = true;
       } else {
-        _categorialNextPageAvailable = false;
+        _relatedProductNextPageAvailable = false;
       }
     }
     setIsCategorialProductFetching = false;
@@ -213,6 +253,10 @@ class ProductController extends ChangeNotifier {
     List<ProductData> product = [];
     for (ProductData productData in productModel.productData!) {
       if (productData.quantity != "0") {
+        if(currentProductId == null && productData.categoryId == categoryId){
+          product.add(productData);
+          continue;
+        }
         if (categoryId != null && productData.categoryId == categoryId) {
           if (productData.id != currentProductId) {
             product.add(productData);
@@ -223,6 +267,16 @@ class ProductController extends ChangeNotifier {
       }
     }
     return product.toList();
+  }
+
+  Future<void> getCategoryList(String token) async{
+    response = await ProductService.getCategoryList(token);
+    if(response is Success){
+      CategoryModel categoryModel = CategoryModel.fromJson((response as Success).response as Map<String,dynamic>);
+      for(Data category in categoryModel.data!){
+        _categoryList.add(category);
+      }
+    }
   }
 
   void productAddedFromCard() {

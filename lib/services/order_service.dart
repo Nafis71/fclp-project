@@ -3,6 +3,7 @@ import 'package:fclp_app/utils/network_urls.dart';
 
 class OrderService {
   static Future<Object> getOrderList(String token) async {
+    print(token);
     return await NetworkRequest().getRequest(
       url: NetworkUrls.orderList,
       headers: {"Authorization": "Bearer $token"},

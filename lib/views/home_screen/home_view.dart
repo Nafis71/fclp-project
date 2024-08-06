@@ -34,6 +34,7 @@ class _HomeViewState extends State<HomeView> {
   Future<void> loadInitialData() async {
     try {
       await Future.wait([
+        PrefetchService.loadCategoryList(context),
         PrefetchService.loadCartData(context),
         PrefetchService.loadProductData(1, context),
         PrefetchService.loadOrderList(context),

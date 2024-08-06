@@ -7,8 +7,9 @@ import 'package:provider/provider.dart';
 
 class ProductGridView extends StatelessWidget {
   final String? categoryId;
+  final bool? fromCategoryScreen;
 
-  const ProductGridView({super.key, this.categoryId});
+  const ProductGridView({super.key, this.categoryId, this.fromCategoryScreen});
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +18,34 @@ class ProductGridView extends StatelessWidget {
       child: Consumer<ProductController>(
         builder: (_, productController, __) {
           if (categoryId != null) {
-            if (productController.isCategorialProductFetching) {
+            if (productController.isRelatedProductFetching) {
               return Center(
                 child: CircularProgressIndicator(
                   color: AppColors.themeColor,
                 ),
               );
             }
+            if (fromCategoryScreen != null) {
+              return GridView.builder(
+                shrinkWrap: true,
+                primary: false,
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  childAspectRatio: 0.5,
+                  crossAxisSpacing: 7.5,
+                  mainAxisSpacing: 7.5,
+                  maxCrossAxisExtent: 220,
+                ),
+                itemCount: productController.categorialProductData.length,
+                itemBuilder: (context, index) {
+                  return product(context, productController, index);
+                },
+              );
+            }
             return GridView.builder(
               shrinkWrap: true,
               primary: false,
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                childAspectRatio: 0.45,
+                childAspectRatio: 0.5,
                 crossAxisSpacing: 7.5,
                 mainAxisSpacing: 7.5,
                 maxCrossAxisExtent: 220,
@@ -70,6 +87,18 @@ class ProductGridView extends StatelessWidget {
     return InkWell(
       splashColor: Colors.transparent,
       onTap: () {
+        if (categoryId != null && fromCategoryScreen != null) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProductDetailsView(
+                  productData: productController.categorialProductData[index]),
+            ),
+          ).then((value) {
+            productController.resetSelectedProductData();
+          });
+          return;
+        }
         if (categoryId != null) {
           Navigator.pushReplacement(
             context,
@@ -92,13 +121,19 @@ class ProductGridView extends StatelessWidget {
           productController.resetSelectedProductData();
         });
       },
-      child: ProductCard(
-        product: (categoryId == null)
-            ? productController.productData[index]
-            : productController.specificProductData[index],
-        productController: productController,
-        isCategorial: (categoryId == null) ? null : true,
-      ),
+      child: (fromCategoryScreen == null)
+          ? ProductCard(
+              product: (categoryId == null)
+                  ? productController.productData[index]
+                  : productController.specificProductData[index],
+              productController: productController,
+              isCategorial: (categoryId == null) ? null : true,
+            )
+          : ProductCard(
+              product: productController.categorialProductData[index],
+              productController: productController,
+              isCategorial: null,
+            ),
     );
   }
 }

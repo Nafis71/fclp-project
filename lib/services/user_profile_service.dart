@@ -70,4 +70,5 @@ class UserProfileService {
         url: NetworkUrls.socialLinkUrl,
         headers: {"Authorization": "Bearer $token"});
   }
+
 }

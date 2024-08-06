@@ -148,8 +148,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
       await context.read<ProductController>().loadSpecificProductData(
           product.categoryId.toString(),
           context.read<ProfileController>().token,
-          page,
-          productData.id!);
+          page,currentProductId: productData.id!);
       return;
     }
     context.read<ProductController>().specificProductData.clear();
@@ -157,12 +156,12 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
         product.categoryId.toString(),
         context.read<ProfileController>().token,
         page,
-        productData.id!);
+        currentProductId: productData.id!);
   }
 
   void _scrollListener() {
-    if (!context.read<ProductController>().isCategorialProductFetching &&
-        context.read<ProductController>().categorialNextPageAvailable) {
+    if (!context.read<ProductController>().isRelatedProductFetching &&
+        context.read<ProductController>().relatedProductNextPageAvailable) {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
         page += 1;

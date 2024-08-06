@@ -1,4 +1,5 @@
 import 'package:fclp_app/Controllers/cart_controller.dart';
+import 'package:fclp_app/Controllers/order_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
@@ -83,7 +84,7 @@ class CartScreenBottomLayout extends StatelessWidget {
 
   Future<void> cartToOrder(
       String token, CartController cartController, BuildContext context) async {
-    bool status = await cartController.cartToOrder(token);
+    bool status = await cartController.cartToOrder(token,context.read<OrderController>());
     if (status && context.mounted) {
       snackBarMessage(
           context: context, message: AppStrings.cartToOrderSuccessMessage);

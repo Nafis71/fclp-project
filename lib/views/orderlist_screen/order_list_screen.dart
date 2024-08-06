@@ -26,6 +26,15 @@ class _OrderListScreenState extends State<OrderListScreen> {
     return Scaffold(
       appBar: customAppBar(title: "Order List", context),
       body: Consumer<OrderController>(builder: (_, orderController, __) {
+        if(orderController.orderList.isEmpty){
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(child: SvgPicture.asset(AssetsPaths.shoppingBag,width: 250,)),
+              Text("আপনি এখনও কিছু অর্ডার করেননি"),
+            ],
+          );
+        }
         return RefreshIndicator(
           backgroundColor: AppColors.themeColor,
           color: Colors.white,

@@ -69,7 +69,7 @@ class ProductDescriptionSection extends StatelessWidget {
           height: 20,
         ),
         Consumer<ProductController>(builder: (_, productController, __) {
-          if (!productController.isCategorialProductFetching) {
+          if (!productController.isRelatedProductFetching) {
             return Text(
               "আরো পণ্য দেখুন",
               style: TextStyle(

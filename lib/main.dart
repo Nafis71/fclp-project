@@ -4,7 +4,6 @@ import 'package:fclp_app/Controllers/bottom_navbar_controller.dart';
 import 'package:fclp_app/Controllers/cart_controller.dart';
 import 'package:fclp_app/Controllers/notification_controller.dart';
 import 'package:fclp_app/Controllers/order_controller.dart';
-import 'package:fclp_app/Controllers/product_category_view_controller.dart';
 import 'package:fclp_app/Controllers/product_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/app.dart';
@@ -17,8 +16,6 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (context) => ProfileController()),
         ChangeNotifierProvider(create: (context) => AirTicketController()),
-        ChangeNotifierProvider(
-            create: (context) => ProdudctCategoryViewController()),
         ChangeNotifierProvider(create: (context) => ProductController()),
         ChangeNotifierProvider(create: (context) => AuthController()),
         ChangeNotifierProvider(create: (context) => CartController()),

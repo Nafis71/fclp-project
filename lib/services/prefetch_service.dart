@@ -40,9 +40,18 @@ class PrefetchService {
   }
 
   static Future<void> loadSocialLinks(BuildContext context) async {
-    if (await context.read<ProfileController>().facebookLink.isNotEmpty) {
+    if (context.read<ProfileController>().facebookLink.isNotEmpty) {
       return;
     }
     await context.read<ProfileController>().getSocialLink();
+  }
+
+  static Future<void> loadCategoryList(BuildContext context) async {
+    if (context.read<ProductController>().categoryList.isNotEmpty) {
+      return;
+    }
+    await context
+        .read<ProductController>()
+        .getCategoryList(context.read<ProfileController>().token);
   }
 }

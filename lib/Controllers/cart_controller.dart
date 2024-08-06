@@ -1,3 +1,4 @@
+import 'package:fclp_app/Controllers/order_controller.dart';
 import 'package:fclp_app/models/cart_models/cart_product.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -102,7 +103,7 @@ class CartController extends ChangeNotifier {
     return _finalResponse;
   }
 
-  Future<bool> cartToOrder(String token) async {
+  Future<bool> cartToOrder(String token,OrderController orderController) async {
     _finalResponse = false;
     setIsBusy = true;
     response = await ProductService.cartToOrder(token);
@@ -110,6 +111,7 @@ class CartController extends ChangeNotifier {
       _finalResponse = true;
     }
     _cartList.clear();
+    await orderController.loadOrderList(token);
     setIsBusy = false;
     return _finalResponse;
   }
