@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="Bug fix">
-      <change beforePath="$PROJECT_DIR$/lib/views/refer_id_screen/reffer_id_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/refer_id_screen/reffer_id_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/bag.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/chador.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/coin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/history.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/juta.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/kagoj.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/lungi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/panjabi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/pant.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/point_history.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/saree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/shirt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/submit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/tshirt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/withdraw.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,14 +107,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720627303393</updated>
-    </task>
-    <task id="LOCAL-00019" summary="- log out functionality added">
-      <option name="closed" value="true" />
-      <created>1720963687060</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1720963687060</updated>
     </task>
     <task id="LOCAL-00020" summary="- product grid changes&#10;- log out bug fix">
       <option name="closed" value="true" />
@@ -485,7 +492,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722976272307</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Bug fix">
+      <option name="closed" value="true" />
+      <created>1722976336323</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1722976336323</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
