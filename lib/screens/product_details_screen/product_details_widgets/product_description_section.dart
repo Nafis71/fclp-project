@@ -70,22 +70,24 @@ class ProductDescriptionSection extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        Consumer<ProductController>(builder: (_, productController, __) {
-          if (!productController.isRelatedProductFetching &&
-              productController.categorialProductData.isNotEmpty) {
-            return Text(
-              "আরো পণ্য দেখুন",
-              style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  color: AppColors.themeColor),
-            );
-          }
-          return const SizedBox.shrink();
-        }),
+        Consumer<ProductController>(
+          builder: (_, productController, __) {
+            if (!productController.isRelatedProductFetching &&
+                productController.categorialProductData.isNotEmpty) {
+              return Text(
+                "আরো পণ্য দেখুন",
+                style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                    color: AppColors.themeColor),
+              );
+            }
+            return const SizedBox.shrink();
+          },
+        ),
         ProductGridView(
           categoryId: productData.categoryId,
-        )
+        ),
       ],
     );
   }

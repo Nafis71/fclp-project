@@ -1,6 +1,7 @@
 import 'package:fclp_app/themes/app_text_theme.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 ThemeData lightThemeData() {
   return ThemeData(
@@ -58,14 +59,16 @@ ThemeData lightThemeData() {
       ),
     ),
     appBarTheme: AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: AppColors.themeColor
+      ),
       surfaceTintColor: Colors.white,
       iconTheme: IconThemeData(
         size: 30,
         color: AppColors.themeColor,
       ),
       centerTitle: true,
-      backgroundColor: Colors.white,
-      foregroundColor: AppColors.themeColor,
+      backgroundColor: Colors.transparent,
       titleTextStyle: TextStyle(
         fontSize: 22,
         fontWeight: FontWeight.bold,

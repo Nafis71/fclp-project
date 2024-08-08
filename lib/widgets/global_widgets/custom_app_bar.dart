@@ -3,12 +3,16 @@ import 'package:fclp_app/Controllers/notification_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 
 AppBar customAppBar(BuildContext buildContext,
     {String? title, PreferredSizeWidget? preferredSizeWidget}) {
   return AppBar(
+    systemOverlayStyle: SystemUiOverlayStyle(
+      statusBarColor: AppColors.themeColor
+    ),
     centerTitle: false,
     title: (title == null) ? const Text("FCLP") : Text(title),
     actions: [

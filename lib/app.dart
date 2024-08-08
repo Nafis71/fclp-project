@@ -13,7 +13,7 @@ class FCLP extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const SplashView(),
       theme: lightThemeData(),
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
     );
   }
 }
