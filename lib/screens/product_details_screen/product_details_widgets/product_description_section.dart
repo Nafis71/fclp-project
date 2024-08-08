@@ -45,23 +45,25 @@ class ProductDescriptionSection extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.33,
               height: 40,
               child: Consumer<ProductController>(
-                  builder: (_, productController, __) {
-                return OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    elevation: 5,
-                    side: BorderSide(color: AppColors.secondaryThemeColor),
-                  ),
-                  onPressed: () {
-                    productController.toggleWillShowMoreProductDescription();
-                  },
-                  child: Text(
-                    (productController.willShowMoreProductDescription)
-                        ? "কম দেখুন"
-                        : "আরো দেখুন",
-                    style: TextStyle(color: AppColors.themeColor, fontSize: 13),
-                  ),
-                );
-              }),
+                builder: (_, productController, __) {
+                  return OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      elevation: 5,
+                      side: BorderSide(color: AppColors.secondaryThemeColor),
+                    ),
+                    onPressed: () {
+                      productController.toggleWillShowMoreProductDescription();
+                    },
+                    child: Text(
+                      (productController.willShowMoreProductDescription)
+                          ? "কম দেখুন"
+                          : "আরো দেখুন",
+                      style:
+                          TextStyle(color: AppColors.themeColor, fontSize: 13),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
@@ -69,7 +71,8 @@ class ProductDescriptionSection extends StatelessWidget {
           height: 20,
         ),
         Consumer<ProductController>(builder: (_, productController, __) {
-          if (!productController.isRelatedProductFetching && productController.categorialProductData.isNotEmpty) {
+          if (!productController.isRelatedProductFetching &&
+              productController.categorialProductData.isNotEmpty) {
             return Text(
               "আরো পণ্য দেখুন",
               style: TextStyle(
