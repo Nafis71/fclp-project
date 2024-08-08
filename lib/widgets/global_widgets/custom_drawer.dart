@@ -3,19 +3,18 @@ import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/Controllers/url_launcher_controller.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/color_palette.dart';
-import 'package:fclp_app/views/auth_view/login_view.dart';
-import 'package:fclp_app/views/business_view.dart';
-import 'package:fclp_app/views/main_bottom_nav_view.dart';
-import 'package:fclp_app/views/profile_view.dart';
-import 'package:fclp_app/views/refer_id_screen/reffer_id_view.dart';
-import 'package:fclp_app/views/system_view.dart';
+import 'package:fclp_app/screens/auth_view/login_view.dart';
+import 'package:fclp_app/screens/main_bottom_nav_view.dart';
+import 'package:fclp_app/screens/profile_view.dart';
+import 'package:fclp_app/screens/refer_id_screen/reffer_id_view.dart';
+import 'package:fclp_app/screens/system_screen/system_view.dart';
 import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:fclp_app/widgets/profile_widgets/profile_picture.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../views/income_points_screen/income_points_view.dart';
+import '../../screens/income_points_screen/income_points_view.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({
@@ -246,31 +245,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   Scaffold.of(context).closeDrawer();
                   return;
                 }
-                _onTapBusinessButton(
-                  fromBusinessView: widget.fromBusinessView,
-                );
-              },
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: Icon(
-                    Icons.cases_outlined,
-                    color: AppColors.themeColor,
-                  ),
-                ),
-                title: const Text("বিজনেস"),
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                if (profileController.userData.status == "0" ||
-                    profileController.userData.status == "2") {
-                  warningDialog(
-                      context: context,
-                      warningDescription: AppStrings.paymentAskingMessage);
-                  Scaffold.of(context).closeDrawer();
-                  return;
-                }
                 Scaffold.of(context).closeDrawer();
                 _onTapRefferIDButton(
                   fromRefferIdView: widget.fromRefferIdView,
@@ -406,20 +380,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
       context,
       MaterialPageRoute(
         builder: (context) => const ReferredIdView(),
-      ),
-    );
-  }
-
-  void _onTapBusinessButton({
-    required bool fromBusinessView,
-  }) {
-    if (fromBusinessView) {
-      return;
-    }
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const BusinessView(),
       ),
     );
   }

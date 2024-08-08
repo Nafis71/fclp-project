@@ -3,9 +3,8 @@ import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/services/response/Failure.dart';
 import 'package:fclp_app/utils/app_strings.dart';
 import 'package:fclp_app/utils/constants.dart';
-import 'package:fclp_app/views/main_bottom_nav_view.dart';
-import 'package:fclp_app/views/non_authorized_screen/non_authorized_screen.dart';
-import 'package:fclp_app/views/order_confirmation_view.dart';
+import 'package:fclp_app/screens/main_bottom_nav_view.dart';
+import 'package:fclp_app/screens/non_authorized_screen/non_authorized_screen.dart';
 import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
 import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:flutter/material.dart';
@@ -220,26 +219,6 @@ class FormValidationController {
           warningDescription: AppStrings.registrationFailureMessage,
         );
       }
-    }
-  }
-
-  static void handleDeliveryNextStep(
-    BuildContext context,
-    GlobalKey<FormState> formKey,
-  ) {
-    if (formKey.currentState!.validate()) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const OrderConfirmationView(),
-        ),
-      );
-    } else {
-      warningDialog(
-        context: context,
-        warningDescription:
-            ' "আপনাকে অবশ্যই গ্রাহকের নাম, সম্পূর্ণ ঠিকানা এবং ফোণ ন্মাবার দিতে হবে।",',
-      );
     }
   }
 
