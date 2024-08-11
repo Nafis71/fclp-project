@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:fclp_app/Controllers/air_ticket_controller.dart';
 import 'package:fclp_app/Controllers/auth_controller.dart';
 import 'package:fclp_app/Controllers/bottom_navbar_controller.dart';
@@ -23,7 +24,7 @@ void main() {
         ChangeNotifierProvider(create: (context) => OrderController()),
         ChangeNotifierProvider(create: (context) => NotificationController()),
       ],
-      child: const FCLP(),
+      child: DevicePreview(builder: (BuildContext context) { return const FCLP(); },),
     ),
   );
 }

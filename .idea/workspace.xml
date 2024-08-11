@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="status bar color fix">
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="fvm changed to 3.24.0">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Controllers/url_launcher_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/url_launcher_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/non_authorized_screen/non_authorized_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/non_authorized_screen/non_authorized_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/payment_screen/payment_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/payment_screen/payment_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/splash_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/splash_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/network_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/network_request.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/constants.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,22 +94,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720627303393</updated>
-    </task>
-    <task id="LOCAL-00025" summary="- color changed">
-      <option name="closed" value="true" />
-      <created>1720977681005</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1720977681005</updated>
-    </task>
-    <task id="LOCAL-00026" summary="- product details layout added">
-      <option name="closed" value="true" />
-      <created>1720991170109</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1720991170109</updated>
     </task>
     <task id="LOCAL-00027" summary="- some minor changes">
       <option name="closed" value="true" />
@@ -494,12 +471,27 @@
       <option name="project" value="LOCAL" />
       <updated>1723136707749</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Bug fix">
+      <option name="closed" value="true" />
+      <created>1723366140060</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1723366140060</updated>
+    </task>
+    <task id="LOCAL-00075" summary="fvm changed to 3.24.0">
+      <option name="closed" value="true" />
+      <created>1723366210831</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1723366210831</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="- delivery payment module completed" />
     <MESSAGE value="- minor changes" />
     <MESSAGE value="- changed style of refresh indicator" />
     <MESSAGE value="- E-commerce part completed" />
@@ -520,10 +512,11 @@
     <MESSAGE value="- transactionView refresh indicator added" />
     <MESSAGE value="-notification bug fix" />
     <MESSAGE value="- phone calling bug fix&#10;- code refactored" />
-    <MESSAGE value="Bug fix" />
     <MESSAGE value="final changes" />
     <MESSAGE value="minor changes" />
     <MESSAGE value="status bar color fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="status bar color fix" />
+    <MESSAGE value="Bug fix" />
+    <MESSAGE value="fvm changed to 3.24.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="fvm changed to 3.24.0" />
   </component>
 </project>

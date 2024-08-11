@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:fclp_app/themes/app_theme.dart';
 import 'package:fclp_app/utils/size_config.dart';
 import 'package:fclp_app/screens/splash_view.dart';
@@ -12,6 +13,8 @@ class FCLP extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const SplashView(),
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       theme: lightThemeData(),
       themeMode: ThemeMode.light,
     );
