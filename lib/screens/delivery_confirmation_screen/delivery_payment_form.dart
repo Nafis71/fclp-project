@@ -34,45 +34,44 @@ class _DeliveryPaymentFormState extends State<DeliveryPaymentForm> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              WidgetAnimator(
-                incomingEffect: WidgetTransitionEffects.incomingSlideInFromLeft(
-                    duration: const Duration(seconds: 2),
-                    delay: const Duration(milliseconds: 500)),
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  decoration: BoxDecoration(
-                      color: AppColors.secondaryThemeColor,
-                      borderRadius: const BorderRadius.only(
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(20),
-                          bottomLeft: Radius.circular(50)),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
-                            spreadRadius: 2,
-                            blurRadius: 10,
-                            offset: const Offset(0, 5))
-                      ]),
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: RichText(
-                      text: TextSpan(children: [
-                        TextSpan(
-                            text: "01610658696",
-                            style: TextStyle(
-                                color: AppColors.themeColor,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold)),
-                        const TextSpan(
-                            text: " নম্বরে টাকা পাঠান Send money অপশনে।",
-                            style: TextStyle(
-                                color: AppColors.black,
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal)),
-                      ]),
-                    ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.15,
+                width: MediaQuery.of(context).size.width * 0.9,
+                decoration: BoxDecoration(
+                    color: AppColors.secondaryThemeColor,
+                    borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(20),
+                        bottomRight: Radius.circular(20),
+                        bottomLeft: Radius.circular(50)),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(0.05),
+                          spreadRadius: 2,
+                          blurRadius: 10,
+                          offset: const Offset(0, 5))
+                    ]),
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Consumer<OrderController>(
+                    builder: (_,orderController,__) {
+                      return RichText(
+                        text: TextSpan(children: [
+                          TextSpan(
+                              text: (orderController.isBkashSelected) ? context.read<ProfileController>().bkashNumber : context.read<ProfileController>().nagadNumber,
+                              style: TextStyle(
+                                  color: AppColors.themeColor,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold)),
+                          const TextSpan(
+                              text: " নম্বরে টাকা পাঠান Send money অপশনে।",
+                              style: TextStyle(
+                                  color: AppColors.black,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal)),
+                        ]),
+                      );
+                    }
                   ),
                 ),
               ),

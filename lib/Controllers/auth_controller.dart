@@ -44,6 +44,7 @@ class AuthController extends ChangeNotifier {
       if (token != null) {
         User? userData = User.fromJson(jsonData['user']);
         await saveUserData(userData, token, profileController);
+        await profileController.getSocialLink(token);
         _finalResponse = true;
       }
     }

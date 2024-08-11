@@ -123,7 +123,7 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
                     ),
                     child: TextFormField(
                       controller: _referTEController,
-                      keyboardType: TextInputType.number,
+                      keyboardType: TextInputType.text,
                       decoration: const InputDecoration(
                         hintText: "রেফার আইডি",
                         prefixIcon: Icon(

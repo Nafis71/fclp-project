@@ -236,7 +236,7 @@ class ProfileController extends ChangeNotifier {
     }
   }
 
-  Future<void> getSocialLink() async {
+  Future<void> getSocialLink(String token) async {
     response = await UserProfileService.getSocialLinks(token);
     if (response is Success) {
       Map<String, dynamic> jsonData =

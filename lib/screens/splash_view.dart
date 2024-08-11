@@ -63,9 +63,9 @@ class _SplashViewState extends State<SplashView> {
     if (token != null) {
       User userData = User.fromJson(
           jsonDecode(preferences.getString("userData").toString()));
+      await context.read<ProfileController>().getSocialLink(token);
       if (mounted) {
         context.read<ProfileController>().setToken(token);
-        await context.read<ProfileController>().getSocialLink();
         loadUserData(userData);
         await loadInitialData();
         WidgetBuilder? widgetBuilder;
