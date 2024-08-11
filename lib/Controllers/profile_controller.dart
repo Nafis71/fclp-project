@@ -26,13 +26,16 @@ class ProfileController extends ChangeNotifier {
 
   bool get isLoading => _isLoading;
   bool _finalResponse = false;
-  String _total_redeem = "0";
-  String _total_amount = "0";
+  dynamic _total_redeem = 0;
+  dynamic _total_amount = 0;
   bool _isTransactionHistoryLoading = false;
   String _facebookLink = "";
   String _youtubeLink = "";
   String _telegramLink = "";
   String _tiktokLink = "";
+  String contactNumber ="";
+  String bkashNumber ="";
+  String nagadNumber ="";
 
   set setIsLoading(bool value) {
     _isLoading = value;
@@ -49,9 +52,9 @@ class ProfileController extends ChangeNotifier {
 
   bool get isTransactionHistoryLoading => _isTransactionHistoryLoading;
 
-  String get total_redeem => _total_redeem;
+  dynamic get total_redeem => _total_redeem;
 
-  String get total_amount => _total_amount;
+  dynamic get total_amount => _total_amount;
 
   String get base64Image => _base64Image;
 
@@ -216,8 +219,8 @@ class ProfileController extends ChangeNotifier {
       if (response is Success) {
         RedeemListModel redeemListModel = RedeemListModel.fromJson(
             (response as Success).response as Map<String, dynamic>);
-        _total_amount = redeemListModel.totalAmount ?? "0";
-        _total_redeem = redeemListModel.totalRedeem ?? "0";
+        _total_amount = redeemListModel.totalAmount ?? 0;
+        _total_redeem = redeemListModel.totalRedeem ?? 0;
         List<RedeemList> tempList = [];
         for (RedeemList redeem in redeemListModel.redeemList!) {
           tempList.add(redeem);
@@ -242,6 +245,10 @@ class ProfileController extends ChangeNotifier {
       _youtubeLink = jsonData['youtube'] ?? "https://youtube.com";
       _telegramLink = jsonData['telegram'] ?? "https://telegram.com";
       _tiktokLink = jsonData['tiktok'] ?? "https://telegram.com";
+      contactNumber = jsonData['contact'] ?? "";
+      bkashNumber = jsonData['bkash'] ?? "";
+      nagadNumber = jsonData['nagad'] ?? "";
+      print("SocialData Loaded");
     }
   }
 

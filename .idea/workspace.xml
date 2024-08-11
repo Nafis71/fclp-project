@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="minor changes">
+    <list default="true" id="3a8b85f3-6e42-4b08-ac5e-d191672730ac" name="Changes" comment="status bar color fix">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/product_details_screen/product_details_widgets/product_description_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/product_details_screen/product_details_widgets/product_description_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/themes/app_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/themes/app_theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_app_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/profile_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Controllers/url_launcher_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controllers/url_launcher_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/non_authorized_screen/non_authorized_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/non_authorized_screen/non_authorized_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/payment_screen/payment_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/payment_screen/payment_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/splash_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/splash_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/network_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/network_request.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/constants.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/global_widgets/custom_drawer.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,14 +101,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1720627303393</updated>
-    </task>
-    <task id="LOCAL-00024" summary="-product card design updated">
-      <option name="closed" value="true" />
-      <created>1720972722966</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1720972722966</updated>
     </task>
     <task id="LOCAL-00025" summary="- color changed">
       <option name="closed" value="true" />
@@ -490,12 +486,19 @@
       <option name="project" value="LOCAL" />
       <updated>1723134614835</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="status bar color fix">
+      <option name="closed" value="true" />
+      <created>1723136707749</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1723136707749</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="profile controller bug fix&#10;delivery information layout added&#10;new api" />
     <MESSAGE value="- delivery payment module completed" />
     <MESSAGE value="- minor changes" />
     <MESSAGE value="- changed style of refresh indicator" />
@@ -520,6 +523,7 @@
     <MESSAGE value="Bug fix" />
     <MESSAGE value="final changes" />
     <MESSAGE value="minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
+    <MESSAGE value="status bar color fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="status bar color fix" />
   </component>
 </project>

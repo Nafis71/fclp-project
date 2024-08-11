@@ -15,8 +15,9 @@ import '../../widgets/profile_widgets/form_input_decoration.dart';
 
 class PaymentScreen extends StatefulWidget {
   final String paymentMethod;
+  final String paymentNumber;
 
-  const PaymentScreen({super.key, required this.paymentMethod});
+  const PaymentScreen({super.key, required this.paymentMethod, required this.paymentNumber});
 
   @override
   State<PaymentScreen> createState() => _PaymentScreenState();
@@ -71,7 +72,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     child: RichText(
                       text: TextSpan(children: [
                         TextSpan(
-                            text: "01610658696",
+                            text: widget.paymentNumber,
                             style: TextStyle(
                                 color: AppColors.themeColor,
                                 fontSize: 16,

@@ -2,8 +2,8 @@ import 'package:fclp_app/models/redeem_list_model/redeem_list.dart';
 
 class RedeemListModel {
   List<RedeemList>? redeemList;
-  String? totalRedeem;
-  String? totalAmount;
+  dynamic totalRedeem;
+  dynamic totalAmount;
 
   RedeemListModel({this.redeemList, this.totalRedeem, this.totalAmount});
 

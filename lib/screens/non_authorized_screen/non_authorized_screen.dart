@@ -74,8 +74,12 @@ class NonAuthorizedScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  const PaymentScreen(paymentMethod: "Bkash"),
+                              builder: (context) => PaymentScreen(
+                                paymentMethod: "Bkash",
+                                paymentNumber: context
+                                    .read<ProfileController>()
+                                    .bkashNumber,
+                              ),
                             ),
                           );
                         },
@@ -91,8 +95,12 @@ class NonAuthorizedScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  const PaymentScreen(paymentMethod: "Nagad"),
+                              builder: (context) => PaymentScreen(
+                                paymentMethod: "Nagad",
+                                paymentNumber: context
+                                    .read<ProfileController>()
+                                    .nagadNumber,
+                              ),
                             ),
                           );
                         },

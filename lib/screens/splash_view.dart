@@ -65,6 +65,7 @@ class _SplashViewState extends State<SplashView> {
           jsonDecode(preferences.getString("userData").toString()));
       if (mounted) {
         context.read<ProfileController>().setToken(token);
+        await context.read<ProfileController>().getSocialLink();
         loadUserData(userData);
         await loadInitialData();
         WidgetBuilder? widgetBuilder;
@@ -76,7 +77,6 @@ class _SplashViewState extends State<SplashView> {
             await context
                 .read<NotificationController>()
                 .getAllNotification(token);
-            await context.read<ProfileController>().getSocialLink();
             widgetBuilder = (context) => const MainBottomNavView();
           }
           if (mounted) {

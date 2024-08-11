@@ -13,6 +13,4 @@ class AppConstants {
   static RegExp nameRegExp = RegExp(r'^[a-zA-Z\s]+$');
 
   static RegExp addressRegExp = RegExp(r'^[a-zA-Z0-9\s,.-]+$');
-
-  static const String phoneNumber = "+8801610658696";
 }
